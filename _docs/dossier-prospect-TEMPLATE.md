@@ -1,6 +1,11 @@
 # [Nom entreprise] - [Ville]
 > Statut : [Retenu / Rejete]  |  Score qualif : [0-100]  |  Offre ciblee : [...]
 > Date run : AAAA-MM-JJ
+>
+> NB : ce gabarit decrit le contenu redige dans la FICHE NOTION du prospect (corps de page).
+> Les sections 1-5 et 7 nourrissent le bloc "## Diagnostic" ; la section 6 (Email) est la
+> SOURCE UNIQUE du mail, redigee EN ENTIER et prete a copier-coller. Ne recopie jamais le mail
+> dans le repo. Dossier repo = archive narrative optionnelle qui pointe vers la fiche Notion.
 
 ## 1. Identite (faits)
 - Metier / secteur :
@@ -35,18 +40,24 @@ site ou leur fiche Google. Aucune supposition, aucun compliment vague.]
 - Pourquoi cette offre : [1 a 2 phrases]
 - Angle d'accroche pour l'email : [l'accroche, basee sur le point 3]
 
-## 6. Draft email (brouillon Gmail)
+## 6. Email (brouillon) - SOURCE UNIQUE, dans le corps de la fiche Notion
+> A ecrire EN ENTIER, pret a copier-coller (pas des consignes). Canal EMAIL uniquement.
+> Applique le skill .claude/skills/writing/. Si pas de prenom : "Bonjour" neutre.
+
 Objet : [specifique au prospect, jamais generique]
 
-[Email humain, 8 a 14 lignes, francais romand, sans jargon. Structure :
+[Corps redige en entier, 8 a 14 lignes, francais romand, sans jargon. Structure :
  1. Je me presente (Thomas, base dans la region, j'aide des artisans/PME romands).
  2. Je reconnais sincerement leur travail via un fait verifiable (avis, specialite).
  3. UN seul probleme concret, prouve par une mesure du point 3.
  4. Donnant-donnant : 15 min, je montre ce qui bloque, et meme sans suite ils repartent
     avec des pistes utilisables. Sans engagement.
  Interdits : inventer, statistique generale presentee comme mesuree chez eux, compliment
- vague, liste de problemes, formules qui font IA. Si pas de prenom : "Bonjour" neutre.
- Signature Thomas / KUMO - kumo-seo.ch / telephone.]
+ vague, liste de problemes, formules qui font IA.]
+
+Thomas
+KUMO - kumo-seo.ch
+[telephone]
 
 ## 7. Tracabilite (sources)
 - Fiche Google Maps : [lien]
