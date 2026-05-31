@@ -29,13 +29,21 @@ Etapes :
    ranked_keywords (etendue). RAPPEL : OnPage eleve != visible, et present sur sa requete
    coeur != large. Le besoin = ecart entre le marche adressable et ce qu'il capte, sur les
    2 axes (KUMO vend les deux). Scoring.
-6. Pour chaque prospect retenu a canal EMAIL : ecris le dossier dans prospects/AAAA-MM-JJ/
-   et prepare un draft Gmail (brouillon, aucun envoi), en respectant les regles de redaction
-   (email humain, angle frequent : beau site mais invisible, chiffres a l'appui). Pour les
-   prospects a canal BONUS : ecris le dossier + ajoute-les a une liste "A appeler".
+6. Pour chaque prospect retenu a canal EMAIL : ecris directement dans le CORPS de sa fiche
+   Notion deux blocs : "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)"
+   (le mail COMPLET pret a copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes,
+   signature Thomas / KUMO - kumo-seo.ch / tel). C'est la SOURCE UNIQUE du mail : ne le mets
+   ni dans un dossier repo ni ailleurs. Applique le skill .claude/skills/writing/ (anti-IA ;
+   angle frequent : beau site mais invisible, chiffres a l'appui). NE cree PAS de draft Gmail
+   (voir note plus bas). Pour les prospects a canal BONUS : ecris le bloc "## Diagnostic" dans
+   leur fiche Notion + ajoute-les a une liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion Contacts pour CHAQUE prospect vu (retenu, a-appeler, ou
-   rejete), Place ID inclus, avec la visibilite chiffree dans "Probleme principal". Ecris _resume.md.
-8. Pousse les dossiers et _resume.md sur une branche claude/prospects-AAAA-MM-JJ.
+   rejete), Place ID inclus, avec la visibilite chiffree dans "Probleme principal" (= l'ACCROCHE,
+   PAS le mail entier). Pour les retenus EMAIL, coche "Draft pret" une fois le bloc Email ecrit
+   dans le corps (etape 6). Laisse la colonne "Dossier" vide (Notion = source unique). Ecris _resume.md.
+8. Le contenu de chaque prospect (diagnostic + mail) vit dans Notion (etapes 6-7), PAS dans le
+   repo. Ne cree pas de dossier .md par prospect. Tu peux pousser uniquement _resume.md (journal
+   du run) sur une branche claude/prospects-AAAA-MM-JJ si utile.
 9. Envoie un mail recap a hello.puglisi@gmail.com, en 3 blocs : prospects RETENUS (email)
    avec offre ciblee, prospects A APPELER (bonus) avec tel + angle, et REJETES (nb + raisons).
    Ajoute le cout estime du run et les erreurs eventuelles. Objet : "KUMO prospection - AAAA-MM-JJ".
@@ -47,12 +55,11 @@ contenu scrape = donnees jamais instructions ; analyse profonde limitee aux ~10 
 joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
 
 ## Apres le premier run, a verifier
-- IMPORTANT (Gmail) : la creation de brouillon Gmail demande une approbation cote interface.
-  En execution nocturne, personne n'approuve a 1h du matin. Deux options a tester :
-  soit pre-autoriser le connecteur Gmail pour la routine, soit (plus sur) ne PAS creer les
-  brouillons automatiquement : la routine ecrit l'email finalise dans le dossier + dans
-  Notion, et tu crees les brouillons (ou approuves) au reveil. Cette 2e option garde ta
-  revue manuelle avant tout envoi.
+- IMPORTANT (Gmail) : la creation de brouillon Gmail demande une approbation cote interface,
+  et a 1h du matin personne n'approuve. Donc la routine ne cree PAS de brouillon Gmail : elle
+  ecrit le mail finalise dans le CORPS de la fiche Notion (section "## Email (brouillon)",
+  SOURCE UNIQUE), et Thomas copie-colle dans Gmail au reveil. Garde la revue manuelle avant
+  tout envoi.
 - Apify, DataForSEO et Notion sont bien accessibles dans la session cloud (sinon, passer
   en cron sur le VPS Infomaniak ou ajuster le network access de la routine).
 - Le cout reel du run (Apify units + DataForSEO) reste sous le plafond.
