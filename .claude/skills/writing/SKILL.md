@@ -58,7 +58,12 @@ Forme : français romand, direct, **8 à 14 lignes**, ~120–150 mots max. Texte
 5. **Vérifie l'essentiel** : un seul point, une seule demande, 8–14 lignes, objet spécifique, signature présente, le fait cité est **mesuré** (jamais inventé, jamais « invisible » si la mesure dit le contraire).
 6. **Calibrage de voix** : si Thomas a un échantillon de ses mails, calque sa cadence et ses tics ; sinon, voix naturelle, directe, un peu opiniâtre.
 
-## Exemple (cas mesuré, ancré CLAUDE.md)
+## Exemple (fictif illustratif — NE PAS recopier)
+> **⚠️ Exemple pédagogique uniquement.** Prénom, chiffres (avis, volumes), positions et pages
+> cités sont INVENTÉS. Ne reprends jamais ces valeurs ni ces formulations telles quelles : chaque
+> fait doit être re-mesuré sur le prospect réel. N'affirme « aucune page dédiée » qu'après avoir
+> vérifié le sitemap/menu (CLAUDE.md étape 6). Adresse-toi par prénom seulement si c'est le
+> dirigeant actuel confirmé, sinon « Bonjour, ».
 > **Objet : paysagiste Neuchâtel**
 >
 > Bonjour [Prénom],
@@ -67,7 +72,7 @@ Forme : français romand, direct, **8 à 14 lignes**, ~120–150 mots max. Texte
 >
 > Vos 40 avis à 4,9 sur La Chaux-de-Fonds parlent pour vous, et sur « paysagiste La Chaux-de-Fonds » vous sortez dans le top 3 de la carte Google. Solide.
 >
-> Par contre, sur « paysagiste Neuchâtel » — 210 recherches par mois, soit le plus gros marché du canton — vous n'apparaissez nulle part, ni dans la carte ni plus bas. Et je ne vois aucune page dédiée à vos prestations (création, entretien, élagage).
+> Par contre, sur « paysagiste Neuchâtel » — 210 recherches par mois, soit le plus gros marché du canton — vous n'apparaissez nulle part, ni dans la carte ni plus bas. Et je ne trouve pas de page qui cible vos prestations là-bas (création, entretien, élagage).
 >
 > Si ça vous dit, on prend 15 min : je vous montre où ça bloque et ce qui se capte facilement. Même si on n'en fait rien, vous repartez avec des pistes concrètes.
 >

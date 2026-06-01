@@ -21,20 +21,26 @@ Etapes :
 4. Recupere l'email de chaque finaliste (collecte, sinon vdrmota/contact-info-scraper sur
    le site). Email trouve = canal EMAIL. Pas d'email mais telephone = canal BONUS "a
    appeler" (on garde le prospect et on le marque, sans en faire un envoi). Ni email ni
-   telephone = ECARTE. Recupere le prenom du contact si visible.
+   telephone = ECARTE. Salutation : identifie le DIRIGEANT ACTUEL de CETTE entreprise et
+   recoupe (voir CLAUDE.md etape 4). N'emploie un prenom QUE si c'est une personne de
+   l'entreprise ET le contact actuel confirme (jamais un ancien dirigeant, ni une autre
+   societe/partenaire/marque affichee a cote). Au moindre doute -> "Bonjour," neutre.
 5. Sur les joignables avec un vrai site : verifie les volumes (metier + ville coeur, ville
    voisine majeure ex. Neuchatel, 1-2 prestations), mesure la SANTE technique (OnPage
    instant), puis lis le SERP REEL de la requete coeur (serp_organic_live_advanced, mobile)
    pour situer le prospect sur 2 AXES : pack local (Maps/GBP) ET organique web. Complete avec
    ranked_keywords (etendue). RAPPEL : OnPage eleve != visible, et present sur sa requete
    coeur != large. Le besoin = ecart entre le marche adressable et ce qu'il capte, sur les
-   2 axes (KUMO vend les deux). Scoring.
+   2 axes (KUMO vend les deux). Liste les pages reelles du site (sitemap.xml ou menu, 1
+   requete) : distingue "page existe" de "page ranke" et n'ecris jamais "aucune page" sans
+   cette verif. Scoring.
 6. Pour chaque prospect retenu a canal EMAIL : ecris directement dans le CORPS de sa fiche
    Notion deux blocs : "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)"
    (le mail COMPLET pret a copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes,
    signature Thomas / KUMO - kumo-seo.ch / tel). C'est la SOURCE UNIQUE du mail : ne le mets
-   ni dans un dossier repo ni ailleurs. Applique le skill .claude/skills/writing/ (anti-IA ;
-   angle frequent : beau site mais invisible, chiffres a l'appui). NE cree PAS de draft Gmail
+   ni dans un dossier repo ni ailleurs. Applique le skill .claude/skills/writing/ (anti-IA).
+   Choisis l'angle selon le cas mesure (voir CLAUDE.md "Angles d'email") ; jamais "invisible"
+   si la mesure montre une presence. NE cree PAS de draft Gmail
    (voir note plus bas). Pour les prospects a canal BONUS : ecris le bloc "## Diagnostic" dans
    leur fiche Notion + ajoute-les a une liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion Contacts pour CHAQUE prospect vu (retenu, a-appeler, ou

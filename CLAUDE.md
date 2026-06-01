@@ -86,7 +86,12 @@ un email pour ceux qui ont un email. Qualite avant quantite.
    - Classe l'URL : vrai domaine / page sociale ou annuaire / pas de site. -> ~10 finalistes.
 4. CONTACT (OBLIGATOIRE, avant l'analyse couteuse)
    - Email : collecte, sinon vdrmota/contact-info-scraper (page contact, mentions legales).
-   - Email trouve -> canal EMAIL. Recupere le prenom si visible (sinon "Bonjour" neutre).
+   - Email trouve -> canal EMAIL. Salutation : identifie le DIRIGEANT ACTUEL de CETTE
+     entreprise (/contact, /qui-sommes-nous, mentions legales, ou presse/registre recents) et
+     recoupe. N'emploie un prenom QUE si (1) c'est bien une personne, pas une autre societe,
+     un partenaire, un fournisseur ou une marque affichee sur ou a cote du site, ET (2) c'est
+     le contact actuel confirme. Doute, noms multiples, indice d'ancien proprietaire, ou nom
+     = autre entite -> salutation neutre "Bonjour,". JAMAIS de prenom non confirme.
    - Pas d'email mais telephone -> canal BONUS "a appeler" (garde, marque).
    - Ni email ni telephone -> ECARTE.
 5. MARCHE ORGANIQUE (DataForSEO)
@@ -99,6 +104,10 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      * Position en ORGANIQUE web : page 1 ? plus bas ? absent ?
    - ETENDUE : ranked_keywords (sur quoi il sort vraiment) + volumes des requetes cibles.
      Mesure le marche qu'il NE capte PAS (ville voisine, prestations).
+   - PAGES REELLES : lis le sitemap.xml (1 requete) ou le menu pour LISTER les pages par
+     ville/prestation. Distingue "page existe" de "page ranke". N'ecris JAMAIS "aucune page"
+     sans cette verif ; ecris "page X existe mais ne ranke pas". 1 requete sitemap, pas de
+     crawl profond, seulement sur les retenus (plafond ~10 CHF/nuit respecte).
    - Le BESOIN = ecart entre le marche adressable (volumes des requetes pertinentes) et ce
      qu'il capte reellement, sur les DEUX axes.
    - RAPPELS : OnPage eleve != visible ; present sur sa requete coeur != large. Juge
@@ -180,18 +189,27 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
 - Score (qualif global 0-100), Score sante OnPage, LCP mobile s (vide par defaut, voir regle),
   Avis Google, Note moyenne, Volume recherche, Confiance budget, Offre KUMO
 - Probleme principal -> resume des 2 AXES + l'ecart de marche, chiffre. C'est l'ACCROCHE de
-  l'email (l'angle), PAS le mail entier. Ex : "Pack local #2 + organique present sur
-  'paysagiste La Chaux-de-Fonds', mais absent de 'paysagiste Neuchatel' (210/mois) et aucune
-  page par prestation. Visibilite etroite."
+  l'email (l'angle) UNIQUEMENT : PAS le mail entier, et PAS une note de canal ("EMAIL",
+  "A APPELER", "email non confirme") qui, elle, va dans Notes. Ex (placeholders, jamais
+  recopie tel quel) : "Pack local #[N] + organique present sur '[metier] [ville coeur]', mais
+  absent de '[metier] [ville voisine]' ([volume]/mois) ; page [prestation] [existe mais ne
+  ranke pas / absente]. Visibilite etroite."
 - Dossier (url repo si dossier narratif cree, sinon vide), Draft pret (coche quand le mail est
   redige en entier dans le corps de la fiche)
-- Notes -> canal ("EMAIL" ou "A APPELER - pas d'email"), prenom contact, divers.
+- Notes -> canal ("EMAIL" ou "A APPELER - pas d'email"), contact (source : /contact,
+  mentions legales, presse... + confiance : confirme / incertain / non trouve), prenom
+  contact si confirme, divers.
 
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
 - "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
   SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (8-14 lignes, francais
   romand, skill .claude/skills/writing/), puis la signature (Thomas / KUMO - kumo-seo.ch / tel).
+  Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
+  EN HAUT du bloc, AVANT la ligne "Objet :", une ligne d'alerte
+  "⚠️ Email a confirmer avant envoi : <raison>". C'est une note pour Thomas : elle ne fait
+  PAS partie du mail copie-colle ni du bouton mailto. "Draft pret" garde son sens (= mail
+  redige), il ne certifie pas l'email.
 - Juste sous l'email, ajoute un BOUTON (lien markdown) qui ouvre l'app mail PAR DEFAUT du
   telephone, pre-remplie : **[Ouvrir ce mail dans mon app](mailto:DEST?subject=OBJET&body=CORPS)**.
   subject et body encodes en percent-encoding UTF-8 (accents -> %C3%xx, sauts de ligne ->
