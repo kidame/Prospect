@@ -115,6 +115,9 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      (objet + corps + signature) dans le CORPS de la fiche Notion, sous une section
      "## Email (brouillon)". Jamais recopie ailleurs. Coche "Draft pret". Thomas copie/colle
      au reveil pour creer le draft Gmail (sa revue manuelle avant tout envoi).
+   - Juste sous l'email dans le CORPS de la fiche Notion, ajoute un BOUTON (lien markdown)
+     qui ouvre l'app mail PAR DEFAUT du telephone, pre-remplie (objet + corps). Specs et
+     encodage : voir CORPS DE LA FICHE.
    - Une liste "A appeler" pour les prospects a canal BONUS (nom, tel, angle).
    - Dossier repo OPTIONNEL : si tu crees prospects/AAAA-MM-JJ/<nom>.md (archive narrative),
      il NE contient PAS le mail (il pointe vers la fiche Notion) pour eviter deux versions.
@@ -189,6 +192,12 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
   SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (8-14 lignes, francais
   romand, skill .claude/skills/writing/), puis la signature (Thomas / KUMO - kumo-seo.ch / tel).
+- Juste sous l'email, ajoute un BOUTON (lien markdown) qui ouvre l'app mail PAR DEFAUT du
+  telephone, pre-remplie : **[Ouvrir ce mail dans mon app](mailto:DEST?subject=OBJET&body=CORPS)**.
+  subject et body encodes en percent-encoding UTF-8 (accents -> %C3%xx, sauts de ligne ->
+  %0D%0A, espaces -> %20). Le texte lisible avec accents reste affiche au-dessus ; le lien
+  porte la version encodee. Vise un corps < ~1800 caracteres encodes (au-dela, certains
+  clients mail tronquent).
 
 ## Dedup (via Notion, automatique)
 - Store de dedup = base Notion "Contacts". Cle : champ "Place ID".
@@ -226,8 +235,10 @@ Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statisti
 presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font
 IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est important de noter",
 "veritable", "incontournable", "a l'ere du"). Forme : francais romand, direct, 8 a 14 lignes.
-Objet specifique. Signature Thomas / KUMO / telephone. Applique le skill d'ecriture anti-IA
-(.claude/skills/writing/).
+Objet specifique. Signature Thomas / KUMO / telephone. ACCENTS OBLIGATOIRES dans l'email :
+francais correct avec tous les accents (e/a/o/u/i accentues, c cedille) ; seule l'apostrophe
+reste droite (') et aucun tiret cadratin. Cette regle prime sur toute consigne ASCII (y
+compris le skill d'ecriture). Applique le skill d'ecriture anti-IA (.claude/skills/writing/).
 
 ## Structure du repo et roles
 - CLAUDE.md (ce fichier) : contexte permanent.
