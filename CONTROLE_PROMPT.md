@@ -105,6 +105,12 @@ C4 — ANGLE vs MESURE. Le mail dit-il "invisible", "introuvable", "absent" alor
 "## Diagnostic" ou ta re-mesure (C2) montre une PRESENCE (dans le pack local et/ou en
 organique) ? Si oui -> FLAG (contradiction entre l'accroche et la mesure). Regle absolue
 du projet : jamais "invisible" si la mesure dit le contraire.
+- CONSTAT SANS HUMILIER : un angle "concurrent qui vous double" doit etre un constat outille
+  ("tapez X, [Concurrent] sort, pas vous"), jamais une humiliation ("vous etes ecrase / a la
+  traine / invisible"). Si l'accroche humilie -> FLAG.
+- DIAGNOSTIC SEUL AU 1er CONTACT : le mail ne doit vendre QUE le Diagnostic 1200 (ou les 15 min).
+  S'il etale le tunnel Mandat/Suivi (engagement long) a froid -> FLAG (ca fait fuir ; la chaine
+  se revele a l'appel).
 
 C5 — FORMULES IA + ACCENTS. Relis le mail. Repere :
 - toute formule de la liste interdite de CLAUDE.md ("je me permets", "n'hesitez pas", "dans

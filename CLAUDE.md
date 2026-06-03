@@ -1,5 +1,7 @@
 # Contexte projet - Machine a prospects KUMO
 
+> 🧠 Le **cerveau business KUMO** (offre, prix, logique de pricing, ICP, méthodes, voix) vit dans le repo séparé `C:\Users\Kidam\Documents\kumo-brain`. Pour toute question business / stratégie / prix, s'y référer (son `CLAUDE.md` boote le coéquipier). Ici = le **travail** : routine nocturne + données prospects (`printspot/`, `prospects/`).
+
 Ce repo est le cerveau d'une routine nocturne (Claude Code Routine, cloud Anthropic)
 qui qualifie des prospects pour KUMO et prepare des drafts d'emails a revue manuelle.
 Regle absolue : tu ne dois JAMAIS inventer un fait sur un prospect. Chaque affirmation
@@ -22,23 +24,49 @@ seul compteur global : tu regardes le SERP reel (voir Analyse).
   Note : le local/GBP s'integre au Diagnostic (audit) et au Suivi (optimisation continue).
   Si une offre GBP packagee distincte est creee plus tard, l'ajouter ici.
 
-## Cible (ICP)
-- PME francophones de Suisse romande avec une vraie activite a mettre en avant.
-- Artisans, therapeutes (osteo, physio, coach), bureaux et services independants,
-  petites entreprises B2B ou B2C locales.
-- Tous secteurs autorises, SAUF les exclusions dures ci-dessous.
-- Zones (par ordre de pertinence) : Neuchatel et alentours (Boudry, Peseux, Marin,
-  Cortaillod), La Chaux-de-Fonds (Le Locle, Les Brenets), Fribourg, Lausanne et
-  alentours, Yverdon-les-Bains.
+## Cible (ICP) -- le secteur n'est PAS le filtre, BESOIN x ARGENT l'est
+- PRINCIPE : le metier n'est qu'une GRAINE de recherche. On qualifie une PME locale romande sur
+  (1) BESOIN (deficit de visibilite Google : pack local et/ou organique, ou pas de site / site nul)
+  ET (2) ARGENT (ticket/marge pour payer 1200-6900), vendable en SEO OU en creation web SEO.
+- MODELE 2 VITESSES :
+  * POSSEDER (y mettre l'energie : etudes de cas, referral, templates) = 2 piliers :
+    1. BATIMENT / AGENCEMENT : cuisiniste, menuisier/ebeniste, electricien, carreleur, peintre,
+       sanitaire. (Demande reelle + CPC 3-11 CHF + SERP gagnable + referral interne fort + livrable
+       repetable "page prestation x ville". Pilier n1, valide data 2026-06.)
+    2. TRANSITION ENERGETIQUE : installateur solaire / pompe a chaleur / renovation energetique.
+       (Gros ticket 15-40k, CPC installateur 11-19 CHF, KD tres bas = gagnable. Surtout CREATION WEB
+       SEO : ces installateurs ont un site nul. Recherche locale mince -> jouer le head + le canton,
+       pas que le pack local par ville.)
+  * RATISSER a fort signal (prendre si le signal est la, sans construire d'actif dedie) :
+    - DEMENAGEUR : douleur ressentie max, ticket 2-6k + garde-meuble recurrent, cycle DATE court
+      (bail 31 mars / 31 dec), CPC ~11, demande chaude. Timing : avant les echeances de bail.
+    - URGENCE : plombier, chauffagiste, serrurier (ils paient cher le clic ; deja concurrentiel).
+    - PAYSAGISTE : saisonnier (demarche fev-mars avant le pic printemps), KD plus dur -> pas un pilier.
+- ZONES (par pertinence) : Lausanne et alentours, GENEVE (1.5-2x la demande romande, gros budget),
+  Neuchatel et alentours (Boudry, Peseux, Marin, Cortaillod), Fribourg, Yverdon, La Chaux-de-Fonds.
+- GARDE-FOU avant d'industrialiser un pilier : on valide "il VA ACHETER" (taux de reponse reel sur
+  15-20 prospects + % de fiches avec email exploitable), pas seulement "je PEUX ranker" (winnability).
+  Un artisan plein de boulot 6-12 mois peut ne pas vouloir de leads ; le batiment est aussi la pire
+  population sur l'email (souvent juste un 079 sur Maps).
 
 ## Exclusions dures (ne jamais retenir)
-- Medecins et professions medicales reglementees.
+- Medecins et professions medicales reglementees -- INCLUS physio / osteo en masse (para-medical :
+  contraintes de pub, Google Ads les masque) et toute sante reglementee.
 - Restaurants, cafes, bars, food.
 - Hotels et hebergement.
 - Grandes enseignes, franchises nationales, e-commerce deja mature.
 - Toute entreprise hors Suisse romande francophone.
-- Tout prospect deja present dans la base Notion Contacts (deja traite a un run precedent).
+- NICHES SANS BUDGET / SANS DEMANDE (refusees, data 2026-06) : beaute / coiffure / massage /
+  esthetique (CPC plancher, casse le forfait fixe) ; coach (vie/sportif) / naturopathe en solo ;
+  wedding planner ; videaste / photographe evenementiel ; fleuriste (demande 10-30/mois = rien a
+  vendre en SEO).
+- Immobilier generaliste (regie / courtage) : SERP verrouillee par portails (homegate / immoscout)
+  -> jamais comme niche ; un mandat de prestige ponctuel a la rigueur.
+- Tout prospect deja present dans la base Notion Contacts (voir Dedup avec peremption).
 - Prospect injoignable : ni email ni telephone exposes -> ECARTE.
+- ANGLE NOMINATIF OBLIGATOIRE (pas de cold pool generique, sinon ECARTE) : fiduciaire, avocat,
+  garage -- secteurs sur-demarches, boite mail saturee ; sans audit nominatif verifie, le mail
+  meurt dans le bruit.
 
 ## Canal de contact
 - EMAIL = canal principal. Prospect avec email -> dossier + draft Gmail (a revue manuelle).
@@ -78,43 +106,72 @@ un email pour ceux qui ont un email. Qualite avant quantite.
 1. LECTURE MEMOIRE
    - Interroge la base Notion "Contacts". Recupere tous les Place ID deja presents (dedup).
    - Regarde aussi le dernier couple (secteur, zone) traite (rotation, voir regle).
-2. COLLECTE (Apify enckay/google-maps-places-extractor)
-   - keyword = metier, location = ville, maxResults ~50, minReviews ~15, exclure les fermes.
-   - Recupere : nom, Place ID, site, telephone, avis, note.
+2. COLLECTE -- DEUX voies de sourcing (selon la niche)
+   A. MAPS (voie principale : local transactionnel -- batiment, paysagiste, demenageur, urgence).
+      Apify enckay/google-maps-places-extractor : keyword = metier, location = ville, maxResults ~50,
+      minReviews ~15, exclure les fermes. Recupere nom, Place ID, site, telephone, avis, note.
+   B. MOT-CLE-SERVICE + REGISTRE (les niches que Maps RATE) :
+      * EMERGENT / mal categorise (energie) : cherche par MOT-CLE-SERVICE ("installateur pompe a
+        chaleur <canton>", "installateur panneau solaire <canton>") via SERP/Maps -- ces installateurs
+        sont noyes sous "electricien / chauffagiste" sur Maps.
+      * B2B sans recherche "near me" (PME industrielle, sous-traitance, usinage, mecanique de precision,
+        medtech / horlogerie de l'Arc jurassien) : INVISIBLES a Maps -> sourcer par REGISTRE
+        (zefix quand l'acces API arrivera ; en attendant : annuaires pro / opendata.swiss / associations
+        de branche type Swissmechanic). Angle different : "etre trouve par vos donneurs d'ordre", PAS
+        le pack local. C'est un track premium separe -- l'email et l'angle changent.
 3. PRE-FILTRE (gratuit)
    - Retire exclusions dures, doublons Notion, activites floues.
    - Classe l'URL : vrai domaine / page sociale ou annuaire / pas de site. -> ~10 finalistes.
-4. CONTACT (OBLIGATOIRE, avant l'analyse couteuse)
-   - Email : collecte, sinon vdrmota/contact-info-scraper (page contact, mentions legales).
+4. MARCHE + ANALYSE 2 AXES + ETENDUE (sur les ~10 finalistes, AVANT de resoudre le contact)
+   - Volume metier + ville coeur, + ville voisine majeure (ex. Neuchatel), + 1-2 requetes
+     par prestation. Sans aucune demande : disqualifie.
+   - Sante technique : OnPage instant (score, titres, H1, dom_complete). LCP -> vide.
+   - SERP REEL de la requete coeur (serp_organic_live_advanced, metier+ville, mobile) :
+     * Position dans le PACK LOCAL (Maps/GBP) : dans les 3 fiches ? absent ?
+     * Position en ORGANIQUE web : page 1 ? plus bas ? absent ? QUI est devant (NOMME-le).
+   - ETENDUE : ranked_keywords (sur quoi il sort vraiment) + volumes des requetes cibles.
+     Mesure le marche qu'il NE capte PAS (ville voisine, prestations).
+   - PAGES REELLES : lis le sitemap.xml (1 requete) ou le menu pour LISTER les pages par
+     ville/prestation. Distingue "page existe" de "page ranke". N'ecris JAMAIS "aucune page"
+     sans cette verif ; ecris "page X existe mais ne ranke pas". 1 requete sitemap, pas de
+     crawl profond, seulement sur les finalistes (plafond ~10 CHF/nuit respecte).
+   - Le BESOIN = ecart entre le marche adressable (volumes des requetes pertinentes) et ce
+     qu'il capte reellement, sur les DEUX axes.
+   - RAPPELS : OnPage eleve != visible ; present sur sa requete coeur != large. Juge
+     toujours sur le SERP reel + l'etendue, jamais sur un seul compteur.
+5. SIGNAUX D'OPPORTUNITE (calcule + LOG ; sert a PRIORISER et CHOISIR L'ANGLE ; PAS un filtre dur en Vague A)
+   Pour chaque finaliste, note lesquels de ces 4 signaux FIABLES sont presents (memes appels que
+   l'etape 4, cout ~0) :
+   - CONCURRENT QUI LE DOUBLE sur SA ville : un concurrent NOMME ranke devant lui (pack local
+     et/ou organique) sur sa requete coeur. (Issu du SERP de l'etape 4.)
+   - PAGE CASSEE : page cle en erreur serveur 500 ou 404. Declencheur fort. (OnPage / acces direct.)
+   - DEMANDE REELLE : la requete coeur sur SA ville depasse ~150 rech./mois (un vrai marche a
+     capter, pas un volume fantome). (Issu des volumes de l'etape 4.)
+   - RECEPTIVITE PROUVEE : avis Google recents et/ou le proprietaire REPOND a ses avis (il tient
+     a sa reputation en ligne -> il paiera pour le canal). (Issu de la fiche Maps.)
+   VAGUE A : on CALCULE et on LOG ces signaux (cf. Mapping Notion), on PRIORISE les prospects qui
+   en ont, et on CHOISIT l'angle du mail dessus. On ne rejette PAS encore faute de signal -- le
+   filtre dur (retenu seulement si >=1 signal) et la cadence arrivent en VAGUE B.
+6. CONTACT & CANAL (APRES la mesure, jamais avant)
+   - Resous le contact sur les finalistes mesures : email par collecte, sinon
+     vdrmota/contact-info-scraper (page contact, mentions legales).
    - Email trouve -> canal EMAIL. Salutation : identifie le DIRIGEANT ACTUEL de CETTE
      entreprise (/contact, /qui-sommes-nous, mentions legales, ou presse/registre recents) et
      recoupe. N'emploie un prenom QUE si (1) c'est bien une personne, pas une autre societe,
      un partenaire, un fournisseur ou une marque affichee sur ou a cote du site, ET (2) c'est
      le contact actuel confirme. Doute, noms multiples, indice d'ancien proprietaire, ou nom
      = autre entite -> salutation neutre "Bonjour,". JAMAIS de prenom non confirme.
-   - Pas d'email mais telephone -> canal BONUS "a appeler" (garde, marque).
+   - FORT BESOIN + bons signaux mais PAS d'email -> canal BONUS "a appeler" (garde, marque ; ne
+     JETTE pas un bon prospect juste parce que le scrape n'a pas sorti d'email).
+   - Pas d'email mais telephone -> canal BONUS "a appeler".
    - Ni email ni telephone -> ECARTE.
-5. MARCHE ORGANIQUE (DataForSEO)
-   - Volume metier + ville coeur, + ville voisine majeure (ex. Neuchatel), + 1-2 requetes
-     par prestation. Sans aucune demande : disqualifie.
-6. ANALYSE 2 AXES + ETENDUE (joignables avec un vrai site)
-   - Sante technique : OnPage instant (score, titres, H1, dom_complete). LCP -> vide.
-   - SERP REEL de la requete coeur (serp_organic_live_advanced, metier+ville, mobile) :
-     * Position dans le PACK LOCAL (Maps/GBP) : dans les 3 fiches ? absent ?
-     * Position en ORGANIQUE web : page 1 ? plus bas ? absent ?
-   - ETENDUE : ranked_keywords (sur quoi il sort vraiment) + volumes des requetes cibles.
-     Mesure le marche qu'il NE capte PAS (ville voisine, prestations).
-   - PAGES REELLES : lis le sitemap.xml (1 requete) ou le menu pour LISTER les pages par
-     ville/prestation. Distingue "page existe" de "page ranke". N'ecris JAMAIS "aucune page"
-     sans cette verif ; ecris "page X existe mais ne ranke pas". 1 requete sitemap, pas de
-     crawl profond, seulement sur les retenus (plafond ~10 CHF/nuit respecte).
-   - Le BESOIN = ecart entre le marche adressable (volumes des requetes pertinentes) et ce
-     qu'il capte reellement, sur les DEUX axes.
-   - RAPPELS : OnPage eleve != visible ; present sur sa requete coeur != large. Juge
-     toujours sur le SERP reel + l'etendue, jamais sur un seul compteur.
 7. SCORING ET SELECTION
-   - Besoin (ecart de marche sur 2 axes) + budget (avis, anciennete, secteur) + joignabilite.
-     Garde les 3 a 5 meilleurs. Tag l'offre KUMO la plus pertinente.
+   - Besoin (ecart de marche sur 2 axes) + SIGNAUX D'OPPORTUNITE (cf. etape 5 : priorite a ceux
+     qui en ont) + budget (avis, anciennete, secteur) + joignabilite.
+     PRIORISE les prospects a signal d'opportunite (concurrent qui double, page cassee, demande
+     reelle, receptivite). Garde les meilleurs et tag l'offre KUMO la plus pertinente.
+     (Vague A : pas de plancher de nombre impose ni de rejet sur absence de signal -- ca vient
+     en Vague B avec le filtre dur + la cadence.)
 8. COMPREHENSION DU BUSINESS
    - Fiche par retenu : services precis, zone, specificite, points forts visibles. Faits seulement.
 9. LIVRABLES
@@ -170,15 +227,22 @@ DISQUALIFICATION :
   bien present sur pack + organique sur l'essentiel de son marche.
 
 ## Angles d'email selon le cas mesure
-- Present pack + organique mais ETROIT : reconnais qu'il est bien place sur sa ville, puis
-  montre le marche qu'il rate (ville voisine N fois plus grosse + recherches par prestation).
-  Angle croissance.
-- Present pack, ABSENT organique : bien dans la carte, mais ses pages ne ressortent pas
-  en-dessous. Angle complement web.
-- ABSENT pack ET organique malgre activite : il ne ressort nulle part alors que le marche
-  existe. Angle fort, besoin clair (levier fiche Google + site).
-- Jamais "vous etes invisible" si la mesure dit le contraire. L'accroche cite toujours un
-  fait mesure : position pack, position organique, ou volume d'une requete non captee.
+L'accroche vise la DOULEUR RESSENTIE, pas le deficit technique. Prends le 1er angle disponible
+dans cet ordre (du plus ressenti au moins), et CONSTATE sans humilier :
+1. CONCURRENT NOMME QUI LE DOUBLE sur sa ville : "tapez 'metier ville' dans Google : [Concurrent]
+   sort, pas vous". Pique l'orgueil, verifiable par lui en 5 secondes. JAMAIS humiliant ("vous
+   etes ecrase / invisible / a la traine") -> on CONSTATE, on outille, on offre le quick-win.
+   GARDE-FOU marche-village : si le concurrent nomme peut etre un proche du prospect, bascule
+   sur un angle declencheur.
+2. DECLENCHEUR : page en erreur (500/404) sur un marche cle, recrutement visible, refonte en cours.
+   Un fait qui le concerne MAINTENANT.
+3. MANQUE-A-GAGNER CHIFFRE : volume d'une requete non captee sur SA ville -- SEULEMENT si ce
+   volume depasse le seuil (~150/mois). En dessous, pas de manque a gagner credible : n'en parle pas.
+- Cas mesures (en complement, pour cadrer le levier) : present mais ETROIT -> angle croissance
+  (le marche qu'il rate) ; present pack ABSENT organique -> angle complement web ; ABSENT pack ET
+  organique malgre activite -> besoin clair (levier fiche Google + site).
+- REGLE D'OR : jamais "vous etes invisible" si la mesure dit le contraire. L'accroche cite toujours
+  UN fait mesure (position pack, position organique, ou volume non capte), un seul point, pas une liste.
 
 ## Mapping Notion (base Contacts)
 Champs a remplir pour chaque prospect (faits mesures uniquement) :
@@ -200,6 +264,14 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
   mentions legales, presse... + confiance : confirme / incertain / non trouve), prenom
   contact si confirme, divers.
 
+- Signaux opportunite -> lesquels des 4 signaux ont declenche (concurrent_double / page_cassee /
+  demande_reelle / receptivite). ECRIT PAR LA ROUTINE (elle vient de les calculer, etape 5).
+- Segment -> le couple secteur x zone du run (ex. "paysagiste x Neuchatel"). ECRIT PAR LA ROUTINE.
+- Issue : PAS de champ dedie. On lit l'issue via le "Statut pipeline" EXISTANT que Thomas tient
+  deja (Lead froid = pas de reponse · Lead chaud / Devis envoye = a repondu · Signe = signe ·
+  Perdu = refus). En Vague B, on croise "Statut pipeline" x "Signaux opportunite" pour voir quels
+  signaux convertissent. Zero saisie en plus pour Thomas.
+
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
 - "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
@@ -217,11 +289,19 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
   porte la version encodee. Vise un corps < ~1800 caracteres encodes (au-dela, certains
   clients mail tronquent).
 
-## Dedup (via Notion, automatique)
+## Dedup (via Notion, avec peremption)
 - Store de dedup = base Notion "Contacts". Cle : champ "Place ID".
-- Debut de run : recupere les Place ID existants et exclus ces etablissements.
-- Fin de run : une ligne par prospect vu (retenu, a-appeler, ou rejete) avec son Place ID.
-  Rejete -> statut "Ancien" + note de rejet. 100% automatique, independant du git.
+- Debut de run : recupere les Place ID existants. EXCLUS :
+  * tout prospect deja CONTACTE (draft ecrit) ou client, quel que soit l'age ;
+  * tout prospect vu il y a MOINS de ~120 jours.
+  Un prospect REJETE et JAMAIS contacte vu il y a PLUS de ~120 jours redevient ELIGIBLE
+  (sa situation a pu changer : refonte, nouveau gerant, concurrent qui passe devant).
+- RE-CONTACT (garde-fou image) : si un prospect deja CONTACTE sans reponse redevient eligible,
+  ne le re-maile QUE s'il y a un DECLENCHEUR NEUF (nouveau concurrent devant, nouvelle page
+  cassee, recrutement) ; marque "2e contact" et change d'angle. Sinon ne renvoie pas (un re-mail
+  sans raison neuve = relance de demarcheur).
+- Fin de run : une ligne par prospect vu (retenu, a-appeler, ou rejete) avec son Place ID + la DATE.
+  Rejete -> statut "Ancien" + note de rejet + date (pour la peremption). 100% automatique.
 
 ## Regle LCP
 - on_page_instant_pages ne fournit pas de LCP fiable -> laisse le champ Notion "LCP mobile s"
@@ -229,14 +309,16 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
 - Lance Lighthouse (on_page_lighthouse) uniquement sur un prospect retenu si tu veux un
   chiffre de vitesse precis pour l'argumentaire. Jamais sur tous les finalistes (cout/temps).
 
-## Regle de rotation (secteur + zone)
-- Note le couple (secteur, zone) de chaque run dans _resume.md (et en note Notion si utile).
-- Au run suivant, choisis un couple peu utilise recemment. N'enchaine pas le meme couple
-  deux nuits de suite.
-- Liste tournante de secteurs : artisans du batiment (paysagiste, menuisier, electricien,
-  sanitaire, carreleur, peintre), therapeutes (osteo, physio, coach, dieteticien), services
-  B2B / independants (fiduciaire, avocat, architecte, agence), beaute / bien-etre (coiffure,
-  esthetique, massage). Croise avec les zones par priorite.
+## Regle de rotation (priorite aux PILIERS)
+- Note le couple (metier, zone) de chaque run dans _resume.md.
+- PRIORITE : passe le plus de nuits sur les PILIERS (batiment/agencement, transition energetique),
+  croises avec les zones a forte demande (Lausanne, Geneve, Fribourg, Neuchatel). Les piliers
+  meritent la repetition -- c'est la qu'on construit l'actif (etudes de cas, templates, referral interne).
+- POOL de graines piliers : cuisiniste, menuisier/ebeniste, electricien, carreleur, peintre, sanitaire,
+  installateur solaire, installateur pompe a chaleur, renovation energetique.
+- RATISSAGE intercalaire (a fort signal) : demenageur (avant echeances de bail), urgence (plombier,
+  chauffagiste, serrurier), paysagiste (fev-mars). N'enchaine pas le meme couple deux nuits de suite.
+- Croise toujours avec les exclusions + le garde-fou vendabilite (voir Cible/ICP).
 
 ## Redaction de l'email (regles strictes)
 But : un email humain. Le prospect doit sentir une personne qui se presente, qui connait
@@ -248,6 +330,12 @@ via un fait verifiable (avis, specialite, ou bonne position deja acquise). 3) UN
 concret, prouve par une mesure (souvent : visibilite etroite, ou absent d'un axe, chiffres a
 l'appui). 4) donnant-donnant : 15 min, je montre ce qui bloque, et meme sans suite ils
 repartent avec des pistes. Sans engagement.
+
+OFFRE DANS LE MAIL : au 1er contact, ne propose QUE le Diagnostic 1200 (ou meme juste "15 min, je
+vous montre ce qui bloque"). N'annonce JAMAIS le tunnel Diagnostic -> Mandat -> Suivi : lu a froid,
+ca sonne "abonnement a vie" et ca fait fuir. La chaine (Diagnostic 1200 -> Mandat 90j -> Suivi
+recurrent) est TON architecture interne ; elle se revele a l'appel, une fois la confiance posee. Le
+Diagnostic est deja ta porte de-risquee (prix fixe, livrable, zero promesse) : c'est lui que le mail vend.
 
 Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statistique generale
 presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font

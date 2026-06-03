@@ -13,40 +13,47 @@ ET joignables (email en priorite, telephone en bonus).
 Etapes :
 1. Lis CLAUDE.md. Interroge la base Notion "Contacts" (page KUMO Back-office) et recupere
    tous les Place ID deja presents (dedup) pour ne jamais retraiter un etablissement vu.
-2. Choisis une zone et un type d'activite peu couverts recemment (regarde la base Notion
-   et les dossiers existants pour varier). Zones par priorite : Neuchatel et alentours,
-   La Chaux-de-Fonds, Fribourg, Lausanne et alentours, Yverdon.
-3. Collecte avec enckay/google-maps-places-extractor (minReviews ~15, exclure les fermes,
-   extractContactDetails=true). Pre-filtre gratuit -> ~10 finalistes, classe leur URL.
-4. Recupere l'email de chaque finaliste (collecte, sinon vdrmota/contact-info-scraper sur
-   le site). Email trouve = canal EMAIL. Pas d'email mais telephone = canal BONUS "a
-   appeler" (on garde le prospect et on le marque, sans en faire un envoi). Ni email ni
-   telephone = ECARTE. Salutation : identifie le DIRIGEANT ACTUEL de CETTE entreprise et
-   recoupe (voir CLAUDE.md etape 4). N'emploie un prenom QUE si c'est une personne de
-   l'entreprise ET le contact actuel confirme (jamais un ancien dirigeant, ni une autre
-   societe/partenaire/marque affichee a cote). Au moindre doute -> "Bonjour," neutre.
-5. Sur les joignables avec un vrai site : verifie les volumes (metier + ville coeur, ville
-   voisine majeure ex. Neuchatel, 1-2 prestations), mesure la SANTE technique (OnPage
-   instant), puis lis le SERP REEL de la requete coeur (serp_organic_live_advanced, mobile)
-   pour situer le prospect sur 2 AXES : pack local (Maps/GBP) ET organique web. Complete avec
-   ranked_keywords (etendue). RAPPEL : OnPage eleve != visible, et present sur sa requete
-   coeur != large. Le besoin = ecart entre le marche adressable et ce qu'il capte, sur les
-   2 axes (KUMO vend les deux). Liste les pages reelles du site (sitemap.xml ou menu, 1
-   requete) : distingue "page existe" de "page ranke" et n'ecris jamais "aucune page" sans
-   cette verif. Scoring.
-6. Pour chaque prospect retenu a canal EMAIL : ecris directement dans le CORPS de sa fiche
-   Notion deux blocs : "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)"
-   (le mail COMPLET pret a copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes,
-   signature Thomas / KUMO - kumo-seo.ch / tel). C'est la SOURCE UNIQUE du mail : ne le mets
-   ni dans un dossier repo ni ailleurs. Applique le skill .claude/skills/writing/ (anti-IA).
-   Choisis l'angle selon le cas mesure (voir CLAUDE.md "Angles d'email") ; jamais "invisible"
-   si la mesure montre une presence. NE cree PAS de draft Gmail
-   (voir note plus bas). Pour les prospects a canal BONUS : ecris le bloc "## Diagnostic" dans
-   leur fiche Notion + ajoute-les a une liste "A appeler" (pas de mail).
-7. Ecris/maj une ligne Notion Contacts pour CHAQUE prospect vu (retenu, a-appeler, ou
-   rejete), Place ID inclus, avec la visibilite chiffree dans "Probleme principal" (= l'ACCROCHE,
-   PAS le mail entier). Pour les retenus EMAIL, coche "Draft pret" une fois le bloc Email ecrit
-   dans le corps (etape 6). Laisse la colonne "Dossier" vide (Notion = source unique). Ecris _resume.md.
+2. Choisis un METIER et une ZONE selon le modele de niches de CLAUDE.md. PRIORITE aux PILIERS :
+   batiment/agencement (cuisiniste, menuisier, electricien, carreleur, peintre, sanitaire) et
+   transition energetique (installateur solaire / pompe a chaleur). Zones a forte demande d'abord :
+   Lausanne, Geneve, Fribourg, Neuchatel (puis Yverdon, La Chaux-de-Fonds). Intercale du ratissage a
+   fort signal (demenageur avant les echeances de bail, urgence, paysagiste en fev-mars). Respecte les
+   exclusions et ne refais pas un couple (metier, zone) deja couvert recemment.
+3. Collecte -- DEUX voies (cf. CLAUDE.md) : (A) MAPS via enckay/google-maps-places-extractor
+   (minReviews ~15, exclure les fermes, extractContactDetails=true) pour le local transactionnel ;
+   (B) pour l'energie et le B2B mal/non mappes, source par MOT-CLE-SERVICE ("installateur pompe a
+   chaleur <canton>") ou registre/annuaires pro. Pre-filtre gratuit -> ~10 finalistes, classe leur URL.
+4. MESURE D'ABORD (avant de resoudre le contact), sur les ~10 finalistes avec un vrai site :
+   volumes (metier + ville coeur, ville voisine majeure ex. Neuchatel, 1-2 prestations), SANTE
+   technique (OnPage instant), puis SERP REEL de la requete coeur (serp_organic_live_advanced,
+   mobile) -> 2 AXES : pack local (Maps/GBP) ET organique web, et NOMME qui est devant. Complete
+   avec ranked_keywords (etendue) + sitemap (pages "existe" vs "ranke", 1 requete). RAPPEL :
+   OnPage eleve != visible, present sur sa requete coeur != large. Puis note les 4 SIGNAUX
+   D'OPPORTUNITE (cout ~0, memes donnees) : concurrent NOMME qui le double sur SA ville · page
+   cle en erreur 500/404 · demande reelle (requete coeur > ~150/mois sur sa ville) · receptivite
+   (avis recents / repond a ses avis). VAGUE A : on les CALCULE et on les LOG pour PRIORISER et
+   choisir l'angle ; PAS encore un filtre dur (le filtre + la cadence = Vague B).
+5. CONTACT & CANAL (APRES la mesure) : recupere l'email (collecte, sinon vdrmota/contact-info-scraper).
+   Email = canal EMAIL. FORT BESOIN + bons signaux mais SANS email = canal BONUS "a appeler" (ne
+   JETTE pas un bon prospect juste parce que le scrape n'a pas sorti d'email). Tel seul = "a
+   appeler". Ni email ni tel = ECARTE. Salutation : identifie le DIRIGEANT ACTUEL de CETTE
+   entreprise ; prenom SEULEMENT si c'est lui, confirme (jamais un ancien dirigeant, ni une autre
+   societe/partenaire/marque affichee a cote) ; au moindre doute -> "Bonjour," neutre.
+6. Pour chaque retenu a canal EMAIL : ecris dans le CORPS de sa fiche Notion deux blocs :
+   "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)" (mail COMPLET pret a
+   copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes, signature Thomas / KUMO -
+   kumo-seo.ch / tel). SOURCE UNIQUE du mail. ANGLE = DOULEUR RESSENTIE, dans l'ordre : concurrent
+   nomme qui le double sur sa ville > declencheur (page cassee, recrutement) > manque-a-gagner
+   chiffre (SI volume > ~150/mois) > jamais "invisible". CONSTATE sans humilier. Le mail vend
+   SEULEMENT le Diagnostic 1200 (ou juste "15 min, je vous montre") : N'ANNONCE PAS le tunnel
+   Mandat/Suivi (ca fait fuir a froid ; la chaine se revele a l'appel). Applique le skill
+   .claude/skills/writing/. NE cree PAS de draft Gmail. Pour les "a appeler" : ecris "## Diagnostic"
+   + ajoute a la liste "A appeler" (pas de mail).
+7. Ecris/maj une ligne Notion pour CHAQUE prospect vu (retenu, a-appeler, ou rejete), Place ID +
+   DATE inclus. La ROUTINE remplit : signaux d'opportunite declenches + segment (secteur x zone) +
+   "Probleme principal" (= l'ACCROCHE chiffree, PAS le mail entier). Pour les retenus EMAIL, coche
+   "Draft pret" une fois le bloc Email ecrit (etape 6). Laisse "Dossier" vide. L'issue se lit via le
+   "Statut pipeline" existant que Thomas tient deja (pas de champ a remplir en plus). Ecris _resume.md.
 8. Le contenu de chaque prospect (diagnostic + mail) vit dans Notion (etapes 6-7), PAS dans le
    repo. Ne cree pas de dossier .md par prospect. Tu peux pousser uniquement _resume.md (journal
    du run) sur une branche claude/prospects-AAAA-MM-JJ si utile.
