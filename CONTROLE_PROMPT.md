@@ -130,11 +130,12 @@ C6 — HYGIENE. Deux verifs rapides :
 
 - 🟢 OK : aucun probleme de jugement. Le mail est envoyable tel quel. (Ca doit etre le cas
   le plus frequent.)
-- 🟠 A voir : au moins une suggestion a appliquer (accents, formule IA, hygiene) MAIS aucun
-  probleme de salutation / fait / angle. Thomas jette un coup d'oeil rapide avant d'envoyer.
+- 🟠 A voir : au moins une suggestion a appliquer au copier-coller (accents, formule IA, hygiene,
+  TON HUMILIANT a adoucir, TUNNEL Mandat/Suivi a retirer) MAIS aucun probleme de salutation / fait /
+  contradiction d'angle. Thomas jette un coup d'oeil rapide avant d'envoyer.
 - 🔴 A trancher : au moins un de ces problemes -> salutation risquee (C1), fait porteur qui
-  diverge (C2), "aucune page" faux (C3), angle qui contredit la mesure (C4), OU controle
-  incomplet (tu n'as pas pu verifier). Thomas doit decider.
+  diverge (C2), "aucune page" faux (C3), angle qui CONTREDIT la mesure (C4 : "invisible / absent"
+  alors que present), OU controle incomplet (tu n'as pas pu verifier). Thomas doit decider.
 
 Rappel : jamais 🟢 par omission.
 
