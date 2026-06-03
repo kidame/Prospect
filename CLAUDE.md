@@ -125,7 +125,8 @@ un email pour ceux qui ont un email. Qualite avant quantite.
 4. MARCHE + ANALYSE 2 AXES + ETENDUE (sur les ~10 finalistes, AVANT de resoudre le contact)
    - Volume metier + ville coeur, + ville voisine majeure (ex. Neuchatel), + 1-2 requetes
      par prestation. Sans aucune demande : disqualifie.
-   - Sante technique : OnPage instant (score, titres, H1, dom_complete). LCP -> vide.
+   - Sante technique : OnPage instant (score, titres, H1) + les champs perf/poids deja renvoyes
+     par le MEME appel (page_timing, total_dom_size, CLS, cache_control...) -> voir "Regle perf". LCP -> vide.
    - SERP REEL de la requete coeur (serp_organic_live_advanced, metier+ville, mobile) :
      * Position dans le PACK LOCAL (Maps/GBP) : dans les 3 fiches ? absent ?
      * Position en ORGANIQUE web : page 1 ? plus bas ? absent ? QUI est devant (NOMME-le).
@@ -303,11 +304,21 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
 - Fin de run : une ligne par prospect vu (retenu, a-appeler, ou rejete) avec son Place ID + la DATE.
   Rejete -> statut "Ancien" + note de rejet + date (pour la peremption). 100% automatique.
 
-## Regle LCP
-- on_page_instant_pages ne fournit pas de LCP fiable -> laisse le champ Notion "LCP mobile s"
-  VIDE. Utilise dom_complete comme proxy de lenteur dans les Notes, sans jamais l'appeler LCP.
-- Lance Lighthouse (on_page_lighthouse) uniquement sur un prospect retenu si tu veux un
-  chiffre de vitesse precis pour l'argumentaire. Jamais sur tous les finalistes (cout/temps).
+## Regle perf / sante technique
+- Le besoin se lit sur la VISIBILITE (positions, 2 axes), JAMAIS sur la perf. PERF != BESOIN :
+  un site rapide/propre mais invisible = GROS besoin (a prendre) ; un site lent mais bien classe
+  = peu de besoin (a laisser). Ne trie donc JAMAIS sur la perf ni sur le score OnPage seul
+  (RAPPEL : OnPage eleve != visible -- ex. une page funnel a 96/100 mais invisible page 4).
+- ENRICHISSEMENT GRATUIT (a exploiter) : l'appel on_page_instant renvoie deja, dans la MEME reponse
+  (0 CHF, 0 appel en plus) : page_timing (dom_complete...), total_dom_size, encoded_size,
+  scripts_count, CLS (cumulative_layout_shift), cache_control. Sers-t'en pour ENRICHIR le diagnostic
+  et l'ANGLE (site lourd / lent / page funnel sans structure : "ca rame ET personne ne vous trouve"),
+  comme detail technique du besoin -- mais PAS comme critere de retenue.
+- LCP de l'instant = non fiable (revient ~0) -> laisse le champ Notion "LCP mobile s" VIDE ;
+  utilise dom_complete comme proxy de lenteur dans les Notes, sans l'appeler LCP.
+- PERF TERRAIN (vrai LCP / Core Web Vitals) = Lighthouse (on_page_lighthouse) ou le bras crux,
+  UNIQUEMENT sur un prospect RETENU (audit / argumentaire chiffre du Diagnostic 1200), jamais au
+  tri (cout/temps ; CrUX = souvent "donnees insuffisantes" sur petites PME).
 
 ## Regle de rotation (priorite aux PILIERS)
 - Note le couple (metier, zone) de chaque run dans _resume.md.
