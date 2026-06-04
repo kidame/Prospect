@@ -7,3 +7,7 @@ node_modules/
 
 # OS
 .DS_Store
+
+# PII prospects (JAMAIS sur GitHub : vit en local + dans Notion)
+prospects/
+printspot/
