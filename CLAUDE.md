@@ -250,7 +250,13 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
 - Nom entreprise (titre), Place ID (CLE DE DEDUP), Domaine (url), Email, Tel, Ville, NPA
 - Secteur (option la plus proche, sinon Autre), Profil (artisan_local/pme_local/...)
 - Source -> Routine nocturne
-- Statut pipeline -> Lead froid (retenu ou a-appeler) ; Ancien (rejete)
+- Statut pipeline -> Lead froid (retenu ou a-appeler) ; Ancien (rejete). NB : la ROUTINE laisse
+  "Lead froid" (elle n'envoie pas, elle prepare le draft). "Mail 1 envoye" est pose par Thomas a la
+  MAIN quand il envoie reellement le 1er mail (c'est ce passage qui declenche la date, voir ci-dessous).
+- Date mail 1 (date) + Relancer le (formule) -> NE PAS remplir par la routine. "Date mail 1" se pose
+  TOUTE SEULE (automatisation Notion) quand le statut passe a "Mail 1 envoye" ; "Relancer le" affiche
+  "Relancer" a J+7 sans reponse. Servent au suivi de relance (mail 2), pas a la qualif. La vue
+  "🔁 A relancer" liste les fiches a relancer du jour.
 - Score (qualif global 0-100), Score sante OnPage, LCP mobile s (vide par defaut, voir regle),
   Avis Google, Note moyenne, Volume recherche, Confiance budget, Offre KUMO
 - Probleme principal -> resume des 2 AXES + l'ecart de marche, chiffre. C'est l'ACCROCHE de
@@ -269,8 +275,9 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
   demande_reelle / receptivite). ECRIT PAR LA ROUTINE (elle vient de les calculer, etape 5).
 - Segment -> le couple secteur x zone du run (ex. "paysagiste x Neuchatel"). ECRIT PAR LA ROUTINE.
 - Issue : PAS de champ dedie. On lit l'issue via le "Statut pipeline" EXISTANT que Thomas tient
-  deja (Lead froid = pas de reponse · Lead chaud / Devis envoye = a repondu · Signe = signe ·
-  Perdu = refus). En Vague B, on croise "Statut pipeline" x "Signaux opportunite" pour voir quels
+  deja (Lead froid = pas encore contacte · Mail 1 envoye = 1er mail parti, en attente de reponse ·
+  Lead chaud / Devis envoye = a repondu · Signe = signe · Perdu = refus). En Vague B, on croise
+  "Statut pipeline" x "Signaux opportunite" pour voir quels
   signaux convertissent. Zero saisie en plus pour Thomas.
 
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
@@ -297,10 +304,15 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
   * tout prospect vu il y a MOINS de ~120 jours.
   Un prospect REJETE et JAMAIS contacte vu il y a PLUS de ~120 jours redevient ELIGIBLE
   (sa situation a pu changer : refonte, nouveau gerant, concurrent qui passe devant).
-- RE-CONTACT (garde-fou image) : si un prospect deja CONTACTE sans reponse redevient eligible,
-  ne le re-maile QUE s'il y a un DECLENCHEUR NEUF (nouveau concurrent devant, nouvelle page
-  cassee, recrutement) ; marque "2e contact" et change d'angle. Sinon ne renvoie pas (un re-mail
-  sans raison neuve = relance de demarcheur).
+- RELANCE (mail 2) vs RE-CONTACT : a NE PAS confondre.
+  * RELANCE mail 2 = MEME sequence, prospect tiede contacte il y a quelques jours (statut "Mail 1
+    envoye", repere par la formule "Relancer le" a J+7), JAMAIS de reponse. La relance est NORMALE,
+    pas besoin de declencheur neuf : on change juste l'objet et l'angle (ex. "je reviens vers vous").
+    C'est Thomas qui la gere via la vue "🔁 A relancer" ; la routine nocturne n'y touche pas.
+  * RE-CONTACT (garde-fou image) = prospect rouvert APRES ~120 jours (perime). La, on ne le re-maile
+    QUE s'il y a un DECLENCHEUR NEUF (nouveau concurrent devant, nouvelle page cassee, recrutement) ;
+    marque "2e contact" et change d'angle. Sinon ne renvoie pas (un re-mail sans raison neuve = relance
+    de demarcheur).
 - Fin de run : une ligne par prospect vu (retenu, a-appeler, ou rejete) avec son Place ID + la DATE.
   Rejete -> statut "Ancien" + note de rejet + date (pour la peremption). 100% automatique.
 
