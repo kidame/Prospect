@@ -370,18 +370,43 @@ Notion = dedup + CRM + CONTENU REDIGE (diagnostic + mail pret a copier, dans le 
 fiche) : SOURCE UNIQUE du mail. Repo = dossiers narratifs optionnels. Gmail = Thomas y cree le
 draft a partir du mail Notion (jamais d'envoi auto).
 
-## Storybloq -- memoire du META-travail (PAS les prospects)
-- `.story/` (Storybloq) est la memoire inter-sessions du DEVELOPPEMENT de la machine : roadmap
-  (Vagues A/B), tickets d'amelioration, lecons validees (piliers, niches mortes, regles email),
-  handovers entre sessions de travail. C'est ce qui evite de re-debattre les memes choix.
-- FRONTIERE ABSOLUE : Storybloq ne stocke JAMAIS de donnees prospect. Les prospects (dedup, CRM,
-  diagnostics, mails) vivent dans Notion ; `prospects/` et `printspot/` restent gitignores. La
-  routine nocturne n'a RIEN a ecrire dans `.story/` -- elle continue d'utiliser Notion comme avant.
-- Usage (sessions de travail / dev) : `/story` charge l'etat du projet ; `storybloq status`,
-  `storybloq ticket next`, `storybloq lesson list`. Roadmap = phases `vague-a` -> `vague-b` ->
-  `controle` -> `outillage`. CLI auto-amorcee via npx (voir `.mcp.json` et `.claude/settings.json`).
-- Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de KUMO (voir
-  handover d'installation).
+## Storybloq -- memoire qui s'accumule (auto-amelioration du systeme)
+`.story/` (Storybloq, committe) est la memoire inter-sessions du SYSTEME de prospection : roadmap
+(Vagues A/B), tickets d'amelioration, lecons durables (piliers, niches mortes, regles email), notes
+(= propositions d'amelioration), handovers. But : que la machine s'ameliore dans le temps au lieu de
+repeter les memes choix. CLI/MCP auto-amorces via npx (voir `.mcp.json`, `.claude/settings.json`).
+
+FRONTIERE (apprentissage vs PII) :
+- DANS Storybloq : uniquement des apprentissages SUR LE SYSTEME (patterns, propositions, lecons,
+  regles). JAMAIS de coordonnees prospect. Pour citer un cas, reference par Place ID / segment
+  (metier x zone), JAMAIS nom-email-telephone. Les donnees prospect (dedup, CRM, diagnostics, mails)
+  restent dans Notion ; `prospects/` et `printspot/` restent gitignores.
+
+QUI ECRIT QUOI (c'est ce qui empeche de polluer la memoire) :
+- Les ROUTINES nocturnes (1h et controle 3h) ecrivent UNIQUEMENT des NOTES (`storybloq note create`,
+  tag `proposition`) = des propositions d'amelioration DETAILLEES, et seulement quand un vrai pattern
+  emerge de l'accumulation (PAS chaque nuit). Une note = une boite de reception, pas une verite. Elles
+  ne touchent JAMAIS aux lecons, tickets, roadmap, ni au code / aux prompts.
+- TOI / les sessions DEV (`/story`) : vous seuls transformez les notes recurrentes et validees en
+  LECONS durables ou en TICKETS, et editez roadmap / CLAUDE.md / prompts. La memoire durable n'est
+  donc jamais modifiee par une routine -> cote pollution, rien a risquer.
+
+PERSISTANCE (sinon une note ecrite cette nuit disparait avec le conteneur ephemere) :
+- A la fin du run, SI une note a ete creee : `git add .story/` (UNIQUEMENT `.story/`, jamais `-A`),
+  commit, puis `git pull --rebase origin main` et `git push origin main`. Pull-before-push
+  OBLIGATOIRE : les deux routines tournent a 2h d'ecart et partagent `.story/` ; rebaser avant de
+  pousser evite les collisions d'ID de notes. Si le push echoue (branche protegee), bascule sur une
+  branche `storybloq-memory` et signale-le dans le mail recap.
+
+FORMAT d'une note-proposition (detaillee, factuelle, zero PII) :
+Titre court "Proposition: <quoi>". Tags : `proposition` + `routine-1h` ou `routine-controle` + theme.
+Corps markdown : (1) PATTERN observe + sur quelle accumulation (combien de runs / fiches, references
+par Place ID ou segment) ; (2) IDEE d'amelioration ; (3) CHANGEMENT concret suggere (quel fichier /
+regle : CLAUDE.md ? prompt ? tool ?) ; (4) PREUVE (faits mesures, zero invention, zero PII).
+AVANT d'en creer une : lis les notes existantes (`storybloq note list`). Si la meme idee existe deja,
+ne duplique PAS -> ajoute "vu encore le AAAA-MM-JJ" via `storybloq note update`.
+
+Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de KUMO (voir handover).
 
 ## Garde-fous
 - Drafts uniquement, jamais d'envoi automatique au prospect. La creation de draft Gmail

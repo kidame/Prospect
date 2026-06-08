@@ -60,6 +60,18 @@ Etapes :
 9. Envoie un mail recap a hello.puglisi@gmail.com, en 3 blocs : prospects RETENUS (email)
    avec offre ciblee, prospects A APPELER (bonus) avec tel + angle, et REJETES (nb + raisons).
    Ajoute le cout estime du run et les erreurs eventuelles. Objet : "KUMO prospection - AAAA-MM-JJ".
+10. MEMOIRE STORYBLOQ -- auto-amelioration (voir la section Storybloq de CLAUDE.md). Au debut du
+    run, tu PEUX lire la memoire pour mieux decider (`storybloq status`, `storybloq lesson list`,
+    `storybloq note list`). A la fin, SEULEMENT si ce run + l'accumulation font emerger un vrai
+    pattern ou une idee d'amelioration du SYSTEME (pas chaque nuit, sinon tu fais du bruit) : ecris
+    une NOTE-proposition DETAILLEE via `storybloq note create` (tags `proposition` + `routine-1h` +
+    theme ; format dans CLAUDE.md : pattern + accumulation chiffree + changement concret suggere +
+    preuve). References par Place ID / segment, ZERO PII (jamais nom/email/tel). Lis d'abord
+    `storybloq note list` : si la proposition existe deja, mets-la a jour ("vu encore le AAAA-MM-JJ")
+    au lieu de dupliquer. Puis persiste : `git add .story/` (UNIQUEMENT `.story/`) + commit +
+    `git pull --rebase origin main` + `git push origin main`. Tu n'ecris QUE des notes : jamais de
+    lecon, ticket, ni roadmap (ca, c'est les sessions dev de Thomas). Signale dans le mail recap si
+    une proposition a ete deposee (titre) et si le push a echoue.
 
 Contraintes : ne jamais inventer un fait ; joignable obligatoire (ni email ni tel =
 ecarte) ; le besoin se juge sur le SERP reel (pack local + organique) et l'etendue, pas sur

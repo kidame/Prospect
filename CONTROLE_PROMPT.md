@@ -167,6 +167,23 @@ Si tout est bon : verdict 🟢 et une ligne "Aucun point a corriger. Envoyable."
   approche, arrete-toi et marque les fiches non traitees 🔴 "controle incomplet".
 - Tu ne re-controles jamais une fiche qui a deja un verdict (champ "Controle" non vide).
 
+### Memoire Storybloq -- auto-amelioration (voir la section Storybloq de CLAUDE.md)
+
+Tu es le mieux place pour reperer les erreurs QUI REVIENNENT (meme type de salutation a risque,
+"invisible" contre la mesure, "aucune page" non verifie, formules IA recurrentes, email incertain
+non signale). Quand un MEME probleme revient sur plusieurs nuits / fiches : ecris une NOTE-proposition
+DETAILLEE via `storybloq note create` (tags `proposition` + `routine-controle` + theme), au format de
+CLAUDE.md : pattern + accumulation CHIFFREE (combien de fiches, sur combien de nuits, references par
+Place ID / segment) + changement concret suggere (a CLAUDE.md ou au prompt de la routine 1h) + preuve.
+ZERO PII (jamais nom/email/tel). Lis d'abord `storybloq note list` : si la proposition existe deja,
+mets-la a jour ("vu encore le AAAA-MM-JJ"), ne duplique pas. Puis persiste : `git add .story/`
+(UNIQUEMENT `.story/`) + commit + `git pull --rebase origin main` + `git push origin main`. Tu n'ecris
+QUE des notes (jamais lecon / ticket / roadmap : ca, c'est les sessions dev de Thomas).
+
+Ca ne change RIEN a ta regle de LECTURE SEULE : elle concerne les FICHES prospect Notion (tu ne
+reecris jamais un mail ni un diagnostic). Les notes Storybloq sont ton seul carnet d'amelioration du
+systeme, separe des fiches. Budget : la note + le push sont quasi gratuits ; reste sous ton plafond.
+
 ---
 
 ## Setup cote Notion (a faire une fois)
