@@ -94,8 +94,8 @@ def _request(method: str, url: str, body: dict | None = None) -> dict:
 
 
 def list_mailboxes() -> list[dict]:
-    """GET /api/mail -> liste des boites (avec leur uuid et email)."""
-    res = _request("GET", f"{_api_base()}/api/mail")
+    """GET /api/mailbox -> liste des boites accessibles (avec leur uuid et email)."""
+    res = _request("GET", f"{_api_base()}/api/mailbox?with=aliases,unseen")
     data = res.get("data", res)
     return data if isinstance(data, list) else []
 
@@ -143,10 +143,9 @@ def get_message(uuid: str, folder_id: str, short_uid: str) -> dict:
 
 
 def build_draft_body(to_addr: str, subject: str, body: str, mime_type: str) -> dict:
+    # NB : l'API refuse cc/bcc vides ("must have at least 1 items") -> on les OMET quand vides.
     return {
         "to": [{"email": to_addr, "name": ""}],
-        "cc": [],
-        "bcc": [],
         "subject": subject,
         "body": body,
         "mime_type": mime_type,

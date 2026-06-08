@@ -127,19 +127,30 @@ def tool_creer_brouillon(args: dict) -> str:
     return f"Brouillon cree dans {_address()} pour {to}." + (f" (uuid {uuid})" if uuid else "")
 
 
+def _expediteur(item: dict) -> str:
+    frm = item.get("from") or item.get("sender") or []
+    if isinstance(frm, list) and frm:
+        return frm[0].get("email") or frm[0].get("name") or "?"
+    return "?"
+
+
 def tool_lister_messages(args: dict) -> str:
     folder = _resolve_folder(args.get("dossier"))
     offset = int(args.get("offset") or 0)
     data = get_messages(_uuid(), folder.get("id"), offset)
-    msgs = data.get("messages") if isinstance(data, dict) else (data if isinstance(data, list) else [])
-    if not msgs:
+    # L'API renvoie data.threads[] ; chaque thread porte les entetes + messages[].
+    threads = data.get("threads") if isinstance(data, dict) else None
+    if threads is None and isinstance(data, dict):
+        threads = data.get("messages")  # repli si structure differente
+    if not threads:
         return f"Aucun message dans {folder.get('name')} (offset {offset})."
     lignes = []
-    for m in msgs[:25]:
-        frm = m.get("from") or m.get("sender") or []
-        if isinstance(frm, list) and frm:
-            frm = frm[0].get("email") or frm[0].get("name") or "?"
-        lignes.append(f"- [{m.get('uid','?')}] {m.get('date','')} | {frm} | {m.get('subject','(sans objet)')}")
+    for t in threads[:25]:
+        msgs = t.get("messages") if isinstance(t, dict) else None
+        uid = (msgs[0].get("uid") if msgs else None) or t.get("uid", "?")
+        lignes.append(
+            f"- [uid {uid}] {t.get('date','')} | {_expediteur(t)} | {t.get('subject') or '(sans objet)'}"
+        )
     return f"Messages de {folder.get('name')} :\n" + "\n".join(lignes)
 
 
