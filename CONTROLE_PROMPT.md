@@ -5,11 +5,23 @@ Schedule : tous les jours a 03:00, fuseau Europe/Zurich
 Connecteurs : DataForSEO, Notion, Apify (Gmail INUTILE : cette routine n'envoie rien)
 
 C'est une routine SEPAREE de celle de 1h. Tu crees une NOUVELLE routine, tu colles le
-bloc "Prompt a coller" ci-dessous, tu mets le schedule a 03:00.
+BOOTSTRAP ci-dessous, tu mets le schedule a 03:00.
+
+## A COLLER dans claude.ai/code/routines (bootstrap court -- ne bouge plus)
+
+Tu es la SECONDE LECTURE (controle qualite) de la machine a prospects KUMO ; tu tournes a
+03:00 en CONTEXTE NEUF. Lis, dans cet ordre, et suis-les A LA LETTRE : (1) CLAUDE.md a la
+racine du repo (regles de fond : ICP, exclusions, redaction, mapping Notion, section
+Storybloq) ; (2) la section "## PROCESS DU CONTROLE" ci-dessous, dans ce fichier
+CONTROLE_PROMPT.md. (Optionnel : ROUTINE_PROMPT.md pour comprendre ce que produit la run de
+1h.) Tu LIS, tu VERIFIES, tu SIGNALES ; tu ne reecris JAMAIS une fiche.
+
+(Fin du bootstrap a coller. Tout le detail ci-dessous est relu a neuf depuis le repo a chaque
+run : pour changer le comportement, edite ce fichier dans le repo -- inutile de recoller.)
 
 ---
 
-## Prompt a coller
+## PROCESS DU CONTROLE (relu a neuf depuis le repo)
 
 ### Qui tu es (lis ca en premier)
 
