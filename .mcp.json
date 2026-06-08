@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "infomaniak-mail": {
+      "command": "python3",
+      "args": ["tools/infomaniak_mcp.py"],
+      "env": {
+        "INFOMANIAK_API_TOKEN": "${INFOMANIAK_API_TOKEN}",
+        "INFOMANIAK_MAIL_ADDRESS": "${INFOMANIAK_MAIL_ADDRESS:-thomas.puglisi@kumo-seo.ch}"
+      }
+    }
+  }
+}
