@@ -54,13 +54,16 @@ DEFAULT_MAIL_API = "https://mail.infomaniak.com"
 DEFAULT_ADDRESS = "thomas.puglisi@kumo-seo.ch"
 
 
+class InfomaniakError(Exception):
+    """Erreur metier/reseau cote API Infomaniak (levee, jamais sys.exit : reutilisable par le serveur MCP)."""
+
+
 def _token() -> str:
     tok = os.environ.get("INFOMANIAK_API_TOKEN")
     if not tok:
-        sys.exit(
-            "[erreur] INFOMANIAK_API_TOKEN manquant.\n"
-            "  Cree un jeton API (scope 'mail') sur manager.infomaniak.com (Developpeur / Jetons API)\n"
-            "  puis ajoute-le comme variable d'environnement INFOMANIAK_API_TOKEN."
+        raise InfomaniakError(
+            "INFOMANIAK_API_TOKEN manquant. Cree un jeton API (scope 'mail') sur "
+            "manager.infomaniak.com (Developpeur / Jetons API) et expose-le en variable d'environnement."
         )
     return tok
 
@@ -81,13 +84,13 @@ def _request(method: str, url: str, body: dict | None = None) -> dict:
             raw = resp.read().decode("utf-8", errors="replace")
     except urllib.error.HTTPError as e:
         detail = e.read().decode("utf-8", errors="replace")
-        sys.exit(f"[erreur] {method} {url} -> HTTP {e.code}\n{detail}")
+        raise InfomaniakError(f"{method} {url} -> HTTP {e.code} : {detail[:500]}")
     except urllib.error.URLError as e:
-        sys.exit(f"[erreur] reseau vers {url} : {e}")
+        raise InfomaniakError(f"reseau vers {url} : {e}")
     try:
         return json.loads(raw)
     except json.JSONDecodeError:
-        sys.exit(f"[erreur] reponse non-JSON de {url} :\n{raw[:500]}")
+        raise InfomaniakError(f"reponse non-JSON de {url} : {raw[:500]}")
 
 
 def list_mailboxes() -> list[dict]:
@@ -109,10 +112,34 @@ def resolve_mailbox_uuid(address: str) -> str:
             if uuid:
                 return uuid
     dispo = ", ".join((b.get("email") or "?") for b in boxes) or "(aucune)"
-    sys.exit(
-        f"[erreur] boite '{address}' introuvable parmi : {dispo}\n"
-        "  Verifie INFOMANIAK_MAIL_ADDRESS, ou force INFOMANIAK_MAILBOX_UUID."
+    raise InfomaniakError(
+        f"boite '{address}' introuvable parmi : {dispo}. "
+        "Verifie INFOMANIAK_MAIL_ADDRESS, ou force INFOMANIAK_MAILBOX_UUID."
     )
+
+
+def list_folders(uuid: str) -> list[dict]:
+    """GET /api/mail/{uuid}/folder -> dossiers (INBOX, Drafts, Sent, ...)."""
+    res = _request("GET", f"{_api_base()}/api/mail/{uuid}/folder?with=ik-static")
+    data = res.get("data", res)
+    return data if isinstance(data, list) else []
+
+
+def get_messages(uuid: str, folder_id: str, offset: int = 0) -> dict:
+    """GET la liste des messages d'un dossier (entetes : expediteur, objet, date, uid)."""
+    url = (
+        f"{_api_base()}/api/mail/{uuid}/folder/{folder_id}/message"
+        f"?thread=off&offset={offset}"
+    )
+    res = _request("GET", url)
+    return res.get("data", res)
+
+
+def get_message(uuid: str, folder_id: str, short_uid: str) -> dict:
+    """GET le contenu complet d'un message (le short_uid est la partie avant '@' dans l'uid)."""
+    short = str(short_uid).split("@", 1)[0]
+    res = _request("GET", f"{_api_base()}/api/mail/{uuid}/folder/{folder_id}/message/{short}")
+    return res.get("data", res)
 
 
 def build_draft_body(to_addr: str, subject: str, body: str, mime_type: str) -> dict:
@@ -195,4 +222,7 @@ def main(argv: list[str] | None = None) -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except InfomaniakError as e:
+        sys.exit(f"[erreur] {e}")
