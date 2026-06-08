@@ -3,10 +3,34 @@
   "date": "2026-06-02",
   "phases": [
     {
-      "description": "Initial project setup.",
+      "description": "Socle du repo : CLAUDE.md, prompts routine, tools Infomaniak, structure Notion, dedup.",
       "id": "p0",
       "label": "PHASE 0",
-      "name": "Setup"
+      "name": "Setup & socle"
+    },
+    {
+      "description": "Etat actuel de la routine : on qualifie sur le besoin (2 axes), on CALCULE et on LOG les 4 signaux d'opportunite (concurrent_double, page_cassee, demande_reelle, receptivite) pour PRIORISER et choisir l'angle. Pas encore de filtre dur ni de cadence.",
+      "id": "vague-a",
+      "label": "VAGUE A",
+      "name": "Qualification + log des signaux"
+    },
+    {
+      "description": "Durcissement : retenu seulement si >=1 signal d'opportunite ; cadence de contact ; croisement Statut pipeline x Signaux pour voir quels signaux convertissent reellement.",
+      "id": "vague-b",
+      "label": "VAGUE B",
+      "name": "Filtre dur + cadence + conversion"
+    },
+    {
+      "description": "Routine 03:00 separee : relit chaque fiche avec draft, re-mesure le fait porteur, pose un verdict (vert/orange/rouge) sans jamais reecrire. Anti-bruit, jamais vert par omission.",
+      "id": "controle",
+      "label": "PHASE C",
+      "name": "Routine de controle (QA 2e lecture)"
+    },
+    {
+      "description": "Briques techniques : MCP Infomaniak mail, sourcing registre (zefix quand API dispo), annuaires pro pour B2B non mappe, suivi du cout par run.",
+      "id": "outillage",
+      "label": "PHASE T",
+      "name": "Outillage & sourcing"
     }
   ],
   "title": "kumo-prospection"

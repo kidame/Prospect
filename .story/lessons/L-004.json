@@ -1,0 +1,18 @@
+{
+  "content": "La routine n'appelle PAS Gmail. Elle ecrit le mail finalise dans le CORPS de la fiche Notion (## Email (brouillon)), coche 'Draft pret', et Thomas copie-colle au reveil. Source unique du mail = Notion.",
+  "context": "La creation de brouillon Gmail demande une approbation cote interface ; a 1h du matin personne n'approuve.",
+  "createdDate": "2026-06-08",
+  "id": "L-004",
+  "lastValidated": "2026-06-08",
+  "reinforcements": 0,
+  "source": "correction",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "gmail",
+    "routine",
+    "notion"
+  ],
+  "title": "Pas de draft Gmail en routine nocturne : ecrire dans Notion",
+  "updatedDate": "2026-06-08"
+}

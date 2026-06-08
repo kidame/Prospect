@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "La v1 du controle ne couvre que le canal EMAIL. Decider si/comment controler les fiches 'a appeler' (angle + joignabilite a verifier).",
+  "id": "T-006",
+  "order": 10,
+  "phase": "controle",
+  "status": "open",
+  "title": "Etendre la routine de controle aux fiches 'a appeler'",
+  "type": "task"
+}

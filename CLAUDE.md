@@ -370,6 +370,19 @@ Notion = dedup + CRM + CONTENU REDIGE (diagnostic + mail pret a copier, dans le 
 fiche) : SOURCE UNIQUE du mail. Repo = dossiers narratifs optionnels. Gmail = Thomas y cree le
 draft a partir du mail Notion (jamais d'envoi auto).
 
+## Storybloq -- memoire du META-travail (PAS les prospects)
+- `.story/` (Storybloq) est la memoire inter-sessions du DEVELOPPEMENT de la machine : roadmap
+  (Vagues A/B), tickets d'amelioration, lecons validees (piliers, niches mortes, regles email),
+  handovers entre sessions de travail. C'est ce qui evite de re-debattre les memes choix.
+- FRONTIERE ABSOLUE : Storybloq ne stocke JAMAIS de donnees prospect. Les prospects (dedup, CRM,
+  diagnostics, mails) vivent dans Notion ; `prospects/` et `printspot/` restent gitignores. La
+  routine nocturne n'a RIEN a ecrire dans `.story/` -- elle continue d'utiliser Notion comme avant.
+- Usage (sessions de travail / dev) : `/story` charge l'etat du projet ; `storybloq status`,
+  `storybloq ticket next`, `storybloq lesson list`. Roadmap = phases `vague-a` -> `vague-b` ->
+  `controle` -> `outillage`. CLI auto-amorcee via npx (voir `.mcp.json` et `.claude/settings.json`).
+- Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de KUMO (voir
+  handover d'installation).
+
 ## Garde-fous
 - Drafts uniquement, jamais d'envoi automatique au prospect. La creation de draft Gmail
   demande l'approbation de l'utilisateur cote interface : en execution nocturne, ecris le mail

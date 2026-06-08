@@ -1,5 +1,9 @@
 {
   "mcpServers": {
+    "storybloq": {
+      "command": "npx",
+      "args": ["-y", "@storybloq/storybloq@1.4.4", "--mcp"]
+    },
     "infomaniak-mail": {
       "command": "python3",
       "args": ["tools/infomaniak_mcp.py"],

@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @storybloq/storybloq@1.4.4 session compact-prepare"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @storybloq/storybloq@1.4.4 session resume-prompt"
+          }
+        ]
+      }
+    ]
+  }
+}

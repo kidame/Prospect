@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "Exploiter les champs Notion deja remplis (Statut pipeline x Signaux opportunite) pour mesurer quels signaux menent a une reponse/devis/signature. Zero saisie en plus. Sortie : ajuster la priorisation des signaux.",
+  "id": "T-003",
+  "order": 30,
+  "phase": "vague-b",
+  "status": "open",
+  "title": "Croisement Statut pipeline x Signaux : quels signaux convertissent",
+  "type": "task"
+}
