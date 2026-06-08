@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "Journaliser le cout estime Apify + DataForSEO dans _resume.md et le mail recap, stop net si le plafond approche.",
+  "id": "T-005",
+  "order": 20,
+  "phase": "outillage",
+  "status": "open",
+  "title": "Suivi du cout par run (plafond ~10 CHF/nuit)",
+  "type": "task"
+}

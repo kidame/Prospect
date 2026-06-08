@@ -1,0 +1,18 @@
+{
+  "content": "Le besoin se lit sur le SERP REEL (pack local + organique) et l'etendue (villes/prestations non captees), jamais sur la perf ni l'OnPage seul. Distinguer 'page existe' de 'page ranke' via le sitemap.",
+  "context": "Erreur classique : conclure depuis un score OnPage ou un compteur global de mots-cles.",
+  "createdDate": "2026-06-08",
+  "id": "L-005",
+  "lastValidated": "2026-06-08",
+  "reinforcements": 0,
+  "source": "manual",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "mesure",
+    "besoin",
+    "serp"
+  ],
+  "title": "OnPage eleve != visible ; ne jamais juger sur un seul compteur",
+  "updatedDate": "2026-06-08"
+}

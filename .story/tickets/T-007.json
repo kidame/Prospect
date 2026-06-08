@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "Verifier sur le 1er run reel des deux routines : (1) npx peut joindre le registre npm depuis l'env routine (sinon ajouter registry.npmjs.org au network policy ou pre-installer) ; (2) git push origin main fonctionne depuis l'env routine (sinon main est protegee -> basculer sur branche storybloq-memory + job de merge) ; (3) pull --rebase evite bien les collisions d'ID entre routine 1h et controle 3h.",
+  "id": "T-007",
+  "order": 30,
+  "phase": "outillage",
+  "status": "open",
+  "title": "Valider la boucle d'auto-amelioration au 1er run nocturne",
+  "type": "task"
+}

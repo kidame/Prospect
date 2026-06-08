@@ -4,13 +4,19 @@ Repo : prospect
 Schedule : tous les jours a 01:00, fuseau Europe/Zurich
 Connecteurs : Apify, DataForSEO, Notion, Gmail (deja connectes dans ton compte)
 
-## Prompt a coller
+## A COLLER dans claude.ai/code/routines (bootstrap court -- ne bouge plus)
 
-Tu executes la machine a prospects KUMO. Lis d'abord CLAUDE.md a la racine du repo et
-suis le process a la lettre. Objectif de ce run : livrer 3 a 5 prospects ultra-qualifies
-ET joignables (email en priorite, telephone en bonus).
+Tu executes la machine a prospects KUMO (routine de 01:00). Lis, dans cet ordre, et suis-les
+A LA LETTRE : (1) CLAUDE.md a la racine du repo (regles de fond : ICP, exclusions, redaction,
+mapping Notion, section Storybloq) ; (2) la section "## PROCESS DU RUN" ci-dessous, dans ce
+fichier ROUTINE_PROMPT.md. Objectif du run : livrer 3 a 5 prospects ultra-qualifies ET
+joignables (email en priorite, telephone en bonus). Plafond ~10 CHF/nuit.
 
-Etapes :
+(Fin du bootstrap a coller. Tout le detail ci-dessous est relu a neuf depuis le repo a chaque
+run : pour changer le comportement, edite ce fichier dans le repo -- inutile de recoller.)
+
+## PROCESS DU RUN
+
 1. Lis CLAUDE.md. Interroge la base Notion "Contacts" (page KUMO Back-office) et recupere
    tous les Place ID deja presents (dedup) pour ne jamais retraiter un etablissement vu.
 2. Choisis un METIER et une ZONE selon le modele de niches de CLAUDE.md. PRIORITE aux PILIERS :
@@ -60,6 +66,18 @@ Etapes :
 9. Envoie un mail recap a hello.puglisi@gmail.com, en 3 blocs : prospects RETENUS (email)
    avec offre ciblee, prospects A APPELER (bonus) avec tel + angle, et REJETES (nb + raisons).
    Ajoute le cout estime du run et les erreurs eventuelles. Objet : "KUMO prospection - AAAA-MM-JJ".
+10. MEMOIRE STORYBLOQ -- auto-amelioration (voir la section Storybloq de CLAUDE.md). Au debut du
+    run, tu PEUX lire la memoire pour mieux decider (`storybloq status`, `storybloq lesson list`,
+    `storybloq note list`). A la fin, SEULEMENT si ce run + l'accumulation font emerger un vrai
+    pattern ou une idee d'amelioration du SYSTEME (pas chaque nuit, sinon tu fais du bruit) : ecris
+    une NOTE-proposition DETAILLEE via `storybloq note create` (tags `proposition` + `routine-1h` +
+    theme ; format dans CLAUDE.md : pattern + accumulation chiffree + changement concret suggere +
+    preuve). References par Place ID / segment, ZERO PII (jamais nom/email/tel). Lis d'abord
+    `storybloq note list` : si la proposition existe deja, mets-la a jour ("vu encore le AAAA-MM-JJ")
+    au lieu de dupliquer. Puis persiste : `git add .story/` (UNIQUEMENT `.story/`) + commit +
+    `git pull --rebase origin main` + `git push origin main`. Tu n'ecris QUE des notes : jamais de
+    lecon, ticket, ni roadmap (ca, c'est les sessions dev de Thomas). Signale dans le mail recap si
+    une proposition a ete deposee (titre) et si le push a echoue.
 
 Contraintes : ne jamais inventer un fait ; joignable obligatoire (ni email ni tel =
 ecarte) ; le besoin se juge sur le SERP reel (pack local + organique) et l'etendue, pas sur

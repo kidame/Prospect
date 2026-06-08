@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "Passer du LOG (Vague A) au FILTRE : ne retenir un prospect que s'il a au moins 1 des 4 signaux (concurrent_double, page_cassee, demande_reelle, receptivite). Mettre a jour CLAUDE.md (etape 5/7) et ROUTINE_PROMPT.md. Definir le comportement si aucun finaliste ne passe le filtre.",
+  "id": "T-001",
+  "order": 10,
+  "phase": "vague-b",
+  "status": "open",
+  "title": "Filtre dur Vague B : retenu seulement si >=1 signal d'opportunite",
+  "type": "task"
+}

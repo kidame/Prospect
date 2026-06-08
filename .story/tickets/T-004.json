@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "Brancher zefix quand l'API arrive ; en attendant annuaires pro / opendata.swiss / assoc de branche. Pour PME industrielle/horlogerie invisibles a Maps. Angle 'etre trouve par vos donneurs d'ordre'.",
+  "id": "T-004",
+  "order": 10,
+  "phase": "outillage",
+  "status": "open",
+  "title": "Sourcing registre (zefix) pour le B2B non mappe",
+  "type": "task"
+}

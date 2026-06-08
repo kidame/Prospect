@@ -1,0 +1,18 @@
+{
+  "content": "Pour les piliers batiment, prevoir que le canal EMAIL echouera souvent -> ne pas jeter un bon prospect faute d'email, le basculer en 'a appeler' (canal bonus). Valider la joignabilite email AVANT d'industrialiser un pilier.",
+  "context": "Constat terrain : sur Maps, beaucoup d'artisans batiment n'exposent qu'un 079, pas d'email.",
+  "createdDate": "2026-06-08",
+  "id": "L-002",
+  "lastValidated": "2026-06-08",
+  "reinforcements": 0,
+  "source": "postmortem",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "email",
+    "batiment",
+    "joignabilite"
+  ],
+  "title": "Le batiment est la pire population sur l'email",
+  "updatedDate": "2026-06-08"
+}

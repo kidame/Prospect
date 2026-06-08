@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-08",
+  "description": "Definir la cadence (combien de prospects/nuit, anti-sur-sollicitation). Formaliser le re-contact : un prospect deja contacte sans reponse n'est re-maile QUE sur declencheur neuf, avec angle different + tag '2e contact'.",
+  "id": "T-002",
+  "order": 20,
+  "phase": "vague-b",
+  "status": "open",
+  "title": "Cadence de contact + garde-fou re-contact",
+  "type": "task"
+}
