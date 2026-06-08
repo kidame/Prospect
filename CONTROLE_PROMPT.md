@@ -181,22 +181,33 @@ Si tout est bon : verdict 🟢 et une ligne "Aucun point a corriger. Envoyable."
 
 ### Memoire Storybloq -- auto-amelioration (voir la section Storybloq de CLAUDE.md)
 
-Tu es le mieux place pour reperer les erreurs QUI REVIENNENT (meme type de salutation a risque,
-"invisible" contre la mesure, "aucune page" non verifie, formules IA recurrentes, email incertain
-non signale). Quand un MEME probleme revient sur plusieurs nuits / fiches : ouvre une ISSUE DETAILLEE
-via `storybloq issue create` -- `--title` "Defaut recurrent: <quoi>", `--severity` (high = ca casse un
-mail envoyable ou un fait porteur faux ; medium = formule IA / hygiene), `--components routine-controle
-<theme>`, `--location` la regle visee (CLAUDE.md ou ROUTINE_PROMPT.md de la 1h), `--impact --stdin` =
-pattern + accumulation CHIFFREE (combien de fiches, sur combien de nuits, references par Place ID /
-segment) + changement concret suggere + preuve. ZERO PII (jamais nom/email/tel). Lis d'abord
-`storybloq issue list --status open` : si elle existe deja, mets-la a jour (`storybloq issue update
-<id>`, "vu encore le AAAA-MM-JJ", monte la severite si ca s'aggrave), ne duplique pas. Puis persiste :
-`git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --rebase origin main` + `git push origin
-main`. Tu n'ouvres QUE des issues (jamais lecon / ticket / roadmap : ca, c'est les sessions dev de Thomas).
+DEBUT DE SESSION (continuite) : `storybloq handover latest --count 3` (ce que la 1h a produit cette
+nuit + les derniers controles + defauts deja vus) et `storybloq issue list --status open` (signalements
+en cours, pour ne pas redire la meme chose).
+
+FIN DE SESSION, dans l'ordre :
+a. SNAPSHOT : `storybloq snapshot`.
+b. HANDOVER (TOUJOURS) : `storybloq handover create --slug run-controle --stdin` avec un resume META :
+   date, N fiches controlees, N 🟢 / 🟠 / 🔴, 1 ligne sur le defaut dominant s'il y en a un. NIVEAU
+   META : compteurs seulement, AUCUN detail prospect (nom/email/tel restent dans Notion). Ne reecris
+   jamais un handover existant.
+c. ISSUE (CONDITIONNELLE) : tu es le mieux place pour reperer les erreurs QUI REVIENNENT (salutation a
+   risque, "invisible" contre la mesure, "aucune page" non verifie, formules IA, email incertain non
+   signale). Quand un MEME probleme revient sur plusieurs nuits / fiches -> `storybloq issue create`
+   (`--title` "Defaut recurrent: <quoi>", `--severity` high = casse un mail envoyable ou un fait porteur
+   faux / medium = formule IA-hygiene, `--components routine-controle <theme>`, `--location` la regle
+   visee (CLAUDE.md ou ROUTINE_PROMPT.md de la 1h), `--impact --stdin` = pattern + accumulation CHIFFREE
+   (combien de fiches, sur combien de nuits, refs par Place ID / segment) + changement suggere + preuve).
+   ZERO PII. Lis d'abord `storybloq issue list --status open` : si elle existe, `storybloq issue update
+   <id>` ("vu encore le AAAA-MM-JJ", monte la severite si ca s'aggrave), pas de doublon. Tu n'ouvres QUE
+   des issues (jamais lecon / ticket / roadmap : sessions dev de Thomas).
+d. PERSISTE : `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --rebase origin main` +
+   `git push origin main` (push echoue -> refais pull --rebase + push ; sinon laisse pour cette nuit).
 
 Ca ne change RIEN a ta regle de LECTURE SEULE : elle concerne les FICHES prospect Notion (tu ne
-reecris jamais un mail ni un diagnostic). Les issues Storybloq sont ton seul carnet d'amelioration du
-systeme, separe des fiches. Budget : l'issue + le push sont quasi gratuits ; reste sous ton plafond.
+reecris jamais un mail ni un diagnostic). Le handover + les issues Storybloq sont ton carnet de
+continuite/amelioration du systeme, separe des fiches. Budget : snapshot + handover + push sont quasi
+gratuits ; reste sous ton plafond.
 
 ---
 

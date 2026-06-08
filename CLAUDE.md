@@ -321,7 +321,10 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
   tri (cout/temps ; CrUX = souvent "donnees insuffisantes" sur petites PME).
 
 ## Regle de rotation (priorite aux PILIERS)
-- Note le couple (metier, zone) de chaque run dans _resume.md.
+- MEMOIRE DE ROTATION = les handovers Storybloq (versionnes, persistants), PAS `_resume.md` (gitignore,
+  perdu avec le conteneur). Debut de run : `storybloq handover latest --count 3` -> ne refais pas un
+  couple (metier, zone) deja couvert ces derniers runs. Fin de run : le handover note le couple traite
+  + le prochain a couvrir (voir section Storybloq). `_resume.md` reste un journal local lisible, sans plus.
 - PRIORITE : passe le plus de nuits sur les PILIERS (batiment/agencement, transition energetique),
   croises avec les zones a forte demande (Lausanne, Geneve, Fribourg, Neuchatel). Les piliers
   meritent la repetition -- c'est la qu'on construit l'actif (etudes de cas, templates, referral interne).
@@ -381,6 +384,18 @@ FRONTIERE (apprentissage vs PII) :
   regles). JAMAIS de coordonnees prospect. Pour citer un cas, reference par Place ID / segment
   (metier x zone), JAMAIS nom-email-telephone. Les donnees prospect (dedup, CRM, diagnostics, mails)
   restent dans Notion ; `prospects/` et `printspot/` restent gitignores.
+
+HANDOVER (la fonction phare : continuite entre sessions). Un handover = un compte-rendu narratif de
+fin de session, versionne et pousse, que la session SUIVANTE relit pour repartir avec le contexte.
+Boucle canonique Storybloq, valable pour CHAQUE session (les 2 routines ET les sessions dev) :
+- DEBUT : `storybloq handover latest --count 3` (+ `storybloq status` / `issue list --status open`)
+  pour savoir ce qui a ete fait recemment AVANT d'agir.
+- FIN : `storybloq snapshot` PUIS `storybloq handover create --slug <run-1h|run-controle|dev-...> --stdin`.
+Regles : un handover est APPEND-ONLY -- on en cree toujours un NOUVEAU, on ne reecrit JAMAIS un
+existant. Contenu des routines = NIVEAU META seulement (segment metier x zone, compteurs, cout,
+observations systeme, prochain segment a couvrir) ; AUCUN detail prospect (ca vit dans Notion). C'est
+le handover -- versionne -- qui porte la MEMOIRE DE ROTATION (quel couple deja couvert), pas `_resume.md`
+qui est gitignore et disparait avec le conteneur.
 
 QUI ECRIT QUOI (c'est ce qui empeche de polluer la memoire) :
 - Les ROUTINES nocturnes (1h et controle 3h) ouvrent UNIQUEMENT des ISSUES (`storybloq issue create`)
