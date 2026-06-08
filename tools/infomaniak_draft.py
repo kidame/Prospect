@@ -57,9 +57,31 @@ from email.utils import formatdate, make_msgid
 
 DEFAULT_HOST = "mail.infomaniak.com"
 DEFAULT_PORT = 993
+# Login Infomaniak par defaut de la boite KUMO. Surchargeable via l'env / le .env.
+DEFAULT_USER = "thomas.puglisi@kumo-seo.ch"
 # Noms de dossier "Brouillons" frequents, par ordre de preference si la
 # detection par flag \Drafts echoue.
 DRAFT_FOLDER_FALLBACKS = ["Drafts", "Brouillons", "INBOX.Drafts", "INBOX.Brouillons"]
+
+
+def load_env_file(path: str = ".env") -> None:
+    """Charge un .env minimal (cle=valeur par ligne) sans dependance externe.
+
+    Ne remplace jamais une variable deja presente dans l'environnement.
+    Le .env est gitignore : il porte le mot de passe en local, jamais sur GitHub.
+    """
+    if not os.path.exists(path):
+        return
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, _, val = line.partition("=")
+            key = key.strip()
+            val = val.strip().strip('"').strip("'")
+            if key and key not in os.environ:
+                os.environ[key] = val
 
 
 def _need(name: str) -> str:
@@ -67,6 +89,15 @@ def _need(name: str) -> str:
     if not val:
         sys.exit(f"[erreur] variable d'environnement manquante : {name}")
     return val
+
+
+def _user() -> str:
+    """Login IMAP : env INFOMANIAK_IMAP_USER, sinon le defaut KUMO."""
+    return os.environ.get("INFOMANIAK_IMAP_USER") or DEFAULT_USER
+
+
+def _password() -> str:
+    return _need("INFOMANIAK_IMAP_PASSWORD")
 
 
 def build_message(to_addr: str, subject: str, body: str, from_addr: str) -> EmailMessage:
@@ -143,10 +174,11 @@ def detect_drafts_folder(imap: imaplib.IMAP4_SSL) -> str:
 
 
 def list_folders() -> None:
+    load_env_file()
     host = os.environ.get("INFOMANIAK_IMAP_HOST", DEFAULT_HOST)
     port = int(os.environ.get("INFOMANIAK_IMAP_PORT", DEFAULT_PORT))
-    user = _need("INFOMANIAK_IMAP_USER")
-    pwd = _need("INFOMANIAK_IMAP_PASSWORD")
+    user = _user()
+    pwd = _password()
     with imaplib.IMAP4_SSL(host, port) as imap:
         imap.login(user, pwd)
         typ, data = imap.list()
@@ -162,8 +194,8 @@ def list_folders() -> None:
 def append_draft(msg: EmailMessage, retries: int = 3) -> None:
     host = os.environ.get("INFOMANIAK_IMAP_HOST", DEFAULT_HOST)
     port = int(os.environ.get("INFOMANIAK_IMAP_PORT", DEFAULT_PORT))
-    user = _need("INFOMANIAK_IMAP_USER")
-    pwd = _need("INFOMANIAK_IMAP_PASSWORD")
+    user = _user()
+    pwd = _password()
 
     raw = msg.as_bytes()
     last_err: Exception | None = None
@@ -201,6 +233,7 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--dry-run", action="store_true", help="imprime le mail genere, n'ouvre aucune connexion")
     p.add_argument("--list-folders", action="store_true", help="liste les dossiers IMAP et sort")
     args = p.parse_args(argv)
+    load_env_file()
 
     if args.list_folders:
         list_folders()
@@ -231,8 +264,7 @@ def main(argv: list[str] | None = None) -> None:
     from_addr = (
         args.from_addr
         or os.environ.get("INFOMANIAK_FROM")
-        or os.environ.get("INFOMANIAK_IMAP_USER")
-        or "moi@exemple.ch"  # placeholder visible uniquement en --dry-run sans config
+        or _user()
     )
 
     msg = build_message(args.to, subject, body, from_addr)

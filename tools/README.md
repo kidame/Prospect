@@ -1,55 +1,77 @@
 # tools/
 
-Petits utilitaires hors routine nocturne.
+Petits utilitaires pour deposer les mails de la routine en BROUILLON dans la boite Infomaniak
+(`thomas.puglisi@kumo-seo.ch`). Aucun envoi : la revue manuelle reste.
 
-## infomaniak_draft.py — deposer un brouillon dans la boite Infomaniak
+Deux voies, selon l'endroit ou ca tourne.
 
-Pose un mail finalise (objet + corps) en **brouillon** dans le dossier Brouillons d'une
-boite Infomaniak, via IMAP `APPEND` + flag `\Draft`. Aucun envoi : la revue manuelle reste.
-Objectif : que le mail redige par la routine soit pret a envoyer directement dans la boite
-mail, sans copier-coller depuis Notion.
+## 1. infomaniak_draft_api.py — API mail HTTPS (VOIE PRINCIPALE, marche depuis le web)
 
-### Contrainte reseau (a lire absolument)
+Cree le brouillon via l'API mail kMail en **HTTPS (443)**. Donc ca marche **depuis l'app web /
+la routine nocturne cloud**, sans VPS ni pont.
 
-L'environnement cloud de Claude Code (ou tourne la routine nocturne) ne laisse sortir que le
-**HTTP/HTTPS (443)** via un proxy. Les ports **IMAP 993 / SMTP 465-587 sont bloques** et le
-restent meme en network access "Custom" (l'allowlist ouvre des domaines pour le proxy HTTP/S,
-pas un port TCP brut). **Donc ce script ne peut pas tourner depuis la routine cloud.** Il doit
-s'executer la ou le 993 est ouvert :
-
-- le **VPS Infomaniak** en cron (recommande), ou
-- une **machine perso** (terminal local / `claude --teleport`).
-
-Le mode `--dry-run` n'ouvre aucune connexion : il imprime le mail genere et marche partout
-(utile pour tester l'encodage).
-
-### Configuration (variables d'environnement)
-
-| Variable                   | Role                                              | Defaut               |
-| -------------------------- | ------------------------------------------------- | -------------------- |
-| `INFOMANIAK_IMAP_USER`     | login = adresse mail complete (REQUIS)            | —                    |
-| `INFOMANIAK_IMAP_PASSWORD` | mot de passe app/boite (REQUIS)                   | —                    |
-| `INFOMANIAK_IMAP_HOST`     | serveur IMAP                                      | `mail.infomaniak.com`|
-| `INFOMANIAK_IMAP_PORT`     | port IMAPS                                         | `993`                |
-| `INFOMANIAK_FROM`          | From affiche, ex. `Thomas Puglisi <thomas@...>`   | = `INFOMANIAK_IMAP_USER` |
-| `INFOMANIAK_DRAFTS_FOLDER` | force le nom du dossier (sinon auto `\Drafts`)    | auto-detection       |
-
-### Exemples
-
-```bash
-# 1) Verifier le mail genere sans rien envoyer (aucune connexion)
-python3 tools/infomaniak_draft.py --to x@y.ch --subject "Test" --body "Bonjour," --dry-run
-
-# 2) Lister les dossiers IMAP (pour reperer le dossier Brouillons)
-python3 tools/infomaniak_draft.py --list-folders
-
-# 3) Depuis un fichier "fiche" : 1re ligne "Objet : ...", le reste = corps
-python3 tools/infomaniak_draft.py --to prospect@exemple.ch --from-file mail.txt
-
-# 4) Arguments directs, corps sur stdin
-python3 tools/infomaniak_draft.py --to prospect@exemple.ch \
-    --subject "Votre visibilite a Neuchatel" --body-stdin < corps.txt
+```
+POST https://mail.infomaniak.com/api/mail/{mailboxUuid}/draft
+Authorization: Bearer <INFOMANIAK_API_TOKEN>
+Body: {to, cc, bcc, subject, body, mime_type, action:"save"}
 ```
 
-Le format "fiche" colle au bloc `## Email (brouillon)` des fiches Notion : 1re ligne
-`Objet : ...`, ligne vide, puis le corps. On peut donc coller le contenu Notion tel quel.
+Cette route est celle des apps officielles **kMail** (open source, GPL : github.com/Infomaniak/
+android-kMail). Elle n'est **pas** documentee sur le portail developpeur public (qui ne couvre
+que l'admin des boites), mais elle est stable en pratique (la prod Infomaniak en depend). Si un
+jour elle casse, le repli est l'IMAP (voir plus bas).
+
+### A faire une fois : creer un jeton API
+1. manager.infomaniak.com -> section **Developpeur / Jetons API** -> nouveau jeton, scope **mail**.
+2. Ajoute-le comme variable d'environnement **`INFOMANIAK_API_TOKEN`** (cote routine/web : meme
+   endroit que `INFOMANIAK_IMAP_PASSWORD` ; en local : dans `.env`).
+
+### Usage
+```bash
+# voir la requete sans token ni reseau
+python3 tools/infomaniak_draft_api.py --to x@y.ch --subject Test --body "Bonjour," --dry-run
+
+# verifier le token + trouver le mailboxUuid
+python3 tools/infomaniak_draft_api.py --list-mailboxes
+
+# depuis le bloc Notion (1re ligne "Objet : ...", ligne vide, puis le corps)
+python3 tools/infomaniak_draft_api.py --to prospect@exemple.ch --from-file mail.txt
+```
+
+| Variable                  | Role                                                | Defaut                       |
+| ------------------------- | --------------------------------------------------- | ---------------------------- |
+| `INFOMANIAK_API_TOKEN`    | jeton API scope `mail` (REQUIS)                     | —                            |
+| `INFOMANIAK_MAIL_ADDRESS` | boite source (pour trouver le mailboxUuid)          | `thomas.puglisi@kumo-seo.ch` |
+| `INFOMANIAK_MAILBOX_UUID` | force l'uuid (court-circuite la resolution auto)    | auto via l'API               |
+| `INFOMANIAK_MAIL_API`     | host de l'API mail                                  | `https://mail.infomaniak.com`|
+
+## 2. infomaniak_draft.py — IMAP APPEND (REPLI, hors cloud uniquement)
+
+Depose le brouillon via IMAP `APPEND` + flag `\Draft`. **Ne marche PAS depuis le cloud/web** :
+le port IMAP 993 y est bloque par le proxy (seul le HTTP/HTTPS sort). A n'utiliser que la ou le
+993 est ouvert : VPS Infomaniak ou machine perso. Utile comme secours si l'API mail change.
+
+```bash
+python3 tools/infomaniak_draft.py --to prospect@exemple.ch --from-file mail.txt   # depose
+python3 tools/infomaniak_draft.py --list-folders                                  # diag dossiers
+python3 tools/infomaniak_draft.py --to x@y.ch --subject T --body "Bonjour," --dry-run
+```
+
+| Variable                   | Role                                   | Defaut                       |
+| -------------------------- | -------------------------------------- | ---------------------------- |
+| `INFOMANIAK_IMAP_PASSWORD` | mot de passe boite (REQUIS)            | —                            |
+| `INFOMANIAK_IMAP_USER`     | login = adresse complete               | `thomas.puglisi@kumo-seo.ch` |
+| `INFOMANIAK_FROM`          | From affiche                           | = l'adresse ci-dessus        |
+| `INFOMANIAK_IMAP_HOST` / `INFOMANIAK_IMAP_PORT` | serveur / port            | `mail.infomaniak.com` / `993`|
+| `INFOMANIAK_DRAFTS_FOLDER` | force le dossier Brouillons            | auto (`\Drafts`)             |
+
+## Format "fiche"
+
+Les deux scripts lisent le meme format, calque sur le bloc `## Email (brouillon)` des fiches
+Notion : 1re ligne `Objet : ...`, une ligne vide, puis le corps. On colle le contenu Notion tel quel.
+
+## .env (local seulement)
+
+`cp tools/.env.example .env` a la racine, remplis les secrets. `.env` est gitignore (jamais sur
+GitHub). Les scripts le chargent automatiquement. En cloud/web, les memes variables se mettent
+cote environnement de la routine (pas de `.env`).
