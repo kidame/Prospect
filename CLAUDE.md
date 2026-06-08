@@ -395,16 +395,38 @@ PERSISTANCE (sinon une note ecrite cette nuit disparait avec le conteneur epheme
 - A la fin du run, SI une note a ete creee : `git add .story/` (UNIQUEMENT `.story/`, jamais `-A`),
   commit, puis `git pull --rebase origin main` et `git push origin main`. Pull-before-push
   OBLIGATOIRE : les deux routines tournent a 2h d'ecart et partagent `.story/` ; rebaser avant de
-  pousser evite les collisions d'ID de notes. Si le push echoue (branche protegee), bascule sur une
-  branche `storybloq-memory` et signale-le dans le mail recap.
+  pousser evite les collisions d'ID de notes. Si le push echoue, refais pull --rebase + push ; s'il
+  echoue encore, laisse tomber pour cette nuit (la note repartira au prochain run). PAS d'email : la
+  memoire Storybloq est un canal SEPARE, consulte a la demande (pull), jamais pousse par mail.
 
 FORMAT d'une note-proposition (detaillee, factuelle, zero PII) :
 Titre court "Proposition: <quoi>". Tags : `proposition` + `routine-1h` ou `routine-controle` + theme.
 Corps markdown : (1) PATTERN observe + sur quelle accumulation (combien de runs / fiches, references
 par Place ID ou segment) ; (2) IDEE d'amelioration ; (3) CHANGEMENT concret suggere (quel fichier /
 regle : CLAUDE.md ? prompt ? tool ?) ; (4) PREUVE (faits mesures, zero invention, zero PII).
-AVANT d'en creer une : lis les notes existantes (`storybloq note list`). Si la meme idee existe deja,
-ne duplique PAS -> ajoute "vu encore le AAAA-MM-JJ" via `storybloq note update`.
+AVANT d'en creer une : lis les notes existantes (`storybloq note list --tag proposition`). Si la meme
+idee existe deja, ne duplique PAS -> ajoute "vu encore le AAAA-MM-JJ" via `storybloq note update`.
+
+REVISION & ASSIMILATION (a la demande, en session DEV -- jamais une routine ; c'est ici qu'on decide
+ce qui devient durable). Quand Thomas dit "montre / revise les propositions", deroule ce rituel :
+1. INVENTAIRE : `storybloq note list --tag proposition --status active`. Affiche chaque proposition
+   (titre + idee + accumulation + changement suggere). Note la DATE de la plus recente : si aucune note
+   neuve depuis plusieurs nuits alors que les routines tournent, SOUPCONNE un push casse (cf. T-007) et
+   dis-le -- le silence n'est pas une preuve que tout va bien.
+2. CONTROLE de pertinence (la barre, pour ne pas assimiler du bruit). Une proposition ne devient
+   durable que si : (a) RECURRENTE (vue sur >=2-3 nuits / plusieurs fiches, pas un coup isole) OU
+   (b) VERIFIABLE -- recoupe-la contre la realite (Notion, une re-mesure SERP) avant de la croire.
+   Une idee jolie mais non prouvee -> reste en note, pas en lecon.
+3. DECISION par proposition, annoncee a Thomas avant d'ecrire :
+   - PERTINENTE + reglante -> `storybloq lesson create` (regle durable) et/ou `storybloq ticket create`
+     (travail a faire) ; si elle renforce une lecon existante -> `storybloq lesson reinforce <id>`.
+     Si elle implique d'editer CLAUDE.md / un prompt, fais l'edition (c'est une session dev).
+   - PAS RETENUE -> dis pourquoi.
+   Puis, dans les deux cas, VIDE l'inbox : `storybloq note update <id> --status archived` (la note reste
+   tracable mais sort de la boite active). Ainsi l'inbox = seulement le non-traite.
+4. Commit + push de `.story/` (session dev = push normal, via branche/PR comme d'habitude).
+Resultat : les routines ALIMENTENT (notes), toi tu VALIDES et ASSIMILES (lecons/tickets), l'inbox
+reste propre, et rien de non prouve ne contamine les regles que la machine applique.
 
 Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de KUMO (voir handover).
 

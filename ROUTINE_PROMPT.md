@@ -73,11 +73,13 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
     une NOTE-proposition DETAILLEE via `storybloq note create` (tags `proposition` + `routine-1h` +
     theme ; format dans CLAUDE.md : pattern + accumulation chiffree + changement concret suggere +
     preuve). References par Place ID / segment, ZERO PII (jamais nom/email/tel). Lis d'abord
-    `storybloq note list` : si la proposition existe deja, mets-la a jour ("vu encore le AAAA-MM-JJ")
-    au lieu de dupliquer. Puis persiste : `git add .story/` (UNIQUEMENT `.story/`) + commit +
-    `git pull --rebase origin main` + `git push origin main`. Tu n'ecris QUE des notes : jamais de
-    lecon, ticket, ni roadmap (ca, c'est les sessions dev de Thomas). Signale dans le mail recap si
-    une proposition a ete deposee (titre) et si le push a echoue.
+    `storybloq note list --tag proposition` : si la proposition existe deja, mets-la a jour
+    (`storybloq note update`, ajoute "vu encore le AAAA-MM-JJ") au lieu de dupliquer. Puis persiste :
+    `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --rebase origin main` +
+    `git push origin main` (si le push echoue, refais un pull --rebase et un push ; sinon laisse, la
+    note repartira au prochain run). Tu n'ecris QUE des notes : jamais de lecon, ticket, ni roadmap
+    (ca, c'est les sessions dev de Thomas). N'EN PARLE PAS dans le mail recap : la memoire Storybloq
+    est un canal separe, consulte a la demande par Thomas (`storybloq note list`), pas par email.
 
 Contraintes : ne jamais inventer un fait ; joignable obligatoire (ni email ni tel =
 ecarte) ; le besoin se juge sur le SERP reel (pack local + organique) et l'etendue, pas sur
