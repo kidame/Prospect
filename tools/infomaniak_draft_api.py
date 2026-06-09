@@ -40,8 +40,10 @@ Exemples
 from __future__ import annotations
 
 import argparse
+import html as _htmllib
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -140,6 +142,52 @@ def get_message(uuid: str, folder_id: str, short_uid: str) -> dict:
     short = str(short_uid).split("@", 1)[0]
     res = _request("GET", f"{_api_base()}/api/mail/{uuid}/folder/{folder_id}/message/{short}")
     return res.get("data", res)
+
+
+def load_signature() -> str:
+    """Lit la signature HTML (tools/signature.html) si presente, sinon chaine vide.
+
+    Pourquoi : un brouillon cree par l'API ne declenche PAS l'insertion auto de la signature
+    du webmail. On l'embarque donc nous-memes dans le corps HTML.
+    """
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "signature.html")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return f.read().strip()
+    except OSError:
+        return ""
+
+
+def _text_to_paragraphs(corps: str) -> str:
+    """Transforme un corps texte (accents OK) en paragraphes HTML.
+
+    Le webmail/app Infomaniak avale les sauts de ligne d'un corps text/plain (tout arrive en
+    un bloc). On envoie donc du HTML : un <p> par paragraphe. Separateur de paragraphe = ligne
+    vide ; a defaut (corps a simples retours a la ligne), chaque ligne non vide devient un <p>.
+    Le texte est echappe (anti-injection HTML) ; les retours simples internes -> <br>.
+    """
+    text = corps.strip()
+    blocks = [b.strip() for b in re.split(r"\n[ \t]*\n", text) if b.strip()]
+    if len(blocks) <= 1:
+        blocks = [ln.strip() for ln in text.split("\n") if ln.strip()]
+    out = []
+    for b in blocks:
+        safe = _htmllib.escape(b).replace("\n", "<br>")
+        out.append(f'<p style="margin:0 0 14px 0;">{safe}</p>')
+    return "".join(out)
+
+
+def build_html_email(corps: str, with_signature: bool = True) -> str:
+    """Corps HTML complet : paragraphes propres + (optionnel) la signature KUMO."""
+    inner = _text_to_paragraphs(corps)
+    if with_signature:
+        sig = load_signature()
+        if sig:
+            inner += sig
+    return (
+        "<div style=\"font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"
+        'font-size:14px;color:#1a1423;line-height:1.5;">' + inner + "</div>"
+    )
 
 
 def build_draft_body(to_addr: str, subject: str, body: str, mime_type: str) -> dict:
