@@ -208,6 +208,16 @@ def create_draft(address: str, draft_body: dict) -> dict:
     return res
 
 
+def delete_draft(address: str, draft_uuid: str) -> dict:
+    """Supprime un brouillon par son UUID de ressource (celui renvoye par create_draft).
+
+    Cible la ressource 'draft' precise -> aucun risque de toucher un autre message/dossier.
+    """
+    uuid = resolve_mailbox_uuid(address)
+    url = f"{_api_base()}/api/mail/{uuid}/draft/{draft_uuid}"
+    return _request("DELETE", url)
+
+
 def main(argv: list[str] | None = None) -> None:
     p = argparse.ArgumentParser(description="Cree un brouillon Infomaniak via l'API mail HTTPS.")
     p.add_argument("--to", help="adresse du destinataire (le prospect)")

@@ -37,6 +37,7 @@ from infomaniak_draft_api import (  # noqa: E402
     build_draft_body,
     build_html_email,
     create_draft,
+    delete_draft,
     get_message,
     get_messages,
     list_folders,
@@ -133,6 +134,15 @@ def tool_creer_brouillon(args: dict) -> str:
     return f"Brouillon cree dans {_address()} pour {to}." + (f" (uuid {uuid})" if uuid else "")
 
 
+def tool_supprimer_brouillon(args: dict) -> str:
+    uuid = (args.get("uuid") or args.get("draft_uuid") or "").strip()
+    if not uuid:
+        raise InfomaniakError("'uuid' du brouillon obligatoire (celui renvoye par creer_brouillon).")
+    res = delete_draft(_address(), uuid)
+    ok = res.get("result") if isinstance(res, dict) else res
+    return f"Brouillon {uuid} supprime de {_address()} (resultat : {ok})."
+
+
 def _expediteur(item: dict) -> str:
     frm = item.get("from") or item.get("sender") or []
     if isinstance(frm, list) and frm:
@@ -206,6 +216,20 @@ TOOLS = {
                 "signature": {"type": "boolean", "description": "ajouter la signature KUMO en HTML (defaut: true ; ignore si html=false)"},
             },
             "required": ["to", "objet", "corps"],
+        },
+    },
+    "supprimer_brouillon": {
+        "fn": tool_supprimer_brouillon,
+        "description": (
+            "Supprime un BROUILLON par son UUID de ressource (celui renvoye par creer_brouillon). "
+            "Cible la ressource draft precise : aucun risque pour les autres messages."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "uuid": {"type": "string", "description": "UUID du brouillon (renvoye par creer_brouillon)"},
+            },
+            "required": ["uuid"],
         },
     },
     "lister_messages": {
