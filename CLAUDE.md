@@ -101,6 +101,17 @@ un email pour ceux qui ont un email. Qualite avant quantite.
 - Dedup + CRM : Notion, base "Contacts" (page KUMO Back-office).
 - Brouillons : Gmail (drafts uniquement ; la creation de draft demande l'approbation de
   l'utilisateur cote interface, voir Garde-fous).
+- Brouillons Infomaniak (boite thomas.puglisi@kumo-seo.ch) : connecteur MCP `infomaniak-mail`,
+  outil `creer_brouillon`. REGLE pour ne JAMAIS reproduire les erreurs de rendu :
+  * Passe le corps en TEXTE BRUT avec accents, un paragraphe par ligne vide. RIEN d'autre.
+  * NE colle PAS de HTML (`<div>`, `<br>`...) et N'AJOUTE PAS la signature a la main : le
+    connecteur met en page en HTML (un `<p>` par paragraphe) ET ajoute la signature KUMO
+    (`tools/signature.html`) automatiquement. Un pied de signature texte deja present dans le
+    corps (Thomas / KUMO - kumo-seo.ch / tel) est retire tout seul -> jamais de double signature.
+  * Defaut = HTML formate + signature. `html=false` seulement si tu veux du texte brut sans
+    signature (cas rare). Pour supprimer un brouillon : `supprimer_brouillon` (uuid renvoye a la
+    creation). NB : le webmail Infomaniak avale les sauts de ligne d'un text/plain -> c'est
+    pourquoi on envoie du HTML ; ne repasse pas en text/plain "pour faire simple".
 
 ## Process (entonnoir)
 1. LECTURE MEMOIRE

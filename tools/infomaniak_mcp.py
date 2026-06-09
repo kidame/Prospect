@@ -35,7 +35,9 @@ from infomaniak_draft_api import (  # noqa: E402
     DEFAULT_ADDRESS,
     InfomaniakError,
     build_draft_body,
+    build_html_email,
     create_draft,
+    delete_draft,
     get_message,
     get_messages,
     list_folders,
@@ -113,11 +115,16 @@ def tool_creer_brouillon(args: dict) -> str:
     corps = args.get("corps") or args.get("body") or ""
     if not to or not objet or not corps.strip():
         raise InfomaniakError("'to', 'objet' et 'corps' sont obligatoires.")
-    html = bool(args.get("html"))
-    mime = "text/html" if html else "text/plain"
-    if html:
-        corps = corps.replace("\n", "<br>\n")
-    body = build_draft_body(to, objet, corps, mime)
+    # Defaut = HTML : le webmail/app Infomaniak avale les sauts de ligne d'un text/plain
+    # (le corps arrive en un bloc, sans mise en page). En HTML, paragraphes + signature OK.
+    # Pour forcer le texte brut (sans signature), passer html=false.
+    plain = args.get("html") is False
+    signature = args.get("signature", True)
+    if plain:
+        mime, body_text = "text/plain", corps
+    else:
+        mime, body_text = "text/html", build_html_email(corps, bool(signature))
+    body = build_draft_body(to, objet, body_text, mime)
     cc = args.get("cc") or []
     if isinstance(cc, list) and cc:
         body["cc"] = [{"email": str(a), "name": ""} for a in cc]
@@ -125,6 +132,15 @@ def tool_creer_brouillon(args: dict) -> str:
     data = res.get("data", res) if isinstance(res, dict) else {}
     uuid = data.get("uuid") if isinstance(data, dict) else None
     return f"Brouillon cree dans {_address()} pour {to}." + (f" (uuid {uuid})" if uuid else "")
+
+
+def tool_supprimer_brouillon(args: dict) -> str:
+    uuid = (args.get("uuid") or args.get("draft_uuid") or "").strip()
+    if not uuid:
+        raise InfomaniakError("'uuid' du brouillon obligatoire (celui renvoye par creer_brouillon).")
+    res = delete_draft(_address(), uuid)
+    ok = res.get("result") if isinstance(res, dict) else res
+    return f"Brouillon {uuid} supprime de {_address()} (resultat : {ok})."
 
 
 def _expediteur(item: dict) -> str:
@@ -185,18 +201,35 @@ TOOLS = {
         "fn": tool_creer_brouillon,
         "description": (
             "Cree un BROUILLON pret a envoyer dans la boite Infomaniak (aucun envoi). "
-            "Utilise pour deposer le mail d'un prospect, pret a relire et envoyer."
+            "Utilise pour deposer le mail d'un prospect, pret a relire et envoyer. "
+            "Par defaut : corps en HTML (paragraphes propres + signature KUMO), car le webmail "
+            "Infomaniak avale les sauts de ligne d'un texte brut."
         ),
         "inputSchema": {
             "type": "object",
             "properties": {
                 "to": {"type": "string", "description": "adresse du destinataire"},
                 "objet": {"type": "string", "description": "objet du mail"},
-                "corps": {"type": "string", "description": "corps du mail (texte, accents OK)"},
+                "corps": {"type": "string", "description": "corps du mail (texte avec accents ; un paragraphe par ligne vide). NE PAS inclure la signature : elle est ajoutee automatiquement."},
                 "cc": {"type": "array", "items": {"type": "string"}, "description": "copies (optionnel)"},
-                "html": {"type": "boolean", "description": "corps en HTML (defaut: texte brut)"},
+                "html": {"type": "boolean", "description": "true/omis = HTML formate (defaut). false = texte brut sans signature."},
+                "signature": {"type": "boolean", "description": "ajouter la signature KUMO en HTML (defaut: true ; ignore si html=false)"},
             },
             "required": ["to", "objet", "corps"],
+        },
+    },
+    "supprimer_brouillon": {
+        "fn": tool_supprimer_brouillon,
+        "description": (
+            "Supprime un BROUILLON par son UUID de ressource (celui renvoye par creer_brouillon). "
+            "Cible la ressource draft precise : aucun risque pour les autres messages."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "uuid": {"type": "string", "description": "UUID du brouillon (renvoye par creer_brouillon)"},
+            },
+            "required": ["uuid"],
         },
     },
     "lister_messages": {

@@ -40,8 +40,10 @@ Exemples
 from __future__ import annotations
 
 import argparse
+import html as _htmllib
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -142,6 +144,89 @@ def get_message(uuid: str, folder_id: str, short_uid: str) -> dict:
     return res.get("data", res)
 
 
+def load_signature() -> str:
+    """Lit la signature HTML (tools/signature.html) si presente, sinon chaine vide.
+
+    Pourquoi : un brouillon cree par l'API ne declenche PAS l'insertion auto de la signature
+    du webmail. On l'embarque donc nous-memes dans le corps HTML.
+    """
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "signature.html")
+    try:
+        with open(path, encoding="utf-8") as f:
+            return f.read().strip()
+    except OSError:
+        return ""
+
+
+def _text_to_paragraphs(corps: str) -> str:
+    """Transforme un corps texte (accents OK) en paragraphes HTML.
+
+    Le webmail/app Infomaniak avale les sauts de ligne d'un corps text/plain (tout arrive en
+    un bloc). On envoie donc du HTML : un <p> par paragraphe. Separateur de paragraphe = ligne
+    vide ; a defaut (corps a simples retours a la ligne), chaque ligne non vide devient un <p>.
+    Le texte est echappe (anti-injection HTML) ; les retours simples internes -> <br>.
+    """
+    text = corps.strip()
+    blocks = [b.strip() for b in re.split(r"\n[ \t]*\n", text) if b.strip()]
+    if len(blocks) <= 1:
+        blocks = [ln.strip() for ln in text.split("\n") if ln.strip()]
+    out = []
+    for b in blocks:
+        safe = _htmllib.escape(b).replace("\n", "<br>")
+        out.append(f'<p style="margin:0 0 14px 0;">{safe}</p>')
+    return "".join(out)
+
+
+def _is_signoff_line(line: str) -> bool:
+    """Vrai si la ligne est un pied de signature texte (a retirer avant la signature HTML)."""
+    s = line.strip()
+    if not s:
+        return True
+    t = s.lower().rstrip(".,").strip()
+    if t in {
+        "thomas", "thomas puglisi", "thomas, kumo", "thomas / kumo",
+        "bien a vous", "bien à vous", "cordialement", "a bientot", "à bientôt",
+        "a votre disposition", "à votre disposition",
+    }:
+        return True
+    if "kumo" in t and len(s) <= 70:  # "KUMO - kumo-seo.ch", "kumo-seo.ch", ...
+        return True
+    if re.fullmatch(r"\+?[\d][\d\s().\-]{6,}", s):  # ligne de telephone
+        return True
+    return False
+
+
+def _strip_trailing_signoff(text: str) -> str:
+    """Enleve le pied de signature texte en fin de corps (Thomas / KUMO / tel / 'Bien a vous').
+
+    Pourquoi : les mails rediges (Notion) finissent par 'Thomas / KUMO - kumo-seo.ch'. Comme on
+    ajoute ensuite la signature HTML riche, on eviterait sinon une signature EN DOUBLE. On ne
+    retire que les lignes finales qui matchent un pied connu : le corps reel n'est jamais touche.
+    """
+    lines = text.rstrip("\n").split("\n")
+    while lines and _is_signoff_line(lines[-1]):
+        lines.pop()
+    return "\n".join(lines).rstrip()
+
+
+def build_html_email(corps: str, with_signature: bool = True) -> str:
+    """Corps HTML complet : paragraphes propres + (optionnel) la signature KUMO.
+
+    Robuste : si le corps inclut deja un pied de signature texte (Thomas / KUMO / tel), il est
+    retire avant d'ajouter la signature HTML -> jamais de double signature.
+    """
+    text = _strip_trailing_signoff(corps) if with_signature else corps
+    inner = _text_to_paragraphs(text)
+    if with_signature:
+        sig = load_signature()
+        if sig:
+            inner += sig
+    return (
+        "<div style=\"font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"
+        'font-size:14px;color:#1a1423;line-height:1.5;">' + inner + "</div>"
+    )
+
+
 def build_draft_body(to_addr: str, subject: str, body: str, mime_type: str) -> dict:
     # NB : l'API refuse cc/bcc vides ("must have at least 1 items") -> on les OMET quand vides.
     return {
@@ -158,6 +243,16 @@ def create_draft(address: str, draft_body: dict) -> dict:
     url = f"{_api_base()}/api/mail/{uuid}/draft"
     res = _request("POST", url, draft_body)
     return res
+
+
+def delete_draft(address: str, draft_uuid: str) -> dict:
+    """Supprime un brouillon par son UUID de ressource (celui renvoye par create_draft).
+
+    Cible la ressource 'draft' precise -> aucun risque de toucher un autre message/dossier.
+    """
+    uuid = resolve_mailbox_uuid(address)
+    url = f"{_api_base()}/api/mail/{uuid}/draft/{draft_uuid}"
+    return _request("DELETE", url)
 
 
 def main(argv: list[str] | None = None) -> None:

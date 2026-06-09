@@ -209,6 +209,9 @@ c. ISSUE (CONDITIONNELLE) : tu es le mieux place pour reperer les erreurs QUI RE
    des issues (jamais lecon / ticket / roadmap : sessions dev de Thomas).
 d. PERSISTE : `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --rebase origin main` +
    `git push origin main` (push echoue -> refais pull --rebase + push ; sinon laisse pour cette nuit).
+   AUTONOMIE : ce run tourne sans personne pour cliquer. `.claude/settings.json` fixe
+   `permissions.defaultMode = "bypassPermissions"` -> aucun appel (git inclus) ne doit prompter ;
+   sinon la session stalle et cette persistance ne se fait jamais. Va TOUJOURS jusqu'au push.
 
 Ca ne change RIEN a ta regle de LECTURE SEULE : elle concerne les FICHES prospect Notion (tu ne
 reecris jamais un mail ni un diagnostic). Le handover + les issues Storybloq sont ton carnet de
