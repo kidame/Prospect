@@ -177,9 +177,46 @@ def _text_to_paragraphs(corps: str) -> str:
     return "".join(out)
 
 
+def _is_signoff_line(line: str) -> bool:
+    """Vrai si la ligne est un pied de signature texte (a retirer avant la signature HTML)."""
+    s = line.strip()
+    if not s:
+        return True
+    t = s.lower().rstrip(".,").strip()
+    if t in {
+        "thomas", "thomas puglisi", "thomas, kumo", "thomas / kumo",
+        "bien a vous", "bien à vous", "cordialement", "a bientot", "à bientôt",
+        "a votre disposition", "à votre disposition",
+    }:
+        return True
+    if "kumo" in t and len(s) <= 70:  # "KUMO - kumo-seo.ch", "kumo-seo.ch", ...
+        return True
+    if re.fullmatch(r"\+?[\d][\d\s().\-]{6,}", s):  # ligne de telephone
+        return True
+    return False
+
+
+def _strip_trailing_signoff(text: str) -> str:
+    """Enleve le pied de signature texte en fin de corps (Thomas / KUMO / tel / 'Bien a vous').
+
+    Pourquoi : les mails rediges (Notion) finissent par 'Thomas / KUMO - kumo-seo.ch'. Comme on
+    ajoute ensuite la signature HTML riche, on eviterait sinon une signature EN DOUBLE. On ne
+    retire que les lignes finales qui matchent un pied connu : le corps reel n'est jamais touche.
+    """
+    lines = text.rstrip("\n").split("\n")
+    while lines and _is_signoff_line(lines[-1]):
+        lines.pop()
+    return "\n".join(lines).rstrip()
+
+
 def build_html_email(corps: str, with_signature: bool = True) -> str:
-    """Corps HTML complet : paragraphes propres + (optionnel) la signature KUMO."""
-    inner = _text_to_paragraphs(corps)
+    """Corps HTML complet : paragraphes propres + (optionnel) la signature KUMO.
+
+    Robuste : si le corps inclut deja un pied de signature texte (Thomas / KUMO / tel), il est
+    retire avant d'ajouter la signature HTML -> jamais de double signature.
+    """
+    text = _strip_trailing_signoff(corps) if with_signature else corps
+    inner = _text_to_paragraphs(text)
     if with_signature:
         sig = load_signature()
         if sig:
