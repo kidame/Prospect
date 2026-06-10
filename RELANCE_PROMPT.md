@@ -70,6 +70,14 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
    avec "Date mail 1" VIDE n'est PAS ignoree -- pose toi-meme "Date mail 1" = date du jour
    (tu passes chaque nuit, donc au pire ~1 jour apres le vrai envoi) et note-la dans le recap.
    Elle deviendra eligible 7 jours plus tard. C'est la SEULE exception ou tu ecris "Date mail 1".
+   REPRISE APRES PANNE (le verrou sert aussi de point de reprise) : une fiche "Mail 1 envoyé"
+   dont le corps contient DEJA "## Relance 1" mais dont "Date relance 1" est VIDE = une
+   livraison interrompue (session morte ou brouillon echoue la nuit precedente). Ne reecris
+   PAS la relance : reprends a l'etape 6b avec le texte deja present dans la fiche (brouillon
+   Infomaniak si possible, puis statut + date), et signale la reprise dans le recap.
+   FICHE SANS EMAIL : une fiche "Mail 1 envoyé" au champ "Email" vide ne sera jamais relancable
+   par mail -- signale-la dans le recap (une ligne) pour que Thomas complete l'email ou change
+   le statut ; ne la traite pas.
    Traite TOUTES les eligibles, les plus anciennes ("Date mail 1") d'abord. Garde-fous :
    si plus de ~20 eligibles ou si le plafond ~10 CHF approche, traite les plus anciennes,
    stoppe, et note le reste dans le mail recap (elles repartiront la nuit suivante).
@@ -124,9 +132,15 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
       EXCEPTION : si la fiche porte "⚠️ Email a confirmer avant envoi" -> PAS de brouillon
       Infomaniak (la relance reste dans la fiche) ; recopie l'alerte en tete du bloc
       "## Relance 1 (brouillon)" et signale la fiche dans le mail recap.
-   c. CHAMPS : "Statut pipeline" -> "Relance préparée" ; "Date relance 1" = date du jour ;
-      ajoute au champ "Notes" une ligne "Relance 1 preparee AAAA-MM-JJ (angle : <fait neuf /
-      micro-valeur / pivot>)". Ne touche a rien d'autre.
+      SI `creer_brouillon` ECHOUE (connecteur down, token invalide...) : n'abandonne PAS la
+      fiche -- continue a l'etape c quand meme (la relance est dans la fiche, source unique)
+      et signale l'echec dans le recap : Thomas creera le brouillon depuis la fiche, comme
+      pour la "mise en brouillon sur demande". Ne laisse JAMAIS une fiche avec la section
+      "## Relance 1" mais sans statut/date (fiche coincee a jamais).
+   c. CHAMPS (TOUJOURS, meme si b a echoue) : "Statut pipeline" -> "Relance préparée" ;
+      "Date relance 1" = date du jour ; ajoute au champ "Notes" une ligne "Relance 1 preparee
+      AAAA-MM-JJ (angle : <fait neuf / micro-valeur / pivot>)" (en CONSERVANT le contenu
+      existant de Notes). Ne touche a rien d'autre.
 
 7. MAIL RECAP a hello.puglisi@gmail.com (sauf noop total a l'etape 2), objet
    "KUMO relances - AAAA-MM-JJ" : (1) relances preparees (nom + angle retenu + neuf/micro-
@@ -168,6 +182,10 @@ loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
   Ne JAMAIS s'arreter avant l'etape 8 (persistance Storybloq).
 
 ## Apres le premier run, a verifier
+- L'ENVIRONNEMENT de la nouvelle routine expose bien INFOMANIAK_API_TOKEN (le connecteur
+  infomaniak-mail en depend, cf. .mcp.json) -- sinon les brouillons echoueront chaque nuit
+  (le systeme degrade proprement : relance dans la fiche + signalement recap, mais autant
+  le regler). Verifier aussi que le token n'expire pas ; s'il expire, le recap le dira.
 - Le brouillon Infomaniak arrive bien dans les Brouillons de thomas.puglisi@kumo-seo.ch,
   avec le bon destinataire, la mise en page propre (un <p> par paragraphe) et UNE seule
   signature.
