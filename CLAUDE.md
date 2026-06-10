@@ -152,6 +152,17 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      METIER reel. Un site peut sembler "present" alors qu'il ne capte que marque + mirage : c'est un
      BESOIN, pas une force. Mesure ensuite le marche METIER qu'il NE capte PAS (villes du triangle,
      prestations). (cf. lecon L-006)
+   - WINNABILITY (avant de promettre une ville) : verifie qu'il PEUT gagner le terrain. Le PACK LOCAL
+     est pondere par la PROXIMITE -> ne promets JAMAIS le pack d'une ville eloignee a un artisan rural
+     (un atelier a Couvet ne sortira pas dans le 3-pack de Neuchatel-ville). Ecart d'autorite/backlinks
+     + KD vs top-3 enorme -> l'organique "ville lointaine" est un UPSIDE long terme honnete, PAS
+     l'accroche. Mene l'accroche sur le terrain GAGNABLE (sa vallee/ville, GBP, refonte). (cf. lecon L-007)
+   - VALEUR ECONOMIQUE : trie les requetes cibles par volume x CPC x ticket (le CPC est deja dans
+     kw_data, 0 appel), pas le volume brut. Une prestation a gros ticket (cuisine, agencement) bat
+     souvent la tete de metier generique (intention melee) et vend une offre plus haute. (cf. lecon L-007)
+   - PACK LOCAL vu depuis la VILLE-CLIENTE : relance la SERP coeur avec le location de la ville cible
+     (pas le village du prospect) pour voir le vrai ecart pack. Pour l'artisan rural, GBP/Suivi =
+     levier le plus rapide (semaines) et le plus rentable -> souvent le produit-hero. (cf. lecon L-007)
    - PAGES REELLES : lis le sitemap.xml (1 requete) ou le menu pour LISTER les pages par
      ville/prestation. Distingue "page existe" de "page ranke". N'ecris JAMAIS "aucune page"
      sans cette verif ; ecris "page X existe mais ne ranke pas". 1 requete sitemap, pas de
@@ -170,6 +181,11 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      capter, pas un volume fantome). (Issu des volumes de l'etape 4.)
    - RECEPTIVITE PROUVEE : avis Google recents et/ou le proprietaire REPOND a ses avis (il tient
      a sa reputation en ligne -> il paiera pour le canal). (Issu de la fiche Maps.)
+   - APPETIT DE CROISSANCE (garde-fou vente, AVANT d'ecrire) : "invisible" n'est une douleur que s'il
+     VEUT plus de clients. Lis sur son site/Maps les signaux d'EXPANSION (recrute, chantiers recents,
+     nouveaux locaux) vs SATURATION (delais longs affiches, site/avis figes depuis des annees) + le mix
+     B2B (regies, architectes, donneurs d'ordre) vs B2C. Sature ou B2B-only -> deprioriser, ou basculer
+     l'angle sur "etre trouve par vos donneurs d'ordre" (un carnet plein ne mord pas a "metier+ville"). (cf. lecon L-007)
    VAGUE A : on CALCULE et on LOG ces signaux (cf. Mapping Notion), on PRIORISE les prospects qui
    en ont, et on CHOISIT l'angle du mail dessus. On ne rejette PAS encore faute de signal -- le
    filtre dur (retenu seulement si >=1 signal) et la cadence arrivent en VAGUE B.
@@ -265,6 +281,11 @@ dans cet ordre (du plus ressenti au moins), et CONSTATE sans humilier :
   organique malgre activite -> besoin clair (levier fiche Google + site).
 - REGLE D'OR : jamais "vous etes invisible" si la mesure dit le contraire. L'accroche cite toujours
   UN fait mesure (position pack, position organique, ou volume non capte), un seul point, pas une liste.
+- ACCROCHE = BENEFICE + TERRAIN GAGNABLE (le but : qu'il MORDE et VOIE ce qu'il y gagne). Traduis le
+  fait mesure en manque-a-gagner concret (des devis/mandats qui lui echappent), pas en constat
+  technique. Mene sur ce qui se gagne VITE (sa visibilite metier, son GBP, sa ville/vallee) ; une ville
+  lointaine se cite comme manque-a-gagner ORGANIQUE, jamais comme une promesse de pack local intenable
+  (proximite). Rien dans l'accroche qui ne serve pas a le faire mordre -- aucune ligne decorative. (cf. lecon L-007)
 
 ## Mapping Notion (base Contacts)
 Champs a remplir pour chaque prospect (faits mesures uniquement) :

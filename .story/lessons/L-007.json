@@ -1,0 +1,21 @@
+{
+  "content": "Avant de figer l'angle ET l'offre d'un prospect (toutes niches), passer 4 garde-fous, et chacun ne sert qu'a une accroche ou le prospect MORD et voit son BENEFICE (des devis/mandats qui lui echappent), jamais une analyse decorative : (1) WINNABILITY — verifier qu'il PEUT gagner le terrain promis : le pack local est pondere par la PROXIMITE, donc ne JAMAIS promettre le pack d'une ville eloignee a un artisan rural (un atelier a Couvet ne sortira pas dans le 3-pack de Neuchatel-ville) ; ecart d'autorite/backlinks + KD vs top-3 enorme => la ville lointaine reste un upside ORGANIQUE honnete, pas l'accroche ; mener l'accroche sur le terrain gagnable (sa vallee/ville, GBP, refonte). (2) APPETIT DE CROISSANCE — 'invisible' n'est une douleur que s'il VEUT plus de clients : lire sur son site/Maps les signaux d'expansion (recrute, chantiers recents, nouveaux locaux) vs saturation (delais longs, site/avis figes) + mix B2B (regies/architectes) vs B2C ; sature ou B2B-only => deprioriser ou basculer sur 'etre trouve par vos donneurs d'ordre'. (3) VALEUR ECONOMIQUE — trier les requetes par volume x CPC x ticket (CPC deja dans kw_data, 0 appel), pas le volume brut ; une prestation gros ticket (cuisine, agencement) bat la tete de metier generique et vend une offre plus haute. (4) PACK LOCAL vu depuis la VILLE-CLIENTE — relancer la SERP coeur avec le location de la ville cible, pas le village ; pour l'artisan rural, GBP/Suivi = levier le plus rapide et rentable, souvent le produit-hero.",
+  "context": "Audit \"board\" 4 lentilles le 2026-06-10 (SEO local, demande/mots-cles, vente/conversion, faisabilite) sur le run Val-de-Travers. Blind spots trouves : on avait construit l'angle sur un \"triangle de villes\" (Neuchatel 210 / La Chaux-de-Fonds 170 / Yverdon 140) SANS verifier la winnability — or le pack local est verrouille par la proximite (artisan rural exclu du pack des villes eloignees) et l'ecart d'autorite vs Ritz/Vauthier/Colette = 6-18 mois. On avait trie par volume brut alors que la valeur = volume x CPC x ticket (cuisine NE 40/mois mais CPC 7,66 + projet 20-30k > menuisier NE 210 a intention melee). On n'avait pas instrumente l'appetit de croissance (vallee rurale = beaucoup d'artisans satures qui ne repondront pas) ni le mix B2B/B2C. Et on a lu le pack depuis le village, pas depuis la ville-cliente. Complete la lecon L-006.",
+  "createdDate": "2026-06-10",
+  "id": "L-007",
+  "lastValidated": "2026-06-10",
+  "reinforcements": 0,
+  "source": "review",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "prospection",
+    "analyse-seo",
+    "angle-email",
+    "winnability",
+    "vente",
+    "methode"
+  ],
+  "title": "Avant l'angle : winnability, appetit de croissance, valeur economique (CPC), pack vu depuis la ville-cliente",
+  "updatedDate": "2026-06-10"
+}
