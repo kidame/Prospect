@@ -1,0 +1,20 @@
+{
+  "content": "Avant de figer l'angle d'un prospect, mesurer SYSTEMATIQUEMENT trois choses, pas seulement \"metier + ville coeur\" : (1) le FOOTPRINT ORGANIQUE REEL via dataforseo_labs ranked_keywords + bulk_traffic_estimation — distinguer trafic de MARQUE (sort sur son nom) et trafic MIRAGE (sort sur un mot generique homonyme, ex. \"buchs\" = ville alemanique) du vrai trafic METIER ; (2) plusieurs VILLES vendables, pas une seule (triangle Neuchatel + La Chaux-de-Fonds + Yverdon/nord vaudois), choisies AU CAS PAR CAS selon la position geo du prospect ; (3) les requetes PAR PRESTATION (cuisine, agencement, escalier, parquet, charpente, couverture, fenetres) pour ne garder que celles a volume. L'angle final cite le fait le plus parlant des trois (souvent : \"0 mot-cle metier\" ou \"visible sur le nom, pas sur le metier\" + la ville a fort volume non captee).",
+  "context": "Run Val-de-Travers 2026-06-10 (sur demande Thomas). 1er passage : angle uniforme \"menuiserie Neuchatel\" pour les 10. Sur demande de Thomas, 2e passage avec ranked_keywords + bulk_traffic_estimation a revele : 6/10 ont 0 ou ~0 mot-cle organique malgre site ; buchs-freres.ch a une etv 4816 MIRAGE (ranke sur \"buchs\"=ville alemanique 49500/mois, zero intention menuiserie) ; menuiserie-isler.ch ne sort que sur son nom \"isler\" ; AR Electricite est pack local #2 mais site en page 4 sur \"electricien Neuchatel\" (260) et absent \"electricien Yverdon\" (260) alors que son site cible \"Neuchatel & nord vaudois\". Marche mesure = triangle villes : menuisier Neuchatel 210 + La Chaux-de-Fonds 170 + Yverdon 140 ; electricien Yverdon 260 + Neuchatel 260 + CdF 110. Les requetes par prestation seules (escalier 20, parquet 10, dressing 20) trop minces = pas un levier isole. Resultat : 10 fiches reecrites avec angles bien plus pertinents et chiffres.",
+  "createdDate": "2026-06-10",
+  "id": "L-006",
+  "lastValidated": "2026-06-10",
+  "reinforcements": 0,
+  "source": "correction",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "prospection",
+    "analyse-seo",
+    "angle-email",
+    "dataforseo",
+    "methode"
+  ],
+  "title": "Analyse prospect : footprint organique reel + multi-villes + prestations, jamais un seul angle metier+ville",
+  "updatedDate": "2026-06-10"
+}

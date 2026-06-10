@@ -134,15 +134,24 @@ un email pour ceux qui ont un email. Qualite avant quantite.
    - Retire exclusions dures, doublons Notion, activites floues.
    - Classe l'URL : vrai domaine / page sociale ou annuaire / pas de site. -> ~10 finalistes.
 4. MARCHE + ANALYSE 2 AXES + ETENDUE (sur les ~10 finalistes, AVANT de resoudre le contact)
-   - Volume metier + ville coeur, + ville voisine majeure (ex. Neuchatel), + 1-2 requetes
-     par prestation. Sans aucune demande : disqualifie.
+   - Volume metier x PLUSIEURS villes vendables (jamais une seule) : ville coeur + 2-3 villes a
+     portee du prospect, choisies AU CAS PAR CAS selon sa position geo (ex. triangle Neuchatel +
+     La Chaux-de-Fonds + Yverdon/nord vaudois ; un artisan du haut Val-de-Travers vise Yverdon via
+     Ste-Croix avant Neuchatel). + 1-2 requetes par prestation (cuisine, agencement, escalier,
+     parquet, charpente, couverture, fenetres...), gardees seulement si volume reel.
+     Sans aucune demande : disqualifie. (cf. lecon L-006)
    - Sante technique : OnPage instant (score, titres, H1) + les champs perf/poids deja renvoyes
      par le MEME appel (page_timing, total_dom_size, CLS, cache_control...) -> voir "Regle perf". LCP -> vide.
    - SERP REEL de la requete coeur (serp_organic_live_advanced, metier+ville, mobile) :
      * Position dans le PACK LOCAL (Maps/GBP) : dans les 3 fiches ? absent ?
      * Position en ORGANIQUE web : page 1 ? plus bas ? absent ? QUI est devant (NOMME-le).
-   - ETENDUE : ranked_keywords (sur quoi il sort vraiment) + volumes des requetes cibles.
-     Mesure le marche qu'il NE capte PAS (ville voisine, prestations).
+   - FOOTPRINT ORGANIQUE REEL (obligatoire, pas en option) : ranked_keywords + bulk_traffic_estimation
+     (dataforseo_labs) pour voir sur QUOI il sort vraiment et combien de trafic. DISTINGUE 3 types :
+     trafic de MARQUE (sort sur son propre nom), trafic MIRAGE (sort sur un mot generique homonyme
+     sans intention -- ex. "buchs" = ville alemanique 49500/mois, zero acheteur menuiserie), et trafic
+     METIER reel. Un site peut sembler "present" alors qu'il ne capte que marque + mirage : c'est un
+     BESOIN, pas une force. Mesure ensuite le marche METIER qu'il NE capte PAS (villes du triangle,
+     prestations). (cf. lecon L-006)
    - PAGES REELLES : lis le sitemap.xml (1 requete) ou le menu pour LISTER les pages par
      ville/prestation. Distingue "page existe" de "page ranke". N'ecris JAMAIS "aucune page"
      sans cette verif ; ecris "page X existe mais ne ranke pas". 1 requete sitemap, pas de
