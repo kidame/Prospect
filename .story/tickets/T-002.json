@@ -2,7 +2,7 @@
   "blockedBy": [],
   "completedDate": null,
   "createdDate": "2026-06-08",
-  "description": "Definir la cadence (combien de prospects/nuit, anti-sur-sollicitation). Formaliser le re-contact : un prospect deja contacte sans reponse n'est re-maile QUE sur declencheur neuf, avec angle different + tag '2e contact'.",
+  "description": "Definir la cadence (combien de prospects/nuit, anti-sur-sollicitation). Formaliser le re-contact : un prospect deja contacte sans reponse n'est re-maile QUE sur declencheur neuf, avec angle different + tag '2e contact'. MAJ 2026-06-10 : la RELANCE 1 a J+7 est implementee (3e routine, RELANCE_PROMPT.md + section 'Relance 1' de CLAUDE.md + statut Notion 'Relance préparée' + champ 'Date relance 1'). Reste ouvert : cadence formelle de la run 1h + re-contact a froid post-peremption (declencheur neuf, tag 2e contact).",
   "id": "T-002",
   "order": 20,
   "phase": "vague-b",
