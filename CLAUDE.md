@@ -368,6 +368,9 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
 - DECLENCHEMENT 100% AUTOMATIQUE, zero geste de Thomas : eligible = "Statut pipeline" =
   "Mail 1 envoyé" ET "Date mail 1" <= aujourd'hui - 7 jours ET "Date relance 1" vide ET email
   present. (Si le prospect avait repondu, Thomas l'aurait passe en "Lead chaud" -> jamais relance.)
+- AUTO-DATATION : si "Date mail 1" manque sur une fiche "Mail 1 envoyé" (l'automation Notion
+  s'est averee non fiable, constat 2026-06-10), la routine relance pose elle-meme la date du jour
+  (seule exception ou elle ecrit ce champ). Le declenchement ne depend donc d'aucune automation.
 - UNE SEULE relance automatique par prospect. Verrou = "Date relance 1" + section "## Relance 1"
   dans le corps. Toute relance 2 = decision manuelle de Thomas, hors routine.
 - CONTENU : relance COURTE (4-8 lignes, plus courte que le mail 1), jamais une redite du pitch ni

@@ -66,6 +66,10 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
    - "Date mail 1" <= aujourd'hui - 7 jours ;
    - "Date relance 1" VIDE (et pas de section "## Relance 1" dans le corps -- double verrou) ;
    - champ "Email" non vide.
+   AUTO-DATATION (filet de securite, verifie utile le 2026-06-10) : une fiche "Mail 1 envoyé"
+   avec "Date mail 1" VIDE n'est PAS ignoree -- pose toi-meme "Date mail 1" = date du jour
+   (tu passes chaque nuit, donc au pire ~1 jour apres le vrai envoi) et note-la dans le recap.
+   Elle deviendra eligible 7 jours plus tard. C'est la SEULE exception ou tu ecris "Date mail 1".
    Traite TOUTES les eligibles, les plus anciennes ("Date mail 1") d'abord. Garde-fous :
    si plus de ~20 eligibles ou si le plafond ~10 CHF approche, traite les plus anciennes,
    stoppe, et note le reste dans le mail recap (elles repartiront la nuit suivante).
@@ -170,9 +174,11 @@ loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
 - La fiche traitee porte bien : section "## Relance 1 (brouillon)", statut "Relance préparée",
   "Date relance 1" remplie, ligne en Notes -- et le mail 1 / Diagnostic / Controle INTACTS.
 - L'idempotence : la nuit suivante, la meme fiche ne ressort plus dans la file d'eligibles.
-- Le delai : 7 jours se compte sur "Date mail 1" (remplie par l'automation Notion de Thomas
-  au passage en "Mail 1 envoyé"). Si des fiches "Mail 1 envoyé" n'ont PAS de "Date mail 1"
-  (automation pas declenchee), la routine les ignore : les signaler dans le recap.
+- Le delai : 7 jours se compte sur "Date mail 1". Normalement remplie par l'automation Notion
+  de Thomas au passage en "Mail 1 envoyé" -- MAIS cette automation s'est averee non fiable
+  (2026-06-10 : 16 fiches "Mail 1 envoyé" sans date, rattrapees a la main). D'ou la regle
+  d'AUTO-DATATION de l'etape 2 : la routine pose elle-meme la date quand elle manque. Le
+  systeme ne depend donc PAS de l'automation.
 - Optionnel cote Notion (a la main, une fois) : ajuster la formule "Relancer le" pour que la
   vue "🔁 À relancer" exclue les statuts "Relance préparée" (sinon elles y restent affichees).
 - Le mail recap arrive bien sur hello.puglisi@gmail.com.
