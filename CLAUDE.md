@@ -191,11 +191,12 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      c'est le livrable central et la SOURCE UNIQUE du contenu redige.
    - Pour chaque prospect a canal EMAIL : ecris le mail COMPLET et pret a copier-coller
      (objet + corps + signature) dans le CORPS de la fiche Notion, sous une section
-     "## Email (brouillon)". Jamais recopie ailleurs. Coche "Draft pret". Thomas copie/colle
-     au reveil pour creer le draft Gmail (sa revue manuelle avant tout envoi).
-   - Juste sous l'email dans le CORPS de la fiche Notion, ajoute un BOUTON (lien markdown)
-     qui ouvre l'app mail PAR DEFAUT du telephone, pre-remplie (objet + corps). Specs et
-     encodage : voir CORPS DE LA FICHE.
+     "## Email (brouillon)". Jamais recopie ailleurs. Coche "Draft pret".
+   - PAS de bouton mailto (regle 2026-06-10) : ne genere plus le lien "Ouvrir ce mail dans
+     mon app". Thomas choisit les prospects dans Notion et demande directement a Claude (sur
+     demande, hors routine) de pousser le mail redige vers un brouillon Gmail / Infomaniak.
+     La routine se contente d'ecrire le mail dans la fiche Notion (source unique) ; la creation
+     de brouillon reste une action manuelle/sur-demande avec revue avant tout envoi.
    - Une liste "A appeler" pour les prospects a canal BONUS (nom, tel, angle).
    - Dossier repo OPTIONNEL : si tu crees prospects/AAAA-MM-JJ/<nom>.md (archive narrative),
      il NE contient PAS le mail (il pointe vers la fiche Notion) pour eviter deux versions.
@@ -292,14 +293,21 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
   Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
   EN HAUT du bloc, AVANT la ligne "Objet :", une ligne d'alerte
   "⚠️ Email a confirmer avant envoi : <raison>". C'est une note pour Thomas : elle ne fait
-  PAS partie du mail copie-colle ni du bouton mailto. "Draft pret" garde son sens (= mail
-  redige), il ne certifie pas l'email.
-- Juste sous l'email, ajoute un BOUTON (lien markdown) qui ouvre l'app mail PAR DEFAUT du
-  telephone, pre-remplie : **[Ouvrir ce mail dans mon app](mailto:DEST?subject=OBJET&body=CORPS)**.
-  subject et body encodes en percent-encoding UTF-8 (accents -> %C3%xx, sauts de ligne ->
-  %0D%0A, espaces -> %20). Le texte lisible avec accents reste affiche au-dessus ; le lien
-  porte la version encodee. Vise un corps < ~1800 caracteres encodes (au-dela, certains
-  clients mail tronquent).
+  PAS partie du mail copie-colle. "Draft pret" garde son sens (= mail redige), il ne certifie
+  pas l'email.
+- PAS de bouton mailto (regle 2026-06-10). On n'ajoute plus de lien "Ouvrir ce mail dans mon
+  app" sous l'email. Le mail redige reste dans la fiche ; Thomas demande a Claude, sur demande,
+  de pousser les prospects choisis vers un brouillon Gmail / Infomaniak (revue manuelle avant
+  envoi). Voir "Mise en brouillon sur demande" ci-dessous.
+
+MISE EN BROUILLON SUR DEMANDE (hors routine nocturne) : quand Thomas dit "mets ces prospects en
+brouillon" (ou liste des fiches Notion choisies), Claude lit le mail depuis le CORPS de la fiche
+Notion (section "## Email (brouillon)", source unique) et cree le brouillon correspondant :
+- Gmail : outil create_draft (le mail tel quel : objet + corps + signature texte).
+- Infomaniak (boite thomas.puglisi@kumo-seo.ch) : connecteur infomaniak-mail, outil creer_brouillon,
+  corps en TEXTE BRUT (la signature KUMO est ajoutee automatiquement, voir regle Infomaniak).
+Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte l'alerte
+"⚠️ Email a confirmer", signale-le avant de creer le brouillon.
 
 ## Dedup (via Notion, avec peremption)
 - Store de dedup = base Notion "Contacts". Cle : champ "Place ID".
