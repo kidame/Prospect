@@ -1,6 +1,13 @@
 {
   "permissions": {
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "bypassPermissions",
+    "allow": [
+      "mcp__storybloq__*",
+      "mcp__infomaniak-mail__*",
+      "Bash(npx:*)",
+      "Bash(npm:*)",
+      "Bash(git:*)"
+    ]
   },
   "hooks": {
     "PreCompact": [
