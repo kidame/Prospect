@@ -1,0 +1,53 @@
+# Agregateurs / OTA / plateformes
+tripadvisor.com
+tripadvisor.fr
+getyourguide.com
+civitatis.com
+viator.com
+klook.com
+booking.com
+agoda.com
+expedia.com
+expedia.fr
+hotels.com
+airbnb.com
+airbnb.fr
+vrbo.com
+kayak.com
+kayak.fr
+skyscanner.com
+skyscanner.fr
+momondo.fr
+# Medias / blogs / contenus metropole (pas des business operant dans la zone)
+generationvoyage.fr
+lonelyplanet.fr
+lonelyplanet.com
+routard.com
+petitfute.com
+partir.com
+quandpartir.com
+tourdumondiste.com
+alibabuy.com
+lepetitjournal.com
+gavroche-thailande.com
+hellotravelersblog.com
+lilythenomad.com
+noscoeursvoyageurs.fr
+voyagesautenteo.com
+lelephant-voyageur.com
+# Plateformes sociales / generiques
+reddit.com
+youtube.com
+facebook.com
+instagram.com
+tiktok.com
+pinterest.com
+wikipedia.org
+quora.com
+# Gros TO francais (concurrents des receptifs, pas des prospects)
+evaneos.fr
+evaneos.com
+voyageursdumonde.fr
+marcovasco.fr
+asia.fr
+kuoni.fr
