@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "accents-email"
+  ],
+  "discoveredDate": "2026-06-11",
+  "id": "ISS-001",
+  "impact": "PATTERN : les 3 fiches EMAIL du run 1h du 2026-06-11 (segment transition energetique x Fribourg) ont leur CORPS de mail redige SANS accents (e/a/o/i accentues absents) ; seule la cedille de \"ca\" survit. Chaines observees : \"avis a 5 etoiles\", \"photovoltaique\", \"pompes a chaleur\", \"activite\", \"metier\", \"requetes\", \"ou ca bloque\", \"Meme\", \"concretes\", \"cote Vaud\", \"vous etes bien place\", \"premiere page\", \"telephone\", \"eleves\". Viole la regle CLAUDE.md : \"ACCENTS OBLIGATOIRES dans l'email ... Cette regle prime sur toute consigne ASCII\".\n\nACCUMULATION : 3/3 fiches du run, verdicts controle A voir poses ce 2026-06-11 UNIQUEMENT pour cette raison (reste propre : faits porteurs re-mesures conformes, salutations neutres OK, hygiene OK).\n\nREGRESSION : les runs precedents avaient des emails AVEC accents complets et passaient OK -> batiment/bois x Val-de-Travers du 2026-06-10 (10 fiches re-controlees ce soir, accents OK), carreleur x Geneve. Defaut isole a ce run energie x Fribourg, PAS encore chronique. Si le prochain run reproduit -> monter en high (casse un mail envoyable tel quel).\n\nCHANGEMENT SUGGERE : la routine 1h doit appliquer la regle accents + le skill .claude/skills/writing/ AVANT d'ecrire \"## Email (brouillon)\", avec relecture accents en fin de redaction. Piste : rappel explicite \"accents obligatoires\" a l'etape redaction du mail dans ROUTINE_PROMPT.md.\n\nPREUVE : re-lecture des 3 corps de mail dans Notion (segment \"transition energetique x Fribourg\", Place IDs dans les fiches). Zero PII.",
+  "location": [
+    "CLAUDE.md - Redaction de l'email (ACCENTS OBLIGATOIRES)",
+    "ROUTINE_PROMPT.md etape redaction mail"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut: emails sans accents (run 1h energie x Fribourg 2026-06-11)"
+}
