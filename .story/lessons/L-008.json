@@ -1,0 +1,20 @@
+{
+  "content": "Dans tout prompt de routine qui REDIGE un mail prospect, mettre le rappel \"ACCENTS OBLIGATOIRES\" en clair INLINE a l'etape de redaction (pas seulement via le renvoi au skill writing/ ni la regle dans CLAUDE.md). Le corps doit etre ecrit en francais correct avec tous les accents DES LA PREMIERE ECRITURE -- jamais un mail ASCII \"a re-accentuer ensuite\". Vaut pour le bloc \"## Email (brouillon)\" ET le champ \"Probleme principal\".",
+  "context": "Run 1h du 2026-06-12, segment sanitaire/chauffage x Neuchatel littoral : les 5 fiches redigees avaient TOUTES leur corps de mail en ASCII sans accents (controle 3h a flague C5 sur chacune). CLAUDE.md l.442-444 impose pourtant les accents, et RELANCE_PROMPT.md l.110 a deja le rappel inline -- mais ROUTINE_PROMPT.md etape 6 se contentait de \"Applique le skill writing/\". Conclusion : une regle uniquement dans CLAUDE.md/skill ne tient pas a l'execution ; il faut la repeter au point d'action. Corrige le 2026-06-12 : rappel accents inline ajoute a ROUTINE_PROMPT.md etape 6. Aucune PII (references par segment).",
+  "createdDate": "2026-06-12",
+  "id": "L-008",
+  "lastValidated": "2026-06-12",
+  "reinforcements": 0,
+  "source": "correction",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "email",
+    "accents",
+    "routine-1h",
+    "redaction",
+    "prompt"
+  ],
+  "title": "Mail rediger avec accents des la 1re ecriture : le skill reference ne suffit pas, rappel inline obligatoire au point de redaction",
+  "updatedDate": "2026-06-12"
+}

@@ -175,6 +175,10 @@ Si tout est bon : verdict 🟢 et une ligne "Aucun point a corriger. Envoyable."
 
 ### Contraintes
 
+- NE T'ARRETE JAMAIS EN ATTENTE D'UNE REPONSE (cause probable d'une pause de run constatee le
+  2026-06-12) : tu tournes a 03:00 sans interlocuteur. Ne termine jamais un tour par du texte seul
+  ni une question/confirmation : a chaque tour, appelle un outil ou enchaine l'etape suivante
+  jusqu'a la persistance Storybloq. Un choix se pose -> tranche selon CLAUDE.md/ce prompt et continue.
 - AUCUN mail, jamais (meme en cas d'echec total). Le filet d'alerte, c'est la vue Notion
   "Non controlees" (fiches restees sans verdict). Pas de mail recap, pas d'alerte mail.
 - LECTURE SEULE (sur les FICHES) : dans les fiches prospect Notion, tu n'ecris que le champ
@@ -212,6 +216,11 @@ d. PERSISTE : `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --re
    AUTONOMIE : ce run tourne sans personne pour cliquer. `.claude/settings.json` fixe
    `permissions.defaultMode = "bypassPermissions"` -> aucun appel (git inclus) ne doit prompter ;
    sinon la session stalle et cette persistance ne se fait jamais. Va TOUJOURS jusqu'au push.
+   REPRISE APRES PAUSE (constat 2026-06-12 : un run s'est mis en pause seul et n'est reparti qu'apres
+   relance manuelle, sans jamais commiter de handover) : si la session a ete interrompue puis relancee
+   a la main, deroule quand meme l'etape (a->d) EN ENTIER avant de t'arreter. VERIFIE ensuite que ton
+   handover est bien commite (`git log -1 --oneline -- .story/`) ; s'il manque, ne finis pas en
+   silence -- c'est la seule trace du controle de cette nuit.
 
 Ca ne change RIEN a ta regle de LECTURE SEULE : elle concerne les FICHES prospect Notion (tu ne
 reecris jamais un mail ni un diagnostic). Le handover + les issues Storybloq sont ton carnet de
