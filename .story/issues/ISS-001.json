@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-06-12",
+  "id": "ISS-001",
+  "impact": "PATTERN + ACCUMULATION : la run de 1h produit des mails dont le CORPS est ecrit entierement en ASCII (zero accent), alors que CLAUDE.md impose un francais correct avec tous les accents dans l'email et precise que cette regle PRIME sur toute consigne ASCII (skill d'ecriture inclus). Vu sur 2 nuits consecutives :\n- 2026-06-11 (transition energetique x Fribourg) : les 3 fiches EMAIL ont du etre corrigees A LA MAIN (\"accents corriges le 2026-06-11, a la demande de Thomas\" dans les 3 sections Controle).\n- 2026-06-12 (sanitaire/chauffage x Neuchatel) : les 4 fiches EMAIL du run sont DE NOUVEAU sans aucun accent dans le corps (ex. \"referencement\", \"metier\", \"realisations detaillees\", \"telephone\", \"deja\", \"idee\", \"annonce\", \"etoiles\"). Verdict 🟠 A voir pose sur 3 pour ce seul motif ; la 4e est 🔴 pour un autre motif mais a aussi le defaut.\nSoit 7 mails sur 7 sans accents sur 2 nuits. La correction manuelle de la veille n'a pas change le comportement du generateur : defaut systematique du run-1h, pas un incident isole.\n\nCHANGEMENT SUGGERE : renforcer la consigne d'accents au moment de la GENERATION (pas seulement au controle) — etape de relecture/normalisation des accents en fin de redaction dans ROUTINE_PROMPT.md, ou rappel explicite \"le corps DOIT contenir tous les accents ; un mail ASCII est invalide\" juste avant l'ecriture de \"## Email (brouillon)\". A trancher en session dev.\n\nPREUVE : faits mesures cote controle, zero PII. Mails identifiables par segment (transition energetique x Fribourg le 11/06 ; sanitaire/chauffage x Neuchatel le 12/06) et champ Controle dans Notion.",
+  "location": [
+    "CLAUDE.md > Redaction de l'email (ACCENTS OBLIGATOIRES)",
+    "ROUTINE_PROMPT.md etape redaction du mail"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: mails de prospection generes sans accents (run 1h)"
+}
