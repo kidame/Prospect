@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "rotation"
+  ],
+  "discoveredDate": "2026-06-12",
+  "id": "ISS-001",
+  "impact": "PATTERN (2e occurrence) : la memoire de rotation s'appuie sur handover latest --count 3, qui ne voit que les 3 derniers runs. Un couple (metier, zone) traite il y a plus de 3 sessions n'apparait pas et risque d'etre refait.\n\nAccumulation : 2026-06-11 (energie x Vaud deja fait 07-08/06, hors count-3, vu via dedup Notion seulement) ; 2026-06-12 (cible suggeree cuisiniste x Geneve DEJA saturee 03-07/06 ; idem carrelage Geneve/06-10 et peinture Lausanne 06-09 ; detecte via notion-search semantique sur la data source Contacts, pas via handovers). Deux pivots de suite pour eviter un doublon.\n\nCHANGEMENT suggere : a l'etape 2, avant de committer la cible, faire un notion-search (semantique, scope Contacts) sur \"<metier> <zone>\" pour estimer si le couple est deja travaille (densite de fiches meme metier+zone), en plus du dedup Place ID (qui n'opere qu'a l'item). Alternative : maintenir dans le handover une liste cumulative append-only des couples metier x zone deja couverts et la relire.\n\nPREUVE : handovers 2026-06-11 et 2026-06-12 (run-1h) ; fiches Notion cuisine/carrelage/peinture datees 03-10/06. Zero PII (references par segment + date).",
+  "location": [
+    "ROUTINE_PROMPT.md etape 2",
+    "CLAUDE.md Regle de rotation"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: rotation memory rate les segments faits il y a >3 sessions (crosscheck Notion par segment)"
+}
