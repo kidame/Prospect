@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "rotation"
+  ],
+  "discoveredDate": "2026-06-12",
+  "id": "ISS-001",
+  "impact": "PATTERN (vu 2 fois en 2 jours) : la memoire de rotation lit `storybloq handover latest --count 3`, mais un couple (metier x zone) traite il y a PLUS de 3 sessions n'apparait dans aucun des 3 derniers handovers -> il est rechoisi. Le 2026-06-11 (energie x Fribourg) avait deja constate que energie x Lausanne avait ete fait 07-08/06 hors handover. Le 2026-06-12, cuisiniste x Geneve etait DEJA largement traite les 06-03 et 06-07 (Kitchen Prestige, IG Kitchen Design, Cuisiniste-pro, Style Cuisine, Cuisine Art et Bois, Arcadia Meubles deja en base) -> ~6 finalistes sur ~11 ecartes par dedup Notion. Le run a tenu uniquement grace aux noms neufs restants ; un segment plus mince aurait echoue a livrer 3-5.\n\nCHANGEMENT suggere : (1) crosscheck Notion sur le couple (Segment + Ville) AVANT de lancer le Maps (le champ \"Segment\" est desormais rempli par la routine = exploitable) ; (2) ou relire plus de handovers (count 6-8, ils sont courts) ; (3) documenter que la memoire handover est partielle et que le crosscheck Notion par Segment est le filtre dur de rotation.\n\nPREUVE (zero PII) : segment cuisiniste x Geneve, 21 fiches Maps -> ~6 deja en base Notion (06-03/06-07). Gaspillage : ~6 mesures finalistes evitables.\n\nNB infra : `.story/issues/` n'existait pas en debut de run (cree a la main ce run) -> l'issue ouverte annoncee par le handover du 06-11 n'a jamais ete persistee. Confirme la suspicion T-007 (push .story casse). A verifier en session dev.",
+  "location": [
+    "CLAUDE.md regle de rotation",
+    "ROUTINE_PROMPT.md etape 1-2"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: memoire de rotation aveugle au-dela de 3 handovers (segments refaits)"
+}
