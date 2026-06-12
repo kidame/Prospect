@@ -57,8 +57,12 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    chiffre (SI volume > ~150/mois) > jamais "invisible". CONSTATE sans humilier. Le mail vend
    SEULEMENT le Diagnostic 1200 (ou juste "15 min, je vous montre") : N'ANNONCE PAS le tunnel
    Mandat/Suivi (ca fait fuir a froid ; la chaine se revele a l'appel). Applique le skill
-   .claude/skills/writing/. NE cree PAS de draft Gmail. Pour les "a appeler" : ecris "## Diagnostic"
-   + ajoute a la liste "A appeler" (pas de mail).
+   .claude/skills/writing/. ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
+   francais correct avec TOUS les accents (e/a/o/u/i accentues, c cedille) -- ne produis JAMAIS un
+   mail en ASCII "a re-accentuer ensuite" ; seule l'apostrophe reste droite ('), aucun tiret
+   cadratin (cf. CLAUDE.md "Redaction de l'email"). Cette regle prime sur toute habitude ASCII et
+   vaut pour le bloc "## Email (brouillon)" comme pour "Probleme principal". NE cree PAS de draft
+   Gmail. Pour les "a appeler" : ecris "## Diagnostic" + ajoute a la liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion pour CHAQUE prospect vu (retenu, a-appeler, ou rejete), Place ID +
    DATE inclus. La ROUTINE remplit : signaux d'opportunite declenches + segment (secteur x zone) +
    "Probleme principal" (= l'ACCROCHE chiffree, PAS le mail entier). Pour les retenus EMAIL, coche
