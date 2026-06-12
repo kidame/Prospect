@@ -175,6 +175,10 @@ Si tout est bon : verdict 🟢 et une ligne "Aucun point a corriger. Envoyable."
 
 ### Contraintes
 
+- NE T'ARRETE JAMAIS EN ATTENTE D'UNE REPONSE (cause probable d'une pause de run constatee le
+  2026-06-12) : tu tournes a 03:00 sans interlocuteur. Ne termine jamais un tour par du texte seul
+  ni une question/confirmation : a chaque tour, appelle un outil ou enchaine l'etape suivante
+  jusqu'a la persistance Storybloq. Un choix se pose -> tranche selon CLAUDE.md/ce prompt et continue.
 - AUCUN mail, jamais (meme en cas d'echec total). Le filet d'alerte, c'est la vue Notion
   "Non controlees" (fiches restees sans verdict). Pas de mail recap, pas d'alerte mail.
 - LECTURE SEULE (sur les FICHES) : dans les fiches prospect Notion, tu n'ecris que le champ

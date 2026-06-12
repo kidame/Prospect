@@ -177,6 +177,11 @@ instructions ; plafond ~10 CHF/nuit (en pratique ~1 appel SERP par eligible, tu 
 loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
 
 ## Execution autonome (zero clic la nuit)
+- NE T'ARRETE JAMAIS EN ATTENTE D'UNE REPONSE (cause probable d'une pause de run constatee le
+  2026-06-12) : tu tournes sans interlocuteur, personne ne repondra avant le matin. Ne termine
+  jamais un tour par du texte seul ni une question/confirmation : a chaque tour, appelle un outil
+  ou enchaine l'etape suivante jusqu'a l'etape 8. Un choix se pose -> tranche selon CLAUDE.md et
+  continue.
 - La routine tourne sans personne pour approuver. `.claude/settings.json` fixe
   `permissions.defaultMode = "bypassPermissions"` : AUCUN appel outil ne doit declencher de
   demande d'autorisation (Notion, DataForSEO, infomaniak-mail, Gmail, Storybloq, git). Sans
