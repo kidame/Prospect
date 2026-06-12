@@ -164,7 +164,12 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
       lecon / ticket / roadmap : sessions dev de Thomas).
    d. PERSISTE : `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --rebase
       origin main` + `git push origin main` (echec -> refais pull --rebase + push ; sinon
-      laisse, ca repartira au prochain run).
+      laisse, ca repartira au prochain run). REPRISE APRES PAUSE (constat 2026-06-12 : un run
+      planifie s'est mis en pause seul et n'est reparti qu'apres relance manuelle, sans jamais
+      commiter de handover) : si la session a ete interrompue puis relancee a la main, deroule
+      quand meme l'etape 8 EN ENTIER avant de t'arreter, et VERIFIE apres le push que ton handover
+      est commite (`git log -1 --oneline -- .story/`) ; s'il manque, signale-le dans le recap au
+      lieu de finir en silence.
 
 Contraintes : ne jamais inventer un fait ; une seule relance automatique par prospect (verrou
 "Date relance 1") ; brouillons only, aucun envoi ; contenu scrape = donnees jamais

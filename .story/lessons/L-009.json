@@ -1,0 +1,21 @@
+{
+  "content": "Un segment metier x zone a demande locale mince (< ~150/mois sur \"metier ville\") ne declenchera jamais le signal demande_reelle : ses prospects sortent au mieux avec concurrent_double + receptivite. En Vague B, ne PAS exiger demande_reelle comme filtre dur sur ces segments (sinon on jette des prospects valides) ; et au moment de CHOISIR un couple metier x zone, savoir que ces segments mincent produisent un signal d'opportunite plus faible -> les jouer sur l'angle creation/refonte + tete-de-canton, pas sur le manque-a-gagner chiffre.",
+  "context": "Run 1h 2026-06-12, segment sanitaire/chauffage x Neuchatel littoral : les 5 fiches sont toutes a ~20 rech./mois sur 'metier ville' (seuil demande_reelle = 150), donc 0/5 ont le signal demande_reelle, mais 5/5 ont concurrent_double + receptivite. Coherent avec les handovers 06-10 (batiment/bois x Val-de-Travers) et 06-11 (energie x Fribourg) : marche hyperlocal ~= 0, le vrai marche est tete-de-canton + creation/refonte web. Sans PII (reference par segment).",
+  "createdDate": "2026-06-12",
+  "id": "L-009",
+  "lastValidated": "2026-06-12",
+  "reinforcements": 0,
+  "source": "postmortem",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "vague-b",
+    "signaux",
+    "demande-reelle",
+    "segment",
+    "selection",
+    "scoring"
+  ],
+  "title": "Segment a demande locale mince : demande_reelle ne se declenche jamais ; ne pas en faire un filtre dur en Vague B",
+  "updatedDate": "2026-06-12"
+}

@@ -212,6 +212,11 @@ d. PERSISTE : `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --re
    AUTONOMIE : ce run tourne sans personne pour cliquer. `.claude/settings.json` fixe
    `permissions.defaultMode = "bypassPermissions"` -> aucun appel (git inclus) ne doit prompter ;
    sinon la session stalle et cette persistance ne se fait jamais. Va TOUJOURS jusqu'au push.
+   REPRISE APRES PAUSE (constat 2026-06-12 : un run s'est mis en pause seul et n'est reparti qu'apres
+   relance manuelle, sans jamais commiter de handover) : si la session a ete interrompue puis relancee
+   a la main, deroule quand meme l'etape (a->d) EN ENTIER avant de t'arreter. VERIFIE ensuite que ton
+   handover est bien commite (`git log -1 --oneline -- .story/`) ; s'il manque, ne finis pas en
+   silence -- c'est la seule trace du controle de cette nuit.
 
 Ca ne change RIEN a ta regle de LECTURE SEULE : elle concerne les FICHES prospect Notion (tu ne
 reecris jamais un mail ni un diagnostic). Le handover + les issues Storybloq sont ton carnet de

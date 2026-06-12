@@ -36,7 +36,13 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
 4. MESURE D'ABORD (avant de resoudre le contact), sur les ~10 finalistes avec un vrai site :
    volumes (metier + ville coeur, ville voisine majeure ex. Neuchatel, 1-2 prestations), SANTE
    technique (OnPage instant), puis SERP REEL de la requete coeur (serp_organic_live_advanced,
-   mobile) -> 2 AXES : pack local (Maps/GBP) ET organique web, et NOMME qui est devant. Complete
+   mobile) -> 2 AXES : pack local (Maps/GBP) ET organique web, et NOMME qui est devant.
+   LECTURE DU PACK (anti-fait-faux, cf. cas reel ou un prospect #3 du pack a ete decrit "absent") :
+   avant d'ecrire "absent du pack", LISTE les 3 fiches du pack local reellement vues dans la SERP et
+   verifie que le prospect n'y figure PAS -- un artisan d'un village peut etre #1-3 du pack de la
+   requete canton meme si son village differe de la ville coeur. Ne conclus JAMAIS "absent du pack"
+   depuis un compteur, une impression, ou le seul organique : si tu ne peux pas nommer les 3 fiches
+   du pack, tu n'affirmes pas l'absence (le fait porteur du mail en depend). Complete
    avec ranked_keywords (etendue) + sitemap (pages "existe" vs "ranke", 1 requete). RAPPEL :
    OnPage eleve != visible, present sur sa requete coeur != large. Puis note les 4 SIGNAUX
    D'OPPORTUNITE (cout ~0, memes donnees) : concurrent NOMME qui le double sur SA ville · page
@@ -111,6 +117,17 @@ joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
   de permission sur autonome/bypass. Le settings.json du repo et l'UI doivent tous deux etre permissifs.
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact qui a prompte dans le mail
   recap, pour qu'on l'ajoute/verifie. Ne JAMAIS s'arreter avant l'etape 10 (persistance Storybloq).
+- REPRISE APRES PAUSE (constat 2026-06-12 : un run planifie s'est mis en pause tout seul et n'est
+  reparti qu'apres une relance manuelle de Thomas, beaucoup plus tard -> il a produit 5 fiches mais
+  n'a JAMAIS commite de handover, rotation perdue). Donc : si la session a ete interrompue puis
+  relancee a la main, tu DOIS quand meme derouler l'etape 10 EN ENTIER (snapshot + handover + commit
+  + push) avant de t'arreter, meme si l'heure n'est plus 01:00. Une run sans handover = memoire de
+  rotation perdue ET le segment risque d'etre refait la nuit suivante.
+- VERIFIE LA PERSISTANCE (fin d'etape 10) : apres le push, confirme que le handover est bien commite
+  -- `git log -1 --oneline -- .story/` doit montrer ton commit du run, et `storybloq handover latest
+  --count 1` doit renvoyer le tien. Si NON (push echoue 2 fois, ou handover absent), dis-le
+  EXPLICITEMENT dans le mail recap ("handover NON persiste cette nuit, rotation a verifier") au lieu
+  de finir en silence -- un echec annonce vaut mieux qu'une memoire trouee invisible.
 
 ## Apres le premier run, a verifier
 - IMPORTANT (Gmail) : la creation de brouillon Gmail demande une approbation cote interface,
