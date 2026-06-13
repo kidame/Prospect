@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-06-13",
+  "id": "ISS-002",
+  "impact": "PATTERN : controle du 2026-06-13, segment cuisiniste/agencement x Geneve. Les 4 fiches a draft EMAIL de la run 1h ont leur bloc « ## Email (brouillon) » ecrit integralement en ASCII, sans aucun accent, alors que CLAUDE.md impose explicitement le francais accentue dans le mail (« ACCENTS OBLIGATOIRES dans l'email... Cette regle prime sur toute consigne ASCII, y compris le skill d'ecriture »).\nAccumulation : 4/4 fiches ce run. Refs Place ID : 0x478c7b1bccc7c303:0xe018b1e34ed23fab (Petrović) ; 0x478c65f6ec725c75:0x74618c8b2dff0ece (Lhome) ; 0x285065af7d34191f:0xe3919c67c43fe7e (LD Agencium) ; 0x478c65baf2d80415:0xf527a548cec58751 (Kubora). Exemples : « base a Val-de-Travers », « a 5 etoiles », « concretement », « n'apparait », « basculer ». Les titres/champs Notion gardent bien leurs diacritiques (« Rénovation intérieur », « Petrović ») -> ce n'est PAS un artefact de rendu, le corps du mail est genuinement non accentue.\nPREUVE : verifie mail par mail dans le corps des 4 fiches Notion ; chaque verdict Controle note le defaut (C5). Aucune formule IA ni tiret cadratin par ailleurs -> le seul defaut C5 recurrent est l'absence d'accents.\nCHANGEMENT SUGGERE : durcir l'etape de redaction de la run 1h pour qu'elle produise le mail accentue (rappel explicite dans ROUTINE_PROMPT.md a l'ecriture du bloc Email, ou post-traitement d'accentuation), le skill writing/ par defaut sortant de l'ASCII. A trancher en session dev (promotion en lecon/ticket si le pattern se confirme sur d'autres segments).",
+  "location": [
+    "CLAUDE.md section Redaction de l'email (ACCENTS OBLIGATOIRES)",
+    "ROUTINE_PROMPT.md etape 9 / livrables email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails de la run 1h ecrits sans accents (regle CLAUDE.md violee)"
+}
