@@ -17,18 +17,26 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
 
 ## PROCESS DU RUN
 
-1. Lis CLAUDE.md. CONTINUITE STORYBLOQ (debut de session) : `storybloq handover latest --count 3`
-   pour voir les 3 derniers runs (quels couples metier x zone ont ete couverts -> ne les refais pas ;
+1. Lis CLAUDE.md. CONTINUITE STORYBLOQ (debut de session) : `storybloq handover latest --count 8`
+   pour voir les derniers runs (quels couples metier x zone ont ete couverts -> ne les refais pas ;
    defauts deja signales) et `storybloq issue list --status open` pour les signalements en cours. Puis
-   interroge la base Notion "Contacts" (page KUMO Back-office) et recupere tous les Place ID deja
-   presents (dedup) pour ne jamais retraiter un etablissement vu.
+   interroge la base Notion "Contacts" (page KUMO Back-office) et recupere (a) tous les Place ID deja
+   presents (dedup etablissement) ET (b) le champ "Segment" + la date des fiches des ~120 derniers
+   jours -> la LISTE des couples (metier x zone) deja traites recemment. La memoire handover est
+   PARTIELLE (un segment fait il y a plus de 8 sessions, ou par un run sans handover, n'y figure pas) :
+   le crosscheck Notion par Segment est le VRAI filet de rotation (cf. ISS-001 / lecon L-010).
 2. Choisis un METIER et une ZONE selon le modele de niches de CLAUDE.md. PRIORITE aux PILIERS :
    batiment/agencement (cuisiniste, menuisier, electricien, carreleur, peintre, sanitaire) et
    transition energetique (installateur solaire / pompe a chaleur). Zones a forte demande d'abord :
    Lausanne, Geneve, Fribourg, Neuchatel (puis Yverdon, La Chaux-de-Fonds). Intercale du ratissage a
    fort signal (demenageur avant les echeances de bail, urgence, paysagiste en fev-mars). Respecte les
-   exclusions et ne refais pas un couple (metier, zone) deja couvert dans les 3 derniers handovers (lus
-   a l'etape 1) -- c'est la memoire de rotation persistante.
+   exclusions. GATE DE ROTATION (BLOQUANT, AVANT de lancer le Maps de l'etape 3) : croise le couple
+   (metier x zone) choisi contre (a) les handovers lus a l'etape 1 ET (b) les Segments Notion des ~120
+   derniers jours. Si le couple a deja ete traite recemment, NE LANCE PAS le Maps -- change de graine
+   (autre metier pilier, ou zone voisine) et re-teste, jusqu'a tomber sur un couple NEUF. Ne te fie
+   JAMAIS au seul "collision risk low" pour shunter ce crosscheck : c'est exactement la cause d'ISS-001
+   (les 06-12/13, cuisiniste x Geneve re-pioche alors que deja fait 06-03/07 -> ~6 finalistes perdus au
+   dedup, le run a failli ne pas livrer ses 3-5).
 3. Collecte -- DEUX voies (cf. CLAUDE.md) : (A) MAPS via enckay/google-maps-places-extractor
    (minReviews ~15, exclure les fermes, extractContactDetails=true) pour le local transactionnel ;
    (B) pour l'energie et le B2B mal/non mappes, source par MOT-CLE-SERVICE ("installateur pompe a
@@ -84,7 +92,11 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
     dans l'ordre :
     a. SNAPSHOT : `storybloq snapshot` (pour que le recap de la prochaine session diffe bien).
     b. HANDOVER (TOUJOURS, c'est la continuite entre runs) : `storybloq handover create --slug run-1h
-       --stdin` avec un resume META du run : date, COUPLE metier x zone couvert, compteurs (N retenus
+       --stdin`. DATE = la date du jour en EUROPE/ZURICH (fuseau de la routine), JAMAIS l'heure UTC :
+       un run lance a 01:xx Zurich = 23:xx UTC la VEILLE, ne te date donc PAS d'un jour en arriere
+       (erreur reelle : run du 2026-06-13 a 01:22 Zurich slugge "06-12" -> faux trou de handover).
+       Recupere-la d'abord avec `TZ=Europe/Zurich date +%F`. Resume META du run : date, COUPLE
+       metier x zone couvert, compteurs (N retenus
        email / N a appeler / N rejetes), cout estime, 1-2 observations systeme, et le PROCHAIN segment
        a couvrir (pour la rotation). NIVEAU META UNIQUEMENT : segment + chiffres, AUCUN detail prospect
        (nom/email/tel/Place ID restent dans Notion). Ne reecris jamais un handover existant.
@@ -98,6 +110,11 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
     d. PERSISTE (handover + issue eventuelle d'un coup) : `git add .story/` (UNIQUEMENT `.story/`) +
        commit + `git pull --rebase origin main` + `git push origin main` (push echoue -> refais
        pull --rebase + push ; sinon laisse, ca repartira au prochain run).
+       T-007 (persistance des issues) : si tu crees une issue, verifie AVANT que `.story/issues/`
+       existe (`ls .story/issues/`) ; si le dossier manque, `mkdir -p .story/issues` puis
+       `git add .story/issues/` -- sinon `issue_create` plante en io_error et l'issue est perdue (cas
+       reel du 06-11, jamais persiste). Apres le push, confirme que `.story/issues/<id>.json` est
+       bien sur main.
     N'EN PARLE PAS dans le mail recap : la memoire Storybloq est un canal separe, consulte a la demande
     par Thomas (`/story`), pas par email.
 

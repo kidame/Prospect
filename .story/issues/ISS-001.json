@@ -12,9 +12,9 @@
   ],
   "phase": null,
   "relatedTickets": [],
-  "resolution": null,
-  "resolvedDate": null,
+  "resolution": "Promue en lecon L-010 (session dev 2026-06-13). Correctif applique : ROUTINE_PROMPT.md etape 1 (pull du champ Segment Notion ~120j + handover count 8), etape 2 (GATE DE ROTATION bloquant avant le Maps : croise le couple contre handovers + Segments Notion, change de graine si deja traite, interdiction de shunter sur \"collision risk low\") et CLAUDE.md section \"Regle de rotation\" (memoire = handovers + crosscheck Notion par Segment).",
+  "resolvedDate": "2026-06-13",
   "severity": "medium",
-  "status": "open",
+  "status": "resolved",
   "title": "Amelioration: memoire de rotation aveugle au-dela de 3 handovers (segments refaits)"
 }
