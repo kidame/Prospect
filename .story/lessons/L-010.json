@@ -1,0 +1,21 @@
+{
+  "content": "La memoire de rotation par handover est PARTIELLE : un couple (metier x zone) traite il y a plus de 8 sessions, ou par un run sans handover, n'y figure pas. Le VRAI filet anti-doublon = croiser le couple choisi contre le champ \"Segment\" des fiches Notion (~120 derniers jours) AVANT de lancer le Maps ; c'est BLOQUANT. Ne jamais shunter ce crosscheck sur un pari \"collision risk low\" : si le couple est deja traite recemment, changer de graine jusqu'a tomber sur un couple neuf.",
+  "context": "ISS-001 (promue ici). Pattern confirme 3x : energie x Lausanne re-pioche le 06-11 (deja fait 07-08/06 sans handover) ; cuisiniste/agencement x Geneve re-pioche les 06-12/13 alors que deja largement traite les 06-03 et 06-07 sans handover -> ~6 finalistes sur ~11 perdus au dedup Notion, le run a failli ne pas livrer ses 3-5, sauve seulement par les noms neufs restants. Le run du 06-13 a explicitement shunte le pull Notion complet (\"collision risk low, dedup apres\") = cause mecanique. Correctif applique : ROUTINE_PROMPT.md etapes 1-2 (pull Segment + gate bloquant, handover count 8) et CLAUDE.md section \"Regle de rotation\". Zero PII (references par segment/date uniquement).",
+  "createdDate": "2026-06-13",
+  "id": "L-010",
+  "lastValidated": "2026-06-13",
+  "reinforcements": 0,
+  "source": "postmortem",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "rotation",
+    "dedup",
+    "notion",
+    "segment",
+    "routine-1h",
+    "prompt"
+  ],
+  "title": "Rotation : crosscheck Notion par Segment BLOQUANT avant le Maps (handover seul est aveugle > 8 sessions)",
+  "updatedDate": "2026-06-13"
+}

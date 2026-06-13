@@ -405,10 +405,15 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
   tri (cout/temps ; CrUX = souvent "donnees insuffisantes" sur petites PME).
 
 ## Regle de rotation (priorite aux PILIERS)
-- MEMOIRE DE ROTATION = les handovers Storybloq (versionnes, persistants), PAS `_resume.md` (gitignore,
-  perdu avec le conteneur). Debut de run : `storybloq handover latest --count 3` -> ne refais pas un
-  couple (metier, zone) deja couvert ces derniers runs. Fin de run : le handover note le couple traite
-  + le prochain a couvrir (voir section Storybloq). `_resume.md` reste un journal local lisible, sans plus.
+- MEMOIRE DE ROTATION = handovers Storybloq + crosscheck Notion par Segment (PAS `_resume.md`,
+  gitignore, perdu avec le conteneur). Debut de run : `storybloq handover latest --count 8` pour les
+  derniers couples (metier, zone) couverts. MAIS la memoire handover est PARTIELLE : un couple traite
+  il y a plus de 8 sessions, ou par un run sans handover, n'y figure PAS (cas reel : cuisiniste x Geneve
+  re-pioche les 06-12/13 alors que deja fait 06-03/07 sans handover -> ~6 finalistes perdus au dedup).
+  Le VRAI filet de rotation = le champ "Segment" des fiches Notion (~120 derniers jours) : croise le
+  couple choisi contre les Segments deja en base AVANT de lancer le Maps, c'est BLOQUANT (cf. lecon
+  L-010 / ISS-001). Ne shunte JAMAIS ce crosscheck sur un pari "collision risk low". Fin de run : le
+  handover note le couple traite + le prochain a couvrir. `_resume.md` reste un journal local, sans plus.
 - PRIORITE : passe le plus de nuits sur les PILIERS (batiment/agencement, transition energetique),
   croises avec les zones a forte demande (Lausanne, Geneve, Fribourg, Neuchatel). Les piliers
   meritent la repetition -- c'est la qu'on construit l'actif (etudes de cas, templates, referral interne).
