@@ -1,0 +1,21 @@
+{
+  "content": "Dans une relance, INTERDIT de fonder l'angle \\\"fait neuf = la carte/le pack local a change\\\" en NOMMANT des concurrents entres/sortis : le pack local est trop volatil et personnalise pour servir de fait nominatif. Si un concurrent doit etre nomme, prendre l'organique (plus stable) et le RE-VERIFIER live au moment de l'envoi ; sinon mener sur un fait stable (page/H1 manquant, levier GBP, page spam indexee). Privilegier les angles micro-valeur ancres sur du dur plutot que la rotation du pack.",
+  "context": "Controle manuel des relances du 2026-06-14 (routine 04:00). 2 relances sur 2 batissaient leur \\\"fait neuf\\\" sur une recomposition du pack local Maps en nommant les entrants/sortants. Re-mesure SERP live ~7h plus tard (14.06 11:39, mobile) : sur chaque cas, au moins un concurrent nomme dans la relance n'etait DEJA plus dans le pack reel. Cas 1 = segment electricien x Fribourg (Place ID 0x478e6ec7d45d10eb:0x2343e75975ce6659) : un entrant nomme absent du pack au re-test, et le #1 reel non mentionne. Cas 2 = segment cuisiniste x Geneve (Place ID 0x478c7b8f34992011:0xf6538f6b0a9778fe) : un entrant nomme absent du pack (remplace par 2 autres fiches), seul un des deux noms confirme. A l'inverse, les angles ancres sur du dur (page spam casino indexee ; H1 ou page prestation manquante ; levier GBP) ont tenu au re-test. Viole la regle CLAUDE.md \\\"jamais inventer un fait\\\" + la regle anti-bruit du controle (recomposition de rang du pack = bruit, pas un fait neuf).",
+  "createdDate": "2026-06-14",
+  "id": "L-011",
+  "lastValidated": "2026-06-14",
+  "reinforcements": 0,
+  "source": "correction",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "relance",
+    "routine-relance",
+    "fait-neuf",
+    "pack-local",
+    "volatilite",
+    "angle-email"
+  ],
+  "title": "Relance : ne pas batir un \\\"fait neuf\\\" sur la recomposition du pack local (concurrents nommes volatils)",
+  "updatedDate": "2026-06-14"
+}
