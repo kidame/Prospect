@@ -479,7 +479,15 @@ fin de session, versionne et pousse, que la session SUIVANTE relit pour repartir
 Boucle canonique Storybloq, valable pour CHAQUE session (les 2 routines ET les sessions dev) :
 - DEBUT : `storybloq handover latest --count 3` (+ `storybloq status` / `issue list --status open`)
   pour savoir ce qui a ete fait recemment AVANT d'agir.
-- FIN : `storybloq snapshot` PUIS `storybloq handover create --slug <run-1h|run-controle|dev-...> --stdin`.
+- CHECKPOINT (runs longs / couteux, ex. run-1h) : des qu'une decision couteuse est prise (le couple
+  metier x zone est verrouille, AVANT la collecte Maps), ecris un handover `--slug <run>-checkpoint`
+  minimal (couple + 'RUN EN COURS, incomplet' + heure) et POUSSE-le tout de suite. Sinon, un run qui
+  MEURT en cours (timeout, conteneur recupere) perd TOUT, sans meme laisser de trace du couple tente
+  (constat 2026-06-14 : run-1h mort a l'etape mesure -> rotation + cout Apify perdus, zero trace). Un
+  couple avec seulement un handover '-checkpoint' et AUCUNE fiche Notion n'est PAS livre : il reste
+  re-piochable (a finir), le verrou de rotation reste le crosscheck Notion (Segment + Place ID).
+- FIN : `storybloq snapshot` PUIS `storybloq handover create --slug <run-1h|run-controle|dev-...> --stdin`
+  (ce handover FIN complete le checkpoint et vaut preuve de completion).
 Regles : un handover est APPEND-ONLY -- on en cree toujours un NOUVEAU, on ne reecrit JAMAIS un
 existant. Contenu des routines = NIVEAU META seulement (segment metier x zone, compteurs, cout,
 observations systeme, prochain segment a couvrir) ; AUCUN detail prospect (ca vit dans Notion). C'est

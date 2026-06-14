@@ -37,6 +37,22 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    JAMAIS au seul "collision risk low" pour shunter ce crosscheck : c'est exactement la cause d'ISS-001
    (les 06-12/13, cuisiniste x Geneve re-pioche alors que deja fait 06-03/07 -> ~6 finalistes perdus au
    dedup, le run a failli ne pas livrer ses 3-5).
+2b. CHECKPOINT ANTI-PERTE (OBLIGATOIRE, des que le couple est verrouille a l'etape 2 -- AVANT le
+   Maps couteux de l'etape 3). Un run peut MOURIR en cours (session interrompue, conteneur recupere,
+   timeout). Constat 2026-06-14 : un run electricien x Lausanne est mort PILE a l'etape 4 (1re mesure
+   SERP), APRES avoir verrouille le couple + collecte le Maps + les volumes -> ZERO trace persistee
+   (ni handover, ni fiche, ni recap) ; travail et cout Apify perdus, et la rotation ignore meme que le
+   couple a ete tente. Donc, des que le GATE de l'etape 2 est franchi, ECRIS IMMEDIATEMENT un handover
+   de checkpoint : `storybloq handover create --slug run-1h-checkpoint --stdin` (DATE Europe/Zurich,
+   cf. etape 10b), corps = 3 lignes META SEULEMENT : 'RUN EN COURS (incomplet)', le COUPLE metier x
+   zone verrouille, l'heure de depart. Puis PERSISTE tout de suite : `git add .story/` + commit +
+   `git pull --rebase origin main` + `git push origin main` (meme procedure qu'a l'etape 10d ; si le
+   push echoue 2 fois, continue le run quand meme). Ce checkpoint NE remplace PAS le handover final
+   (etape 10b), il le PRECEDE -- les deux coexistent (append-only). NB ROTATION : un couple qui n'a
+   qu'un handover 'run-1h-checkpoint' SANS aucune fiche Notion correspondante n'a PAS ete livre -> ce
+   n'est PAS un doublon, tu PEUX (et devrais) le re-piocher pour le FINIR. Le vrai verrou de rotation
+   reste le crosscheck Notion (Segment + Place ID) : c'est l'existence de FICHES qui prouve qu'un
+   couple est traite, jamais un simple checkpoint.
 3. Collecte -- DEUX voies (cf. CLAUDE.md) : (A) MAPS via enckay/google-maps-places-extractor
    (minReviews ~15, exclure les fermes, extractContactDetails=true) pour le local transactionnel ;
    (B) pour l'energie et le B2B mal/non mappes, source par MOT-CLE-SERVICE ("installateur pompe a
@@ -99,7 +115,9 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
        metier x zone couvert, compteurs (N retenus
        email / N a appeler / N rejetes), cout estime, 1-2 observations systeme, et le PROCHAIN segment
        a couvrir (pour la rotation). NIVEAU META UNIQUEMENT : segment + chiffres, AUCUN detail prospect
-       (nom/email/tel/Place ID restent dans Notion). Ne reecris jamais un handover existant.
+       (nom/email/tel/Place ID restent dans Notion). Ne reecris jamais un handover existant. Ce handover
+    final est la PREUVE DE COMPLETION du run ; il succede au checkpoint de l'etape 2b (reste marque
+    'incomplet') -- les deux coexistent, append-only.
     c. ISSUE (CONDITIONNELLE) : seulement si ce run + l'accumulation font emerger un vrai pattern ou
        une idee d'amelioration du SYSTEME (pas chaque nuit) -> `storybloq issue create` (`--title`
        "Amelioration: <quoi>", `--severity` low/medium/high, `--components routine-1h <theme>`,
