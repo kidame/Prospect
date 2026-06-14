@@ -1,12 +1,12 @@
 {
   "blockedBy": [],
-  "completedDate": null,
+  "completedDate": "2026-06-14",
   "createdDate": "2026-06-14",
   "description": "LANE 4 du benchmark. Sous-agent : `general-purpose` + WebSearch/WebFetch, run_in_background, en parallèle.\n\nOBJET : collecter des EXEMPLES RÉELS d'emails de prospection envoyés par des freelances/agences SEO + création web (et, quand dispo, leur résultat), pour avoir un comparatif concret face aux mails KUMO — pas que de la théorie.\n\nQUESTIONS :\n- Quels templates/structures les prestataires SEO utilisent réellement (et lesquels obtiennent des réponses vs sont moqués comme spam) ?\n- Patterns récurrents : l'accroche \"j'ai regardé votre site et...\", l'audit gratuit, la capture d'écran de position Google, le \"votre concurrent X sort devant vous\" (= l'angle KUMO !).\n- Ce que les destinataires (artisans/PME) détestent recevoir de la part d'agences SEO (témoignages, threads \"I get 10 SEO spam emails a day\").\n\nSOURCES : threads Reddit (r/SEO, r/freelance, r/smallbusiness, r/webdev \"SEO cold email\"), bibliothèques de templates (Lemlist database, Hunter, Mailshake), études de cas d'agences, posts LinkedIn/blogs avec captures d'emails réels.\n\nLIVRABLE : 5-10 emails-types annotés (structure + pourquoi ça marche/échoue), + repérage explicite des angles que KUMO utilise déjà (concurrent qui double, audit offert) et comment le marché y réagit.",
   "id": "T-011",
   "order": 40,
   "phase": "benchmark-email",
-  "status": "open",
+  "status": "complete",
   "title": "[Sous-agent web] Teardown : vrais emails de freelances/agences SEO qui obtiennent des réponses",
   "type": "task"
 }

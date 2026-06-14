@@ -1,12 +1,12 @@
 {
   "blockedBy": [],
-  "completedDate": null,
+  "completedDate": "2026-06-14",
   "createdDate": "2026-06-14",
   "description": "LANE 5.5 — ÉTAPE CHARNIÈRE, exécutée par l'orchestrateur APRÈS le retour de T-008..T-012 et AVANT la synthèse T-013. C'est une PORTE itérative, pas une simple compilation.\n\nPOURQUOI : éviter de synthétiser sur des trous. On regroupe d'abord ce que les 5 lanes ont rapporté, on évalue la solidité, et on DÉCIDE s'il faut lancer des sous-agents d'approfondissement avant de conclure.\n\nÉTAPE A — REGROUPEMENT : fusionner les retours des lanes dans une matrice unique (critère -> ce que dit chaque lane). Repérer : (1) CONVERGENCES (plusieurs sources d'accord -> fiable), (2) CONTRADICTIONS (lanes qui se contredisent), (3) TROUS (question de Thomas pas couverte), (4) sources FAIBLES (non datées, non chiffrées, blog auto-promo, échantillon trop mince).\n\nÉTAPE B — TEST DE SUFFISANCE (barre explicite avant de passer à T-013). On approfondit SI au moins un :\n- une contradiction non tranchée sur un point qui change le verdict \"auto-like ?\" ;\n- un red-flag de T-009 dont on ne sait pas s'il touche KUMO faute de matière (T-012) ;\n- la légalité CH (T-010) reste ambiguë sur un point opérationnel (opt-in B2B, mentions) ;\n- moins de ~3 exemples réels exploitables côté T-011 ;\n- une reco pressentie repose sur une seule source non datée.\n\nÉTAPE C — APPROFONDISSEMENT CIBLÉ (si déclenché) : lancer 1 à 3 sous-agents SUPPLÉMENTAIRES (deep-research pour creuser un point chiffré, general-purpose pour vérifier une contradiction ou la loi, Explore pour relire plus de fiches Notion), run_in_background, scope étroit = la lacune précise. Puis re-passer ÉTAPE A.\n\nGARDE-FOU ANTI-BOUCLE : max 2 tours d'approfondissement ; au-delà, on documente la zone d'incertitude résiduelle et on passe à T-013 quand même. Respecter le budget appels web.\n\nLIVRABLE : la matrice consolidée + un journal de décision (\"approfondi sur X parce que trou/contradiction\" ou \"suffisant, go synthèse\") qui alimente directement T-013.",
   "id": "T-014",
   "order": 70,
   "phase": "benchmark-email",
-  "status": "open",
+  "status": "complete",
   "title": "[Regroupement + porte d'approfondissement] Consolider les lanes et décider s'il faut creuser",
   "type": "task"
 }

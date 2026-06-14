@@ -1,12 +1,12 @@
 {
   "blockedBy": [],
-  "completedDate": null,
+  "completedDate": "2026-06-14",
   "createdDate": "2026-06-14",
   "description": "LANE 5 du benchmark (INTERNE, en parallèle des lanes web). Sous-agent : `Explore` (read-only) ou `general-purpose` restreint à la lecture. NE MODIFIE RIEN.\n\nOBJET : extraire la matière brute \"côté KUMO\" pour que la synthèse compare le réel-marché à ce qu'on fait vraiment.\n\nÀ RASSEMBLER (lecture seule) :\n- Les règles email actuelles : CLAUDE.md (sections \"Angles d'email\", \"Rédaction de l'email\", \"Relance 1\") + skill .claude/skills/writing/ (interdits, ton romand, anti-IA) + ROUTINE_PROMPT / RELANCE_PROMPT s'ils existent.\n- Un échantillon de mails 1 + relances RÉELS : via le connecteur Notion (base Contacts), lire 8-12 sections \"## Email (brouillon)\" et \"## Relance 1 (brouillon)\" sur des fiches variées (segments différents). Anonymiser : raisonner par segment/Place ID, ZÉRO PII dans le retour (frontière Storybloq).\n- Les leçons déjà tirées sur l'email : L-002 (bâtiment = pire population email), L-008 (accents), L-011 (relance/fait neuf).\n\nLIVRABLE : un portrait factuel \"voici comment KUMO écrit aujourd'hui\" — objets-types, longueur moyenne, structure, angles dominants, CTA utilisé, ce qui est déjà interdit — SANS jugement (le jugement vient en T-013). Aucune donnée perso dans le retour.",
   "id": "T-012",
   "order": 50,
   "phase": "benchmark-email",
-  "status": "open",
+  "status": "complete",
   "title": "[Sous-agent interne Explore] Audit des emails KUMO actuels -> matière à comparer",
   "type": "task"
 }

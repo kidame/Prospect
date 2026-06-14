@@ -1,12 +1,12 @@
 {
   "blockedBy": [],
-  "completedDate": null,
+  "completedDate": "2026-06-14",
   "createdDate": "2026-06-14",
   "description": "LANE 3 du benchmark. Sous-agent : `general-purpose` + WebSearch/WebFetch, run_in_background, en parallèle.\n\nOBJET : adapter le benchmark au terrain réel de KUMO — PME de Suisse romande, ton romand, et la LÉGALITÉ du cold-email B2B en Suisse (souvent ignorée, gros risque image/juridique).\n\nQUESTIONS :\n- Cadre légal CH : LCD (loi contre la concurrence déloyale) art. 3 al. 1 lit. o sur la publicité de masse / l'opt-in, ce qui est permis en B2B, mentions obligatoires, sanctions. RGPD si contacts UE. Que doit contenir/éviter un mail KUMO pour rester licite ?\n- Attentes culturelles romandes : niveau de formalité (vouvoiement, \"Bonjour,\"), ce qui passe pour \"trop commercial\" auprès d'un artisan/PME locale, longueur tolérée.\n- Le levier \"local/voisin\" (Thomas basé à Val-de-Travers, proximité) : est-ce un vrai différenciateur perçu vs un démarcheur lointain ?\n\nSOURCES : textes de loi CH (fedlex LCD), Préposé fédéral à la protection des données (PFPDT), articles juridiques suisses sur le cold-email B2B, ressources marketing romandes/suisses.\n\nLIVRABLE : (1) note légale \"ce qui est OK / pas OK / obligatoire\" pour le cold-email B2B en CH ; (2) 5-8 points culturels romands actionnables pour juger le ton des mails KUMO.",
   "id": "T-010",
   "order": 30,
   "phase": "benchmark-email",
-  "status": "open",
+  "status": "complete",
   "title": "[Sous-agent web] Spécificités Suisse romande / B2B local + cadre légal (LCD)",
   "type": "task"
 }

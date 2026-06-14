@@ -1,12 +1,12 @@
 {
   "blockedBy": [],
-  "completedDate": null,
+  "completedDate": "2026-06-14",
   "createdDate": "2026-06-14",
   "description": "LANE 6 — SYNTHÈSE, exécutée par l'orchestrateur APRÈS la porte de regroupement T-014 (qui garantit qu'on ne synthétise pas sur des trous).\n\nOBJET : répondre noir sur blanc à la question de Thomas — \"nos mails sont-ils pertinents, ou sonnent-ils prospection automatique de masse ?\" — et donner des pistes, sans toucher aux prompts/emails dans ce cadre.\n\nENTRÉE : la matrice consolidée + le journal de décision de T-014 (convergences fiables, contradictions tranchées, zones d'incertitude résiduelles assumées).\n\nÀ PRODUIRE :\n1. SCORECARD : grille de critères issue de T-008/T-009 (perso réelle, longueur, structure, CTA soft, signaux humains vs filtre, légalité CH) ; noter les emails KUMO actuels (matière T-012) sur chaque critère, avec preuve.\n2. VERDICT \"automatique-like ?\" : pour chaque red-flag de T-009, KUMO est-il touché ou non ? (ex. domaine d'envoi, objet générique, formules IA, multi-liens, sur-perso factice).\n3. ÉCARTS vs les emails réels qui marchent (T-011) + conformité légale CH (T-010).\n4. RECOMMANDATIONS classées par impact (quick-wins vs structurels), formulées comme PROPOSITIONS — pas d'édition. Si une reco mérite de devenir durable, la déposer comme `storybloq note` (proposition) ou issue, à trancher ensuite par Thomas en session dev.\n5. INCERTITUDES RÉSIDUELLES : reprendre celles signalées par T-014 (ce qu'on n'a pas pu trancher et pourquoi).\n\nLIVRABLE : rapport de synthèse (chat + éventuelle note Storybloq récap). Garde-fous : READ-ONLY sur les prompts/emails ; sources citées+datées ; zéro PII dans Storybloq ; budget appels web raisonnable.",
   "id": "T-013",
   "order": 60,
   "phase": "benchmark-email",
-  "status": "open",
+  "status": "complete",
   "title": "[Synthèse] Scorecard KUMO vs réel + recommandations (sans rien modifier)",
   "type": "task"
 }
