@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-14",
+  "description": "LANE 1 du benchmark. Sous-agent : `deep-research` (skill) ou `general-purpose` + WebSearch/WebFetch, run_in_background, en parallèle des autres lanes.\n\nOBJET : établir ce qu'est un BON cold-email de prestataire SEO / création web en 2025-2026, chiffres à l'appui (pas d'opinion).\n\nQUESTIONS :\n- Taux de réponse/ouverture réalistes du cold-email B2B services (et ce qui les déplace).\n- Longueur optimale, structure (accroche/preuve/CTA), nb de liens, présence/absence de pitch.\n- Personnalisation : quels signaux de perso font vraiment lever le taux de réponse (vs faux \"Hi {FirstName}\").\n- CTA \"soft\" (15 min, audit offert) vs CTA dur : ce qui convertit en première touche.\n- Cadence de relance (combien, à quel intervalle) côté best-practice.\n\nSOURCES VISÉES (réelles, datées, citées) : benchmarks Lemlist, Instantly, HubSpot, Belkins, Mailshake, Backlinko/Ahrefs sur l'outreach, rapports deliverability. Privilégier données chiffrées et récentes ; noter la date de chaque source.\n\nLIVRABLE (retour de l'agent, pas d'écriture fichier) : 8-12 constats chiffrés avec source+date, + une mini-grille \"critères d'un bon cold-email\" réutilisable par la synthèse (T-013).",
+  "id": "T-008",
+  "order": 10,
+  "phase": "benchmark-email",
+  "status": "open",
+  "title": "[Sous-agent deep-research] Standards & benchmarks du cold-email B2B services SEO/web",
+  "type": "task"
+}

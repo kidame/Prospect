@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-06-14",
+  "description": "LANE 2 du benchmark. Sous-agent : `general-purpose` + WebSearch/WebFetch, run_in_background, en parallèle.\n\nOBJET : cataloguer les SIGNAUX qui font qu'un destinataire (ou un filtre anti-spam) range un mail dans \"démarchage automatisé de masse\" — c'est le cœur de la question de Thomas.\n\nQUESTIONS :\n- Marqueurs de surface : objets génériques, formules toutes faites, tournures \"mail-merge\" ratées, sur-personnalisation factice, ton vendeur, longueur, multi-liens, images/tracking pixels.\n- Marqueurs techniques de deliverability qui trahissent le bulk : SPF/DKIM/DMARC, domaine d'envoi (domaine principal vs domaine de chauffe), réputation IP, volume, \"spam trigger words\".\n- Différence ressentie entre un mail 1-à-1 vrai et un séquenceur (Lemlist/Instantly/Apollo/Smartlead) : ce qui se voit côté reçu.\n- Liste concrète de \"red flags\" et de \"green flags\" exploitable comme checklist.\n\nSOURCES : guides deliverability (Google/Yahoo sender requirements 2024+, Postmark, Mailgun), threads r/sales r/coldemail r/SEO, articles \"why your cold email looks like spam\".\n\nLIVRABLE : une checklist red-flags / green-flags (15-25 items) avec, pour chaque, la source et si c'est un signal HUMAIN ou un signal FILTRE.",
+  "id": "T-009",
+  "order": 20,
+  "phase": "benchmark-email",
+  "status": "open",
+  "title": "[Sous-agent web] Tells de \"prospection automatique\" : ce qui fait flaguer un mail",
+  "type": "task"
+}

@@ -31,6 +31,12 @@
       "id": "outillage",
       "label": "PHASE T",
       "name": "Outillage & sourcing"
+    },
+    {
+      "description": "Recherche READ-ONLY (ne modifie ni prompts ni emails) : comprendre comment les vrais freelances/agences SEO + création web prospectent par email, pour juger si les emails KUMO sont pertinents ou s'ils sonnent \"prospection automatique de masse\". Programme exécuté par sous-agents parallèles (1 ticket = 1 lane), puis synthèse en scorecard + recommandations. Livrable = rapport ; aucune édition de CLAUDE.md / prompts / fiches dans ce cadre.",
+      "id": "benchmark-email",
+      "label": "Benchmark cold-email (SEO/création web) vs emails KUMO",
+      "name": "benchmark-email"
     }
   ],
   "title": "kumo-prospection"
