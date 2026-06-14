@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "email-accents"
+  ],
+  "discoveredDate": "2026-06-14",
+  "id": "ISS-002",
+  "impact": "PATTERN + ACCUMULATION (zero PII, refs par Place ID + segment) :\nLe run de 1h produit ses mails \"## Email (brouillon)\" en ASCII pur, sans aucun accent, alors que CLAUDE.md impose un francais accentue dans le mail (\"ACCENTS OBLIGATOIRES ... cette regle prime sur toute consigne ASCII, y compris le skill d'ecriture\"). Le mail est cense etre pret a copier-coller ; sans accents il ne l'est pas et exige une re-accentuation manuelle a chaque fois.\n\nMesure sur les fiches controlees :\n- Nuit 2026-06-13, segment \"cuisiniste/agencement x Geneve\" : 4/4 mails sans accents, tous flagues C5 \"A CORRIGER\" par le controle.\n  * Place ID 0x478c65baf2d80415:0xf527a548cec58751 (\"base a Val-de-Travers\", \"a 5 etoiles\", \"basculer\")\n  * Place ID 0x285065af7d34191f:0xe3919c67c43fe7e (\"consultant SEO a Val-de-Travers\", \"donneurs d'ordre\")\n  * Place ID 0x478c65f6ec725c75:0x74618c8b2dff0ece (\"base a\", \"a 5 etoiles\")\n  * Place ID 0x478c7b1bccc7c303:0xe018b1e34ed23fab (\"concretement\", \"a 5 etoiles\")\n- Nuits anterieures (preuve indirecte) : segment \"transition energetique x Fribourg\" (2026-06-11, Place ID 0x478e83ee97cc2c8d:0xb152771789971c06) et \"sanitaire/chauffage x Neuchatel\" (2026-06-12, Place ID 0x478de7eb8e4ebb65:0x3be76348dcc96aca) -> les sections Controle notent que les accents ont du etre AJOUTES manuellement apres coup (correction Thomas / session dev), donc le run avait la aussi produit de l'ASCII.\n\nBilan : >=3 nuits, >=6 fiches, defaut systematique (100% des mails du run 1h). Le controle l'attrape a chaque fois mais le mail reste non-envoyable tel quel.\n\nCHANGEMENT SUGGERE (session dev) : forcer l'accentuation AU MOMENT DE LA GENERATION du mail dans le run 1h, pas en aval. Renforcer la consigne dans ROUTINE_PROMPT.md (etape 9) et/ou le skill .claude/skills/writing/ pour que la sortie soit accentuee d'office (rappel explicite que la regle accents prime sur l'ASCII), avec un auto-check avant d'ecrire dans Notion. Objectif : \"Draft pret\" = vraiment pret a copier-coller, sans re-accentuation manuelle.\n\nNB systeme (a verifier en session dev, hors perimetre controle) : `storybloq issue list --status open` ressort VIDE alors que le handover du run 1h 06-13 dit avoir ouvert une issue rotation -> possible push casse (cf. T-007). Si une issue accents existait deja et a ete perdue, fusionner.",
+  "location": [
+    "CLAUDE.md > Redaction de l'email (ACCENTS OBLIGATOIRES)",
+    "ROUTINE_PROMPT.md etape 9 (ecriture du mail)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails du run 1h ecrits sans accents (viole regle ACCENTS OBLIGATOIRES)"
+}
