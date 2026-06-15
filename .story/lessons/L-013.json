@@ -1,0 +1,18 @@
+{
+  "content": "Quand le mail de prospection annonce un piratage (angle site-pirate / casino), il doit desamorcer DANS le corps le soupcon 'c'est peut-etre lui l'attaquant', pas seulement au telephone. Deux phrases obligatoires : (1) COMMENT le prospect a ete trouve ('en cherchant des <metier> de la region sur Google, j'ai prefere prevenir') = decouverte publique + prospection normale, pas un ciblage ; (2) une phrase no-access ('je n'ai aucun acces chez vous, ces pages sont publiques dans Google'). Plus 'vous pouvez verifier qui je suis' + coordonnees reelles.",
+  "context": "Cas reel 2026-06-15 : un prospect a repondu en soupconnant KUMO d'etre l'escroc/l'attaquant ('suspect que vous cherchiez des pages piratees'). Le self-check site:domaine casino prouve que le probleme est reel mais ne dit pas que l'expediteur est clean. Annoncer un hack a froid sonne comme l'arnaqueur classique (forcer la serrure puis vendre une serrure). Corrige dans kumo-brain : playbooks/site-pirate-offre-et-scripts.md + skill detecteur-sites-pirates (PR #25).",
+  "createdDate": "2026-06-15",
+  "id": "L-013",
+  "lastValidated": "2026-06-15",
+  "reinforcements": 0,
+  "source": "manual",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "email",
+    "site-pirate",
+    "anti-scam"
+  ],
+  "title": "Mail site-pirate : desamorcer 'c'est lui le pirate' (comment trouve + no-access)",
+  "updatedDate": "2026-06-15"
+}
