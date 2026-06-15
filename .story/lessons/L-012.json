@@ -1,0 +1,18 @@
+{
+  "content": "A l'etape MARCHE, juge le volume d'une requete sur la MEDIANE des 12 mois (champ monthly_searches deja renvoye par kw_data_google_ads_search_volume, 0 appel en plus), jamais sur le seul search_volume du dernier mois ni un point isole : sur les petites villes romandes les volumes sont volatils, un pic ou un mois a zero ne doit ni gonfler ni disqualifier un prospect. C'est cette mediane qui se compare au seuil ~150/mois (signal demande_reelle, manque-a-gagner chiffre). Corollaire : lis le CPC comme une fourchette indicative, pas un chiffre exact ; un CPC isole aberrant ne renverse pas le tri valeur (volume x CPC x ticket).",
+  "context": "Issu de l'evaluation (2026-06-15, session dev branche claude/kumo-prospection-analysis-hnlxkt) d'un doc de reflexion \"Moteur de prospection Kumo\" anterieur au systeme actuel. Doc juge ~90% redondant et moins mur que CLAUDE.md, SAUF l'hygiene de donnees kw : son \"filtre v2\" recommandait mediane 12 mois (pas le dernier mois, donnees CH volatiles) + CPC fourchette/winsorize + dedup core_keyword + filtre intention. Seuls la mediane 12 mois et le CPC-fourchette sont applicables en pratique (la donnee est deja retournee, 0 cout) et changent une vraie decision : le seuil ~150/mois (etape 5 demande_reelle, angle 3 manque-a-gagner). Winsorize/dedup core_keyword ecartes : supposent un gros echantillon, inapplicables sur la poignee de requetes triees a la main par finaliste. CLAUDE.md etape 4 mis a jour en consequence (LECTURE DU VOLUME + note CPC fourchette).",
+  "createdDate": "2026-06-15",
+  "id": "L-012",
+  "lastValidated": "2026-06-15",
+  "reinforcements": 0,
+  "source": "manual",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "prospection",
+    "mesure",
+    "kw-data"
+  ],
+  "title": "Volume kw : juger sur la mediane 12 mois, pas le dernier mois (donnees CH volatiles)",
+  "updatedDate": "2026-06-15"
+}

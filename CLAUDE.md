@@ -140,6 +140,10 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      Ste-Croix avant Neuchatel). + 1-2 requetes par prestation (cuisine, agencement, escalier,
      parquet, charpente, couverture, fenetres...), gardees seulement si volume reel.
      Sans aucune demande : disqualifie. (cf. lecon L-006)
+     LECTURE DU VOLUME (donnees CH volatiles, petites villes) : juge sur la MEDIANE des 12 mois
+     (champ monthly_searches deja renvoye par kw_data, 0 appel), JAMAIS sur le seul dernier mois
+     ni un point isole -> un pic ou un mois a zero ne doit ni gonfler ni tuer un prospect. C'est
+     cette mediane qui se compare au seuil ~150/mois (demande_reelle, manque-a-gagner). (cf. lecon L-012)
    - Sante technique : OnPage instant (score, titres, H1) + les champs perf/poids deja renvoyes
      par le MEME appel (page_timing, total_dom_size, CLS, cache_control...) -> voir "Regle perf". LCP -> vide.
    - SERP REEL de la requete coeur (serp_organic_live_advanced, metier+ville, mobile) :
@@ -159,7 +163,9 @@ un email pour ceux qui ont un email. Qualite avant quantite.
      l'accroche. Mene l'accroche sur le terrain GAGNABLE (sa vallee/ville, GBP, refonte). (cf. lecon L-007)
    - VALEUR ECONOMIQUE : trie les requetes cibles par volume x CPC x ticket (le CPC est deja dans
      kw_data, 0 appel), pas le volume brut. Une prestation a gros ticket (cuisine, agencement) bat
-     souvent la tete de metier generique (intention melee) et vend une offre plus haute. (cf. lecon L-007)
+     souvent la tete de metier generique (intention melee) et vend une offre plus haute. Lis le CPC
+     comme une FOURCHETTE indicative, pas un chiffre exact ; un CPC isole aberrant ne renverse pas
+     le tri. (cf. lecon L-007)
    - PACK LOCAL vu depuis la VILLE-CLIENTE : relance la SERP coeur avec le location de la ville cible
      (pas le village du prospect) pour voir le vrai ecart pack. Pour l'artisan rural, GBP/Suivi =
      levier le plus rapide (semaines) et le plus rentable -> souvent le produit-hero. (cf. lecon L-007)
