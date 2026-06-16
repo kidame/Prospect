@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-06-16",
+  "id": "ISS-002",
+  "impact": "PATTERN : controle du 2026-06-16, segment \"menuisier x Lausanne\". Les 3 fiches a canal EMAIL produites par la run-1h (## Email brouillon) sont redigees ENTIEREMENT en ASCII, sans aucun accent (ex. \"referencement\", \"etablie\", \"ebenisterie\", \"premieres\", \"ca\", \"etes\", \"ecart\"). 3/3 mails touches cette nuit.\n\nPREUVE que ce n'est pas un artefact de lecture : le meme connecteur Notion (notion-fetch sur le schema de la base Contacts) renvoie correctement les accents des options (\"Signe\", \"Devis envoye\", \"Relance preparee\", \"Bouche-a-oreille\" -> avec e accentues), et l'API DataForSEO renvoie aussi les accents (\"Ferme\", \"realiser\"). Donc le pipeline preserve l'UTF-8 ; ce sont bien les mails qui sont ecrits sans accents.\n\nREGLE VIOLEE : CLAUDE.md impose \"ACCENTS OBLIGATOIRES dans l'email : francais correct avec tous les accents... Cette regle prime sur toute consigne ASCII (y compris le skill d'ecriture).\" Un mail entierement sans accents adresse a un prospect romand contredit l'objectif \"email humain, jamais robot/IA\".\n\nCHANGEMENT SUGGERE : durcir le rappel d'accents au moment de l'ecriture du bloc \"## Email (brouillon)\" dans ROUTINE_PROMPT.md (etape livrables), et/ou un garde-fou de sortie qui refuse un mail sans aucun caractere accentue. Le skill d'ecriture ASCII semble ecraser la regle d'accents -> a expliciter que l'email final doit etre re-accentue.\n\nZERO PII (aucun nom/email/tel ; refs par segment uniquement). A escalader en high si le pattern revient sur d'autres segments les nuits suivantes.",
+  "location": [
+    "CLAUDE.md > Redaction de l'email (ACCENTS OBLIGATOIRES)",
+    "ROUTINE_PROMPT.md etape 9 / livrables email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails rediges sans accents (regle ACCENTS OBLIGATOIRES non respectee)"
+}
