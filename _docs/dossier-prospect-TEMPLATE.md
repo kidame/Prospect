@@ -59,6 +59,10 @@ Thomas
 KUMO - kumo-seo.ch
 [telephone]
 
+[Juste sous la signature : ajoute le BOUTON mailto qui ouvre l'app mail pre-remplie
+**[Ouvrir ce mail dans mon app](mailto:DEST?subject=OBJET&body=CORPS)** (objet + corps en
+percent-encoding UTF-8). Voir le spec dans CLAUDE.md, section "CORPS DE LA FICHE".]
+
 ## 7. Tracabilite (sources)
 - Fiche Google Maps : [lien]
 - Email : [source, ex. collecte Maps ou vdrmota/contact-info-scraper]
