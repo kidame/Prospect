@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PreCompact": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @storybloq/storybloq@1.4.4 session compact-prepare"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm install -g @storybloq/storybloq@1.4.4 >/dev/null 2>&1 || true"
+          }
+        ]
+      },
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx -y @storybloq/storybloq@1.4.4 session resume-prompt"
+          }
+        ]
+      }
+    ]
+  }
+}
