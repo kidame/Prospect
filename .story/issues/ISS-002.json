@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction",
+    "accents"
+  ],
+  "discoveredDate": "2026-06-18",
+  "id": "ISS-002",
+  "impact": "PATTERN (re-vu le 2026-06-18) : les 4 fiches Draft pret du run 1h (segment cuisiniste/agencement x Fribourg) ont TOUTES le corps du mail \"## Email (brouillon)\" en ASCII sans accents -> le controle 3h flague C5 \"A CORRIGER\" sur chacune. C'est le MEME defaut que la lecon L-008 (run 2026-06-12, 5 fiches sanitaire/chauffage x Neuchatel), qui avait pourtant fait ajouter un rappel inline \"ACCENTS OBLIGATOIRES\" a ROUTINE_PROMPT.md etape 6.\n\nREGRESSION CLE : le rappel inline est bien present (verifie ce run, l.90-92 : \"redige le corps DES LA PREMIERE ECRITURE... TOUS les accents... ne produis JAMAIS un mail en ASCII\") -- mais il est INEFFICACE a l'execution : 6 jours apres, un batch complet (4/4) repart en ASCII. Defaut aussi observe sur des fiches anterieures (Lhome cuisiniste x Geneve ; Dessaux menuisier x Lausanne).\n\nCHANGEMENT suggere (a trancher en session dev) : un rappel TEXTUEL inline ne tient pas a la generation. Pistes : (a) post-traitement deterministe = passe d'accentuation auto avant ecriture Notion ; (b) exemple few-shot d'un mail correctement accentue directement dans ROUTINE_PROMPT.md etape 6 ; (c) etape de self-review explicite en fin de redaction (\"relis chaque mot : accents poses ?\") avant de cocher Draft pret. A defaut, cout recurrent : le controle 3h + Thomas re-accentuent ~4-5 fiches/run.\n\nPREUVE (zero PII) : segment cuisiniste/agencement x Fribourg, 2026-06-18, 4 fiches Draft pret -> C5 \"A CORRIGER\" sur les 4 (verdict 🟠 A voir chacune, aucun autre defaut : salutation/fait porteur/angle/hygiene OK). Refs : lecon L-008 (2026-06-12, meme defaut, correctif applique mais non tenu).",
+  "location": [
+    "ROUTINE_PROMPT.md etape 6 (l.90-92)",
+    "CLAUDE.md section Redaction de l'email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mail ASCII sans accents malgre le rappel inline (L-008 inefficace)"
+}
