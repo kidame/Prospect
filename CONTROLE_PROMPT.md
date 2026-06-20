@@ -124,9 +124,10 @@ du projet : jamais "invisible" si la mesure dit le contraire.
 - CONSTAT SANS HUMILIER : un angle "concurrent qui vous double" doit etre un constat outille
   ("tapez X, [Concurrent] sort, pas vous"), jamais une humiliation ("vous etes ecrase / a la
   traine / invisible"). Si l'accroche humilie -> FLAG.
-- DIAGNOSTIC SEUL AU 1er CONTACT : le mail ne doit vendre QUE le Diagnostic 1200 (ou les 15 min).
-  S'il etale le tunnel Mandat/Suivi (engagement long) a froid -> FLAG (ca fait fuir ; la chaine
-  se revele a l'appel).
+- CTA PAR MAIL AU 1er CONTACT : le mail ne doit vendre QUE la conversation (micro-offre par mail,
+  ex. "je vous envoie les 2-3 points ?"). Un CTA qui demande un appel, un rendez-vous, un creneau
+  ou "15 min" a froid -> FLAG (cf. CLAUDE.md "CTA = CONTINUER PAR MAIL"). S'il pousse le Diagnostic
+  1200 ou le tunnel Mandat/Suivi a froid -> FLAG (ca fait fuir ; ca se revele dans l'echange).
 
 C5 — FORMULES IA + ACCENTS. Relis le mail. Repere :
 - toute formule de la liste interdite de CLAUDE.md ("je me permets", "n'hesitez pas", "dans

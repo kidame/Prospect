@@ -21,7 +21,7 @@ Ce skill complète la section « Rédaction de l'email » de `CLAUDE.md` (qui fa
 2. **Présentation** : 1 ligne. Thomas, basé dans la région (Val-de-Travers / Neuchâtel). Bref, pas un pitch.
 3. **Accroche tournée vers EUX** : la 1re vraie phrase parle de leur monde, pas du tien. Reconnais leur travail via un fait vérifiable (avis, spécialité, ou bonne position déjà acquise).
 4. **UN seul point concret**, prouvé par **une mesure** : position pack local, position organique, ou volume d'une requête non captée. Chiffre-le.
-5. **Donnant-donnant + UNE seule demande, à faible friction** : 15 min ; même sans suite ils repartent avec des pistes. Sans engagement. Pas « 30–45 min », pas double CTA.
+5. **Donnant-donnant + UNE seule demande, à faible friction — par MAIL, pas un appel** : propose de lui **envoyer** quelque chose d'utile (2-3 pistes, un mini-recap de ce que tu as vu), gratuit, sans suite obligée. La demande se répond par un simple « oui » en répondant au mail : « je vous envoie les 2-3 points ? », « je vous mets ça par retour de mail ? ». **Jamais** « on prend 15 min », « un appel », « un créneau » au 1er contact : ça sonne vendeur qui veut te coincer au téléphone. L'appel vient plus tard, dans l'échange. Pas double CTA.
 6. **Signature** : Thomas / KUMO / téléphone.
 
 Forme : français romand, direct, **8 à 14 lignes**, ~120–150 mots max. Texte simple, pas de HTML, pas de logo. Écris comme un pair, pas comme un vendeur (test : « un ami enverrait-il ça à un autre en affaires ? »).
@@ -74,14 +74,17 @@ Forme : français romand, direct, **8 à 14 lignes**, ~120–150 mots max. Texte
 >
 > Par contre, sur « paysagiste Neuchâtel » — 210 recherches par mois, soit le plus gros marché du canton — vous n'apparaissez nulle part, ni dans la carte ni plus bas. Et je ne trouve pas de page qui cible vos prestations là-bas (création, entretien, élagage).
 >
-> Si ça vous dit, on prend 15 min : je vous montre où ça bloque et ce qui se capte facilement. Même si on n'en fait rien, vous repartez avec des pistes concrètes.
+> Si vous voulez, je vous envoie les 2-3 points qui expliquent l'écart, et ce qui se capte le plus vite. Vous en faites ce que vous voulez, même sans suite.
 >
-> Thomas — KUMO
+> Je vous mets ça par mail ?
+>
+> Thomas, KUMO
 > 0XX XXX XX XX
 
-Pourquoi il marche : 1 présentation courte, accroche sur un fait à eux (avis + bonne position), UN point chiffré (210/mois non capté), une demande à faible friction, zéro formule IA, pas de tiret cadratin.
+Pourquoi il marche : 1 présentation courte, accroche sur un fait à eux (avis + bonne position), UN point chiffré (210/mois non capté), une demande à faible friction qui se règle par mail (pas d'appel imposé), zéro formule IA, pas de tiret cadratin.
 
 ## Red flags — STOP et réécris
+- Le CTA demande un appel, un rendez-vous, un créneau ou « 15 min » au 1er contact. → remplace par une micro-offre qui se règle par mail (« je vous envoie ça ? »).
 - Le mail dépasse 14 lignes ou enchaîne deux demandes.
 - Il s'ouvre sur toi (« je m'appelle… je voulais… ») au lieu d'un fait sur eux.
 - Tu lis « je me permets », « n'hésitez pas », « véritable », un `—`, ou un emoji.
