@@ -84,9 +84,11 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes, signature Thomas / KUMO -
    kumo-seo.ch / tel). SOURCE UNIQUE du mail. ANGLE = DOULEUR RESSENTIE, dans l'ordre : concurrent
    nomme qui le double sur sa ville > declencheur (page cassee, recrutement) > manque-a-gagner
-   chiffre (SI volume > ~150/mois) > jamais "invisible". CONSTATE sans humilier. Le mail vend
-   SEULEMENT le Diagnostic 1200 (ou juste "15 min, je vous montre") : N'ANNONCE PAS le tunnel
-   Mandat/Suivi (ca fait fuir a froid ; la chaine se revele a l'appel). Applique le skill
+   chiffre (SI volume > ~150/mois) > jamais "invisible". CONSTATE sans humilier. CTA = CONTINUER
+   PAR MAIL : le mail vend SEULEMENT la CONVERSATION via une micro-offre a friction quasi nulle
+   ("je vous envoie les 2-3 points ?"), JAMAIS un appel ni "15 min" ni un creneau au 1er contact
+   (cf. CLAUDE.md "CTA = CONTINUER PAR MAIL"). N'ANNONCE PAS le Diagnostic 1200 ni le tunnel
+   Mandat/Suivi a froid (ca fait fuir ; ca se revele dans l'echange une fois ouvert). Applique le skill
    .claude/skills/writing/. ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
    francais correct avec TOUS les accents (e/a/o/u/i accentues, c cedille) -- ne produis JAMAIS un
    mail en ASCII "a re-accentuer ensuite" ; seule l'apostrophe reste droite ('), aucun tiret

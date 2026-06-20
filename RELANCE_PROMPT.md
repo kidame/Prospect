@@ -113,8 +113,9 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
    - 1 ligne qui raccroche au mail precedent SANS culpabiliser (ex. "je vous ecrivais il y a
      une semaine au sujet de [angle du mail 1]") ;
    - LE fait neuf date OU LA piste offerte (un seul point, chiffre, verifiable) ;
-   - la meme porte de-risquee que le mail 1 : 15 minutes, je vous montre ce qui bloque, sans
-     engagement (le Diagnostic 1200 ne se mentionne que s'il etait deja dans le mail 1).
+   - la meme micro-offre PAR MAIL que le mail 1 : proposer d'ENVOYER la piste / le point utile,
+     sans engagement et JAMAIS un appel ni "15 min" a froid (cf. CLAUDE.md "CTA = CONTINUER PAR
+     MAIL" ; le Diagnostic 1200 ne se mentionne que s'il etait deja dans le mail 1).
    INTERDITS SPECIFIQUES RELANCE (en plus des interdits CLAUDE.md) : "je me permets de
    revenir vers vous", "sans reponse de votre part", "avez-vous eu le temps de", "ma
    derniere tentative", "je relance", tout reproche ou pression, toute repetition du pitch
