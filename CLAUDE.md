@@ -437,14 +437,24 @@ Jamais l'impression d'un robot, d'une IA, ou de quelqu'un qui veut juste gratter
 Structure : 1) je me presente (Thomas, base dans la region). 2) je reconnais leur travail
 via un fait verifiable (avis, specialite, ou bonne position deja acquise). 3) UN seul point
 concret, prouve par une mesure (souvent : visibilite etroite, ou absent d'un axe, chiffres a
-l'appui). 4) donnant-donnant : 15 min, je montre ce qui bloque, et meme sans suite ils
-repartent avec des pistes. Sans engagement.
+l'appui). 4) donnant-donnant PAR MAIL : je propose de lui ENVOYER quelque chose d'utile (2-3
+pistes concretes, un mini-recap de ce que j'ai vu), gratuit et sans suite obligee. Il repart
+avec de la valeur meme s'il ne donne pas suite. Sans engagement.
 
-OFFRE DANS LE MAIL : au 1er contact, ne propose QUE le Diagnostic 1200 (ou meme juste "15 min, je
-vous montre ce qui bloque"). N'annonce JAMAIS le tunnel Diagnostic -> Mandat -> Suivi : lu a froid,
-ca sonne "abonnement a vie" et ca fait fuir. La chaine (Diagnostic 1200 -> Mandat 90j -> Suivi
-recurrent) est TON architecture interne ; elle se revele a l'appel, une fois la confiance posee. Le
-Diagnostic est deja ta porte de-risquee (prix fixe, livrable, zero promesse) : c'est lui que le mail vend.
+CTA = CONTINUER PAR MAIL, PAS un appel (regle 2026-06-20). Le 1er contact ne demande JAMAIS un
+rendez-vous telephonique ni un creneau de 15 min : ca sonne "vendeur qui veut te coincer au
+telephone" et ca fait fuir. La demande est une MICRO-OFFRE a friction quasi nulle, a laquelle on
+repond par un simple "oui" en repondant au mail : "je vous envoie les 2-3 points ?", "je vous mets
+ca par retour de mail ?", "ca vous interesse que je vous montre ce que j'ai vu ?". L'appel ou les
+15 min peuvent venir PLUS TARD, naturellement, une fois l'echange ouvert et la confiance posee --
+jamais comme la 1re demande a froid.
+
+OFFRE DANS LE MAIL : au 1er contact, on vend juste la CONVERSATION (la micro-offre par mail
+ci-dessus), pas un produit. Le Diagnostic 1200 reste ta porte de-risquee (prix fixe, livrable,
+zero promesse), mais on ne le pose qu'une fois l'echange engage, pas en ouverture a froid.
+N'annonce JAMAIS le tunnel Diagnostic -> Mandat -> Suivi : lu a froid, ca sonne "abonnement a vie"
+et ca fait fuir. La chaine (Diagnostic 1200 -> Mandat 90j -> Suivi recurrent) est TON architecture
+interne ; elle se revele dans l'echange, une fois la confiance posee.
 
 Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statistique generale
 presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font
