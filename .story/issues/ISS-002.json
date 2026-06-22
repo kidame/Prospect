@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "cta"
+  ],
+  "discoveredDate": "2026-06-22",
+  "id": "ISS-002",
+  "impact": "PATTERN : le batch run-1h \"demenageur x Lausanne\" (cree nuit 06-19->06-20) produit 5/5 mails EMAIL dont le CTA demande explicitement \"15 minutes au telephone\" (souvent x2 dans le corps). Or CLAUDE.md (regle 2026-06-20) impose \"CTA = CONTINUER PAR MAIL, PAS un appel\" : le 1er contact a froid ne doit jamais demander un creneau telephonique / \"15 min\". Le controle a passe les 5 fiches en 🟠 A voir avec action \"convertir le CTA en micro-offre par mail\".\n\nACCUMULATION : 5 fiches, meme nuit, meme segment (Place ID 0x478c2f272d2b399b / 0x478c31e5e336b97f / 0x56a6a35bb1847b / 0x478c31227d44e2ed / 0x478c3130be053cff). Tous les autres controles (C1/C2/C5/C6) sont OK sur ces fiches : le CTA telephone est le SEUL point a corriger, donc un defaut systematique de generation, pas un cas isole.\n\nNUANCE TIMING (a verifier en session dev) : ces mails ont ete generes vers 01:33 Zurich le 06-20, potentiellement juste avant l'ajout de la regle 2026-06-20. Verifier si ROUTINE_PROMPT.md / le skill writing portent deja l'interdiction du CTA telephone au 1er contact ; sinon l'ajouter explicitement (la regle vit dans CLAUDE.md mais le run continue de generer \"15 min au telephone\").\n\nCHANGEMENT SUGGERE : forcer a la GENERATION (ROUTINE_PROMPT etape 9 + skill .claude/skills/writing/) un CTA-mail (\"je vous envoie les 2-3 points ?\", \"je vous mets ca par retour de mail ?\") et bannir explicitement \"15 min\", \"au telephone\", \"creneau\", \"rendez-vous\" dans le 1er mail. ZERO PII dans ce ticket (refs par Place ID).",
+  "location": [
+    "CLAUDE.md Redaction de l'email (CTA = CONTINUER PAR MAIL, regle 2026-06-20)",
+    "ROUTINE_PROMPT.md etape 9"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: CTA \"15 min au telephone\" au 1er contact (viole CTA-par-mail)"
+}
