@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "tooling-apify"
+  ],
+  "discoveredDate": "2026-06-22",
+  "id": "ISS-002",
+  "impact": "PATTERN (deterministe, va se reproduire a CHAQUE run tant que la doc n'est pas corrigee) : l'actor enckay/google-maps-places-extractor a change son input schema. Le champ `keyword` (singulier) est desormais DEPRECIE avec defaut \"restaurants\" ; il faut passer `keywords` (ARRAY de chaines). Vu le 2026-06-23 : un 1er run Maps avec {\"keyword\":\"electricien\",\"location\":\"Geneve\"} a renvoye 49 RESTAURANTS de Geneve (le keyword a ete ignore), ~0,026 CU perdus + temps. Re-run avec {\"keywords\":[\"electricien\"]} -> 12 vrais electriciens. CHANGEMENT suggere : dans CLAUDE.md (Collecte Google Maps) et ROUTINE_PROMPT etape 3, remplacer \"keyword (metier)\" par \"keywords: [\\\"<metier>\\\"] (ARRAY ; le champ legacy `keyword` est ignore et defaut restaurants)\". Champs utiles confirmes au passage : `extractWebsiteEmails:true` (60-80% d'emails resolus directement, sort des emails de domaine -> peut eviter un appel vdrmota) et `extractContactDetails:true`. PREUVE : 2 runs Apify le 2026-06-23 (1er = dataset 49 items tous restaurants ; 2e = 12 items categorie Electrician). Zero PII.",
+  "location": [
+    "CLAUDE.md (section Outils et actors / Collecte Google Maps)",
+    "ROUTINE_PROMPT.md etape 3"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: actor Maps enckay a deprecie `keyword` -> `keywords` (renvoie restaurants)"
+}
