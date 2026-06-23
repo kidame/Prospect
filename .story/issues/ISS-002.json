@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "collecte-maps"
+  ],
+  "discoveredDate": "2026-06-23",
+  "id": "ISS-002",
+  "impact": "PATTERN : l'actor enckay/google-maps-places-extractor a change son schema d'input. Le champ \"keyword\" (singulier) est desormais DEPRECIE et un nouveau champ \"keywords\" (array) a un DEFAUT [\"restaurants\"] qui prend le dessus. Concretement : un run lance avec seulement {\"keyword\": \"demenagement\", \"location\": \"Geneve\"} (la forme documentee dans CLAUDE.md) ignore le keyword et sort la categorie par defaut. Vu le 2026-06-24 (run demenageur x Geneve) : 1er run Maps = 49 RESTAURANTS au lieu de demenageurs ; relance avec \"keywords\": [\"demenagement\",\"demenageur\",\"garde-meuble\"] -> 19 demenageurs corrects. Cout du run perdu negligeable (~0,04 CU) mais perte de temps et risque de run mort si non rattrape.\n\nCHANGEMENT suggere : mettre a jour la doc de l'outil Maps dans CLAUDE.md (\"Outils et actors\") et ROUTINE_PROMPT.md (etape 3) pour utiliser \"keywords\" (array de chaines), 1 mot-cle par metier/synonyme, au lieu de \"keyword\" (singulier). Mentionner aussi le champ \"extractWebsiteEmails\": true (taux email 60-80% depuis le site, vs 20-40% du profil Google) qui a permis ce run d'eviter l'etape contact-scraper vdrmota pour ~10/19 fiches.\n\nPREUVE : 2 runs Apify ce soir, le 1er (keyword singulier) a renvoye 49 items tous de categorie restaurant ; le 2e (keywords array) a renvoye 19 items tous de categorie Mover/Moving and storage. Schema confirme via fetch-actor-details (champ \"keyword\" titre \"Search Keyword (legacy)\", \"Deprecated: use Search Keywords instead. Ignored if keywords is also provided\" ; \"keywords\" default [\"restaurants\"]). Zero PII.",
+  "location": [
+    "CLAUDE.md Outils et actors (Collecte Google Maps)",
+    "ROUTINE_PROMPT.md etape 3"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: actor Maps a change de schema (keyword -> keywords)"
+}
