@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "storybloq-persistance"
+  ],
+  "discoveredDate": "2026-06-24",
+  "id": "ISS-002",
+  "impact": "PATTERN + accumulation : plusieurs runs 1h ont cree des fiches Notion SANS commiter de handover run-1h. Confirme cette nuit (2026-06-25) : la base Notion contient des fiches Source=Routine nocturne datees 06-22 (demenageur x Lausanne) et 06-24 (demenageur x Geneve, fiches completes Diagnostic+Email+Controle), mais `storybloq handover latest` ne remonte AUCUN handover run-1h apres le 06-13 (dernier = relance 06-20). Deja soupconne les 06-12 et 06-13 (handovers precedents evoquent push casse / run relance manuelle sans handover). Donc >=3 occurrences sur ~10 nuits.\n\nCONSEQUENCE : la memoire de rotation portee par les handovers est trouee. Cette nuit, le GATE n'a tenu QUE grace au crosscheck Notion (champ Segment + Place ID) : sans lui, peintre x Geneve aurait pu partir alors que menuisier/carreleur/demenageur etc. etaient deja brules sans trace handover. Le filet handover seul est non fiable.\n\nCHANGEMENT suggere (a trancher en session dev) : (1) rendre le crosscheck Notion par Segment le verrou PRIMAIRE et non-shuntable (deja dans le prompt, mais a renforcer comme seule source de verite de rotation) ; (2) investiguer pourquoi les runs 06-21..06-24 n'ont pas persiste de handover (push echoue ? branche ? etape 10 jamais atteinte car run en mode non-autonome ?) ; (3) eventuellement faire ecrire le segment+date dans un champ Notion dedie au niveau run (pas seulement par fiche) pour une rotation 100% Notion.\n\nPREUVE (zero PII) : fiches Notion Source=Routine nocturne, Segment=\"demenageur x Geneve\", createdTime 2026-06-24T01:09Z (x3, ex. Place ID 0x478c65e69fb3125f:...) ; `storybloq handover latest --count 8` ce run ne renvoie aucun slug run-1h entre 06-13 et 06-25. Persistance de CE run faite sur branche claude/sleepy-mccarthy-xmp29v (contrainte harness) + PR draft #61, donc a merger sur main pour etre visible.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 10 (handover+push)",
+    "CLAUDE.md section Storybloq persistance"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: runs 1h qui produisent des fiches sans handover (memoire de rotation trouee)"
+}
