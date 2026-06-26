@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "apify-maps",
+    "sourcing"
+  ],
+  "discoveredDate": "2026-06-26",
+  "id": "ISS-002",
+  "impact": "PATTERN : l'actor enckay/google-maps-places-extractor expose deux champs de recherche. `keyword` (singulier) est marque DEPRECATED dans son inputSchema et \"Ignored if keywords is also provided\" ; surtout, s'il est passe SEUL (sans `keywords`), il est ignore et l'actor retombe sur le defaut `keywords: [\"restaurants\"]`. Resultat concret le 2026-06-26 (segment sanitaire/plombier x Lausanne) : 2 runs Maps lances avec `keyword: \"plombier ...\"` ont renvoye 50 RESTAURANTS du bord du lac (Ouchy/Lutry/Pully), identiques, zero plombier. Corrige au 3e essai en passant `keywords: [\"plombier\",\"chauffagiste\",\"installateur sanitaire\",\"sanitaire chauffage\"]` -> 23 vrais artisans.\n\nACCUMULATION : 1 nuit, 2 runs Maps gaches (~0.06 CU + temps). Risque eleve de recidive car NOS PROPRES DOCS induisent l'erreur : CLAUDE.md \"Outils et actors\" decrit l'appel avec `keyword (metier)` et ROUTINE_PROMPT etape 3 idem. Tout futur run qui suit la doc a la lettre retombera sur les restaurants.\n\nCHANGEMENT SUGGERE (session dev) : remplacer dans CLAUDE.md et ROUTINE_PROMPT le champ `keyword` par `keywords` (tableau de chaines), et noter explicitement \"passer plusieurs graines de metier dans `keywords` pour couvrir la niche (ex. plombier + chauffagiste + installateur sanitaire) ; NE PAS utiliser `keyword` singulier (deprecie, renvoie des restaurants)\". Optionnel : ajouter un garde-fou de verif (si la 1re page de resultats est categorisee 'restaurant/cafe' alors que la graine ne l'est pas, relancer).\n\nPREUVE : inputSchema de l'actor le 2026-06-26 : champ `keywords` (type array, default [\"restaurants\"]) ; champ `keyword` titre \"Search Keyword (legacy)\", description \"Deprecated: use Search Keywords instead ... Ignored if keywords is also provided\". Deux datasets restaurants identiques (50 items, memes Place ID) obtenus avec `keyword` seul, puis 23 plombiers avec `keywords`. Zero PII.",
+  "location": [
+    "CLAUDE.md section 'Outils et actors' (Collecte Google Maps)",
+    "ROUTINE_PROMPT.md etape 3"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: Apify Maps actor utilise `keywords` (array), pas `keyword` (legacy ignore)"
+}
