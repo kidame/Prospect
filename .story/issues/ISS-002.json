@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "accents"
+  ],
+  "discoveredDate": "2026-06-26",
+  "id": "ISS-002",
+  "impact": "PATTERN : le run 1h genere une partie de ses mails en ASCII pur (sans accents) alors que CLAUDE.md impose l'accentuation complete et precise qu'elle \"prime sur toute consigne ASCII\". Le controle l'attrape (C5 \"A CORRIGER, re-accentuer\") mais le mail n'est pas envoyable tel quel sans retouche manuelle.\n\nACCUMULATION (revue des fiches DEJA controlees 06-16 -> 06-25, lecture seule, sans re-mesure ; refs par SEGMENT, zero PII) :\n- Mails en ASCII flagges C5 : electricien x Geneve (3 fiches, batch 06-23/06-25), cuisiniste/agencement x Fribourg (3 fiches, 06-18), cuisiniste x Geneve (1, 06-19), menuisier x Lausanne (1, 06-16) = ~8 fiches sur >=4 nuits.\n- Mails correctement accentues sur la meme periode : demenageur x Geneve (3 fiches, 06-24), peintre x Geneve (2, 06-25), demenageur x Lausanne (2, 06-22) = ~7 fiches.\n=> Defaut INTERMITTENT (~moitie des batches recents), NON resolu a la source : certains runs accentuent, d'autres non.\n\nCHANGEMENT suggere : forcer l'accentuation a la GENERATION (ROUTINE_PROMPT etape 9 + skill writing), pas en correction aval par le controle ; idealement un garde-fou de generation qui refuse un corps de mail sans accents.\n\nPREUVE : verdicts C5 des fiches citees (sections \"## Controle\" en base Notion, refs par segment). NB : ISS-002 (ouverte le 2026-06-14 pour ce meme defaut) n'apparait PLUS dans `issue list --status open` (liste vide ce soir) -> probable push Storybloq casse (cf. suspicion T-007), signal perdu -> re-ouverture justifiee. Defaut constate encore le 2026-06-25 (batch electricien x Geneve).",
+  "location": [
+    "ROUTINE_PROMPT.md etape 9",
+    "CLAUDE.md redaction email (accents obligatoires)",
+    ".claude/skills/writing/"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails du run 1h generes par intermittence en ASCII (accents manquants)"
+}
