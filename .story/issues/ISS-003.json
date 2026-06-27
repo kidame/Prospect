@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-1h dedup"
+  ],
+  "discoveredDate": "2026-06-27",
+  "id": "ISS-003",
+  "impact": "PATTERN (1re occurrence, mais bloque un pas central du process) : ce run (2026-06-27), les deux outils de requete Notion -- notion-query-data-sources (mode SQL) ET notion-query-database-view -- ont renvoye HTTP 400 'This tool requires a Business plan or higher with Notion AI'. Resultat : impossible de dumper en une fois tous les Place ID (dedup etablissement) et tous les champs Segment+date des ~120 derniers jours (GATE de rotation, ROUTINE_PROMPT etape 1-2).\n\nIMPACT : le dedup par Place ID exhaustif et le crosscheck Segment exhaustif -- pierre angulaire anti-doublon (cf. ISS-001/L-010) -- ne sont plus faisables via query. Ce run s'est rabattu sur notion-search nominatif (par pertinence, ~10 hits, NON exhaustif) : suffisant ici car le segment etait clairement frais (carreleur x Fribourg, 0 hit en base), mais sur un segment a collision probable un doublon passerait inapercu et la rotation pourrait re-piocher un couple deja traite.\n\nCHANGEMENT SUGGERE (session dev) : (1) verifier le plan Notion / la dispo de l'outil query (regression d'acces ?) ; (2) si le gating est permanent, definir une methode de dedup de repli documentee -- p.ex. une VUE Notion 'Routine 120j' pre-filtree lisible via notion-fetch, ou un export periodique des Place ID, plutot que notion-search nominatif non exhaustif.\n\nPREUVE (zero PII) : 2 appels ce run, tous deux 400 'requires Business plan'. notion-fetch (schema) et notion-search (par nom) fonctionnent toujours ; seules les requetes SQL/vue sont gatees.\n",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1-2 ; CLAUDE.md Dedup"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: outils query Notion (SQL+vue) gates Business plan -> dedup Place ID exhaustif casse"
+}
