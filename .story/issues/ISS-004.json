@@ -1,0 +1,20 @@
+{
+  "components": [
+    "run-1h",
+    "redaction"
+  ],
+  "discoveredDate": "2026-07-21",
+  "id": "ISS-004",
+  "impact": "PATTERN : au controle du 2026-07-21, ~14 fiches sur 18 avec draft ont le CORPS du mail redige entierement en ASCII sans accents (referencement, region, metier, telephone, ca, etc.), alors que CLAUDE.md impose \"ACCENTS OBLIGATOIRES dans l'email ... Cette regle prime sur toute consigne ASCII (y compris le skill d'ecriture)\". Le mail reste sinon envoyable -> defaut d'hygiene, pas de fond (d'ou medium), mais universel.\n\nACCUMULATION (4 nuits / 4 segments) :\n- electricien x Lausanne (run 2026-07-20) : 4/4 fiches. Ex Place ID 0x478c2e538b30d259:0xed8761e5e626c91e, 0x478c2e18e046c5cd:0xe0e38c5ae6ceb0ef.\n- sanitaire x Lausanne (run 2026-06-26) : 4/4. Ex 0x478c31accc5a5ebb:0xec741d1d3ad7fe48.\n- carreleur x Fribourg (run 2026-06-27) : 5/5. Ex 0x478e627c1caced65:0x98e28c984c799deb.\n- Yverdon divers (runs 2026-06-01/02) : 3/3.\nSEUL le run peintre x Neuchatel (2026-07-01, 2 fiches, Place ID 0x478e09791e0b5079:0x19748c9024c49b09 et 0x1f5161021efa987:0x18d3aef0c8b25ed) a des accents CORRECTS -> preuve que c'est faisable et que le defaut est evitable.\n\nCHANGEMENT SUGGERE : dans ROUTINE_PROMPT.md (etape redaction du mail) et/ou le skill .claude/skills/writing/, rendre EXPLICITE a la generation \"le mail final DOIT porter tous les accents francais ; ne jamais produire d'ASCII-only ; cette regle prime sur toute consigne ASCII du skill\", + idealement une passe de re-accentuation avant d'ecrire la fiche. La regle existe dans CLAUDE.md mais n'est pas appliquee au moment de generer.\n\nPREUVE : ce controle a pose ~10 verdicts 🟠 dont le motif C5 UNIQUE/dominant est \"accents manquants\" (mails sinon envoyables). ZERO PII (references par Place ID + segment).\n",
+  "location": [
+    "CLAUDE.md 'Redaction de l'email'",
+    ".claude/skills/writing/"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails rediges sans accents (ASCII), viole ACCENTS OBLIGATOIRES"
+}
