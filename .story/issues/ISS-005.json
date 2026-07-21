@@ -1,0 +1,20 @@
+{
+  "components": [
+    "run-1h",
+    "fait-porteur"
+  ],
+  "discoveredDate": "2026-07-21",
+  "id": "ISS-005",
+  "impact": "PATTERN : au controle du 2026-07-21, 3 fiches ont une accroche affirmant une ABSENCE (organique et/ou pack local) DEMENTIE par la re-mesure SERP du jour : le prospect est en realite present (bas de page 1 organique, ou dans le 3-pack local). Viole la \"regle d'or\" CLAUDE.md (\"jamais 'invisible' si la mesure dit le contraire\"). Consequence : fait porteur FAUX, que le prospect peut falsifier en 5s en tapant la requete -> credibilite du mail cassee. D'ou high.\n\nACCUMULATION (2 nuits / 2 segments) :\n- Place ID 0x478c2f0491360159:0xef909f1583e11616 (sanitaire x Lausanne, run 2026-06-26) : mail dit \"ne sort nulle part\" -> re-mesure = present page 1 organique, position 10, sur son propre domaine.\n- Place ID 0x478e793377e390c7:0xc2f7e6ff6c57ca14 (carreleur x Fribourg, run 2026-06-27) : mail dit \"absent du pack\" -> re-mesure = #2 du pack local sur 'carreleur romont'.\n- Place ID 0x478e629bd57498a3:0xac50ee277fc1e07b (carreleur x Fribourg, run 2026-06-27) : mail dit \"ni dans les resultats web\" -> re-mesure = present page 1 organique, position 14.\nNB : distinct du cas 'fait porteur PERIME' (ex. site 'contenu demo' corrige depuis la 1re mesure, Place ID 0x478c2fd5ca01cedf:0x56e28a728200565f) qui est un autre 🔴 (re-mesure a re-faire, pas over-claim).\n\nCHANGEMENT SUGGERE : a l'etape 4 (SERP reel) de ROUTINE_PROMPT.md, distinguer explicitement \"absent du TOP visible / du pack\" de \"absent tout court\". Quand le prospect est present meme en bas de page 1 ou dans le pack, l'accroche DOIT dire \"tout en bas / derriere [Concurrent]\", jamais \"absent / nulle part / invisible / ni dans les resultats web\". Ajouter un garde-fou : avant d'ecrire \"absent\", verifier la presence sur TOUTE la page 1 (10-15 resultats), pas seulement le top 3 / le pack.\n\nPREUVE : 3 verdicts 🔴 poses ce controle avec C4/C2 documentes (positions re-mesurees ci-dessus, device mobile, requete coeur metier+ville). ZERO PII (Place ID + segment uniquement).\n",
+  "location": [
+    "CLAUDE.md 'Angles d'email' regle d'or",
+    "ROUTINE_PROMPT.md etape 4 SERP reel"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: accroche affirme 'absent/nulle part' alors que le prospect est present au SERP"
+}
