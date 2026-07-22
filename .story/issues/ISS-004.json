@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-1h redaction-email"
+  ],
+  "discoveredDate": "2026-07-22",
+  "id": "ISS-004",
+  "impact": "PATTERN : la run 1h ecrit le bloc \"## Email (brouillon)\" en ASCII (sans accents) alors que CLAUDE.md impose un francais correct avec tous les accents dans le mail, regle qui prime explicitement sur le skill d'ecriture (\"Cette regle prime sur toute consigne ASCII\"). Le controle a du poser 🟠 sur ces fiches uniquement pour l'accent, sinon envoyables.\n\nACCUMULATION : run controle du 2026-07-22, segment menuisier/ebeniste/agencement x Yverdon -> 4 fiches sur 4 concernees (Place ID 0x478dcf9265a4e625:0xfcee8a6b9e60de4e, 0x478dda6ce8fed3b7:0x756da4f8b110477e, 0x478dcf84a90d8221:0xbdb98c5dee2b571c, 0x478dc9ed8ed81be7:0xb641925cfc00360e). 100% du run. A confirmer sur les nuits suivantes pour valider la recurrence inter-nuits (1re nuit ou je le mesure explicitement).\n\nPREUVE : mots attendus accentues et rendus sans accent dans les corps de mail -> \"region\", \"ca\", \"premiere\", \"ecart\", \"a 5 etoiles\", \"reputation\", \"realisations\". Les proprietes scrapees (ex. titre \"Sarl\") conservent leurs accents, donc ce n'est pas un artefact de fetch : le corps a bien ete redige en ASCII.\n\nCHANGEMENT SUGGERE : dans ROUTINE_PROMPT (etape 9 / redaction) et/ou le skill d'ecriture, ajouter un rappel dur \"le bloc Email s'ecrit avec TOUS les accents (prime sur l'ASCII)\" et idealement une passe de relecture accents avant d'ecrire la fiche. ZERO PII dans cette issue (refs par Place ID uniquement).\n",
+  "location": [
+    "CLAUDE.md section 'Redaction de l'email' (accents obligatoires) + ROUTINE_PROMPT etape 9"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails de la run 1h ecrits en ASCII (accents manquants)"
+}
