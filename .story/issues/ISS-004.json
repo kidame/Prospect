@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-1h persistance"
+  ],
+  "discoveredDate": "2026-07-23",
+  "id": "ISS-004",
+  "impact": "PATTERN : aucun handover git n'a ete persiste entre le 06-27 et le 07-24 (dernier commit .story/ sur main = 40b38bd du 06-27), ALORS QUE la base Notion montre 4 runs 1h ayant cree des fiches dans cet intervalle : peintre x Neuchatel (07-01), electricien x Lausanne (07-20), menuisier x Yverdon (07-21), installateur PAC/solaire x Neuchatel (07-22). Donc ~4 runs ont atteint l'etape fiches Notion mais PAS l'etape 10 (snapshot+handover+commit+push), ou le push a echoue silencieusement (cf. T-007 sur la persistance des issues). Impact : memoire de rotation handover trouee sur ~1 mois ; seule la rotation via crosscheck Notion Segment (L-010/ISS-001) a evite les collisions. CHANGEMENT SUGGERE : (1) faire echouer bruyamment l'etape 10d — apres le push, verifier 'git log -1 --oneline -- .story/' == commit du run ET 'storybloq handover latest --count 1' == le sien, et si non, le signaler EXPLICITEMENT dans le mail recap (l'etape 10 'VERIFIE LA PERSISTANCE' existe deja dans ROUTINE_PROMPT mais n'a manifestement pas alerte) ; (2) verifier que les runs planifies atteignent bien l'etape 10 (pause autonome ?). PREUVE : commits .story/ origin/main s'arretent a 06-27 ; Notion createdTime des 4 segments ci-dessus, tous Source='Routine nocturne'. ZERO PII.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 10d + section VERIFIE LA PERSISTANCE"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: handovers non persistes (trou 06-27 -> 07-24)"
+}
