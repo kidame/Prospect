@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-controle fait-porteur"
+  ],
+  "discoveredDate": "2026-07-23",
+  "id": "ISS-004",
+  "impact": "PATTERN (run controle 2026-07-23, segment \"installateur PAC/solaire x Neuchatel\", 3 fiches / 3 avec un probleme de fait porteur -> les 3 passees 🔴) :\n\n1) ELKA (Place ID 0x478de180ad3e5449:0x673d0dbcd72bf930) : le mail affirme \"sur 'pompe a chaleur Neuchatel' vous n'etes ni dans la carte ni dans les resultats\". Re-mesure serp mobile 2026-07-23 -> ELKA est #1 DANS le pack local ET #9 en organique sur \"pompe a chaleur Neuchatel\". Cause racine : la fiche Diagnostic a mesure \"installateur pompe a chaleur Neuchatel\" (pack Inesan/Electro-Climat/Caloritec, sans ELKA) mais le mail a ecrit \"pompe a chaleur Neuchatel\" -> requete differente, SERP different. DERIVE DE REQUETE entre Diagnostic et mail = fait porteur faux, trivial a dementir par le prospect.\n\n2) STG (Place ID 0x478de556ff40bc8d:0x6cd60111a128139) : le mail affirme \"vous y etes 3e\" dans le pack \"panneaux solaires Neuchatel\". Re-mesure Neuchatel-ville mobile -> STG absent du 3-pack (ELKA #1 / SOL-R #2 / Solar Energy Plus #3). Pack local pondere par proximite non pris en compte (STG au Locle, ~20 km) OU mesure faite au niveau canton et non ville-cliente.\n\n3) Laderach (Place ID 0x478e0f7525d879b5:0x4502cb1505283a05) : fiche + mail affirment \"site d'une seule page (~135 mots)\". Verif live -> site MULTI-PAGES avec pages dediees distinctes (/installations-de-chauffages/pompes-a-chaleur, /installations-sanitaires + sous-pages, /nos-realisations, /a-propos, /contact). OnPage instant n'a lu que la home ; aucune verif menu/sitemap. Viole la regle C3/CLAUDE.md \"n'ecris jamais 'aucune page' sans verif sitemap/menu\".\n\nCHANGEMENT SUGGERE : (1) le mail doit citer EXACTEMENT la requete mesuree dans le Diagnostic -- interdire toute reformulation \"installateur X ville\" -> \"X ville\" ; (2) verifier la presence pack au niveau de la ville-cliente (proximite) avant d'affirmer une position dans le 3-pack, surtout pour un prospect hors de la ville-cible ; (3) lire le menu/sitemap AVANT d'affirmer \"une seule page / peu de matiere\" (reutiliser la regle C3 existante cote redaction).\n\nPREUVE : 2 re-mesures serp_organic_live_advanced mobile (panneaux solaires Neuchatel + pompe a chaleur Neuchatel, location Neuchatel-ville) + 2 fetch live de sanitaire-chauffage.ch (sitemap 404 mais menu = 10+ pages a paths distincts). Zero invention. A confirmer sur les prochains runs energie/multi-requetes pour voir si la derive de requete revient.\n",
+  "location": [
+    "ROUTINE_PROMPT.md etape 4/6 + CLAUDE.md angles email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: faits porteurs non reproduits / derive de requete Diagnostic->mail"
+}

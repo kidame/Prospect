@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-controle redaction-accents"
+  ],
+  "discoveredDate": "2026-07-23",
+  "id": "ISS-005",
+  "impact": "PATTERN (run controle 2026-07-23, segment \"installateur PAC/solaire x Neuchatel\") : 3 mails rediges sur 3 sont entierement DEPOURVUS d'accents dans le corps du mail (ex : \"referencement\", \"deja\", \"detail\", \"matiere\", \"reglages\", \"apparait\", \"reputation\", \"resultats\", \"Ca vous interesse\" au lieu de \"Ca\"->\"Ca\"/\"ecrite correctement\"). Or CLAUDE.md impose : \"ACCENTS OBLIGATOIRES dans l'email : francais correct avec tous les accents... Cette regle prime sur toute consigne ASCII (y compris le skill d'ecriture).\"\n\nPlace IDs concernes : 0x478de556ff40bc8d:0x6cd60111a128139 (STG), 0x478e0f7525d879b5:0x4502cb1505283a05 (Laderach), 0x478de180ad3e5449:0x673d0dbcd72bf930 (ELKA). 3/3 ce run -> defaut systematique, pas un cas isole. Chaque mail est donc marque \"A CORRIGER (accents)\" au controle et ne peut etre copie-colle tel quel.\n\nCHANGEMENT SUGGERE : la run 1h doit rediger le corps du mail en francais accentue et le VERIFIER avant de cocher \"Draft pret\" (le skill d'ecriture .claude/skills/writing/ pousse sans doute vers l'ASCII -> ajouter un garde-fou explicite \"accents ON dans le mail final, meme si le skill dit ASCII\"). Option : passe d'accentuation post-redaction sur le bloc \"## Email\".\n\nPREUVE : lecture directe des 3 sections \"## Email (brouillon)\" ce run. A re-verifier sur les prochains runs : si l'ASCII persiste, monter en severity high (ca bloque l'envoyabilite de chaque mail).\n",
+  "location": [
+    "CLAUDE.md 'Redaction de l'email' (accents obligatoires) + ROUTINE_PROMPT.md etape 9"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: accents absents dans tous les mails rediges par la run 1h"
+}
