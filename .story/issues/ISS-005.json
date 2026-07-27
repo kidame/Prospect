@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email"
+  ],
+  "discoveredDate": "2026-07-27",
+  "id": "ISS-005",
+  "impact": "PATTERN : les mails rediges par la run de 1h sortent SANS AUCUN accent dans le corps, alors que CLAUDE.md l'interdit explicitement (\"ACCENTS OBLIGATOIRES dans l'email : francais correct avec tous les accents ... Cette regle prime sur toute consigne ASCII, y compris le skill d'ecriture\"). Chaque mail doit donc etre re-accentue a la main par Thomas avant envoi -> friction systematique au copier-coller.\n\nACCUMULATION CHIFFREE : nuit du 2026-07-27, segment menuisier/ebeniste x Geneve : 4 fiches EMAIL controlees, 4/4 avec un corps de mail entierement non accentue (ex. \"reputation\", \"etoiles\", \"premiere\", \"positionne\", \"mot-cle\", \"ca\", \"obligee\", \"base a\", \"deuxieme\", \"pese\", \"independant\"). 100% de la production email de la nuit. Verdicts 🟠 poses sur les 3 fiches ou c'etait le seul defaut ; la 4e (🔴) cumule accents + concurrent nomme.\n\nCHANGEMENT SUGGERE (session dev) : renforcer le rappel accents la ou le mail est REELLEMENT ecrit (ROUTINE_PROMPT etape 9 / le skill .claude/skills/writing/ qui, s'il impose de l'ASCII, entre en conflit direct avec CLAUDE.md). Verifier que le skill d'ecriture ne pousse pas a l'ASCII ; sinon y inscrire l'exception \"mails KUMO = accents obligatoires (prime sur ASCII)\". Idealement un garde-fou de fin de redaction : si le corps ne contient aucun caractere accentue, re-accentuer avant d'ecrire la fiche.\n\nPREUVE : lecture des sections \"## Email (brouillon)\" des 4 fiches (Place ID 0x478c6312e0138c2f:0x57616cae1b727ef2, 0x478c7adc189c76cf:0x26e4121ffe137078, 0x478c631636539709:0x89a7467ef17c58b8, 0x478c634dd92558fb:0xcb9090097c8ad1cb). ZERO PII. Defaut d'hygiene, pas un fait faux -> mails rattrapables au copier-coller, d'ou severite medium malgre le 4/4.\n",
+  "location": [
+    "CLAUDE.md Redaction de l'email (accents) ; .claude/skills/writing/ ; ROUTINE_PROMPT.md etape 9"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails de la run 1h rediges sans accents (viole CLAUDE.md)"
+}
