@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "angles-email"
+  ],
+  "discoveredDate": "2026-07-27",
+  "id": "ISS-004",
+  "impact": "PATTERN (2e occurrence, sur 2 segments differents) : la run de 1h construit l'angle \"concurrent nomme qui vous double sur la carte\" en citant un/des concurrent(s) du PACK LOCAL, mais le pack local est fortement PROXIMITE-dependant a Geneve -> le(s) nom(s) cite(s) ne s'affiche(nt) pas quand le prospect verifie la requete depuis SA propre commune. L'angle 1 de CLAUDE.md (\"tapez 'metier ville', [Concurrent] sort, pas vous\") suppose une verif du prospect en 5 s ; si les noms cites ne sont pas ceux qu'il voit, l'accroche se retourne contre l'envoi.\n\nACCUMULATION CHIFFREE : \n- 2026-06-10 (segment carreleur x Geneve, fiche Place ID pack \"carrelage Geneve\") : leader nomme faux sur la requete citee -> deja note comme \"a surveiller, ouvrir issue si ca revient\" (handover run-controle 2026-06-10).\n- 2026-07-27 (segment menuisier/ebeniste x Geneve) : fiche Place ID 0x478c631636539709:0x89a7467ef17c58b8 (Lancy), verdict 🔴. Mail cite \"Concept&Bois et J. Farina sortent sur la carte\" pour \"menuisier Geneve\". Re-mesure mobile serp_organic_live_advanced sur 3 points :\n  * Lancy (commune du prospect) : pack = menuisier-geneve.com / Aliance Menuiserie / BNBOIS SA -> ni Concept&Bois ni Farina.\n  * Centre Geneve : Versailles #1, Farina #2, menuisier-geneve #3 (Concept&Bois absent).\n  * Vernier : Concept&Bois #1 (Farina absent).\n  Donc les 2 noms cites ne coexistent sur AUCUN point, et aucun n'apparait depuis Lancy = le lieu du prospect.\n- Meme segment, a l'inverse, quand le concurrent nomme EST dans la commune du prospect (Kimmeier + Concept&Bois, tous deux a Vernier ; Concept&Bois lui-meme), la re-mesure depuis Vernier CONFIRME le pack #1 -> l'angle tient. La regle n'est donc pas \"ne jamais nommer\" mais \"verrouiller le concurrent nomme SUR la requete ET depuis la commune du prospect\".\n\nCHANGEMENT SUGGERE (session dev) : dans ROUTINE_PROMPT etape 4-5 et CLAUDE.md \"Angles d'email\" (angle 1), imposer que le concurrent nomme dans l'accroche soit re-verifie dans le pack local mesure AVEC LE location de la COMMUNE DU PROSPECT (pas le centre du canton ni un village voisin), sur la requete exacte citee. A defaut de match, basculer sur l'absence ORGANIQUE (stable, non proximite-dependante) comme accroche, ou sur un concurrent effectivement visible depuis la commune. Optionnel : documenter dans CLAUDE.md \"WINNABILITY / pack local\" que le pack Geneve varie fortement entre communes (mesures 27/07 : Lancy / Vernier / centre = 3 packs disjoints).\n\nPREUVE : 4 re-mesures serp_organic_live_advanced mobile \"menuisier Geneve\" (Geneva-city, Vernier, Lancy) + \"ebeniste Geneve\" le 2026-07-27. ZERO PII (references par Place ID / segment). L'invisibilite du prospect (fond de l'argument) etait, elle, correcte ; seul le NOM des concurrents diverge selon le lieu.\n",
+  "location": [
+    "CLAUDE.md Angles d'email (angle 1)",
+    "ROUTINE_PROMPT.md etape 4-5"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: concurrent nomme (pack local) faux depuis la commune du prospect"
+}
