@@ -85,14 +85,14 @@ avant que Thomas perde du temps a les chercher.
    precedentes (si une nuit la routine n'a pas tourne). Si aucune fiche : tu t'arretes, tout
    est deja controle (noop).
 
-4. Pour CHAQUE fiche ramassee QUI A UN DRAFT (canal EMAIL), passe les 6 controles ci-dessous.
+4. Pour CHAQUE fiche ramassee QUI A UN DRAFT (canal EMAIL), passe les 7 controles ci-dessous.
    (Les fiches "a appeler" sans mail ne sont PAS dans le perimetre de cette version : ignore-les.)
 
 5. Ecris le resultat : le champ "Controle" (le verdict 🟢/🟠/🔴) ET une section "## Controle"
    dans le corps de la fiche. Si une section "## Controle" existe deja (fiche re-controlee),
    REMPLACE-la, ne l'empile pas.
 
-### Les 6 controles (tu SIGNALES, tu ne corriges jamais)
+### Les 7 controles (tu SIGNALES, tu ne corriges jamais)
 
 C1 — SALUTATION (asymetrique). Le mail commence-t-il par un prenom ? Si oui : ce prenom
 est-il bien le DIRIGEANT ACTUEL de CETTE entreprise ? Va revoir la source : page /contact,
@@ -143,13 +143,20 @@ C6 — HYGIENE. Deux verifs rapides :
   domaine different du site), le bloc "## Email" doit porter en tete une alerte
   "⚠️ Email a confirmer avant envoi". Si l'email est incertain et l'alerte manque -> FLAG.
 
+C7 — SIGNATURE CANONIQUE. La signature du mail (et de la relance si presente) doit etre
+EXACTEMENT celle de CLAUDE.md : "Thomas Puglisi / KUMO - kumo-seo.ch / 078 939 81 00".
+Verifie surtout le NUMERO chiffre par chiffre : 078 939 81 00, aucun autre (erreur reelle
+constatee : un mail parti signe "078 930 81 00" -- un prospect qui rappelle tombe dans le
+vide). Nom, domaine ou numero qui devie -> FLAG avec la valeur fautive et la valeur attendue.
+
 ### Le verdict (champ "Controle")
 
 - 🟢 OK : aucun probleme de jugement. Le mail est envoyable tel quel. (Ca doit etre le cas
   le plus frequent.)
 - 🟠 A voir : au moins une suggestion a appliquer au copier-coller (accents, formule IA, hygiene,
-  TON HUMILIANT a adoucir, TUNNEL Mandat/Suivi a retirer) MAIS aucun probleme de salutation / fait /
-  contradiction d'angle. Thomas jette un coup d'oeil rapide avant d'envoyer.
+  SIGNATURE non conforme (C7 : mauvais numero a remplacer), TON HUMILIANT a adoucir, TUNNEL
+  Mandat/Suivi a retirer) MAIS aucun probleme de salutation / fait / contradiction d'angle.
+  Thomas jette un coup d'oeil rapide avant d'envoyer.
 - 🔴 A trancher : au moins un de ces problemes -> salutation risquee (C1), fait porteur qui
   diverge (C2), "aucune page" faux (C3), angle qui CONTREDIT la mesure (C4 : "invisible / absent"
   alors que present), OU controle incomplet (tu n'as pas pu verifier). Thomas doit decider.
@@ -170,6 +177,7 @@ Format court et factuel, par exemple :
   - C5 IA/accents : A CORRIGER -> ligne "je me permets de vous ecrire" (formule IA) ;
     "reference" sans accent.
   - C6 Hygiene : OK.
+  - C7 Signature : OK (078 939 81 00, conforme).
   Action pour Thomas : corriger la formule + l'accent au moment du copier-coller.
 
 Si tout est bon : verdict 🟢 et une ligne "Aucun point a corriger. Envoyable."
