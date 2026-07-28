@@ -2,7 +2,10 @@
 
 Repo : prospect
 Schedule : tous les jours a 01:00, fuseau Europe/Zurich
-Connecteurs : Apify, DataForSEO, Notion, Gmail (deja connectes dans ton compte)
+Connecteurs : Apify, DataForSEO, Notion, infomaniak-mail (deja connectes dans ton compte).
+Gmail : JAMAIS pendant la routine (la creation de draft Gmail exige une approbation UI que
+personne ne peut donner la nuit -> session bloquee, travail perdu ; le recap part en
+brouillon Infomaniak, voir etape 9).
 
 ## A COLLER dans claude.ai/code/routines (bootstrap court -- ne bouge plus)
 
@@ -103,9 +106,17 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
 8. Le contenu de chaque prospect (diagnostic + mail) vit dans Notion (etapes 6-7), PAS dans le
    repo. Ne cree pas de dossier .md par prospect. Tu peux pousser uniquement _resume.md (journal
    du run) sur une branche claude/prospects-AAAA-MM-JJ si utile.
-9. Envoie un mail recap a hello.puglisi@gmail.com, en 3 blocs : prospects RETENUS (email)
-   avec offre ciblee, prospects A APPELER (bonus) avec tel + angle, et REJETES (nb + raisons).
-   Ajoute le cout estime du run et les erreurs eventuelles. Objet : "KUMO prospection - AAAA-MM-JJ".
+9. RECAP (ZERO GMAIL -- zero approbation) : depose le recap en BROUILLON INFOMANIAK via
+   `creer_brouillon` (connecteur infomaniak-mail, destinataire hello.puglisi@gmail.com, corps
+   en TEXTE BRUT avec accents), en 3 blocs : prospects RETENUS (email) avec offre ciblee,
+   prospects A APPELER (bonus) avec tel + angle, et REJETES (nb + raisons). Ajoute le cout
+   estime du run et les erreurs eventuelles. Objet : "KUMO prospection - AAAA-MM-JJ". Thomas
+   le lit au reveil dans les Brouillons de thomas.puglisi@kumo-seo.ch (et l'envoie s'il veut
+   le garder en boite de reception). Si `creer_brouillon` echoue : ecris le recap dans
+   _resume.md + le handover et CONTINUE -- n'appelle JAMAIS un outil Gmail a la place (la
+   creation de draft Gmail exige une approbation UI -> la session se bloque a 1h du matin et
+   tout le travail non persiste est perdu ; constat : aucun handover pousse entre le 2026-06-27
+   et le 2026-07-28 alors que les runs produisaient des fiches).
 10. MEMOIRE & CONTINUITE STORYBLOQ (fin de session -- voir la section Storybloq de CLAUDE.md). Fais,
     dans l'ordre :
     a. SNAPSHOT : `storybloq snapshot` (pour que le recap de la prochaine session diffe bien).
@@ -160,6 +171,14 @@ joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
   Storybloq (etape 10d) -> handovers + issues perdus.
 - Belt-and-suspenders : dans la config de la routine cote claude.ai/code (UI), regle aussi le mode
   de permission sur autonome/bypass. Le settings.json du repo et l'UI doivent tous deux etre permissifs.
+  `permissions.allow` liste en plus explicitement TOUS les serveurs MCP de la nuit (Notion, Apify,
+  DataForSEO, infomaniak-mail, Storybloq, KUMO-tools) -- double filet si le mode bypass saute.
+- GMAIL INTERDIT LA NUIT : aucun appel `mcp__Gmail__*` pendant la routine, quel que soit le motif.
+  La creation de draft Gmail demande une approbation cote interface qu'aucun humain ne donne a
+  1h du matin : la session se met en pause dessus et tout le travail de la nuit (fiches, handover,
+  rotation) est perdu. Tout ce qui doit partir par mail (le recap) passe par le brouillon
+  Infomaniak (`creer_brouillon`), qui ne demande aucune approbation. Gmail reste reserve aux
+  sessions interactives avec Thomas (mise en brouillon sur demande, cf. CLAUDE.md).
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact qui a prompte dans le mail
   recap, pour qu'on l'ajoute/verifie. Ne JAMAIS s'arreter avant l'etape 10 (persistance Storybloq).
 - REPRISE APRES PAUSE (constat 2026-06-12 : un run planifie s'est mis en pause tout seul et n'est
@@ -176,13 +195,14 @@ joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
 
 ## Apres le premier run, a verifier
 - IMPORTANT (Gmail) : la creation de brouillon Gmail demande une approbation cote interface,
-  et a 1h du matin personne n'approuve. Donc la routine ne cree PAS de brouillon Gmail : elle
-  ecrit le mail finalise dans le CORPS de la fiche Notion (section "## Email (brouillon)",
-  SOURCE UNIQUE), et Thomas copie-colle dans Gmail au reveil. Garde la revue manuelle avant
-  tout envoi.
+  et a 1h du matin personne n'approuve. Donc la routine n'appelle JAMAIS Gmail (ni pour les
+  prospects, ni pour le recap) : elle ecrit le mail finalise dans le CORPS de la fiche Notion
+  (section "## Email (brouillon)", SOURCE UNIQUE), et le recap part en brouillon Infomaniak.
+  Thomas garde la revue manuelle avant tout envoi.
 - Apify, DataForSEO et Notion sont bien accessibles dans la session cloud (sinon, passer
   en cron sur le VPS Infomaniak ou ajuster le network access de la routine).
 - Le cout reel du run (Apify units + DataForSEO) reste sous le plafond.
 - La qualite des dossiers : faits bien mesures, visibilite chiffree, emails humains sans formulation IA.
 - La dedup Notion fonctionne : les Place ID vus sont ecrits et exclus au run suivant.
-- Le mail recap arrive bien sur hello.puglisi@gmail.com.
+- Le brouillon recap (destinataire hello.puglisi@gmail.com) apparait bien dans les Brouillons
+  de thomas.puglisi@kumo-seo.ch.

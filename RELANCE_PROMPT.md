@@ -2,7 +2,9 @@
 
 Repo : prospect
 Schedule : tous les jours a 04:00, fuseau Europe/Zurich (APRES la run de 1h et le controle de 3h)
-Connecteurs : Notion, DataForSEO, infomaniak-mail, Gmail (pour le mail recap uniquement)
+Connecteurs : Notion, DataForSEO, infomaniak-mail. Gmail : JAMAIS pendant la routine (la
+creation de draft Gmail exige une approbation UI que personne ne peut donner la nuit ->
+session bloquee, travail perdu ; le recap part en brouillon Infomaniak, voir etape 7).
 
 C'est une TROISIEME routine, SEPAREE de la run de 1h (prospection) et du controle de 3h.
 Tu crees une NOUVELLE routine, tu colles le BOOTSTRAP ci-dessous, tu mets le schedule a 04:00.
@@ -143,10 +145,13 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
       AAAA-MM-JJ (angle : <fait neuf / micro-valeur / pivot>)" (en CONSERVANT le contenu
       existant de Notes). Ne touche a rien d'autre.
 
-7. MAIL RECAP a hello.puglisi@gmail.com (sauf noop total a l'etape 2), objet
-   "KUMO relances - AAAA-MM-JJ" : (1) relances preparees (nom + angle retenu + neuf/micro-
+7. RECAP (sauf noop total a l'etape 2) -- ZERO GMAIL : depose-le en BROUILLON INFOMANIAK via
+   `creer_brouillon` (destinataire hello.puglisi@gmail.com, corps en TEXTE BRUT avec accents),
+   objet "KUMO relances - AAAA-MM-JJ" : (1) relances preparees (nom + angle retenu + neuf/micro-
    valeur/pivot), (2) skips et fiches "⚠️ Email a confirmer" avec raisons, (3) eligibles non
-   traitees s'il y en a (plafond), (4) cout estime, (5) erreurs eventuelles.
+   traitees s'il y en a (plafond), (4) cout estime, (5) erreurs eventuelles. N'appelle JAMAIS
+   un outil Gmail (approbation UI impossible la nuit -> session bloquee) ; si `creer_brouillon`
+   echoue, note le recap dans le handover et continue.
 
 8. MEMOIRE & CONTINUITE STORYBLOQ (fin de session -- voir la section Storybloq de CLAUDE.md).
    Dans l'ordre :
@@ -185,10 +190,17 @@ loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
   continue.
 - La routine tourne sans personne pour approuver. `.claude/settings.json` fixe
   `permissions.defaultMode = "bypassPermissions"` : AUCUN appel outil ne doit declencher de
-  demande d'autorisation (Notion, DataForSEO, infomaniak-mail, Gmail, Storybloq, git). Sans
+  demande d'autorisation (Notion, DataForSEO, infomaniak-mail, Storybloq, git). Sans
   ca, la session stalle et la persistance Storybloq (etape 8d) ne se fait jamais.
 - Belt-and-suspenders : dans la config de la routine cote claude.ai/code (UI), regle aussi le
-  mode de permission sur autonome/bypass.
+  mode de permission sur autonome/bypass. `permissions.allow` liste en plus explicitement tous
+  les serveurs MCP de la nuit -- double filet si le mode bypass saute.
+- GMAIL INTERDIT LA NUIT : aucun appel `mcp__Gmail__*` pendant la routine, quel que soit le
+  motif. La creation de draft Gmail demande une approbation cote interface qu'aucun humain ne
+  donne a 4h du matin : la session se met en pause dessus et tout le travail de la nuit est
+  perdu. Tout ce qui doit partir par mail (le recap) passe par le brouillon Infomaniak
+  (`creer_brouillon`), qui ne demande aucune approbation. Gmail reste reserve aux sessions
+  interactives avec Thomas (mise en brouillon sur demande, cf. CLAUDE.md).
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact dans le mail recap.
   Ne JAMAIS s'arreter avant l'etape 8 (persistance Storybloq).
 
@@ -210,4 +222,5 @@ loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
   systeme ne depend donc PAS de l'automation.
 - Optionnel cote Notion (a la main, une fois) : ajuster la formule "Relancer le" pour que la
   vue "🔁 À relancer" exclue les statuts "Relance préparée" (sinon elles y restent affichees).
-- Le mail recap arrive bien sur hello.puglisi@gmail.com.
+- Le brouillon recap (destinataire hello.puglisi@gmail.com) apparait bien dans les Brouillons
+  de thomas.puglisi@kumo-seo.ch.

@@ -4,6 +4,15 @@
     "allow": [
       "mcp__storybloq__*",
       "mcp__infomaniak-mail__*",
+      "mcp__Notion__*",
+      "mcp__notion__*",
+      "mcp__Apify__*",
+      "mcp__apify__*",
+      "mcp__Dataforseo__*",
+      "mcp__dataforseo__*",
+      "mcp__KUMO-tools__*",
+      "WebFetch",
+      "WebSearch",
       "Bash(npx:*)",
       "Bash(npm:*)",
       "Bash(git:*)"
