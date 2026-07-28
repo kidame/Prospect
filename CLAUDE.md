@@ -100,7 +100,10 @@ un email pour ceux qui ont un email. Qualite avant quantite.
   ville voisine majeure + requetes par prestation).
 - Dedup + CRM : Notion, base "Contacts" (page KUMO Back-office).
 - Brouillons : Gmail (drafts uniquement ; la creation de draft demande l'approbation de
-  l'utilisateur cote interface, voir Garde-fous).
+  l'utilisateur cote interface, voir Garde-fous). RESERVE aux sessions interactives avec Thomas
+  (mise en brouillon sur demande) : les ROUTINES NOCTURNES n'appellent JAMAIS un outil Gmail
+  (personne pour approuver la nuit -> session bloquee, travail perdu ; leur recap part en
+  brouillon Infomaniak).
 - Brouillons Infomaniak (boite thomas.puglisi@kumo-seo.ch) : connecteur MCP `infomaniak-mail`,
   outil `creer_brouillon`. REGLE pour ne JAMAIS reproduire les erreurs de rendu :
   * Passe le corps en TEXTE BRUT avec accents, un paragraphe par ligne vide. RIEN d'autre.
@@ -231,7 +234,8 @@ un email pour ceux qui ont un email. Qualite avant quantite.
    - Une liste "A appeler" pour les prospects a canal BONUS (nom, tel, angle).
    - Dossier repo OPTIONNEL : si tu crees prospects/AAAA-MM-JJ/<nom>.md (archive narrative),
      il NE contient PAS le mail (il pointe vers la fiche Notion) pour eviter deux versions.
-   - _resume.md (avec le couple secteur+zone du run) + mail recap a hello.puglisi@gmail.com.
+   - _resume.md (avec le couple secteur+zone du run) + recap en BROUILLON INFOMANIAK
+     (creer_brouillon, destinataire hello.puglisi@gmail.com) -- jamais via Gmail la nuit.
 
 ## Grille de scoring
 BESOIN (le coeur, sur 2 axes vendables) :
@@ -580,6 +584,9 @@ Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de
 - Budget par run : plafond ~10 CHF/nuit (Apify + DataForSEO). Analyse profonde limitee aux
   ~10 finalistes joignables ; SERP reel et ranked_keywords sur les retenus surtout. Note le
   cout estime dans _resume.md ; si le plafond approche, stop.
-- Mail recap a hello.puglisi@gmail.com : 3 blocs (retenus-email, a-appeler-bonus, rejetes +
-  raisons), cout estime, erreurs. Objet "KUMO prospection - AAAA-MM-JJ".
-- Si une etape echoue, ecris ce que tu as, note l'echec dans _resume.md et le mail recap.
+- Recap nocturne a destination de hello.puglisi@gmail.com : depose en BROUILLON INFOMANIAK
+  (creer_brouillon, boite thomas.puglisi@kumo-seo.ch), JAMAIS via Gmail (la creation de draft
+  Gmail exige une approbation UI impossible la nuit -> session bloquee, travail perdu). 3 blocs
+  (retenus-email, a-appeler-bonus, rejetes + raisons), cout estime, erreurs. Objet
+  "KUMO prospection - AAAA-MM-JJ".
+- Si une etape echoue, ecris ce que tu as, note l'echec dans _resume.md et le brouillon recap.
