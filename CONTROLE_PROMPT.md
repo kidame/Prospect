@@ -222,9 +222,10 @@ c. ISSUE (CONDITIONNELLE) : tu es le mieux place pour reperer les erreurs QUI RE
    des issues (jamais lecon / ticket / roadmap : sessions dev de Thomas).
 d. PERSISTE : `git add .story/` (UNIQUEMENT `.story/`) + commit + `git pull --rebase origin main` +
    `git push origin main` (push echoue -> refais pull --rebase + push ; sinon laisse pour cette nuit).
-   AUTONOMIE : ce run tourne sans personne pour cliquer. `.claude/settings.json` fixe
-   `permissions.defaultMode = "bypassPermissions"` -> aucun appel (git inclus) ne doit prompter ;
-   sinon la session stalle et cette persistance ne se fait jamais. Va TOUJOURS jusqu'au push.
+   AUTONOMIE : ce run tourne sans personne pour cliquer. NB permissions cloud (verifie
+   2026-07-28) : le settings.json PROJET ne s'applique pas aux sessions cloud ; si un outil
+   connecteur prompte, c'est son reglage cote claude.ai -> Parametres -> Connecteurs (mode
+   "demander" -> passer en "autorise sans approbation"). Va TOUJOURS jusqu'au push.
    REPRISE APRES PAUSE (constat 2026-06-12 : un run s'est mis en pause seul et n'est reparti qu'apres
    relance manuelle, sans jamais commiter de handover) : si la session a ete interrompue puis relancee
    a la main, deroule quand meme l'etape (a->d) EN ENTIER avant de t'arreter. VERIFIE ensuite que ton

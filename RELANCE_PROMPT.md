@@ -195,8 +195,11 @@ loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
   `permissions.defaultMode = "bypassPermissions"` : AUCUN appel outil ne doit declencher de
   demande d'autorisation (Notion, DataForSEO, infomaniak-mail, Gmail, Storybloq, git). Sans
   ca, la session stalle et la persistance Storybloq (etape 8d) ne se fait jamais.
-- Belt-and-suspenders : dans la config de la routine cote claude.ai/code (UI), regle aussi le
-  mode de permission sur autonome/bypass.
+- REALITE DES PERMISSIONS CLOUD (verifie 2026-07-28) : pas de reglage de mode de permission par
+  routine dans l'UI claude.ai/code, et le settings.json PROJET ne s'applique pas aux sessions
+  cloud. Un outil connecteur qui prompte = reglage du connecteur cote claude.ai en mode
+  "demander" (prompte meme en bypass). Correctif : claude.ai -> Parametres -> Connecteurs ->
+  outils en "autorise sans approbation".
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact dans le mail recap.
   Ne JAMAIS s'arreter avant l'etape 8 (persistance Storybloq).
 

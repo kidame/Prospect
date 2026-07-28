@@ -177,8 +177,13 @@ joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
   demande d'autorisation (Apify, DataForSEO, Notion, infomaniak-mail, Storybloq, git). Sans ca,
   la session se met en pause sur le 1er prompt, stalle, et n'atteint jamais la persistance
   Storybloq (etape 10d) -> handovers + issues perdus.
-- Belt-and-suspenders : dans la config de la routine cote claude.ai/code (UI), regle aussi le mode
-  de permission sur autonome/bypass. Le settings.json du repo et l'UI doivent tous deux etre permissifs.
+- REALITE DES PERMISSIONS CLOUD (verifie docs officielles 2026-07-28, apres un mois de runs
+  stalles) : il N'EXISTE PAS de reglage de mode de permission par routine dans l'UI claude.ai/code,
+  et les permissions du settings.json PROJET ne s'appliquent PAS aux sessions cloud (elles restent
+  utiles en local/CLI). Si un outil CONNECTEUR (Notion, Apify, DataForSEO, Gmail) demande une
+  validation, c'est le reglage du connecteur cote claude.ai (outil en mode "demander") -- il
+  prompte meme en bypassPermissions. Correctif (Thomas, une fois) : claude.ai -> Parametres ->
+  Connecteurs -> passer les outils des connecteurs des routines en "autorise sans approbation".
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact qui a prompte dans le mail
   recap, pour qu'on l'ajoute/verifie. Ne JAMAIS s'arreter avant l'etape 10 (persistance Storybloq).
 - REPRISE APRES PAUSE (constat 2026-06-12 : un run planifie s'est mis en pause tout seul et n'est

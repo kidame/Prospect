@@ -40,7 +40,9 @@ sur electricien/menuisier/peintre recents, Neuchatel sur peintre/energie, Fribou
   "lecture de l'organique" + preference au constat relatif (CLAUDE.md etape 4 + angles).
 - Detecteur de trou memoire ajoute aux prompts 1h et relance (alerte en tete du recap si dernier
   commit .story > ~3 jours).
-- ACTION REQUISE (Thomas, une fois) : passer les 3 routines en mode permission autonome/bypass
-  cote UI claude.ai/code, et elargir l'allowlist de .claude/settings.json aux connecteurs
-  (mcp__Notion__*, mcp__Apify__*, mcp__Dataforseo__*, mcp__Gmail__*, mcp__KUMO-tools__*) — edit
-  bloque pour l'agent par le classifieur de permissions, a coller manuellement.
+- ACTION REQUISE (Thomas, une fois) — CORRIGEE apres verification des docs officielles : il
+  n'existe PAS de mode de permission par routine dans l'UI claude.ai/code, et le settings.json
+  PROJET est ignore en session cloud. Le vrai levier : claude.ai -> Parametres -> Connecteurs ->
+  pour chaque connecteur des routines (Notion, Apify, DataForSEO, Gmail), passer les outils en
+  "autorise sans approbation" (un outil connecteur en mode "demander" prompte meme en
+  bypassPermissions -- c'est la cause du mois de runs stalles).
