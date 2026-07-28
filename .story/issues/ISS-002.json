@@ -13,9 +13,9 @@
   ],
   "phase": null,
   "relatedTickets": [],
-  "resolution": null,
-  "resolvedDate": null,
+  "resolution": "Docs corrigees en session dev 2026-07-28 (branche claude/prospect-strategy-email-analysis-385z1n) : CLAUDE.md 'Outils et actors' + etape 2A et ROUTINE_PROMPT etape 3 passent a keywords (array) avec avertissement explicite keyword-singulier-deprecie + garde-fou restaurants. Note : le run du 06-27 avait deja applique keywords avec succes.",
+  "resolvedDate": "2026-07-28",
   "severity": "medium",
-  "status": "open",
+  "status": "resolved",
   "title": "Amelioration: Apify Maps actor utilise `keywords` (array), pas `keyword` (legacy ignore)"
 }

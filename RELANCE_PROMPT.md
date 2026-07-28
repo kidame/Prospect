@@ -57,7 +57,11 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
 ### Etapes
 
 1. Lis CLAUDE.md a la racine du repo (regles de redaction email + section "Relance 1" +
-   mapping Notion + section Storybloq). CONTINUITE STORYBLOQ (debut de session) :
+   mapping Notion + section Storybloq). DETECTEUR DE TROU MEMOIRE (constat 2026-07 : un mois
+   de runs sans commit `.story/`, vu par personne) : `git log -1 --format=%cd --date=short --
+   .story/` ; si le dernier commit memoire a PLUS de ~3 jours, mets une ligne d'ALERTE EN TETE
+   du mail recap ("⚠️ Memoire .story non persistee depuis le AAAA-MM-JJ : verifier
+   permissions/push"). CONTINUITE STORYBLOQ (debut de session) :
    `storybloq handover latest --count 3` et `storybloq issue list --status open`.
 
 2. FILE D'ELIGIBLES. Interroge la base Notion "Contacts" et retiens les fiches qui remplissent
@@ -121,6 +125,10 @@ pitch ni un reproche. Thomas n'a RIEN a faire pour te declencher : tu detectes t
    derniere tentative", "je relance", tout reproche ou pression, toute repetition du pitch
    du mail 1. SALUTATION : reprends EXACTEMENT celle du mail 1 (le travail de confirmation du
    prenom a deja ete fait) ; tu n'ajoutes jamais un prenom qui n'y etait pas.
+   VERROU ACCENTS (deterministe, avant d'ecrire dans la fiche) : relis le corps redige et
+   compte les caracteres accentues ; zero ou presque = ASCII -> reecris accentue et re-teste.
+   SIGNATURE (section fiche uniquement, jamais dans le brouillon Infomaniak) : la SIGNATURE
+   CANONIQUE de CLAUDE.md a l'identique -- numero 078 939 81 00, aucun autre.
 
 6. Pour CHAQUE eligible -- LIVRABLES (dans cet ordre) :
    a. FICHE NOTION : ajoute en bas du corps la section "## Relance 1 (brouillon)" --
@@ -187,8 +195,11 @@ loin) ; tu ne re-traites jamais une fiche deja en "Relance préparée".
   `permissions.defaultMode = "bypassPermissions"` : AUCUN appel outil ne doit declencher de
   demande d'autorisation (Notion, DataForSEO, infomaniak-mail, Gmail, Storybloq, git). Sans
   ca, la session stalle et la persistance Storybloq (etape 8d) ne se fait jamais.
-- Belt-and-suspenders : dans la config de la routine cote claude.ai/code (UI), regle aussi le
-  mode de permission sur autonome/bypass.
+- REALITE DES PERMISSIONS CLOUD (verifie 2026-07-28) : pas de reglage de mode de permission par
+  routine dans l'UI claude.ai/code, et le settings.json PROJET ne s'applique pas aux sessions
+  cloud. Un outil connecteur qui prompte = reglage du connecteur cote claude.ai en mode
+  "demander" (prompte meme en bypass). Correctif : claude.ai -> Parametres -> Connecteurs ->
+  outils en "autorise sans approbation".
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact dans le mail recap.
   Ne JAMAIS s'arreter avant l'etape 8 (persistance Storybloq).
 

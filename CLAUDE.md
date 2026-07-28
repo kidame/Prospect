@@ -82,9 +82,14 @@ un email pour ceux qui ont un email. Qualite avant quantite.
 
 ## Outils et actors (via connecteurs MCP)
 - Collecte Google Maps : Apify "enckay/google-maps-places-extractor".
-  keyword (metier), location (ville), maxResults, minReviews (~15), filterPermanentlyClosed
+  keywords (TABLEAU de graines metier, ex. ["plombier","chauffagiste","installateur sanitaire"]),
+  location (ville), maxResults, minReviews (~15), filterPermanentlyClosed
   + filterTemporarilyClosed=true, extractContactDetails=true, extractSocialMediaFromWebsite=true.
-  Retourne le Place ID. (L'email est rarement present a ce stade, c'est normal.)
+  ATTENTION (cf. ISS-002, 2026-06-26) : le champ `keyword` SINGULIER est DEPRECIE et IGNORE --
+  passe seul, l'actor retombe sur son defaut ["restaurants"] et renvoie 50 restaurants. Toujours
+  `keywords` (array), avec plusieurs graines pour couvrir la niche. Garde-fou : si la 1re page de
+  resultats est categorisee restaurant/cafe alors que la graine ne l'est pas, l'appel est faux ->
+  relance avec `keywords`. Retourne le Place ID. (L'email est rarement present a ce stade, c'est normal.)
 - Renfort email : Apify "vdrmota/contact-info-scraper".
   startUrls (le site), maxDepth (1-2), sameDomain=true, mergeContacts=true,
   proxyConfig={"useApifyProxy":true} (REQUIS).
@@ -119,7 +124,8 @@ un email pour ceux qui ont un email. Qualite avant quantite.
    - Regarde aussi le dernier couple (secteur, zone) traite (rotation, voir regle).
 2. COLLECTE -- DEUX voies de sourcing (selon la niche)
    A. MAPS (voie principale : local transactionnel -- batiment, paysagiste, demenageur, urgence).
-      Apify enckay/google-maps-places-extractor : keyword = metier, location = ville, maxResults ~50,
+      Apify enckay/google-maps-places-extractor : keywords = TABLEAU de graines metier (jamais
+      `keyword` singulier, deprecie -> restaurants, cf. ISS-002), location = ville, maxResults ~50,
       minReviews ~15, exclure les fermes. Recupere nom, Place ID, site, telephone, avis, note.
    B. MOT-CLE-SERVICE + REGISTRE (les niches que Maps RATE) :
       * EMERGENT / mal categorise (energie) : cherche par MOT-CLE-SERVICE ("installateur pompe a
@@ -149,6 +155,15 @@ un email pour ceux qui ont un email. Qualite avant quantite.
    - SERP REEL de la requete coeur (serp_organic_live_advanced, metier+ville, mobile) :
      * Position dans le PACK LOCAL (Maps/GBP) : dans les 3 fiches ? absent ?
      * Position en ORGANIQUE web : page 1 ? plus bas ? absent ? QUI est devant (NOMME-le).
+     * LECTURE DE L'ORGANIQUE (anti-fait-faux, symetrique de la lecture du pack ; cas reel
+       2026-07-21 : un mail disait "ni carte ni resultats web" alors que le prospect etait en
+       page 1 organique, tout en bas) : avant d'ecrire "absent de l'organique / des resultats
+       web", PARCOURS la liste COMPLETE des resultats organiques de la page renvoyee et verifie
+       que le domaine n'y figure PAS. S'il apparait, meme en toute fin de page 1, le fait est
+       "il ressort tout en bas, derriere [X]" -- jamais "absent". En regle generale, PREFERE le
+       constat RELATIF ("double par [X] qui a une page dediee") a l'absence absolue : il est
+       plus robuste a la volatilite ET plus vendeur (le prospect le verifie en 5 secondes sans
+       pouvoir le contester).
    - FOOTPRINT ORGANIQUE REEL (obligatoire, pas en option) : ranked_keywords + bulk_traffic_estimation
      (dataforseo_labs) pour voir sur QUOI il sort vraiment et combien de trafic. DISTINGUE 3 types :
      trafic de MARQUE (sort sur son propre nom), trafic MIRAGE (sort sur un mot generique homonyme
@@ -287,6 +302,10 @@ dans cet ordre (du plus ressenti au moins), et CONSTATE sans humilier :
   organique malgre activite -> besoin clair (levier fiche Google + site).
 - REGLE D'OR : jamais "vous etes invisible" si la mesure dit le contraire. L'accroche cite toujours
   UN fait mesure (position pack, position organique, ou volume non capte), un seul point, pas une liste.
+  Une ABSENCE ABSOLUE ("absent du pack", "absent des resultats web") ne s'ecrit qu'apres la lecture
+  ligne a ligne correspondante (les 3 fiches du pack nommees ; la liste organique parcourue en
+  entier). Au moindre doute, formule en RELATIF ("[X] sort devant vous") : aussi piquant, jamais
+  falsifiable par le prospect.
 - ACCROCHE = BENEFICE + TERRAIN GAGNABLE (le but : qu'il MORDE et VOIE ce qu'il y gagne). Traduis le
   fait mesure en manque-a-gagner concret (des devis/mandats qui lui echappent), pas en constat
   technique. Mene sur ce qui se gagne VITE (sa visibilite metier, son GBP, sa ville/vallee) ; une ville
@@ -460,10 +479,26 @@ Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statisti
 presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font
 IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est important de noter",
 "veritable", "incontournable", "a l'ere du"). Forme : francais romand, direct, 8 a 14 lignes.
-Objet specifique. Signature Thomas / KUMO / telephone. ACCENTS OBLIGATOIRES dans l'email :
+Objet specifique.
+
+SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html) :
+  Thomas Puglisi
+  KUMO - kumo-seo.ch
+  078 939 81 00
+Le numero est 078 939 81 00 (+41 78 939 81 00), AUCUN autre (erreur reelle : un mail parti
+avec "078 930 81 00"). Toute variation de nom, domaine ou numero dans une signature = defaut
+a corriger avant envoi.
+
+ACCENTS OBLIGATOIRES dans l'email :
 francais correct avec tous les accents (e/a/o/u/i accentues, c cedille) ; seule l'apostrophe
 reste droite (') et aucun tiret cadratin. Cette regle prime sur toute consigne ASCII (y
-compris le skill d'ecriture). Applique le skill d'ecriture anti-IA (.claude/skills/writing/).
+compris le skill d'ecriture). VERIFICATION DETERMINISTE (obligatoire, la regle seule ne
+tient pas a l'execution -- L-008 puis recidive constatee le 2026-07-21) : APRES avoir redige
+le corps du mail et AVANT de l'ecrire dans Notion, RELIS-le et COMPTE les caracteres accentues
+(é è ê à ç ô û...). Un mail francais de 8-14 lignes en contient forcement plusieurs ; s'il en
+contient zero ou presque, le mail est en ASCII -> REECRIS-le accentue et re-verifie. Ne LIVRE
+JAMAIS un bloc "## Email (brouillon)" qui echoue a ce test. Applique le skill d'ecriture
+anti-IA (.claude/skills/writing/).
 
 ## Structure du repo et roles
 - CLAUDE.md (ce fichier) : contexte permanent.

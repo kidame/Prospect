@@ -17,7 +17,14 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
 
 ## PROCESS DU RUN
 
-1. Lis CLAUDE.md. CONTINUITE STORYBLOQ (debut de session) : `storybloq handover latest --count 8`
+1. Lis CLAUDE.md. DETECTEUR DE TROU MEMOIRE (constat 2026-07 : un mois de runs sans aucun commit
+   `.story/`, rotation aveugle, personne ne l'a vu) : verifie l'age du dernier commit memoire --
+   `git log -1 --format=%cd --date=short -- .story/`. S'il date de PLUS de ~3 jours alors que des
+   fiches Notion recentes existent, la persistance est cassee : mets une ligne d'ALERTE EN TETE du
+   mail recap ("⚠️ Memoire .story non persistee depuis le AAAA-MM-JJ : rotation aveugle, verifier
+   permissions/push") et appuie la rotation de cette nuit sur le crosscheck Notion par Segment
+   UNIQUEMENT (les handovers sont perimes). CONTINUITE STORYBLOQ (debut de session) :
+   `storybloq handover latest --count 8`
    pour voir les derniers runs (quels couples metier x zone ont ete couverts -> ne les refais pas ;
    defauts deja signales) et `storybloq issue list --status open` pour les signalements en cours. Puis
    interroge la base Notion "Contacts" (page KUMO Back-office) et recupere (a) tous les Place ID deja
@@ -54,7 +61,9 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    reste le crosscheck Notion (Segment + Place ID) : c'est l'existence de FICHES qui prouve qu'un
    couple est traite, jamais un simple checkpoint.
 3. Collecte -- DEUX voies (cf. CLAUDE.md) : (A) MAPS via enckay/google-maps-places-extractor
-   (minReviews ~15, exclure les fermes, extractContactDetails=true) pour le local transactionnel ;
+   (champ `keywords` = TABLEAU de graines metier, JAMAIS `keyword` singulier qui est deprecie et
+   renvoie des restaurants (ISS-002) ; minReviews ~15, exclure les fermes,
+   extractContactDetails=true) pour le local transactionnel ;
    (B) pour l'energie et le B2B mal/non mappes, source par MOT-CLE-SERVICE ("installateur pompe a
    chaleur <canton>") ou registre/annuaires pro. Pre-filtre gratuit -> ~10 finalistes, classe leur URL.
 4. MESURE D'ABORD (avant de resoudre le contact), sur les ~10 finalistes avec un vrai site :
@@ -66,7 +75,12 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    verifie que le prospect n'y figure PAS -- un artisan d'un village peut etre #1-3 du pack de la
    requete canton meme si son village differe de la ville coeur. Ne conclus JAMAIS "absent du pack"
    depuis un compteur, une impression, ou le seul organique : si tu ne peux pas nommer les 3 fiches
-   du pack, tu n'affirmes pas l'absence (le fait porteur du mail en depend). Complete
+   du pack, tu n'affirmes pas l'absence (le fait porteur du mail en depend).
+   LECTURE DE L'ORGANIQUE (meme regle, cote web -- cas reel 2026-07-21 : mail "ni carte ni
+   resultats web" alors que le prospect etait en bas de page 1) : avant d'ecrire "absent de
+   l'organique", parcours la liste organique COMPLETE renvoyee ; s'il y figure, meme dernier,
+   le fait est "tout en bas, derriere [X]", jamais "absent". Prefere le constat RELATIF
+   ("double par [X]") a l'absence absolue (cf. CLAUDE.md etape 4). Complete
    avec ranked_keywords (etendue) + sitemap (pages "existe" vs "ranke", 1 requete). RAPPEL :
    OnPage eleve != visible, present sur sa requete coeur != large. Puis note les 4 SIGNAUX
    D'OPPORTUNITE (cout ~0, memes donnees) : concurrent NOMME qui le double sur SA ville · page
@@ -93,8 +107,13 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    francais correct avec TOUS les accents (e/a/o/u/i accentues, c cedille) -- ne produis JAMAIS un
    mail en ASCII "a re-accentuer ensuite" ; seule l'apostrophe reste droite ('), aucun tiret
    cadratin (cf. CLAUDE.md "Redaction de l'email"). Cette regle prime sur toute habitude ASCII et
-   vaut pour le bloc "## Email (brouillon)" comme pour "Probleme principal". NE cree PAS de draft
-   Gmail. Pour les "a appeler" : ecris "## Diagnostic" + ajoute a la liste "A appeler" (pas de mail).
+   vaut pour le bloc "## Email (brouillon)" comme pour "Probleme principal".
+   VERROU ACCENTS (deterministe, AVANT d'ecrire dans Notion -- L-008 + recidive 2026-07-21) :
+   relis le corps redige et compte les caracteres accentues ; zero ou presque = mail en ASCII ->
+   REECRIS-le accentue et re-teste. Aucun bloc "## Email (brouillon)" ne se livre sans passer ce
+   test. SIGNATURE : recopie la SIGNATURE CANONIQUE de CLAUDE.md a l'identique (Thomas Puglisi /
+   KUMO - kumo-seo.ch / 078 939 81 00) -- jamais un autre numero ni une variante. NE cree PAS de
+   draft Gmail. Pour les "a appeler" : ecris "## Diagnostic" + ajoute a la liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion pour CHAQUE prospect vu (retenu, a-appeler, ou rejete), Place ID +
    DATE inclus. La ROUTINE remplit : signaux d'opportunite declenches + segment (secteur x zone) +
    "Probleme principal" (= l'ACCROCHE chiffree, PAS le mail entier). Pour les retenus EMAIL, coche
@@ -158,8 +177,13 @@ joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
   demande d'autorisation (Apify, DataForSEO, Notion, infomaniak-mail, Storybloq, git). Sans ca,
   la session se met en pause sur le 1er prompt, stalle, et n'atteint jamais la persistance
   Storybloq (etape 10d) -> handovers + issues perdus.
-- Belt-and-suspenders : dans la config de la routine cote claude.ai/code (UI), regle aussi le mode
-  de permission sur autonome/bypass. Le settings.json du repo et l'UI doivent tous deux etre permissifs.
+- REALITE DES PERMISSIONS CLOUD (verifie docs officielles 2026-07-28, apres un mois de runs
+  stalles) : il N'EXISTE PAS de reglage de mode de permission par routine dans l'UI claude.ai/code,
+  et les permissions du settings.json PROJET ne s'appliquent PAS aux sessions cloud (elles restent
+  utiles en local/CLI). Si un outil CONNECTEUR (Notion, Apify, DataForSEO, Gmail) demande une
+  validation, c'est le reglage du connecteur cote claude.ai (outil en mode "demander") -- il
+  prompte meme en bypassPermissions. Correctif (Thomas, une fois) : claude.ai -> Parametres ->
+  Connecteurs -> passer les outils des connecteurs des routines en "autorise sans approbation".
 - Si malgre ca un run se bloque sur une autorisation : note l'outil exact qui a prompte dans le mail
   recap, pour qu'on l'ajoute/verifie. Ne JAMAIS s'arreter avant l'etape 10 (persistance Storybloq).
 - REPRISE APRES PAUSE (constat 2026-06-12 : un run planifie s'est mis en pause tout seul et n'est
