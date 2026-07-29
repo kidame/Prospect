@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-1h collecte-maps"
+  ],
+  "discoveredDate": "2026-07-29",
+  "id": "ISS-004",
+  "impact": "PATTERN : le champ `location` du Maps extractor (enckay/google-maps-places-extractor) avec la valeur \"Fribourg, Switzerland\" geocode sur la RIVIERA VAUDOISE (Vevey, Blonay, Clarens, La Tour-de-Peilz, Lausanne 1004), PAS sur la ville de Fribourg (canton FR). Vu 2 runs : 06-27 (carreleur x Fribourg -> a du re-cibler \"Bulle\") et 07-30 (peintre x Fribourg -> 16 fiches Riviera VD sur le 1er appel, dont des villes deja couvertes par peintre x Lausanne). Cout : 1 run Maps gaspille a chaque fois + risque de collision dedup avec des zones VD deja traitees.\n\nCHANGEMENT SUGGERE : pour le canton de Fribourg (et probablement d'autres villes ambigues), passer d'emblee le `location` sous forme NPA + ville (\"1700 Fribourg, Switzerland\") ou une ville canton non ambigue (\"Bulle, Switzerland\"), jamais \"Fribourg, Switzerland\" seul. A ajouter comme garde-fou dans CLAUDE.md (section Outils/Collecte) et ROUTINE_PROMPT etape 3 : \"villes ambigues (Fribourg) -> cibler par NPA\".\n\nPREUVE (mesuree ce run, zero PII) : 1er appel location=\"Fribourg, Switzerland\" -> 16 fiches, villes 1614/1809/1800/1814/1815/1004 (Riviera VD + Lausanne). 2e appel location=\"1700 Fribourg, Switzerland\" -> 6 fiches, villes 1700/1752/1782/1754/1762 (agglo Fribourg propre). Meme graine, meme minReviews.\n",
+  "location": [
+    "CLAUDE.md section Outils/Collecte + ROUTINE_PROMPT etape 3"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: location Maps 'Fribourg, Switzerland' derive sur Riviera VD -> cibler par NPA"
+}
