@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "fait-porteur",
+    "accroche-email"
+  ],
+  "discoveredDate": "2026-07-29",
+  "id": "ISS-004",
+  "impact": "PATTERN (accumulation chiffree, zero PII) : le run 1h ecrit des accroches basees sur une ABSENCE que le prospect peut dementir en 5 s. Vu sur >=3 nuits :\n- 07-23 : un installateur donne dit absent alors qu'il etait #1 du pack (deja note handover 07-28).\n- 07-28 : carreleur Place ID 0x478de564ab8159ed:0xa04e3fd93e0807e3 -> mail dit \"pas dans le pack, relegue sous les annuaires\" alors que re-mesure controle = fiche #3 du pack local sur la requete coeur \"carreleur Le Locle\". Accroche entiere fausse (🔴).\n- 07-29 (POST correctif lecture-organique) : sanitaire Place ID 0x478c7ba3cc35b5bb:0xcdf37ad422284ad9 -> mail groupe \"n'apparait pas sur la 1re page\" sur DEUX requetes (\"sanitaire Geneve\" ET \"plombier Geneve\" 720/mois) ; or re-mesure = present position absolue 13 page 1 sur \"plombier Geneve\". L'absence n'etait vraie que sur une des deux requetes (🔴).\n- 07-28 proche (🟠) Place ID 0x478dfb39744c89d9:0xb0f2a674988a8984 : \"vous disparaissez\" en organique alors que present bas (#6).\n\nDEUX trous que le correctif \"lecture ligne a ligne + constat relatif\" (CLAUDE.md etape 4) ne bouche pas encore :\n(a) PACK LOCAL non re-verifie au moment de la REDACTION : la position pack peut bouger entre la mesure et l'ecriture ; ecrire \"absent du pack\" exige une verif pack fraiche, pas seulement organique.\n(b) ABSENCE GROUPEE sur plusieurs requetes : quand le mail cite 2+ requetes et dit \"vous n'apparaissez pas\", chaque requete doit etre verifiee separement ; si une seule est vraie, ne PAS generaliser -> n'affirmer l'absence que sur la requete ou elle est reelle.\n\nCHANGEMENT suggere : dans ROUTINE_PROMPT etape 6 (avant d'ecrire l'accroche), ajouter un verrou : toute phrase \"absent du pack / pas dans la carte / pas sur la 1re page\" doit citer LA requete precise et etre appuyee par la SERP de cette requete exacte ; si plusieurs requetes, une phrase d'absence par requete verifiee, jamais un groupage. Par defaut, preferer le constat RELATIF (\"[X] sort devant vous\", \"vous ressortez tout en bas derriere [X]\") qui reste vrai meme si la position bouge.\n\nPREUVE : re-mesures controle du 29.07 (serp_organic_live_advanced mobile, fr, depth 30-100), packs et positions absolues verifies ligne a ligne. Zero PII (refs par Place ID + segment uniquement).",
+  "location": [
+    "CLAUDE.md etape 4 lecture de l'organique / angles email",
+    "ROUTINE_PROMPT.md etape 4-6"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: mail affirme une ABSENCE (pack/organique) falsifiable alors que le prospect est present"
+}
