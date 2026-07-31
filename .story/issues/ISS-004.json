@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-1h accents"
+  ],
+  "discoveredDate": "2026-07-31",
+  "id": "ISS-004",
+  "impact": "PATTERN + accumulation (zero PII) : run-controle du 2026-07-31, segment cuisiniste/agencement x Valais (Sion). Les 4 fiches a draft ramassees ont TOUTES un corps de mail en ASCII pur (zero caractere accente dans le corps, alors que l'objet et les proprietes Notion conservent les accents). Flaguees C5 -> 3x 🟠 + 1x 🔴 (le 🔴 pour un autre motif C2). C'est la RECIDIVE de L-008 APRES le correctif applique le 2026-07-28 (verrou deterministe de relecture accents ajoute ce jour-la dans ROUTINE_PROMPT etape 6 + RELANCE_PROMPT etape 5 + CLAUDE.md). Le handover 07-28 notait deja \"4 des 5 mails de juillet en ASCII\". Donc : le verrou de relecture textuel NE TIENT PAS a l'execution (4/4 cette nuit).\n\nSECONDAIRE (meme etape C5) : tiret cadratin present sur 3 des 4 mails (Juillerat, Cerutti, Lathion) malgre la regle \"aucun tiret cadratin\".\n\nCHANGEMENT suggere : le rappel textuel \"relis et compte les accents\" ne suffit pas (deja tente, echoue 2x). Envisager un garde-fou plus fort cote systeme -- p.ex. une etape de post-traitement deterministe qui REFUSE d'ecrire le bloc \"## Email (brouillon)\" si le corps ne contient aucun caractere dans [éèêàçôûîïâù], ou un exemple few-shot accentue impose dans ROUTINE_PROMPT, plutot qu'une enieme consigne. A trancher en session dev.\n\nPREUVE : re-mesures SERP faites cette nuit confirment les faits porteurs (sauf Cerutti, cf. controle) ; le defaut est purement redactionnel et 100% reproductible sur les 4 corps de mail de ce run.\n",
+  "location": [
+    "ROUTINE_PROMPT.md etape 6 (verrou relecture accents) + CLAUDE.md ACCENTS OBLIGATOIRES"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: mails en ASCII (accents manquants) malgre le verrou 07-28"
+}
