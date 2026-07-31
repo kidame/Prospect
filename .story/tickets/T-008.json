@@ -1,0 +1,12 @@
+{
+  "blockedBy": [],
+  "completedDate": null,
+  "createdDate": "2026-07-31",
+  "description": "CONTEXTE : constat Thomas 2026-07-31 (\"ca fait trop artificiel, les gens pensent que c'est une pub\") -> analyse du corpus (16 mails reels) + recherche web (sources dans .claude/skills/writing/ V2). Diagnostic : le rendu pub venait de l'ENVELOPPE (HTML style + signature-banniere logo/slogan -> onglet Promotions Gmail, -15-25% de reponses) et de la REPETITION (meme squelette compliment->probleme->CTA, memes charnieres, meme auto-presentation dans chaque mail ; gabarit repere en 2 phrases par les destinataires).\n\nDEJA FAIT (2026-07-31, meme commit) : tools/signature.html -> signature sobre 3 lignes sans logo ; tools/infomaniak_draft_api.py -> HTML minimal (p nus, zero style inline) ; .claude/skills/writing/ reecrit en V2 (5 lois data, 4 squelettes a alterner, 60-90 mots, 1 chiffre max, ton hedge, 0-1 question, objets minuscules factuels, interdits de gabarit) ; CLAUDE.md section Redaction alignee (60-90 mots remplace 8-14 lignes, bloc REGLES ANTI-PUB, signature canonique avec Couvet).\n\nRESTE A FAIRE (ce ticket) :\n1. TEST : appliquer la forme V2 aux 10 prochains mails 1 envoyes ; noter dans un tableau (date envoi, segment, squelette A/B/C/D utilise, reponse oui/non, delai). Comparer au taux historique (baseline a etablir depuis Notion : reponses sur les ~30 mails 1 envoyes juin-juillet = fiches passees \"Lead chaud\"/\"Devis\" vs total envoye). Benchmarks marche : moyenne 3-5%, bon 8-12%, top 15-25%.\n2. VERIFIER sur le 1er brouillon reel cree post-changement que le rendu webmail Infomaniak est propre (paragraphes separes, signature sobre, pas de vestige de style).\n3. ROUTINE NOCTURNE : controler sur les 2 prochaines runs que les mails generes respectent les regles V2 (compte de mots, 1 chiffre, squelettes alternes) -- la routine controle de 3h peut integrer ces checks dans son verdict.\n4. A ~20 envois V2 : decider (croiser Statut pipeline x forme utilisee), renforcer ou ajuster les regles du skill selon le taux mesure, PAS a l'impression. Si taux V2 >= 8% : promouvoir en lecon durable.\n\nZero PII dans ce ticket ; les donnees de test vivent dans Notion.",
+  "id": "T-008",
+  "order": 10,
+  "phase": null,
+  "status": "open",
+  "title": "Naturalisation des mails (anti-pub) : mesurer le taux de reponse V2 vs historique",
+  "type": "task"
+}

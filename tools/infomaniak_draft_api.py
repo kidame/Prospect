@@ -173,7 +173,9 @@ def _text_to_paragraphs(corps: str) -> str:
     out = []
     for b in blocks:
         safe = _htmllib.escape(b).replace("\n", "<br>")
-        out.append(f'<p style="margin:0 0 14px 0;">{safe}</p>')
+        # Pas de styles inline : un HTML "designe" est classe Promotions par Gmail
+        # (regle anti-pub 2026-07-31, cf. .claude/skills/writing/).
+        out.append(f"<p>{safe}</p>")
     return "".join(out)
 
 
@@ -221,10 +223,7 @@ def build_html_email(corps: str, with_signature: bool = True) -> str:
         sig = load_signature()
         if sig:
             inner += sig
-    return (
-        "<div style=\"font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;"
-        'font-size:14px;color:#1a1423;line-height:1.5;">' + inner + "</div>"
-    )
+    return "<div>" + inner + "</div>"
 
 
 def build_draft_body(to_addr: str, subject: str, body: str, mime_type: str) -> dict:
