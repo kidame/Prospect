@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-relance",
+    "notion-pipeline"
+  ],
+  "discoveredDate": "2026-07-31",
+  "id": "ISS-004",
+  "impact": "PATTERN (controle manuel 2026-07-31, batch de 17 relances avec Date relance 1 = 2026-07-31, croise fiche par fiche avec le dossier Sent Infomaniak) : 2/17 relances visaient des prospects dont le mail 1 n'a JAMAIS ete envoye — fiche 37192364-0366-812f-a75b-eb181350a4e8 (segment menuisier x Neuchatel littoral : brouillon mail 1 du 2026-06-16 reste dans les Drafts, aucun envoi dans Sent) et fiche 37b92364-0366-8151-a315-f3e7dc8d3622 (segment menuisier x Val-de-Travers : aucune trace ni Sent ni Drafts). +1 fiche hors batch dans le meme etat (37b92364-0366-81a8-a3b0-d04a96273e34, brouillon du 2026-06-10 jamais envoye) qui aurait declenche une fausse relance plus tard. CAUSE RACINE : l'eligibilite se fie a \"Statut pipeline = Mail 1 envoye\" + \"Date mail 1\", or ces champs ont ete poses EN MASSE le 2026-07-22 (bascule de statut groupee ; l'automation date la bascule, pas l'envoi) — 25+ fiches portaient Date mail 1 = 2026-07-22 alors que les envois reels s'etalent du 08.06 au 26.06. CONSEQUENCE SECONDAIRE : les 17 relances redigees affirmaient \"je vous ecrivais il y a une semaine\" alors que les mails 1 dataient de 6-7 semaines (fait temporel faux dans un mail envoyable) — et 2 d'entre elles s'adressaient a des prospects n'ayant jamais rien recu. AGGRAVANT (constate 2026-07-31 en tentant le nettoyage) : les 2 brouillons de relance fautifs sont INDELEBILES par outil — supprimer_brouillon exige l'UUID de ressource renvoye par creer_brouillon, que la routine ne conserve nulle part ; l'identifiant IMAP (uid@dossier) est rejete (HTTP 404 method_not_found). Seule la suppression manuelle au webmail reste possible. CHANGEMENT SUGGERE : (a) avant de preparer une relance, la routine 04:00 verifie l'ENVOI REEL en cherchant dans le dossier Sent Infomaniak (lister_messages) un message dont l'objet correspond au mail 1 de la fiche (section '## Email (brouillon)') ; introuvable -> skip + signalement dans le recap, jamais de relance ; (b) la date d'envoi retenue pour la relance = la date du message Sent retrouve, pas le champ Notion ; (c) ne jamais ecrire un delai absolu (\"il y a une semaine\") calcule depuis Date mail 1 non verifiee — au doute, \"il y a quelques semaines\" ; (d) NOUVEAU : toute routine qui appelle creer_brouillon LOGGE l'UUID renvoye dans la fiche Notion (Notes, ex. \"brouillon Infomaniak uuid=...\"), afin qu'un brouillon errone reste supprimable par outil apres coup. PREUVE : dossiers Infomaniak (Sent uids 36-168 = les 15 envois reels retrouves du batch ; Drafts uids 255 et 355 = mails 1 jamais partis ; tentative DELETE draft/477@... -> 404) ; corrections posees le 2026-07-31 dans Notion (3 fiches repassees Lead froid + dates effacees, 15 Date mail 1 corrigees aux vraies dates 08.06-19.06). Zero PII : references par page-id Notion et segment.",
+  "location": [
+    "RELANCE_PROMPT.md eligibilite",
+    "CLAUDE.md section Relance 1"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: relance preparee sans verification de l'envoi reel du mail 1"
+}

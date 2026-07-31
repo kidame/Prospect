@@ -110,9 +110,10 @@ un email pour ceux qui ont un email. Qualite avant quantite.
   outil `creer_brouillon`. REGLE pour ne JAMAIS reproduire les erreurs de rendu :
   * Passe le corps en TEXTE BRUT avec accents, un paragraphe par ligne vide. RIEN d'autre.
   * NE colle PAS de HTML (`<div>`, `<br>`...) et N'AJOUTE PAS la signature a la main : le
-    connecteur met en page en HTML (un `<p>` par paragraphe) ET ajoute la signature KUMO
+    connecteur met en page en HTML MINIMAL (un `<p>` nu par paragraphe, AUCUN style inline ni
+    logo depuis le 2026-07-31, regle anti-pub) ET ajoute la signature sobre 3 lignes
     (`tools/signature.html`) automatiquement. Un pied de signature texte deja present dans le
-    corps (Thomas / KUMO - kumo-seo.ch / tel) est retire tout seul -> jamais de double signature.
+    corps (Thomas / KUMO... / tel) est retire tout seul -> jamais de double signature.
   * Defaut = HTML formate + signature. `html=false` seulement si tu veux du texte brut sans
     signature (cas rare). Pour supprimer un brouillon : `supprimer_brouillon` (uuid renvoye a la
     creation). NB : le webmail Infomaniak avale les sauts de ligne d'un text/plain -> c'est
@@ -349,8 +350,9 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
 - "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
-  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (8-14 lignes, francais
-  romand, skill .claude/skills/writing/), puis la signature (Thomas / KUMO - kumo-seo.ch / tel).
+  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (60-90 mots, francais
+  romand, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
+  kumo-seo.ch / 078 939 81 00).
   Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
   EN HAUT du bloc, AVANT la ligne "Objet :", une ligne d'alerte
   "⚠️ Email a confirmer avant envoi : <raison>". C'est une note pour Thomas : elle ne fait
@@ -453,12 +455,13 @@ But : un email humain. Le prospect doit sentir une personne qui se presente, qui
 son metier, qui apporte d'abord quelque chose d'utile, en donnant-donnant et sans pression.
 Jamais l'impression d'un robot, d'une IA, ou de quelqu'un qui veut juste gratter un contrat.
 
-Structure : 1) je me presente (Thomas, base dans la region). 2) je reconnais leur travail
-via un fait verifiable (avis, specialite, ou bonne position deja acquise). 3) UN seul point
-concret, prouve par une mesure (souvent : visibilite etroite, ou absent d'un axe, chiffres a
-l'appui). 4) donnant-donnant PAR MAIL : je propose de lui ENVOYER quelque chose d'utile (2-3
-pistes concretes, un mini-recap de ce que j'ai vu), gratuit et sans suite obligee. Il repart
-avec de la valeur meme s'il ne donne pas suite. Sans engagement.
+Structure : les blocs restent (presentation courte OU ancrage local, reconnaissance de leur
+travail, UN point mesure, donnant-donnant par mail) mais le SQUELETTE VARIE : le skill
+.claude/skills/writing/ definit 4 squelettes a alterner -- jamais le meme pour deux prospects
+du meme segment la meme nuit, jamais la meme ouverture d'un mail a l'autre (regle anti-gabarit
+2026-07-31 : les destinataires reperent un gabarit en 2 phrases, et les artisans d'un meme
+village se montrent leurs mails). Le donnant-donnant PAR MAIL reste le coeur : proposer de lui
+ENVOYER quelque chose d'utile, gratuit et sans suite obligee.
 
 CTA = CONTINUER PAR MAIL, PAS un appel (regle 2026-06-20). Le 1er contact ne demande JAMAIS un
 rendez-vous telephonique ni un creneau de 15 min : ca sonne "vendeur qui veut te coincer au
@@ -478,12 +481,31 @@ interne ; elle se revele dans l'echange, une fois la confiance posee.
 Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statistique generale
 presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font
 IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est important de noter",
-"veritable", "incontournable", "a l'ere du"). Forme : francais romand, direct, 8 a 14 lignes.
-Objet specifique.
+"veritable", "incontournable", "a l'ere du") ; charnieres de gabarit ("Le souci :",
+"C'est gagnable :", et la liste complete du skill writing). Forme : francais romand, direct,
+60 a 90 MOTS (max ~110 ; l'ancienne regle "8-14 lignes" est remplacee, data 2026-07-31 :
+la zone 50-125 mots fait x2,4 de reponses vs 200+).
 
-SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html) :
+REGLES ANTI-PUB (2026-07-31, ancrees data -- detail, squelettes et sources dans
+.claude/skills/writing/) :
+- ENVELOPPE : mise en page minimale (paragraphes nus, aucun style inline) + signature sobre
+  3 lignes SANS logo, titre ni slogan. Un HTML "designe" part dans l'onglet Promotions de
+  Gmail (-15-25% de reponses). Le connecteur infomaniak-mail applique ce format depuis le 31.07.
+- UN SEUL chiffre par mail : le fait porteur. Les autres mesures restent dans la fiche et
+  partent dans les pistes envoyees apres le "oui".
+- TON HEDGE : formuler le constat comme une observation faillible ("on dirait que", "je me
+  trompe peut-etre"), pas un diagnostic asserte -- les tons incertains obtiennent plus de
+  reponses (data Lavender). 0 ou 1 question par mail, jamais plus.
+- OBJET : minuscules, 2-6 mots, porte LE fait ou une question concrete. INTERDIT le format
+  "[metier] [ville]" nu (signature du spam SEO).
+- OBSERVATION > FLATTERIE : le compliment-avis en ouverture au plus 1 mail sur 3 ; prefere un
+  detail precis de LEUR site, dans leurs mots. + 1 trace locale concrete par mail (distance,
+  lieu, saison) : un element qu'un robot n'ecrirait pas.
+
+SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
+sobre depuis le 2026-07-31 : AUCUN logo, titre, baseline ou style) :
   Thomas Puglisi
-  KUMO - kumo-seo.ch
+  KUMO, Couvet - kumo-seo.ch
   078 939 81 00
 Le numero est 078 939 81 00 (+41 78 939 81 00), AUCUN autre (erreur reelle : un mail parti
 avec "078 930 81 00"). Toute variation de nom, domaine ou numero dans une signature = defaut
@@ -495,7 +517,7 @@ reste droite (') et aucun tiret cadratin. Cette regle prime sur toute consigne A
 compris le skill d'ecriture). VERIFICATION DETERMINISTE (obligatoire, la regle seule ne
 tient pas a l'execution -- L-008 puis recidive constatee le 2026-07-21) : APRES avoir redige
 le corps du mail et AVANT de l'ecrire dans Notion, RELIS-le et COMPTE les caracteres accentues
-(é è ê à ç ô û...). Un mail francais de 8-14 lignes en contient forcement plusieurs ; s'il en
+(é è ê à ç ô û...). Un mail francais de 60-90 mots en contient forcement plusieurs ; s'il en
 contient zero ou presque, le mail est en ASCII -> REECRIS-le accentue et re-verifie. Ne LIVRE
 JAMAIS un bloc "## Email (brouillon)" qui echoue a ce test. Applique le skill d'ecriture
 anti-IA (.claude/skills/writing/).
