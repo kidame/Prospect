@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "routine-relance",
+    "crm-notion",
+    "dedup"
+  ],
+  "discoveredDate": "2026-08-03",
+  "id": "ISS-006",
+  "impact": "PATTERN constate le 2026-08-03 (session dev, en verifiant un doute de Thomas), cas reel sur le segment menuiserie/charpente x Val-de-Travers : (1) mail 1 envoye le 09.06 ; REFUS recu par email le 15.06 (reponse explicite « pas interesses ») ; le refus n'a JAMAIS ete reporte dans Notion (aucun processus ne lit la boite de reception) -> le statut est reste « Mail 1 envoye ». (2) Un run ulterieur (segment ebeniste x Val-de-Travers) a re-collecte la MEME entreprise via une 2e fiche GBP (2 Place ID differents, meme email de domaine) -> le dedup par Place ID seul n'a rien vu -> 2e fiche Notion creee et 2e MAIL A FROID envoye le 22.07, cinq semaines APRES le refus. (3) La routine relance du 31.07 a prepare un brouillon de relance pour la fiche refusee (statut jamais passe a Perdu) ; par chance le brouillon n'a pas ete envoye (reste en Drafts, detecte et purge le 03.08). La routine relance du 29.07 a bien detecte le doublon d'email au moment de relancer (garde-fou existant qui a marche), mais trop tard : le 2e mail 1 etait deja parti. CONSEQUENCE IMAGE : une entreprise qui a dit non par ecrit a recu un nouveau demarchage a froid — exactement le profil « demarcheur » que le systeme veut eviter ; risque accru en zone village (bouche-a-oreille). CHANGEMENTS SUGGERES : (a) DEDUP niveau ENTREPRISE en plus du Place ID : avant creation de fiche, croiser email de domaine + domaine + (nom normalise x NPA) contre la base — une entreprise peut avoir plusieurs fiches GBP (2 cas reels le meme jour sur ce segment) ; (b) enregistrer les REPONSES : un pas de routine (ou une etape de la relance 04:00 avant preparation) qui scanne l'INBOX Infomaniak pour les reponses aux adresses prospectees et passe les refus en Perdu / les reponses en Lead chaud AVANT toute preparation de relance ; (c) la relance ne se prepare qu'apres ce scan (aujourd'hui elle ne verifie que le statut Notion, qui depend d'une saisie manuelle jamais faite). PREUVE : fiches Notion des 2 pages du segment (statuts et dates corriges le 03.08, refus date), dossier Drafts (brouillon de relance intact). Zero PII ici (segment + dates ; details nominatifs dans Notion uniquement).",
+  "location": [
+    "CLAUDE.md Dedup (cle = Place ID seul)",
+    "RELANCE_PROMPT.md eligibilite"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: refus par email jamais enregistre + dedup Place ID aveugle aux doublons d'entreprise -> re-contact a froid apres refus"
+}
