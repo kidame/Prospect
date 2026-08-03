@@ -1,0 +1,18 @@
+{
+  "content": "La routine relance (04:00) redige la relance dans la fiche Notion (section '## Relance 1 (brouillon)' + statut 'Relance préparée' + 'Date relance 1') mais ne cree JAMAIS de brouillon Infomaniak ou Gmail : l'envoi et la mise en brouillon sont des gestes manuels de Thomas (ou une mise en brouillon sur demande, hors routine). Ne pas reintroduire la creation de brouillons dans RELANCE_PROMPT.md ni dans CLAUDE.md.",
+  "context": "Decision explicite de Thomas en session dev du 2026-08-03 (« je ne veux plus de mail relance automatique en brouillon, je ferai moi-meme les relances »), prise au lancement du test humanisation mail 1. CLAUDE.md (Garde-fous + section Relance 1) et RELANCE_PROMPT.md (bootstrap, regle d'or 3, etape 6b, contraintes, checklist post-run) modifies le meme jour. Supprime l'ancienne EXCEPTION ASSUMEE qui autorisait la 3e routine a creer des brouillons Infomaniak.",
+  "createdDate": "2026-08-03",
+  "id": "L-013",
+  "lastValidated": "2026-08-03",
+  "reinforcements": 0,
+  "source": "manual",
+  "status": "active",
+  "supersedes": null,
+  "tags": [
+    "routine-relance",
+    "garde-fous",
+    "process"
+  ],
+  "title": "Relances : aucun brouillon automatique -- envoi 100% manuel par Thomas",
+  "updatedDate": "2026-08-03"
+}
