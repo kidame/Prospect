@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "routine-controle",
+    "data-quality"
+  ],
+  "discoveredDate": "2026-08-03",
+  "id": "ISS-005",
+  "impact": "PATTERN (n=1 mais grave, decouvert 2026-08-03 en session dev lors de la reecriture humanisee d'un mail 1) : fiche Place ID 0x478dc11ad90a95a1:0x761ea461cf193d14 (segment menuisier x Val-de-Travers, run du 2026-06-10) portait 'Avis Google' = 67. Re-mesure 03.08 (business_data_business_listings_search + SERP branded) : la fiche GBP n'affiche AUCUN avis ; elle compte exactement 67 PHOTOS (total_photos=67). Coincidence exacte -> tres forte suspicion que la collecte du 10.06 a mappe le compteur de photos (ou un autre champ) dans 'avis'. CONSEQUENCES : (1) le mail 1 v1 etait entierement construit sur 'vos 67 avis Google' = fait faux, humiliant pour la credibilite si envoye (le prospect verifie en 5 s) ; (2) le controle 3h a rendu 🟢 en re-verifiant la SERP (C2) mais PAS le compteur d'avis cite ; (3) le signal 'receptivite' et la 'Confiance budget' etaient en partie fondes dessus ; (4) une 2e fiche GBP soeur (CID 366207375559660315, 1 avis) existait sans etre detectee -> l'histoire reelle (presence eclatee en 2 fiches, celle qui sort sans lien site) etait invisible. CHANGEMENTS SUGGERES : (a) routine 1h : sur les RETENUS, croiser le reviewsCount Apify avec rating.votes_count DataForSEO (business_listings ou SERP local) avant d'ecrire un chiffre d'avis dans la fiche/le mail ; alerter si ecart ; (b) controle 3h : quand le mail cite un compteur (avis, note), le re-mesurer comme on re-mesure la SERP ; (c) collecte : detecter les fiches GBP multiples d'une meme entreprise (meme adresse/nom proche) -- c'est a la fois un piege de mesure et un angle de vente. PREUVE : mesures du 03.08 conservees dans la fiche Notion du prospect (section Diagnostic, correction datee). Zero PII ici (reference par Place ID/CID/segment).",
+  "location": [
+    "CLAUDE.md etape 4 (faits mesures) + grille scoring",
+    "CLAUDE.md controle 3h"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: compteur de photos GBP enregistre comme 'Avis Google' -> fait porteur faux valide au controle"
+}
