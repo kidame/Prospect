@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-relance",
+    "connecteur-notion"
+  ],
+  "discoveredDate": "2026-08-08",
+  "id": "ISS-007",
+  "impact": "PATTERN + accumulation : run relance du 2026-08-08 04:00. Le systeme signale explicitement en debut de session \"MCP servers require authentication before their tools can be used: Notion\" et AUCUN outil mcp__Notion__* n'apparait dans la liste des outils differes (ToolSearch \"select:storybloq_handover_latest,storybloq_status,storybloq_issue_list\" -> 0 resultat Notion ; recherche generique \"Notion\" -> 0 resultat). C'est different d'ISS-003 (gating \"Business plan\" du query SQL, mais les outils de base existaient) : ici ZERO outil Notion n'est expose du tout, comme si le connecteur n'etait pas autorise pour cette session.\n\nCONSEQUENCE : etape 2 (file d'eligibles \"Mail 1 envoye\" + Date mail 1 <= J-7 + Date relance 1 vide + Email non vide) impossible a executer. Toute la routine relance s'arrete net : 0 fiche lue, 0 relance preparee, aucune ecriture Notion tentee (donc aucun risque de corruption de donnee, juste un noop force).\n\nCHANGEMENT suggere : verifier cote claude.ai -> Parametres -> Connecteurs que Notion est bien autorise pour les sessions cloud/routines (cf. section CLAUDE.md \"REALITE DES PERMISSIONS CLOUD\" deja notee pour d'autres connecteurs -- meme categorie de probleme, potentiellement la meme cause racine que les frictions Infomaniak/DataForSEO deja documentees). Si ca se reproduit sur >=2 nuits, ca merite un ticket (verif automatique de la disponibilite des connecteurs en tout debut de routine, avec alerte immediate au lieu d'un recap silencieux en fin de run).\n\nPREUVE : aucune donnee prospect touchee (zero PII). Preuve = absence totale d'outils mcp__Notion__* dans le catalogue d'outils de cette session, confirmee par deux methodes de recherche independantes.",
+  "location": [
+    "RELANCE_PROMPT.md etape 2 (file d'eligibles)",
+    "CLAUDE.md section Outils et actors > Dedup + CRM"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "critical",
+  "status": "open",
+  "title": "Defaut: connecteur Notion totalement indisponible (aucun outil MCP expose) -> routine relance bloquee des l'etape 2"
+}
