@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-controle notion-auth"
+  ],
+  "discoveredDate": "2026-08-06",
+  "id": "ISS-007",
+  "impact": "PATTERN + ACCUMULATION\n- Run controle du 2026-08-06 (03:00) : connecteur Notion NON authentifie dans la session cloud. Aucun outil mcp__Notion__* expose (installState: unknown ; ToolSearch mcp__Notion__search/fetch -> \"No matching deferred tools found\" ; system-reminder \"Notion requires authentication\"). Impossible de ramasser les fiches (Draft pret + Controle vide), de re-mesurer, ou d'ecrire le verdict.\n- Signal de recurrence : AUCUN handover run-controle depuis 2026-08-06 remontant a 2026-06-14 (routine planifiee quotidienne a 03:00). ~7 semaines sans trace de controle -> soupcon fort de blocage/silence repete, pas un incident isole.\n\nCHANGEMENT SUGGERE\n- Garde-fou d'auth en debut de run controle : si le connecteur Notion n'est pas joignable (aucun outil Notion expose / installState != connected), NE PAS finir en silence -> ecrire un handover run-controle \"CONTROLE IMPOSSIBLE (Notion non authentifie)\" (fait ce run) et laisser la vue Notion \"Non controlees\" jouer son role de filet.\n- Cote infra : verifier/rafraichir l'auth du connecteur Notion pour les sessions cloud (Parametres -> Connecteurs claude.ai : Notion \"autorise sans approbation\" + token OAuth valide). Documenter la procedure dans CONTROLE_PROMPT.md (section permissions cloud, comme deja fait pour les prompts de connecteur).\n\nPREUVE (zero PII)\n- ListConnectors 2026-08-06 : Notion installState \"unknown\" ; Dataforseo/Gmail/Apify/Storybloq \"connected: true\".\n- Distinct d'ISS-003 (qui ne vise que les outils SQL/query Notion gates Business plan) : ici c'est l'AUTH du connecteur entier qui manque, ce qui bloque 100% du run controle, pas seulement le dedup exhaustif.\n",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (RAMASSE fiches) + Garde-fous permissions cloud"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie -> routine controle 03:00 ne peut pas s'executer"
+}
