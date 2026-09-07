@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-relance connecteur-notion"
+  ],
+  "discoveredDate": "2026-09-07",
+  "id": "ISS-007",
+  "impact": "PATTERN (blocage total, pas un cas isole) : run-relance du 2026-09-07 (04:00) demarre en\ncontexte neuf ; AUCUN outil Notion n'est disponible dans la session (connecteur non\nauthentifie -- message systeme explicite \"Notion requires authentication before its tools\ncan be used\", et une recherche d'outils Notion ne remonte STRICTEMENT AUCUN resultat, alors\nque d'autres connecteurs -- DataForSEO, Storybloq, github -- repondent normalement).\n\nCONTRAIREMENT a ISS-003 (outils de requete SQL/vue gates Business plan, mais notion-fetch /\nnotion-search fonctionnaient encore le 2026-06-27) : ici, ZERO outil Notion n'est charge, la\nroutine ne peut donc PAS faire l'etape 2 (file d'eligibles \"Mail 1 envoye\" >= J+7) ni aucune\nlecture/ecriture de fiche. Blocage total du process de relance, pas une degradation partielle.\n\nACCUMULATION (signal de duree, pas juste cette nuit) :\n- Dernier handover run-relance reussi : 2026-06-20 (rien depuis, soit ~2.5 mois de nuits sans\n  relance livree malgre le schedule quotidien 04:00).\n- Dernier commit sur .story/ (toutes routines confondues) : 2026-08-10 (soit ~4 semaines\n  avant ce run, largement au-dela du seuil d'alerte ~3 jours de l'etape 1 du process relance).\nLes deux signaux convergent : soit le connecteur Notion a cesse de fonctionner a un moment\nentre le 06-20 et le 08-10 (ou avant), soit les routines echouent plus largement depuis cette\nfenetre sans que l'echec remonte (aucune issue ouverte ne documentait ce trou jusqu'ici).\n\nCHANGEMENT SUGGERE (session dev / Thomas) : (1) reautoriser le connecteur Notion cote\nclaude.ai (Parametres -> Connecteurs -> Notion -> reconnecter), la session cloud ne pouvant\npas faire le flow OAuth elle-meme ; (2) une fois reautorise, verifier que run-1h et\ncontrole-3h tournent aussi normalement depuis fin juin (le meme connecteur les alimente tous)\net rattraper les fiches \"Mail 1 envoye\" en attente de relance depuis plusieurs semaines ;\n(3) envisager une alerte plus precoce que le seuil ~3 jours actuel si un connecteur cle tombe\n(le trou de 4 semaines sur .story n'a ete remonte par personne avant ce run).\n\nPREUVE (zero PII) : aucun outil mcp__notion__* / Notion charge en debut de session malgre\nrecherche explicite ; `git log -1 --format=%cd -- .story/` = 2026-08-10 ; dernier handover\nrun-relance = 2026-06-20-01-run-relance.md ; aucune fiche traitee ce run (etape 2 jamais\natteinte).\n",
+  "location": [
+    "RELANCE_PROMPT.md etape 1-2 / connecteur Notion claude.ai"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: connecteur Notion non authentifie, routine relance totalement bloquee"
+}
