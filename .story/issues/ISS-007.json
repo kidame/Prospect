@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-relance connecteur-notion"
+  ],
+  "discoveredDate": "2026-09-08",
+  "id": "ISS-007",
+  "impact": "PATTERN : run relance du 2026-09-08 (04:00) n'a pas pu executer l'etape 2 (file d'eligibles).\nListConnectors renvoie pour Notion : installState=\"needs_reconnect\", connected=false. Aucun\noutil Notion charge dans la session (verifie via recherche d'outils : zero resultat). Impossible\nde lire/ecrire la base Contacts -> impossible de determiner les fiches \"Mail 1 envoye\" >=7j sans\n\"Date relance 1\", impossible d'ecrire la section \"## Relance 1 (brouillon)\".\n\nACCUMULATION : dernier commit .story/ date du 2026-08-10, soit ~29 jours avant ce run (seuil\nd'alerte du repo = ~3 jours). Le dernier handover trouve (run-1h du 2026-08-01 / session dev du\n2026-08-03) ne mentionne aucun probleme de connecteur Notion a cette date -- la deconnexion\nsemble donc survenue APRES le 08-03, periode non couverte par les handovers existants. Impossible\nde dater precisement le debut de la panne depuis ce repo seul (pas de handover intermediaire).\n\nCHANGEMENT CONCRET SUGGERE : (1) Thomas doit reautoriser le connecteur Notion cote\nclaude.ai (Parametres -> Connecteurs -> Notion -> reconnecter), la reconnexion OAuth ne peut pas\nse faire depuis une session non interactive. (2) Envisager une verification de connectivite\nNotion en tout debut de chaque routine (avant l'etape 2), avec un mail recap immediat + un\nhandover 'run avorte' des que le connecteur est indisponible, pour eviter des nuits silencieuses\nsans trace si ca se reproduit. (3) Verifier si les runs run-1h / controle-3h des ~4 dernieres\nsemaines ont ete affectes de la meme facon (meme connecteur partage) -- aucune trace locale\n(.story/) ne permet de le confirmer depuis cette session.\n\nPREUVE : ListConnectors -> {\"name\":\"Notion\",\"installState\":\"needs_reconnect\",\"connected\":false,\n\"enabledInChat\":true}. Recherche d'outils Notion (ToolSearch) -> 0 resultat. `git log -1\n--format=%cd --date=short -- .story/` -> 2026-08-10. Aucune PII : zero nom/email/tel de prospect\ncite.\n",
+  "location": [
+    "RELANCE_PROMPT.md etape 2 (file d'eligibles Notion)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion deconnecte (needs_reconnect) -- routine relance bloquee des l'etape 2"
+}
