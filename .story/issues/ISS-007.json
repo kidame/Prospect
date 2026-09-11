@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "infra-notion"
+  ],
+  "discoveredDate": "2026-09-11",
+  "id": "ISS-007",
+  "impact": "PATTERN + accumulation : nuit du 2026-09-11 (run controle 03:00), le connecteur Notion n'est PAS authentifie dans la session cloud (aucun outil mcp Notion expose ; l'environnement signale \"Notion requires authentication\"). Consequence : la routine controle ne peut PAS ramasser son perimetre (fiches \"Draft pret\" + \"Controle\" vide dans la base \"Contacts\") -> 0 fiche controlee, run entierement perdu. Impact TOTAL sur la routine (pas une derive de contenu : une panne de dependance).\n\nDISTINCTION avec ISS-003 : ISS-003 vise le GATING (Business plan) des outils de QUERY SQL/vue Notion (dedup Place ID exhaustif). Ici c'est le connecteur Notion ENTIER qui est absent/non authentifie -> meme la lecture simple d'une page fiche est impossible. A rapprocher si les deux convergent vers \"acces Notion instable en cloud\".\n\nCHANGEMENT suggere : (1) Thomas re-autorise le connecteur Notion pour les sessions cloud (claude.ai -> Parametres -> Connecteurs, mode \"autorise sans approbation\") ; (2) verifier que la meme panne ne touche pas la run 1h (01:00) ni la relance (04:00), qui dependent aussi de Notion ; (3) si le probleme recurre, envisager un canary de debut de run (1 lecture Notion) qui log explicitement l'indispo au lieu de finir en silence.\n\nPREUVE (zero PII) : connecteurs de la session = Apify, DataForSEO, Gmail, github, infomaniak-mail, storybloq, etc. ; AUCUN mcp Notion. Message d'environnement : \"The following MCP servers require authentication before their tools can be used: Notion, Vercel.\" Handover 2026-09-11-01-run-controle documente 0/0/0.\n\nSEVERITE high : casse la routine entiere (0 livrable), pas une simple formule IA.\n\nNOTE recurrence : 1re occurrence observee cette nuit. Si un futur run controle re-constate l'indispo Notion, faire un issue update (\"vu encore le AAAA-MM-JJ\") plutot qu'un doublon.\n",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse Notion)",
+    "connecteur Notion cloud"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Blocker: connecteur Notion indisponible en session cloud -> run controle a 0 fiche"
+}
