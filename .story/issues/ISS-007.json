@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-relance",
+    "routine-1h",
+    "routine-controle",
+    "connecteur-notion"
+  ],
+  "discoveredDate": "2026-09-26",
+  "id": "ISS-007",
+  "impact": "CONSTAT (run relance du 2026-09-26, contexte neuf) : au demarrage, le connecteur MCP Notion est signale par l'environnement comme NON AUTORISE (\"requires authentication before its tools can be used\") -- aucun outil Notion n'est meme charge (ToolSearch \"Notion\" ne retourne rien). Impossible d'interroger la base \"Contacts\" -> impossible d'executer l'etape 2 (file d'eligibles), donc impossible de preparer la moindre relance cette nuit. Ceci bloque de la meme maniere les 2 autres routines (1h, controle), puisque Notion est leur source unique de dedup/CRM/contenu redige.\n\nACCUMULATION CHIFFREE (verifiee sur .story/ + git log, zero PII) : le dernier commit touchant .story/ date du 2026-08-10 (hash 6dac243, mise a jour ISS-005). Aucun handover run-1h / run-relance / run-controle n'existe depuis le 2026-08-03 (dernier handover de routine : 2026-08-01, carreleur x Yverdon). Entre 2026-08-10 et 2026-09-26 (aujourd'hui) : 47 jours de silence memoire TOTAL sur les 3 routines, alors qu'elles sont censees tourner chaque nuit et toujours ecrire un handover (meme en cas d'echec partiel). C'est un silence 2,3x plus long que le precedent episode documente (handover 2026-07-28 : ~3 semaines de silence 07-02->07-19, cause par des prompts d'autorisation connecteur jamais cliques la nuit -- corrige en passant les connecteurs claude.ai en \"autorise sans approbation\").\n\nHYPOTHESE (non confirmee depuis cette session, a verifier cote Thomas) : le connecteur Notion s'est desautorise (token expire / revoque / plan change) autour du 08-10, et comme aucune routine ne peut plus rien faire sans Notion des l'etape 1-2, chaque run echoue silencieusement avant meme d'atteindre l'etape de persistance handover -- exactement le mecanisme du precedent 07-02->07-19, mais cette fois sur l'auth Notion elle-meme plutot que sur des prompts d'approbation.\n\nCHANGEMENT SUGGERE : (1) Thomas reautorise le connecteur Notion (claude.ai -> parametres -> connecteurs) et verifie qu'il est bien en \"autorise sans approbation\" pour les 3 routines ; (2) envisager un garde-fou qui ecrit un handover minimal (\"Notion inaccessible, run avorte\") AVANT meme la lecture Notion plutot qu'apres -- le detecteur de trou memoire existant (git log .story/ > 3 jours) suppose que la routine atteint l'etape 8, ce qui est faux si elle meurt a l'etape 1-2 ; (3) une alerte independante de .story (ex. mail recap systematique meme en cas d'echec total des l'etape 2) permettrait de detecter la panne bien avant 47 jours.\n\nPREUVE : ToolSearch(\"Notion\") -> \"No matching deferred tools found\" ; system-reminder explicite listant Notion parmi les serveurs MCP necessitant une autorisation ; git log -1 --format=%cd --date=short -- .story/ -> 2026-08-10 ; storybloq_handover_latest ne renvoie aucun handover de routine poste le 2026-08-03.",
+  "location": [
+    "RELANCE_PROMPT.md etape 2 (file d'eligibles)",
+    "CLAUDE.md process etape 1/9 (Notion = dedup+CRM+source unique)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "critical",
+  "status": "open",
+  "title": "Defaut critique: connecteur Notion desautorise -> pipeline entier a l'arret, silence memoire 47 jours"
+}
