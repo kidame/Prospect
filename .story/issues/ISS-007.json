@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-relance",
+    "infra-connecteurs"
+  ],
+  "discoveredDate": "2026-09-27",
+  "id": "ISS-007",
+  "impact": "PATTERN + PREUVE : run relance du 2026-09-27 04:00, contexte neuf. Aucun outil Notion (mcp__Notion__*) n'est charge ni meme listable via recherche d'outils differes -- le serveur MCP Notion demande une authentification OAuth que cette session (non-interactive) ne peut pas effectuer. Consequence : etape 2 de RELANCE_PROMPT.md (interroger la base Contacts pour la file d'eligibles \"Mail 1 envoye\" + J-7) est IMPOSSIBLE a executer. Zero fiche lue, zero relance preparee ce run.\n\nINDICE D'ANCIENNETE : `git log -1 --format=%cd -- .story/` renvoie 2026-08-10, soit ~48 jours avant ce run (2026-09-27), alors que le detecteur de trou memoire de RELANCE_PROMPT.md (etape 1) alerte des que ce delai depasse ~3 jours. Ca suggere que le blocage n'est pas un incident isole de cette nuit mais dure depuis plusieurs semaines, et que les 3 routines (run 1h, controle 3h, relance 4h) tournent probablement a vide ou echouent silencieusement depuis, sans que personne ne l'ait vu (aucun commit .story ni signalement entre-temps).\n\nCHANGEMENT CONCRET SUGGERE : (1) Thomas doit reautoriser le connecteur Notion cote claude.ai (Parametres -> Connecteurs) des que possible -- aucune action cote code ne peut resoudre une auth OAuth manquante. (2) Envisager un GARDE-FOU explicite dans les 3 prompts (ROUTINE/CONTROLE/RELANCE) : si aucun outil Notion n'est disponible en debut de run, ecrire IMMEDIATEMENT un handover 'BLOQUE - Notion indisponible' + le signaler par le canal recap/notification, plutot que de decouvrir le blocage en cours d'etape. (3) Verifier si les runs 1h/3h des ~7 dernieres semaines ont le meme symptome (pas de trace verifiable sans Notion, mais l'absence totale de commits .story sur toute la periode est deja un signal fort).\n\nAucune PII : aucun nom/email/tel de prospect cite.",
+  "location": [
+    "RELANCE_PROMPT.md etape 2 (file d'eligibles Notion)",
+    "CLAUDE.md Dedup + CRM"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "critical",
+  "status": "open",
+  "title": "Defaut critique: connecteur Notion non authentifie -> routines bloquees, memoire .story non persistee depuis 48j"
+}
