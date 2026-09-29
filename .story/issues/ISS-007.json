@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "notion",
+    "connecteurs"
+  ],
+  "discoveredDate": "2026-09-29",
+  "id": "ISS-007",
+  "impact": "PATTERN (mode d'echec recurrent, aggrave) : run 1h du 2026-09-30 (01:23 Europe/Zurich) totalement bloque. Le connecteur Notion n'est PAS authentifie dans la session cloud non-interactive (message systeme : \"servers require authentication before their tools can be used\" ; OAuth impossible sans humain) ; AUCUN outil mcp__Notion__* n'est meme disponible au chargement. C'est l'escalade de ISS-003 (query SQL/vue gatee, mais notion-fetch/search marchaient encore) et le meme mode que le \"mois de runs stalles\" de juillet (handover 2026-07-28) : ici Notion est TOTALEMENT hors ligne.\n\nACCUMULATION : dernier commit .story = 2026-08-10 (51 jours au 2026-09-30) ; dernier vrai run de collecte = carreleur x Yverdon 2026-08-01. Soit ~2 mois sans run persiste -> forte presomption que TOUTES les nuits depuis aout echouent au meme endroit (connecteurs non autorises la nuit), memoire de rotation trouee, et 0 prospect livre sur la periode.\n\nIMPACT : Notion est les 3 piliers a la fois -> (1) dedup Place ID (exclusion dure : sans lui, risque de re-contacter un refus, cf. ISS-006) ; (2) gate de rotation Segment (BLOQUANT) ; (3) livrable central (fiche = SOURCE UNIQUE du mail). Sans Notion le run ne PEUT PAS livrer correctement. Decision autonome ce run : ne pas depenser le budget Apify/DataForSEO (0 CHF), persister la memoire + alerter Thomas.\n\nCHANGEMENT SUGGERE (session dev / action Thomas) : (1) ACTION HUMAINE : reconnecter le connecteur Notion cote claude.ai (Parametres > Connecteurs) et passer ses outils en \"autorise sans approbation\" pour les routines ; verifier de meme Apify/DataForSEO/Gmail. (2) SYSTEME : ajouter en TETE de ROUTINE_PROMPT etape 1 un pre-check de sante des connecteurs (Notion joignable ?) qui, si Notion est KO, court-circuite proprement le run vers recap+handover SANS depenser le budget (au lieu de tenter la collecte). (3) Envisager une alerte push/mail immediate quand Notion est down plusieurs nuits d'affilee (le silence de 2 mois n'a ete vu que ce run). PREUVE (zero PII) : message systeme d'auth requise ce run ; git log .story = 2026-08-10 ; aucun outil Notion charge.",
+  "location": [
+    "ROUTINE_PROMPT.md etapes 1-2 et 6-7",
+    "CLAUDE.md Process/Dedup/Livrables",
+    "claude.ai Parametres > Connecteurs > Notion"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> run 1h totalement bloque (0 prospect)"
+}
