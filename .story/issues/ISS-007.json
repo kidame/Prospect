@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "connecteur-notion",
+    "infra-cloud"
+  ],
+  "discoveredDate": "2026-09-30",
+  "id": "ISS-007",
+  "impact": "PATTERN + PREUVE (2026-09-30, run controle 03:00) : l'environnement cloud signale le connecteur Notion comme \"requires authentication before their tools can be used\" et AUCUN outil Notion n'est charge dans la session (verifie 2x : select cible notion-query-data-sources/notion-fetch + recherche par mots-cles -> zero resultat). Session non-interactive = OAuth impossible ici.\n\nACCUMULATION : 1re observation cote controle a ce jour (distinct d'ISS-003 qui vise le GATING Business plan des outils query ; ici c'est une absence TOTALE d'auth du connecteur, pas un gating de tier). A surveiller : si ca se reproduit sur plusieurs nuits, monter en criticite -- une auth qui expire silencieusement rend LES DEUX routines (1h collecte + 3h controle) muettes, sans aucun mail d'alerte (le controle n'envoie rien), donc le seul filet est ce carnet Storybloq.\n\nIMPACT : perimetre entier du controle bloque (100% Notion) -> 0 fiche ramassee, 0 verdict ecrit. La run 1h est vraisemblablement bloquee de la meme maniere (dedup + ecriture des fiches = Notion). Le filet Notion \"Non controlees\" ne peut meme pas se remplir.\n\nCHANGEMENT SUGGERE : (1) cote Thomas -- re-authentifier le connecteur Notion pour les sessions cloud (claude.ai -> Parametres -> Connecteurs) et verifier que l'auth ne re-expire pas entre les runs nocturnes. (2) cote systeme -- prevoir un check de sante \"Notion joignable ?\" en tout debut de run (1h et 3h) qui, si KO, ecrit d'emblee un handover 'RUN BLOQUE - Notion down' (deja fait manuellement ce run) pour ne jamais finir en silence. ZERO PII.",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse fiches Notion)",
+    "CLAUDE.md section Garde-fous / connecteurs"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> run bloque"
+}
