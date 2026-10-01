@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "notion-auth"
+  ],
+  "discoveredDate": "2026-10-01",
+  "id": "ISS-007",
+  "impact": "PATTERN : run de controle du 2026-10-01 (03:00, session cloud non-interactive). Le serveur MCP Notion est signale 'require authentication before their tools can be used' et AUCUN outil Notion n'est disponible (ToolSearch 'select:Notion' -> 'No matching deferred tools found'). La session cloud etant non-interactive, le flow OAuth ne peut pas etre lance ici.\n\nIMPACT : le controle 3h depend A 100% de Notion -- lire les fiches 'Draft pret'=vrai & 'Controle' vide (etape 3), re-mesurer, puis ECRIRE le champ 'Controle' + section '## Controle' (etape 5). Sans aucun outil Notion : 0 fiche ramassee, 0 fiche controlee, 0 verdict ecrit. Le run ne peut rien produire sur les fiches. C'est un cran plus severe qu'ISS-003 (query SQL/vue gatee mais notion-fetch/notion-search encore OK) : ici AUCUN outil Notion, meme fetch/search. Tant que l'auth n'est pas re-posee cote claude.ai, CHAQUE nuit de controle (et vraisemblablement la run 1h et la relance, memes connecteurs) echouera de la meme facon.\n\nCHANGEMENT SUGGERE (session dev / action Thomas) : (1) re-authentifier le connecteur Notion cote claude.ai -> Parametres -> Connecteurs pour les sessions cloud (meme logique que la note 'permissions cloud 2026-07-28' de CONTROLE_PROMPT) ; (2) idealement passer le mode connecteur en 'autorise sans approbation' pour que les routines nocturnes tournent sans interaction ; (3) verifier dans la foulee Gmail/Infomaniak/Apify/DataForSEO (DataForSEO + Apify + storybloq repondent ce run ; Notion + Vercel listes comme non authentifies). Le filet d'alerte prevu (vue Notion 'Non controlees') reste lui-meme inaccessible tant que Notion n'est pas authentifie -> d'ou cette issue comme seule trace.\n\nPREUVE (zero PII) : avertissement systeme 'The following MCP servers require authentication before their tools can be used: Notion, Vercel' ; ToolSearch 'notion' et 'select:Notion' ne renvoient aucun outil ; DataForSEO/Apify/storybloq charges et operationnels ce meme run. Aucun nom/email/tel implique (aucune fiche n'a pu etre ouverte).",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (RAMASSE les fiches)",
+    "CLAUDE.md Garde-fous (permissions cloud)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> controle 3h ne peut pas tourner"
+}
