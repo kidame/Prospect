@@ -1,0 +1,23 @@
+{
+  "components": [
+    "routine-1h",
+    "notion",
+    "persistence",
+    "infra-cloud"
+  ],
+  "discoveredDate": "2026-10-01",
+  "id": "ISS-007",
+  "impact": "PATTERN (distinct d'ISS-003 qui ne vise QUE le gating 'Business plan' des outils query SQL/vue alors que Notion repondait) : cette nuit (run 2026-10-02 ~01:23 Europe/Zurich) le serveur MCP Notion n'est PAS authentifie du tout en session cloud -> AUCUN outil mcp__Notion__* n'est charge (confirme : ToolSearch 'Notion ... dedup' ne renvoie aucun outil Notion ; l'environnement liste explicitement Notion comme 'requires authentication', et le flow OAuth est impossible en non-interactif). Consequence : les 3 fonctions vitales du run sont mortes a la fois -> (1) dedup Place ID impossible (risque exact du re-contact post-refus d'ISS-006) ; (2) GATE de rotation (etape 2, declare BLOQUANT, ISS-001/L-010) impossible faute de crosscheck Segment ; (3) ecriture des fiches impossible (Notion = SOURCE UNIQUE). Le run ne peut donc rien livrer sans bruler du budget Apify/DataForSEO pour des prospects ni dedupables, ni stockables, ni rotation-gates -> collecte NON lancee (0 CHF), c'est le choix correct.\n\nACCUMULATION CHIFFREE : dernier commit .story = 2026-08-10, run courant = 2026-10-02 -> 53 JOURS sans persistance memoire alors que le detecteur de trou (ROUTINE_PROMPT etape 1) fixe le seuil a ~3j. Les derniers handovers de collecte reels datent du 2026-08-01 (carreleur x Yverdon). C'est la recidive exacte du mois de runs stalles deja documente (handover 2026-07-28 : connecteurs en mode 'demander' cote claude.ai bloquant les runs la nuit). Le symptome a evolue : non plus un prompt de permission, mais un connecteur carrement non authentifie.\n\nCHANGEMENT SUGGERE (sessions dev Thomas) : (a) ACTION Thomas : re-authentifier/reconnecter le connecteur Notion cote claude.ai (Parametres > Connecteurs) et verifier qu'il tient sur les sessions de routine planifiees (le token OAuth semble avoir expire ~10.08) ; (b) ajouter en tete du PROCESS DU RUN un PRE-CHECK de sante des connecteurs (Notion joignable ? sinon abort propre + recap + handover, SANS lancer Maps/DataForSEO) pour normaliser le comportement 'blocked run' au lieu de dependre du jugement ; (c) envisager le fallback VPS Infomaniak / cron deja evoque dans ROUTINE_PROMPT 'Apres le premier run' si l'auth cloud reste instable.\n\nPREUVE (zero PII) : aucun outil Notion dans la session ; dernier commit .story 2026-08-10 (git log) ; 53j d'ecart ; segment rotation inchange depuis 2026-08-01. Vu le 2026-10-02.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1 (crosscheck Notion) + etape 2 (gate rotation)",
+    "CLAUDE.md section Dedup / Mapping Notion",
+    "ROUTINE_PROMPT.md section Execution autonome / permissions connecteurs"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion absent/non authentifie en session cloud -> run entier bloque + memoire .story morte depuis ~53j"
+}
