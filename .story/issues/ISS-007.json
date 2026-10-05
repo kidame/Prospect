@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "notion",
+    "persistance"
+  ],
+  "discoveredDate": "2026-10-05",
+  "id": "ISS-007",
+  "impact": "PATTERN (accumulation forte) : au run du 2026-10-06, le connecteur Notion etait ENTIEREMENT indisponible (non autorise en session cloud non-interactive, OAuth impossible la nuit) -> aucune fiche ecrite/lue, dedup Place ID impossible, crosscheck Segment (le vrai filet de rotation, L-010/ISS-001) impossible, et le livrable central (fiches = source unique du mail) n'a pas pu etre ecrit. En parallele, le dernier commit .story datait du 2026-08-10 (8 SEMAINES) alors que des runs etaient censes tourner chaque nuit -> le detecteur de trou memoire a declenche. Les deux faits combines indiquent que depuis ~aout les runs ne livrent et/ou ne persistent plus, en silence (aucune alerte n'etait remontee avant ce run). Distinct d'ISS-003 (qui ne vise que le gating 'Business plan' de l'outil QUERY SQL/vue, pas l'indisponibilite TOTALE du connecteur). CHANGEMENT SUGGERE : (1) cote claude.ai, verifier/forcer l'autorisation du connecteur Notion (et Apify/DataForSEO/Gmail) 'sans approbation' pour la routine, cf. handover 07-28 ; (2) ajouter au ROUTINE_PROMPT un FALLBACK explicite quand Notion est down : livrer diagnostics + mails dans le mail recap (fait ce run) ET poser une alerte en tete, au lieu d'echouer ; (3) surveiller activement la persistance .story (le detecteur de trou est en place mais personne ne lit le recap si le run ne tourne pas -> prevoir un canal d'alerte hors-Notion). PREUVE (zero PII) : run 2026-10-06, segment electricien x Yverdon ; 3 retenus email + 2 a-appeler livres par mail recap uniquement ; `git log -1 .story` = 2026-08-10 au demarrage ; connecteur Notion absent de la liste des outils MCP disponibles (seulement 'requires authentication').",
+  "location": [
+    "ROUTINE_PROMPT.md etapes 1/6/7 (Notion = dedup+rotation+livrable)",
+    "CLAUDE.md Garde-fous / Dedup"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion indisponible en session cloud + persistance .story morte -> runs qui ne livrent ni ne persistent en silence"
+}
