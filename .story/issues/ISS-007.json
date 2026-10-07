@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "connecteurs",
+    "notion"
+  ],
+  "discoveredDate": "2026-10-07",
+  "id": "ISS-007",
+  "impact": "PATTERN + accumulation : run 1h du 2026-10-08 avorte AVANT collecte car le connecteur Notion n'est pas autorise dans la session cloud (aucun outil Notion present, OAuth impossible en non-interactif). C'est le MEME type de cause racine que le trou de juillet (handover 2026-07-28 : connecteurs cloud qui demandent/perdent une autorisation la nuit -> runs stalles). Ici c'est pire : Notion n'est pas juste gate (ISS-003 = query SQL Business plan), il est TOTALEMENT absent. Signal corrobore : dernier commit .story = 2026-08-10 (~2 mois) alors que des runs auraient du tourner -> persistance muette = probablement meme cause (session cloud qui perd ses connecteurs/permissions). IMPACT : les 3 routines (1h, controle 3h, relance 4h) dependent TOUTES de Notion (livrable = source unique + dedup Place ID + rotation Segment) ; si Notion saute, elles ne peuvent RIEN livrer ni meme dedupliquer (risque de re-mailer un refus, cf. ISS-006). CHANGEMENT suggere : (1) etape 1 des 3 prompts -> PROBE connecteur Notion en tout premier ; si indisponible, AVORTER avant toute collecte (zero budget Apify/DataForSEO brule) + mail recap d'alerte + handover, comme fait ce run ; (2) monitoring cote Thomas : une re-autorisation OAuth Notion expire silencieusement -> prevoir une verif periodique / une alerte quand aucune fiche Notion neuve n'apparait depuis N jours ; (3) relier a la lecon durable sur la fragilite des connecteurs cloud de nuit. PREUVE : 0 appel outil Notion possible ce run ; Gmail OK (recap parti) ; cout run ~0 CHF (avorte avant mesure). ZERO PII.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1 (dedup Notion)",
+    "CLAUDE.md Process / Dedup / Livrables"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non autorise en session cloud -> run entier bloque + trou memoire"
+}
