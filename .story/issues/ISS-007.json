@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "notion-auth",
+    "infra"
+  ],
+  "discoveredDate": "2026-10-08",
+  "id": "ISS-007",
+  "impact": "PATTERN / PREUVE (run controle 2026-10-08, 03:00, contexte neuf) :\n- L'environnement signale explicitement que le connecteur Notion \"require authentication before their tools can be used\" et que la session est non-interactive (OAuth impossible ici). Verifie cote outils : AUCUN outil mcp__Notion__* n'est disponible (ToolSearch \"Notion contacts database\" ne renvoie rien de Notion).\n- Consequence : le controle 3h ne peut PAS s'executer. Toute son activite depend de Notion -> ramasser les fiches (Draft pret=true ET Controle vide), re-mesurer, puis ecrire le champ \"Controle\" + la section \"## Controle\". Sans Notion : 0 fiche ramassee, 0 verdict ecrit. Le filet d'alerte \"Non controlees\" ne peut pas etre alimente non plus.\n- CORROBORATION d'un blocage persistant (pas un coup isole) : aucun handover Storybloq d'AUCUN type n'existe depuis 2026-08-03 (~2 mois au 2026-10-08). handover latest --count 3 = dev 08-03, run-1h 08-01, checkpoint 08-01. Silence total des deux routines (1h + controle) sur la memoire versionnee -> soit elles ne tournent plus, soit elles ne peuvent plus persister (auth connecteur et/ou push casse, cf. T-007). Le silence n'est pas une preuve que tout va bien (cf. rituel revision Storybloq).\n\nDISTINCTION avec l'existant : ISS-003 vise le GATING \"Business plan\" des outils de query Notion (SQL/vue) ; ici c'est une absence TOTALE d'authentification du connecteur Notion en session cloud non-interactive -> cause et portee differentes (ISS-003 degrade le dedup ; ce blocker arrete tout le controle).\n\nCHANGEMENT SUGGERE (session dev Thomas, hors routine) :\n1. Re-authentifier / reconnecter le connecteur Notion cote claude.ai -> Parametres -> Connecteurs, et verifier qu'il reste autorise \"sans approbation\" pour les sessions cloud (NB permissions cloud du CONTROLE_PROMPT, verifie 2026-07-28 : le settings.json projet ne s'applique pas au cloud).\n2. Verifier que les DEUX routines (1h et controle 3h) tournent encore et poussent bien leurs handovers (silence depuis 08-03 a elucider : scheduler coupe ? push casse facon T-007 ?).\n3. Envisager un filet : si Notion est injoignable en debut de run, le run doit (comme ici) echouer PROPREMENT -> handover META + issue, jamais de faux \"OK\".\nZERO PII.",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse fiches Notion)",
+    "CLAUDE.md connecteurs"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Blocker: connecteur Notion non authentifie en session cloud -> controle 3h ne peut pas tourner"
+}
