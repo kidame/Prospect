@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "notion-auth"
+  ],
+  "discoveredDate": "2026-10-09",
+  "id": "ISS-007",
+  "impact": "PATTERN (1re occurrence, mais bloque TOUT le process de controle) : run du 2026-10-09 (03:00). AUCUN outil Notion n'est expose dans la session (ni notion-fetch, ni notion-search, ni query SQL/vue). Le systeme signale explicitement \"Notion requires authentication before its tools can be used\" et la session cloud non-interactive ne peut pas derouler l'OAuth.\n\nIMPACT : le controle 3h depend ENTIEREMENT de la base Notion \"Contacts\" (ramasser les fiches Draft pret=vrai ET Controle vide, relire mail+diagnostic, ecrire le verdict dans \"Controle\" + la section \"## Controle\"). Sans aucun outil Notion : 0 fiche ramassable, 0 fiche controlable, 0 verdict ecrit. Le filet d'alerte \"Non controlees\" reste donc valable (les fiches du run 1h restent sans verdict) -> Thomas controle a la main ce matin.\n\nDISTINCT de ISS-003 : ISS-003 = seules les requetes SQL/vue sont gatees Business plan, tandis que notion-fetch/notion-search FONCTIONNENT. Ici c'est plus grave : connecteur entierement non authentifie, PLUS AUCUN outil Notion disponible. A noter : les handovers des runs 1h (2026-08-01) montraient Notion operationnel -> regression d'auth probablement transitoire (token connecteur expire en session cloud).\n\nCHANGEMENT SUGGERE (session dev / Thomas) : (1) re-autoriser le connecteur Notion cote claude.ai -> Parametres -> Connecteurs (verifier que le mode n'est pas reste \"demander\"/expire) ; (2) documenter dans CONTROLE_PROMPT un garde-fou : si aucun outil Notion n'est expose en debut de run, ecrire direct un handover \"controle bloque - Notion indispo\" et s'arreter proprement (deja fait ce run), au lieu de chercher a contourner.\n\nPREUVE (zero PII) : ToolSearch \"notion\" / \"select:mcp__Notion__*\" -> 0 outil Notion retourne ; seul le systeme indique Notion+Vercel en attente d'auth. Storybloq, DataForSEO et GitHub repondent normalement dans la meme session.",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3",
+    "connecteur Notion cote claude.ai"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> controle 3h totalement bloque"
+}
