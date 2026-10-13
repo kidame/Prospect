@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "notion",
+    "persistance-story"
+  ],
+  "discoveredDate": "2026-10-13",
+  "id": "ISS-007",
+  "impact": "PATTERN (run 1h du 2026-10-14) : la session cloud n'a AUCUN outil Notion disponible -- le connecteur Notion n'est pas autorise (OAuth). Consequence : les 3 piliers du run sont impossibles -- (1) dedup par Place ID, (2) gate de rotation bloquant par crosscheck Segment, (3) ecriture des fiches prospect (diagnostic + mail), qui sont le livrable central et dont Notion est la source unique. Le run a ete AVORTE avant collecte (aucun appel Apify/DataForSEO) pour ne pas bruler le budget sur un travail non dedupable / non persistable et ne pas risquer un re-contact a froid (cf. ISS-006).\n\nACCUMULATION : distinct d'ISS-003 (query SQL/vue gatees 'Business plan' -- la, les outils existaient). Ici AUCUN outil Notion n'existe = connecteur carrement non connecte. En parallele : la persistance .story est MORTE depuis le dernier commit 2026-08-10 (detecteur de trou memoire : >3 jours), ~2 mois sans handover persiste alors que la routine est censee tourner chaque nuit -> forte presomption que les runs nocturnes stallent ou echouent depuis aout (cause possible : connecteurs en mode 'demander' / non autorises -> session se met en pause et n'atteint jamais l'etape 10).\n\nCHANGEMENT SUGGERE : (a) cote Thomas, (re)autoriser le connecteur Notion et passer ses outils routines en 'autorise sans approbation' (idem Apify/DataForSEO/Gmail) ; (b) ajouter au debut du run un PRE-CHECK connecteurs (Notion joignable ?) qui, s'il echoue, avorte proprement AVANT toute depense et envoie un recap d'alerte, plutot que de stalle ; (c) investiguer pourquoi .story n'est plus pousse depuis le 10.08. PREUVE : git log -1 .story = 2026-08-10 ; ToolSearch '+notion' = aucun outil ; dernier handover lisible = 2026-08-03. ZERO PII.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1 (dedup/rotation Notion)",
+    "CLAUDE.md section Process + Dedup",
+    "CLAUDE.md section Storybloq (persistance .story)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non autorise en session cloud -> run entierement impossible + persistance .story morte depuis 2026-08-10"
+}
