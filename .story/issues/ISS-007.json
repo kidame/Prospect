@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "connecteur-notion"
+  ],
+  "discoveredDate": "2026-10-13",
+  "id": "ISS-007",
+  "impact": "PATTERN (1er constat date, 2026-10-13 03:00 run-controle) : au demarrage, AUCUN outil du connecteur Notion n'est disponible dans la session. Le system-reminder d'ouverture liste explicitement Notion parmi les serveurs MCP \"require authentication before their tools can be used\" ; deux recherches d'outils (Notion query/search/page/database) ne renvoient aucun outil Notion. La session ne peut pas lancer le flux OAuth elle-meme.\n\nCONSEQUENCE : le controle 3h est TOTALEMENT bloque -> il lit les fiches prospect (Draft pret=true ET Controle vide) dans la base Notion \"Contacts\", re-verifie, puis ecrit le verdict (champ \"Controle\" + section \"## Controle\") DANS Notion. Sans connecteur Notion : zero fiche lisible, zero verdict ecrivable. Idem probablement pour la run 1h et la relance 4h (toutes dependent de Notion pour dedup + CRM + contenu redige). Aucun livrable cette nuit cote fiches ; seule trace = ce handover/issue Storybloq (canal separe, git).\n\nINDICE CORROBORANT (non prouve) : dernier handover en base = session dev 2026-08-03 ; aucun handover de run entre le 08-03 et aujourd'hui 10-13 (~2 mois). Soit les runs n'ont pas tourne, soit ils n'ont pas pu persister -> coherent avec un connecteur Notion desautorise depuis un moment. A confirmer cote Notion/historique.\n\nDISTINCTION vs ISS-003 : ISS-003 = outils de REQUETE Notion (SQL + vue) gates \"Business plan\" alors que le connecteur repond. ICI = connecteur Notion ENTIEREMENT indisponible (non authentifie), pas juste les outils query. Donc pas un doublon.\n\nCHANGEMENT SUGGERE (action Thomas, hors routine) : re-authoriser / reconnecter le connecteur Notion cote claude.ai -> Parametres -> Connecteurs (et verifier que les 3 routines KUMO y ont acces). Tant que Notion n'est pas reconnecte, les 3 routines nocturnes sont non-operationnelles sur les fiches. PREUVE : zero outil mcp Notion expose ce run (verifie 2x via recherche d'outils) ; blocage d'environnement, pas une erreur de donnee. ZERO PII.",
+  "location": [
+    "CONTROLE_PROMPT.md etapes 3-5",
+    "CLAUDE.md Process / Dedup (base Notion Contacts)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "critical",
+  "status": "open",
+  "title": "Blocage: connecteur Notion non authentifie -> controle 3h impossible"
+}
