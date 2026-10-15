@@ -308,8 +308,11 @@ diagnostique, compare ou pris en faute. On cherche une collaboration, pas une de
   VRAIE (regle anti-invention intacte : verification ligne a ligne AVANT de l'ecrire, comme pour
   toute absence) et ne rabaisse jamais. Sans observation solide : aucune observation, le mail
   tient tout seul sur la rencontre.
-- L'ANGLE se choisit sur (1) CE QU'ON A AIME de leur travail (site, photos, histoire, specialite,
-  chantier recent, maniere de repondre aux avis), (2) CE QUE THOMAS FAIT, explique simplement en
+- L'ANGLE se choisit sur (1) CE QU'ON A REMARQUE depuis la place de Thomas (il regarde des sites
+  d'artisans, il n'est PAS du metier) : ce qu'on comprend en arrivant sur le site, ce qui fait
+  rester, le fait qu'on les a RETENUS parmi les entreprises du coin -- JAMAIS un jugement d'expert
+  sur leur metier ("pose au millimetre", "joints alignes", "beau limon") : admiration jouee, ca
+  sonne faux (retour Thomas 2026-10-15) ; (2) CE QUE THOMAS FAIT, explique simplement en
   une phrase concrete ("regarder ce que les gens tapent dans Google et faire en sorte que vous
   soyez la bonne reponse"), (3) POURQUOI EUX : envie de travailler avec des entreprises de la
   region dans leur metier, (4) le LIEN LOCAL (distance, vallee, saison, un lieu).
@@ -472,8 +475,9 @@ d'abord quelque chose d'utile, en donnant-donnant et sans pression. Jamais l'imp
 d'une IA, d'un auditeur qui note, ou de quelqu'un qui veut juste gratter un contrat. On ecrit
 comme a un futur partenaire qu'on respecte, pas comme a une cible qu'on a evaluee.
 
-Structure : les blocs sont humains (QUI je suis et d'ou j'ecris ; CE QUE J'AI AIME de leur
-travail, precis, dans leurs mots ; POURQUOI je leur ecris, a eux ; une OBSERVATION qualitative
+Structure : les blocs sont humains (QUI je suis et d'ou j'ecris ; CE QUE J'AI REMARQUE depuis
+ma place, optionnel, jamais en expert de leur metier ; POURQUOI je leur ecris, a eux ("vous
+faites partie de ceux que j'ai retenus") ; une OBSERVATION qualitative
 OPTIONNELLE ; la MICRO-OFFRE par mail ; une CLOTURE chaleureuse) mais le SQUELETTE VARIE : le
 skill .claude/skills/writing/ definit 4 squelettes humains a alterner -- jamais le meme pour
 deux prospects du meme segment la meme nuit, jamais la meme ouverture d'un mail a l'autre
@@ -498,8 +502,9 @@ interne ; elle se revele dans l'echange, une fois la confiance posee.
 
 Interdits : inventer ; TOUT CHIFFRE et TOUTE COMPARAISON (voir section "Angle de l'email") ;
 nommer un concurrent ; "invisible / introuvable / absent / vous perdez" ; jargon SEO ; statistique
-generale presentee comme mesuree chez eux ; compliment VAGUE ("votre beau site", "vos beaux avis" :
-la reconnaissance doit citer un DETAIL precis de leur travail, dans leurs mots) ; liste de
+generale presentee comme mesuree chez eux ; compliment VAGUE ("votre beau site", "vos beaux avis")
+ET admiration JOUEE d'expert metier ("pose au millimetre", "finitions soignees" : Thomas n'est pas
+du metier, ca sonne faux -- la reconnaissance se dit depuis SA place, ou pas du tout) ; liste de
 problemes ; formules qui font IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est
 important de noter", "veritable", "incontournable", "a l'ere du") ; charnieres de gabarit ("Le
 souci :", "C'est gagnable :", et la liste complete du skill writing). Forme : francais romand,
@@ -521,10 +526,12 @@ REGLES ANTI-PUB (2026-07-31, ancrees data, adaptees V3 -- detail, squelettes et 
   ("un petit mot depuis couvet", "votre atelier a boudry", "envie de travailler avec vous").
   INTERDIT : le format "[metier] [ville]" nu (signature du spam SEO) ET l'objet-diagnostic
   ("votre site ne sort pas sur...", "on ne vous trouve pas").
-- RECONNAISSANCE PRECISE > FLATTERIE : en V3 la reconnaissance de leur travail est centrale,
-  donc elle doit etre SPECIFIQUE (une prestation, un chantier, une photo, une phrase de leur
-  site reprise dans leurs mots). Le comptage d'avis est un chiffre : interdit. + 1 trace locale
-  concrete par mail (distance, lieu, saison) : un element qu'un robot n'ecrirait pas.
+- RECONNAISSANCE DEPUIS SA PLACE > FLATTERIE : si Thomas dit quelque chose de leur travail, c'est
+  ce qu'un non-specialiste qui regarde des sites d'artisans peut dire honnetement (site clair,
+  vraies photos de chantier, on comprend ou ils interviennent, ils repondent a leurs avis), ou le
+  fait qu'il les a retenus. Jamais un jugement technique. Le comptage d'avis est un chiffre :
+  interdit. + 1 trace locale concrete par mail (distance, lieu, saison) : un element qu'un robot
+  n'ecrirait pas.
 
 SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
 sobre depuis le 2026-07-31 : AUCUN logo, titre, baseline ou style) :

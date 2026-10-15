@@ -134,14 +134,16 @@ C4 — TON V3 et ANGLE vs MESURE. Le mail 1 est un MOT DE PRESENTATION chaleureu
   "manque a gagner", "ecart" ;
 - du JARGON : SERP, pack local, organique, mots-cles, ranking, positionnement, trafic, audit,
   backlinks, OnPage, Core Web Vitals ;
-- un compliment VAGUE a la place d'un detail precis de leur travail ("votre beau site").
+- un compliment VAGUE ("votre beau site") OU une admiration JOUEE d'expert metier ("pose au
+  millimetre", "joints alignes", "finitions soignees") : Thomas n'est pas du metier, ca sonne
+  faux (retour Thomas 2026-10-15).
 Ce sont des 🟠 (a adoucir au copier-coller), sauf si le chiffre / le constat est en plus
 FAUX par rapport a ta re-mesure C2 -> 🔴.
 - ANGLE vs MESURE (inchange) : le mail dit-il "invisible", "introuvable", "absent" alors que le
   "## Diagnostic" ou ta re-mesure (C2) montre une PRESENCE ? -> FLAG 🔴 (contradiction).
 - CONSTAT SANS HUMILIER (inchange) : tout ton qui rabaisse ("vous etes ecrase / a la traine")
   -> FLAG.
-- Ce qui DOIT etre la (sinon 🟠) : une reconnaissance PRECISE de leur travail, une trace locale,
+- Ce qui DOIT etre la (sinon 🟠) : une trace locale,
   une micro-offre par mail, un objet minuscules de registre "premier contact" (jamais
   "[metier] [ville]" nu, jamais un objet-diagnostic), 80-120 mots (140 max).
 - CTA PAR MAIL AU 1er CONTACT : le mail ne doit vendre QUE la conversation (micro-offre par mail,
@@ -196,9 +198,8 @@ Format court et factuel, par exemple :
   - C2 Observation : OK. Le mail dit "on dirait que votre fiche Google ne renvoie pas vers
     votre site" ; fiche GBP relue -> aucun lien site, conforme.
   - C3 Pages : OK. Le mail n'affirme rien sur les pages.
-  - C4 Ton V3 / angle : OK. Zero chiffre, zero concurrent, reconnaissance precise (la
-    terrasse en pierre de la page accueil), micro-offre par mail, 96 mots, objet
-    "un voisin de boudry".
+  - C4 Ton V3 / angle : OK. Zero chiffre, zero concurrent, aucune admiration jouee,
+    micro-offre par mail, 96 mots, objet "un voisin de boudry".
   - C5 IA/accents : A CORRIGER -> ligne "je me permets de vous ecrire" (formule IA) ;
     "reference" sans accent.
   - C6 Hygiene : OK.

@@ -30,24 +30,24 @@ Ce skill complète la section « Rédaction de l'email » et la section « Angle
 1. **Enveloppe texte simple.** Paragraphes nus, signature sobre 3 lignes sans logo ni slogan (le connecteur Infomaniak fait ça depuis le 31.07 ; ne pas le contourner). Un HTML stylé part en Promotions : 15-25 % de réponses en moins.
 2. **80 à 120 mots** (max ~140). La chaleur demande un peu plus de place que les 60-90 de la V2, mais on reste sous la zone 125 mots validée par les études (3 M / 40 M / 1,2 M d'envois : 50-125 mots fait ×2,4 vs 200+). Temps de lecture réel d'un cold email : ~11 secondes.
 3. **Ton hedgé, 0 ou 1 question.** Si tu fais une observation, formule-la comme une impression faillible (« on dirait que », « je me trompe peut-être », « si je lis bien »). Plusieurs questions = chute.
-4. **Reconnaissance précise > flatterie.** « Votre beau site » ne répond à rien. « Les photos de l'escalier en chêne à Môtiers » répond à « pourquoi tu m'écris, à moi ». Une référence précise, dans leurs mots.
+4. **Reconnaissance depuis SA place, jamais en expert du métier (retour Thomas, 2026-10-15).** « Votre beau site » ne répond à rien, mais « la douche à l'italienne posée au millimètre » sonne FAUX : Thomas ne pose pas de carrelage, et l'artisan sent tout de suite l'admiration jouée. La seule reconnaissance crédible vient de la place réelle de Thomas : quelqu'un qui regarde beaucoup de sites d'artisans de la région, ou un client lambda. Ce qu'il peut dire honnêtement : ce qu'il a COMPRIS en arrivant sur le site (ce qu'ils font, où ils interviennent, pour qui), ce qui l'a fait RESTER (des vraies photos de chantier, un ton direct, une page claire), et surtout le fait qu'il les a RETENUS parmi les entreprises du coin (c'est vrai : la mesure sert à ça). Aucun jugement technique sur leur métier (pose, joints, essences de bois, finitions). Le compliment reste optionnel : la chaleur vient de l'intention (envie de collaborer, proximité), pas de l'admiration.
 5. **Le lecteur repère le gabarit en 2 phrases.** Casse le squelette, pas seulement les mots : jamais la même ouverture, jamais la même silhouette deux mails de suite.
 6. **Zéro chiffre, zéro comparaison (V3).** Aucun nombre dans le corps (ni volume, ni position, ni nombre d'avis, ni pourcentage, ni CHF, ni « depuis X ans »). Aucun concurrent, nommé ou sous-entendu. Aucun mot de bilan : « invisible », « introuvable », « absent », « à la traîne », « vous perdez », « manque à gagner », « écart ». Aucun jargon : SEO (sauf dans « consultant SEO » si tu te présentes ainsi), référencement naturel (toléré une fois, mieux : « être trouvé sur Google »), SERP, pack local, organique, mots-clés, ranking, positionnement, trafic, audit, backlinks, OnPage, Core Web Vitals.
 
 ## Les blocs (ordre variable, tous facultatifs sauf la micro-offre et la signature)
 - **QUI / D'OÙ** : une phrase. « Je suis Thomas, je fais ça depuis Couvet » ; « j'habite à un quart d'heure de chez vous ». Jamais « je m'appelle X et je travaille chez Y » en ouverture.
-- **CE QUE J'AI AIMÉ** : un détail précis de LEUR travail, lu sur leur site, leur fiche Google, leurs photos : une prestation, un chantier, une phrase à eux, une manière de répondre aux avis, une histoire de famille. Dans leurs mots, pas dans les tiens.
+- **CE QUE J'AI REMARQUÉ (depuis ma place)** : ce que Thomas a compris ou ce qui l'a fait rester sur leur site, dit comme quelqu'un qui regarde des sites d'artisans toute la journée, pas comme un confrère : « on comprend tout de suite ce que vous faites et où vous intervenez », « vos photos sont de vrais chantiers, pas des images de banque », « votre page contact dit qui répond », une histoire de famille, une manière de répondre aux avis. JAMAIS un jugement d'expert métier (« posé au millimètre », « joints alignés », « beau limon courbe ») : ça sonne faux. Bloc optionnel ; sans rien de sincère à dire, saute-le.
 - **CE QUE JE FAIS** : une phrase concrète, sans jargon. « Je regarde ce que les gens tapent dans Google quand ils cherchent un menuisier, et je fais en sorte que ce soit vous qu'ils trouvent. » Variante : « j'aide des artisans de la région à être trouvés par les bonnes personnes ».
-- **POURQUOI EUX** : envie de collaborer avec des entreprises comme la leur, dans leur métier, dans la région. Dis-le simplement : « c'est exactement le genre d'atelier avec qui j'aimerais travailler ».
+- **POURQUOI EUX** : envie de collaborer avec des entreprises comme la leur, dans leur métier, dans la région. Dis-le simplement et honnêtement : « je cherche quelques artisans du coin avec qui travailler sur la durée, et vous faites partie de ceux que j'ai retenus en regardant les carreleurs entre Boudry et Neuchâtel ». C'est vrai (la sélection vient de la mesure) et ça vaut tous les compliments.
 - **OBSERVATION QUALITATIVE (optionnelle, 0 ou 1)** : vraie, douce, hedgée, sans chiffre ni concurrent. « On dirait que votre fiche Google ne renvoie pas vers votre site » ; « on vous trouve bien sur votre nom, un peu moins quand on cherche le métier ». Vérifiée ligne à ligne avant d'être écrite (règle anti-invention). Si rien de solide et de doux : pas d'observation.
 - **MICRO-OFFRE PAR MAIL** : une seule demande, réponse possible par « oui ». « Je vous envoie deux ou trois idées par retour de mail ? » ; « ça vous dit que je vous montre ce que j'ai noté ? » Gratuit, sans suite obligée, et dis-le.
 - **CLÔTURE CHALEUREUSE** : une phrase à soi. « Au plaisir que nos chemins se croisent » ; « bonne fin de semaine dans l'atelier » ; « et si ce n'est pas le moment, aucun souci ».
 
 ## Structure — 4 squelettes humains à ALTERNER (jamais deux fois le même pour un segment la même nuit)
 - **H1. Le voisin** : ancrage local d'abord (lieu, distance, saison) → ce que j'ai aimé → ce que je fais et pourquoi eux → micro-offre → clôture.
-- **H2. Le coup de cœur** : ce que j'ai aimé d'abord (un détail précis de leur site, dans leurs mots) → qui je suis en une ligne → pourquoi j'aimerais travailler avec eux → micro-offre.
+- **H2. Le retenu** : pourquoi eux d'abord (« je cherche quelques artisans du coin avec qui collaborer, vous faites partie de ceux que j'ai retenus ») → qui je suis en une ligne → ce que je fais → micro-offre.
 - **H3. La question ouverte** : qui je suis → une question neutre et sincère sur leur métier (« comment ça se passe pour vous, les demandes qui arrivent par Google ? ») → ce que je fais → micro-offre. Une seule question dans tout le mail.
-- **H4. L'observation douce** : qui je suis → observation qualitative hedgée (la seule des 4 structures qui s'ouvre sur un constat, et il reste gentil) → ce que j'ai aimé → micro-offre. 1 mail sur 3 maximum.
+- **H4. L'observation douce** : qui je suis → observation qualitative hedgée (la seule des 4 structures qui s'ouvre sur un constat, et il reste gentil) → ce que j'ai remarqué depuis ma place → micro-offre. 1 mail sur 3 maximum.
 
 Varie aussi l'ordre et la longueur des paragraphes ; deux mails générés à la suite ne doivent pas avoir la même silhouette.
 
@@ -59,7 +59,7 @@ Varie aussi l'ordre et la longueur des paragraphes ; deux mails générés à la
 5. **Au moins un hedge** si une observation est faite ; sinon aucun besoin.
 6. **0 ou 1 question.**
 7. **Une trace locale concrète** : distance, lieu, saison, un détail de leur site. Un élément qu'un robot n'écrirait pas.
-8. **Une reconnaissance précise** de leur travail (dans leurs mots), jamais un compliment vague ni un comptage d'avis.
+8. **Reconnaissance depuis sa place** (ce que Thomas a compris, ce qui l'a fait rester, le fait qu'il les a retenus), jamais un compliment vague, jamais un comptage d'avis, jamais un jugement d'expert sur leur métier.
 9. **Micro-offre par MAIL, une seule demande.** JAMAIS d'appel, de créneau, de « 15 min », de lien calendrier au premier contact. L'offre (Diagnostic…) ne se pose qu'une fois l'échange engagé.
 10. **Signature 3 lignes** (canonique CLAUDE.md) : Thomas Puglisi / KUMO, Couvet - kumo-seo.ch / 078 939 81 00. Rien d'autre.
 11. **Salutation** : prénom SEULEMENT si le dirigeant actuel est confirmé (règle CLAUDE.md) ; sinon « Bonjour, ».
@@ -75,6 +75,8 @@ Varie aussi l'ordre et la longueur des paragraphes ; deux mails générés à la
 
 **Tics de série** : l'ouverture « Thomas, je fais du référencement Google pour des PME romandes… » (max 1 mail sur 3, reformulée à chaque fois) ; « les 2-3 points/pistes » figé (varie : « deux ou trois trucs », « ce que j'ai noté », « quelques idées ») ; « Même sans suite, vous repartez avec des pistes » (garde l'esprit, change les mots) ; « j'ai adoré votre site » en première ligne par défaut.
 
+**Admiration jouée (retour Thomas 2026-10-15)** : tout compliment technique sur leur métier (« posé au millimètre », « joints alignés », « beau limon courbe », « belle essence », « finitions soignées ») et tout « je suis resté sur votre page X » suivi d'un jugement de connaisseur. Thomas n'est pas du métier ; ça sonne faux.
+
 **Mots brochure** : capital de confiance, tirer parti, robuste, clé en main, écosystème, synergie, sur-mesure (galvaudé), révolutionner, propulser, libérer le potentiel, accompagner (vague), remplir votre carnet/planning, booster, visibilité (toléré une fois).
 
 **Format** : tirets cadratins `—` : zéro (virgule, point ou parenthèses). Gras : aucun. Emoji : aucun. Listes à puces : aucune dans un mail. Pas de styles, pas de couleurs, pas d'images.
@@ -86,7 +88,7 @@ Varie aussi l'ordre et la longueur des paragraphes ; deux mails générés à la
 4. **Compte les questions** : 0 ou 1.
 5. **Cherche les formules, charnières et tics interdits** + les tirets cadratins.
 6. **Compare au mail précédent du même run** : même squelette ? même ouverture ? → réécris l'un des deux.
-7. **Vérifie** : reconnaissance précise présente, trace locale présente, micro-offre par mail présente, objet minuscules « premier contact », signature canonique, salutation conforme.
+7. **Vérifie** : aucune admiration jouée (jugement technique sur leur métier), trace locale présente, micro-offre par mail présente, objet minuscules « premier contact », signature canonique, salutation conforme.
 8. **Lis à voix haute** : est-ce qu'un artisan croirait qu'un voisin sympa lui a écrit, et aurait envie de répondre ? Si ça sonne audit, pub ou IA, réécris.
 9. **Règles CLAUDE.md inchangées** : rien d'inventé (l'observation, si présente, est vérifiée ligne à ligne), accents comptés (vérification déterministe), salutation neutre si dirigeant non confirmé.
 
@@ -97,38 +99,38 @@ Varie aussi l'ordre et la longueur des paragraphes ; deux mails générés à la
 >
 > Bonjour,
 >
-> Je suis Thomas, j'habite à Couvet, à vingt minutes de votre atelier. J'aide des artisans de la région à être trouvés sur Google par les gens qui cherchent exactement ce qu'ils font.
+> Je suis Thomas, je travaille depuis Couvet. Mon métier, c'est d'aider des artisans de la région à être trouvés sur Google par les gens qui cherchent exactement ce qu'ils font.
 >
-> Je suis tombé sur votre site en cherchant des menuisiers du coin, et je suis resté sur la page des escaliers. Le limon courbe de la maison à Fleurier, c'est un beau travail.
+> Je cherchais des carreleurs du Littoral et je suis arrivé sur votre site. Je ne connais rien à la pose de carrelage, mais on comprend tout de suite ce que vous faites et où vous intervenez, et ce n'est pas si courant.
 >
-> C'est le genre d'atelier avec qui j'aimerais vraiment collaborer. Si ça vous intéresse, je vous envoie par mail deux ou trois idées pour que ce travail soit plus facile à trouver. Gratuit, sans suite obligée, vous en faites ce que vous voulez.
+> J'aimerais travailler avec des entreprises comme la vôtre, pas loin de chez moi. Si ça vous dit, je vous envoie par mail deux ou trois idées pour être trouvé plus facilement. Gratuit, sans suite obligée.
 >
-> Belle fin de semaine à l'atelier.
+> Bonne semaine.
 >
 > Thomas Puglisi
 > KUMO, Couvet - kumo-seo.ch
 > 078 939 81 00
 
-Pourquoi il marche : ~115 mots, zéro chiffre, zéro concurrent, une reconnaissance précise dans leurs mots, une trace locale réelle, une seule demande par mail, clôture à soi, objet « premier contact ».
+Pourquoi il marche : ~110 mots, zéro chiffre, zéro concurrent, zéro admiration jouée (« je ne connais rien à la pose de carrelage » dit la vérité et désamorce), une observation depuis sa place (le site est clair), une trace locale, une seule demande par mail.
 
-### Version créative / audacieuse (squelette H2, le coup de cœur, avec une observation douce)
-> **Objet : la cuisine en noyer de votre page d'accueil**
+### Version créative / audacieuse (squelette H2, le retenu)
+> **Objet : envie de travailler avec vous**
 >
 > Bonjour,
 >
-> La cuisine en noyer qui ouvre votre site, je l'ai regardée un moment. Le plan de travail qui file jusqu'à la fenêtre, on sent que c'est pensé pour quelqu'un qui cuisine vraiment.
+> Je m'appelle Thomas, je suis à Couvet. Je fais en sorte que, quand quelqu'un du Littoral tape « carreleur » dans Google, ce soit des entreprises du coin qu'il trouve.
 >
-> Je m'appelle Thomas, je travaille depuis Couvet, et mon métier c'est de faire en sorte que, quand quelqu'un de la région cherche un cuisiniste, ce soit des ateliers comme le vôtre qu'il trouve en premier. On dirait que votre fiche Google ne renvoie pas vers votre site, je me trompe peut-être.
+> Je vous écris parce que je cherche quelques artisans de la région avec qui collaborer sur la durée, et vous faites partie de ceux que j'ai retenus en regardant les carreleurs entre Boudry et Neuchâtel.
 >
-> J'ai envie de travailler avec des gens qui font ce niveau de boulot. Je vous mets par retour de mail ce que j'ai noté, sans engagement ?
+> Pas de pitch dans ce mail. Si vous êtes curieux, je vous envoie par retour ce que j'ai remarqué sur votre présence Google, vous en faites ce que vous voulez.
 >
-> Au plaisir que nos chemins se croisent.
+> Au plaisir, peut-être.
 >
 > Thomas Puglisi
 > KUMO, Couvet - kumo-seo.ch
 > 078 939 81 00
 
-Pourquoi il marche : ~117 mots, ouverture sur LEUR travail dans leurs mots, une observation hedgée et gentille (vérifiée avant d'écrire), zéro chiffre, une seule question, envie de collaborer dite franchement, objet qui prouve qu'on a lu le site.
+Pourquoi il marche : ~95 mots, aucun compliment du tout, la chaleur vient de l'intention (« je vous ai retenu », ce qui est vrai puisque la sélection vient de la mesure), zéro chiffre, zéro question, clôture à soi, objet qui dit l'envie.
 
 ## Red flags — STOP et réécris
 - Plus de 140 mots, un chiffre dans le corps, plus d'une question.
@@ -136,7 +138,7 @@ Pourquoi il marche : ~117 mots, ouverture sur LEUR travail dans leurs mots, une 
 - L'objet est « [métier] [ville] », un objet-diagnostic, ou en Title Case.
 - Le mail a la même silhouette que le précédent du run.
 - CTA appel / créneau / « 15 min » au premier contact.
-- Un compliment vague (« beau site », « belle équipe ») à la place d'un détail précis.
+- Un compliment vague (« beau site », « belle équipe ») OU une admiration jouée d'expert métier (« posé au millimètre »).
 - Une charnière de gabarit, un `—`, un emoji.
 - Le texte est lisse, sans aspérité, « trop propre » : il sonne généré. Ou il sonne « bilan » : il sonne auditeur.
 

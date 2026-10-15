@@ -99,8 +99,10 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    80-120 mots, signature Thomas Puglisi / KUMO, Couvet - kumo-seo.ch / 078 939 81 00). SOURCE
    UNIQUE du mail. TON V3 "PREMIER CONTACT CHALEUREUX" (decision Thomas 2026-10-15, cf. CLAUDE.md
    "Angle de l'email : une RENCONTRE" + skill writing V3) : le mail PRESENTE Thomas a l'entreprise,
-   dit ce qu'il a AIME de leur travail (un detail precis, dans leurs mots), ce qu'il fait en une
-   phrase simple, et POURQUOI il aimerait collaborer avec eux. ZERO chiffre, ZERO concurrent,
+   dit eventuellement ce qu'il a REMARQUE depuis sa place (site clair, vraies photos ; JAMAIS un
+   jugement d'expert sur leur metier type "pose au millimetre", ca sonne faux), ce qu'il fait en
+   une phrase simple, et POURQUOI il aimerait collaborer avec eux ("vous faites partie de ceux
+   que j'ai retenus"). ZERO chiffre, ZERO concurrent,
    ZERO comparaison, ZERO "invisible / absent / vous perdez", ZERO jargon (SERP, pack local,
    organique, mots-cles, audit...). Au plus UNE observation qualitative douce et hedgee
    (ex. "on dirait que votre fiche Google ne renvoie pas vers votre site"), VERIFIEE avant
