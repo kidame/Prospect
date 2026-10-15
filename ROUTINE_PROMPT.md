@@ -102,7 +102,9 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    dit eventuellement ce qu'il a REMARQUE depuis sa place (site clair, vraies photos ; JAMAIS un
    jugement d'expert sur leur metier type "pose au millimetre", ca sonne faux), ce qu'il fait en
    une phrase simple, et POURQUOI il aimerait collaborer avec eux ("vous faites partie de ceux
-   que j'ai retenus"). ZERO chiffre, ZERO concurrent,
+   que j'ai retenus"). DEFAUT = squelette H0 "presentation pure" du skill (porte ouverte, AUCUNE
+   observation sur leur visibilite, aucune offre d'idees, 0 question) ; les autres squelettes ne
+   servent qu'a varier dans un meme village. ZERO chiffre, ZERO concurrent,
    ZERO comparaison, ZERO "invisible / absent / vous perdez", ZERO jargon (SERP, pack local,
    organique, mots-cles, audit...). Au plus UNE observation qualitative douce et hedgee
    (ex. "on dirait que votre fiche Google ne renvoie pas vers votre site"), VERIFIEE avant

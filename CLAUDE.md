@@ -475,7 +475,14 @@ d'abord quelque chose d'utile, en donnant-donnant et sans pression. Jamais l'imp
 d'une IA, d'un auditeur qui note, ou de quelqu'un qui veut juste gratter un contrat. On ecrit
 comme a un futur partenaire qu'on respecte, pas comme a une cible qu'on a evaluee.
 
-Structure : les blocs sont humains (QUI je suis et d'ou j'ecris ; CE QUE J'AI REMARQUE depuis
+DEFAUT = squelette H0 "PRESENTATION PURE" du skill writing (valide et envoye par Thomas le
+2026-10-15 apres deux versions jugees "trop marketing") : un independant du vallon se presente,
+dit qu'il veut travailler avec les entreprises de SA region, laisse une PORTE OUVERTE ("une
+question sur votre site ou sur Google, ecrivez-moi, sans facture ni suite obligee", un cafe si
+on se croise). AUCUNE observation sur leur visibilite, AUCUNE offre d'envoyer des idees, 0 question.
+La mesure ne sert qu'a choisir a qui ecrire. Les variantes ci-dessous ne servent qu'a eviter la
+repetition dans un meme village.
+Structure des variantes : les blocs sont humains (QUI je suis et d'ou j'ecris ; CE QUE J'AI REMARQUE depuis
 ma place, optionnel, jamais en expert de leur metier ; POURQUOI je leur ecris, a eux ("vous
 faites partie de ceux que j'ai retenus") ; une OBSERVATION qualitative
 OPTIONNELLE ; la MICRO-OFFRE par mail ; une CLOTURE chaleureuse) mais le SQUELETTE VARIE : le

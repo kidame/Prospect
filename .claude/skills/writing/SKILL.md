@@ -43,7 +43,23 @@ Ce skill complète la section « Rédaction de l'email » et la section « Angle
 - **MICRO-OFFRE PAR MAIL** : une seule demande, réponse possible par « oui ». « Je vous envoie deux ou trois idées par retour de mail ? » ; « ça vous dit que je vous montre ce que j'ai noté ? » Gratuit, sans suite obligée, et dis-le.
 - **CLÔTURE CHALEUREUSE** : une phrase à soi. « Au plaisir que nos chemins se croisent » ; « bonne fin de semaine dans l'atelier » ; « et si ce n'est pas le moment, aucun souci ».
 
-## Structure — 4 squelettes humains à ALTERNER (jamais deux fois le même pour un segment la même nuit)
+## Squelette PAR DÉFAUT : H0, la présentation pure (validé par Thomas, 2026-10-15)
+Retour Thomas après deux versions rejetées (« ça fait encore trop marketing ») : le mail 1 n'est PAS une prospection, c'est un **voisin indépendant qui se présente**. Ce qu'il cherche : des contacts dans la région, des clients à proximité, aider les entreprises du coin avec son métier. Premier mail validé et envoyé le 2026-10-15 (menuisier x Val-de-Travers).
+
+Recette H0, dans cet ordre :
+1. **Qui je suis, où j'habite, ce que je fais** en une ou deux phrases simples (« je crée des sites internet et j'aide les entreprises à être trouvées sur Google »).
+2. **Pourquoi je leur écris** : « simplement pour me présenter », envie de travailler avec les entreprises de SA région, près de chez lui, plutôt que de courir après des clients loin.
+3. **Comment je les ai trouvés** + une seule chose vraie et simple que j'ai aimée, dite en non-spécialiste (« votre page À propos dit qui vous êtes et qui travaille avec vous »).
+4. **Porte ouverte, pas micro-offre** : « si un jour vous avez une question sur votre site ou sur Google, écrivez-moi, je réponds volontiers, sans facture ni suite obligée ». Une touche locale concrète (« si nos chemins se croisent à Couvet, le café est pour moi »).
+5. **Clôture courte** liée à leur métier (« bonne continuation à l'atelier »).
+
+Ce que H0 n'a PAS : aucune observation sur leur visibilité, aucun constat Google, aucune proposition d'envoyer des « idées » ou des « pistes », aucune question. La mesure sert seulement à choisir à qui écrire. Objet : « un indépendant du vallon se présente », « un voisin de [lieu] », jamais un objet qui parle de Google.
+
+Longueur : jusqu'à ~140 mots tolérés pour H0 (la présentation demande de la place) ; viser 100-130.
+
+H1 à H4 ci-dessous restent des VARIANTES, à utiliser seulement pour casser la répétition dans un même village ou à la demande de Thomas. H4 (observation douce) n'est plus utilisé par défaut.
+
+## Variantes — 4 squelettes humains (jamais deux fois le même pour un segment la même nuit)
 - **H1. Le voisin** : ancrage local d'abord (lieu, distance, saison) → ce que j'ai aimé → ce que je fais et pourquoi eux → micro-offre → clôture.
 - **H2. Le retenu** : pourquoi eux d'abord (« je cherche quelques artisans du coin avec qui collaborer, vous faites partie de ceux que j'ai retenus ») → qui je suis en une ligne → ce que je fais → micro-offre.
 - **H3. La question ouverte** : qui je suis → une question neutre et sincère sur leur métier (« comment ça se passe pour vous, les demandes qui arrivent par Google ? ») → ce que je fais → micro-offre. Une seule question dans tout le mail.
