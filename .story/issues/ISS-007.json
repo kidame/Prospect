@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "notion",
+    "connecteur-auth"
+  ],
+  "discoveredDate": "2026-10-15",
+  "id": "ISS-007",
+  "impact": "PATTERN : run de controle du 2026-10-15 03:00 (contexte neuf, cloud). Aucun outil `mcp__Notion__*` disponible dans la session -- le system-reminder liste Notion parmi les serveurs MCP \"require authentication before their tools can be used\", et Claude ne peut PAS lancer le flux OAuth lui-meme. ToolSearch sur \"notion query data source\" ne renvoie aucun outil Notion. Consequence : le controle ne peut ni RAMASSER les fiches (base \"Contacts\" = source unique des fiches a controler) ni ecrire le champ/section \"Controle\". 0 fiche ramassee, 0 verdict pose.\n\nGRAVITE = SILENCE : le filet d'alerte prevu par CONTROLE_PROMPT.md (vue Notion \"Non controlees\") est LUI-MEME dans Notion -> inaccessible. Si le connecteur reste non authentifie, le controle 3h tourne chaque nuit en no-op TOTAL sans qu'aucun signal ne remonte a Thomas cote Notion. Le seul canal de signalement restant est Storybloq (cette issue + le handover run-controle). Idem probable pour la run de 1h (elle depend aussi de Notion pour dedup + ecriture des fiches) et pour la relance 4h.\n\nCHANGEMENT SUGGERE : (1) Thomas re-autorise le connecteur Notion cote claude.ai -> Parametres -> Connecteurs (reconnecter / rafraichir l'OAuth), et verifie que les 3 routines (1h, controle 3h, relance 4h) ont bien le connecteur Notion actif en mode \"autorise sans approbation\". (2) Env cloud : confirmer que le token Notion n'a pas expire depuis le dernier run connu (handovers Notion fonctionnels jusqu'au 2026-08-03 ; gap observe). (3) A evaluer en session dev : un garde-fou de debut de run qui echoue vite et bruyamment si Notion est injoignable, plutot qu'un no-op silencieux.\n\nPREUVE : handover latest --count 3 = derniers runs 2026-08-01/03 (Notion operationnel alors) ; aucun outil Notion dans la session du 2026-10-15 ; snapshot 2026-10-15T01-05-37. ZERO PII (blocage infra, aucune donnee prospect touchee).",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse les fiches)",
+    "claude.ai -> Parametres -> Connecteurs (Notion)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> controle 3h produit zero verdict en silence"
+}
