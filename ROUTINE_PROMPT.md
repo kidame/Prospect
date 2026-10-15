@@ -75,7 +75,7 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    verifie que le prospect n'y figure PAS -- un artisan d'un village peut etre #1-3 du pack de la
    requete canton meme si son village differe de la ville coeur. Ne conclus JAMAIS "absent du pack"
    depuis un compteur, une impression, ou le seul organique : si tu ne peux pas nommer les 3 fiches
-   du pack, tu n'affirmes pas l'absence (le fait porteur du mail en depend).
+   du pack, tu n'affirmes pas l'absence (le Diagnostic et l'eventuelle observation du mail en dependent).
    LECTURE DE L'ORGANIQUE (meme regle, cote web -- cas reel 2026-07-21 : mail "ni carte ni
    resultats web" alors que le prospect etait en bas de page 1) : avant d'ecrire "absent de
    l'organique", parcours la liste organique COMPLETE renvoyee ; s'il y figure, meme dernier,
@@ -94,11 +94,24 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    entreprise ; prenom SEULEMENT si c'est lui, confirme (jamais un ancien dirigeant, ni une autre
    societe/partenaire/marque affichee a cote) ; au moindre doute -> "Bonjour," neutre.
 6. Pour chaque retenu a canal EMAIL : ecris dans le CORPS de sa fiche Notion deux blocs :
-   "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)" (mail COMPLET pret a
-   copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes, signature Thomas / KUMO -
-   kumo-seo.ch / tel). SOURCE UNIQUE du mail. ANGLE = DOULEUR RESSENTIE, dans l'ordre : concurrent
-   nomme qui le double sur sa ville > declencheur (page cassee, recrutement) > manque-a-gagner
-   chiffre (SI volume > ~150/mois) > jamais "invisible". CONSTATE sans humilier. CTA = CONTINUER
+   "## Diagnostic" (analyse 2 axes, chiffree -- c'est LA que vivent les chiffres) et
+   "## Email (brouillon)" (mail COMPLET pret a copier-coller : 1re ligne "Objet : ...", corps
+   80-120 mots, signature Thomas Puglisi / KUMO, Couvet - kumo-seo.ch / 078 939 81 00). SOURCE
+   UNIQUE du mail. TON V3 "PREMIER CONTACT CHALEUREUX" (decision Thomas 2026-10-15, cf. CLAUDE.md
+   "Angle de l'email : une RENCONTRE" + skill writing V3) : le mail PRESENTE Thomas a l'entreprise,
+   dit eventuellement ce qu'il a REMARQUE depuis sa place (site clair, vraies photos ; JAMAIS un
+   jugement d'expert sur leur metier type "pose au millimetre", ca sonne faux), ce qu'il fait en
+   une phrase simple, et POURQUOI il aimerait collaborer avec eux ("vous faites partie de ceux
+   que j'ai retenus"). DEFAUT = squelette H0 "presentation pure" du skill (porte ouverte, AUCUNE
+   observation sur leur visibilite, aucune offre d'idees, 0 question) ; les autres squelettes ne
+   servent qu'a varier dans un meme village. ZERO chiffre, ZERO concurrent,
+   ZERO comparaison, ZERO "invisible / absent / vous perdez", ZERO jargon (SERP, pack local,
+   organique, mots-cles, audit...). Au plus UNE observation qualitative douce et hedgee
+   (ex. "on dirait que votre fiche Google ne renvoie pas vers votre site"), VERIFIEE avant
+   d'etre ecrite ; sans observation solide, le mail tient tout seul sur la rencontre. Les
+   mesures de l'etape 4 restent dans "## Diagnostic" et "Probleme principal" (internes) et
+   partent dans les pistes APRES le "oui". Alterne les 4 squelettes humains H1-H4 du skill
+   (jamais le meme deux fois sur le segment la meme nuit, jamais la meme ouverture). CTA = CONTINUER
    PAR MAIL : le mail vend SEULEMENT la CONVERSATION via une micro-offre a friction quasi nulle
    ("je vous envoie les 2-3 points ?"), JAMAIS un appel ni "15 min" ni un creneau au 1er contact
    (cf. CLAUDE.md "CTA = CONTINUER PAR MAIL"). N'ANNONCE PAS le Diagnostic 1200 ni le tunnel
@@ -116,7 +129,8 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    draft Gmail. Pour les "a appeler" : ecris "## Diagnostic" + ajoute a la liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion pour CHAQUE prospect vu (retenu, a-appeler, ou rejete), Place ID +
    DATE inclus. La ROUTINE remplit : signaux d'opportunite declenches + segment (secteur x zone) +
-   "Probleme principal" (= l'ACCROCHE chiffree, PAS le mail entier). Pour les retenus EMAIL, coche
+   "Probleme principal" (= le resume chiffre des 2 axes, champ INTERNE : PAS le mail entier, et
+   depuis la V3 il n'est PLUS recopie dans le mail). Pour les retenus EMAIL, coche
    "Draft pret" une fois le bloc Email ecrit (etape 6). Laisse "Dossier" vide. L'issue se lit via le
    "Statut pipeline" existant que Thomas tient deja (pas de champ a remplir en plus). Ecris _resume.md.
 8. Le contenu de chaque prospect (diagnostic + mail) vit dans Notion (etapes 6-7), PAS dans le
@@ -207,6 +221,7 @@ joignables ; plafond ~10 CHF/nuit (Apify + DataForSEO).
 - Apify, DataForSEO et Notion sont bien accessibles dans la session cloud (sinon, passer
   en cron sur le VPS Infomaniak ou ajuster le network access de la routine).
 - Le cout reel du run (Apify units + DataForSEO) reste sous le plafond.
-- La qualite des dossiers : faits bien mesures, visibilite chiffree, emails humains sans formulation IA.
+- La qualite des dossiers : faits bien mesures et visibilite chiffree DANS LE DIAGNOSTIC ; emails
+  humains et chaleureux, sans chiffre, sans concurrent, sans formulation IA (ton V3).
 - La dedup Notion fonctionne : les Place ID vus sont ecrits et exclus au run suivant.
 - Le mail recap arrive bien sur hello.puglisi@gmail.com.
