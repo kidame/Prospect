@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "analyse-organique"
+  ],
+  "discoveredDate": "2026-10-16",
+  "id": "ISS-007",
+  "impact": "PATTERN : la run de 1h ecrit dans le Diagnostic ET l'accroche du mail que \"le site du prospect n'apparait PAS dans l'organique / page 1\" alors qu'une re-mesure independante au controle (serp_organic_live_advanced, mobile, meme location) montre le domaine de la fiche en #1 ORGANIQUE. Fait porteur faux -> l'accroche entiere (\"votre fiche sort, votre site non\" / \"on vous trouve par votre nom, pas en cherchant le metier\") s'effondre et le prospect le constate en 5 secondes.\n\nACCUMULATION (>=2 occurrences, nuits distinctes) : (1) 2026-07-21, deja cite dans CLAUDE.md section Analyse comme cas reel (mail disait \"ni carte ni resultats web\" alors que present page 1 organique). (2) 2026-10-16, 1 fiche segment \"menuisier/ebeniste x Veveyse-Lavaux\", Place ID 0x478e8252dd5f3937:0x6d88fa8ffefd4eee : le Diagnostic affirme le site absent de l'organique \"page 1 parcourue en entier\" -> re-mesure controle (requete coeur metier+ville, location Veveyse District, mobile, depth 20) : le domaine de la fiche ressort rank_absolute 5 (= #1 organique, juste sous le knowledge panel) ET rank_absolute 12. Verdict controle rouge (A trancher).\n\nCHANGEMENT SUGGERE : ajouter a la run 1h une VERIFICATION DETERMINISTE symetrique de celle des accents (L-008). AVANT d'ecrire \"absent de l'organique\", re-parcourir la liste organique deja renvoyee par le MEME appel et comparer items[].domain au domaine de la fiche ; si le domaine du prospect y figure, la formule \"absent\" est INTERDITE -> basculer en RELATIF (\"double par X\", \"ressort plus bas que X\"). La regle existe deja en prose (CLAUDE.md \"LECTURE DE L'ORGANIQUE\") mais n'est pas appliquee a l'execution, comme la regle accents avant L-008.\n\nPREUVE : re-mesure DataForSEO 2026-10-16 (serp_organic_live_advanced, device mobile, location \"Veveyse District,Fribourg,Switzerland\"). ZERO PII (reference par Place ID + segment uniquement).",
+  "location": [
+    "CLAUDE.md section Analyse (LECTURE DE L'ORGANIQUE)",
+    "angles email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: \"site absent de l'organique\" faux (run 1h) alors que present #1 page 1"
+}
