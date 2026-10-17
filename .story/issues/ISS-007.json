@@ -1,0 +1,23 @@
+{
+  "components": [
+    "routine-1h",
+    "connecteur-notion",
+    "persistance-memoire"
+  ],
+  "discoveredDate": "2026-10-12",
+  "id": "ISS-007",
+  "impact": "PATTERN + accumulation : run 1h du 2026-10-13 (~01h Zurich) n'a PAS pu s'executer. Le system reminder liste Notion parmi les connecteurs \"require authentication before their tools can be used\" et AUCUN outil Notion n'est expose dans la session (OAuth non amorce, non amorcable par Claude). Or Notion est le socle de TOUT le run : (1) dedup Place ID, (2) gate de rotation BLOQUANT par crosscheck Segment (ROUTINE_PROMPT etape 2), (3) fiche Notion = SOURCE UNIQUE des livrables (diagnostic + mail). Sans Notion : dedup impossible, gate rotation infranchissable, aucun endroit ou ecrire un livrable. DECISION disciplinee prise cette nuit : NE PAS lancer le Maps (le lancer sans franchir le gate = anti-pattern ISS-001, et collision risk reellement ELEVE vu le point 2 ci-dessous), donc 0 budget Apify/DataForSEO engage, abort controle + reporting.\n\nACCUMULATION chiffree : persistance .story/ MORTE depuis le 2026-08-10 (dernier commit substantiel 6dac243) = ~63 jours au 2026-10-13, alors que des runs ont probablement continue a tourner (detecteur de trou memoire declenche). Memes symptomes que juillet (handover 2026-07-28 : \"les routines demandaient des validations de permission cote UI et personne ne cliquait la nuit -> sessions stallees avant la persistance ; handovers de juillet PERDUS\"). La rotation est donc AVEUGLE : dernier couple de collecte trace = carreleur x Yverdon (08-01) + test humanisation menuisier x Val-de-Travers (08-03) ; AUCUNE trace aout-septembre-octobre.\n\nCHANGEMENT suggere (decision dev / Thomas, hors routine) : (a) re-autoriser le connecteur Notion cote claude.ai -> Parametres -> Connecteurs et passer ses outils en \"autorise sans approbation\" (meme correctif que le 07-28 pour Apify/DataForSEO/Gmail) ; verifier que l'autorisation ne expire pas silencieusement ; (b) verifier pourquoi .story/ ne se pousse plus depuis le 08-10 (push casse ? runs stalles sur Notion avant d'atteindre l'etape 10 ?) ; (c) envisager un canary : si Notion indisponible en debut de run, abort immediat + mail d'alerte (ce que fait ce run) plutot que de bruler du budget. PREUVE : zero PII ; faits = system reminder (Notion non autorise) + git log .story (dernier commit 2026-08-10) + handovers storybloq (dernier run collecte 08-01).",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1 (lecture Notion)",
+    "ROUTINE_PROMPT.md etape 2 (gate rotation BLOQUANT)",
+    "CLAUDE.md Dedup / Mapping Notion",
+    "ROUTINE_PROMPT.md section Execution autonome (permissions cloud)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non autorise en session cloud -> run 1h ne peut ni deduper, ni franchir le gate rotation, ni livrer"
+}
