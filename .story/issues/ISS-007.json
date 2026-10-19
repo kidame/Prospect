@@ -1,0 +1,23 @@
+{
+  "components": [
+    "routine-1h",
+    "connecteurs",
+    "persistance",
+    "rotation"
+  ],
+  "discoveredDate": "2026-10-06",
+  "id": "ISS-007",
+  "impact": "PATTERN (recurrence du mois de runs stalles decrit dans le handover 2026-07-28, cause racine identique: connecteurs non autorises la nuit). Run du 2026-10-07: le serveur MCP Notion demande une authentification et est INDISPONIBLE en session cloud non-interactive (aucun outil mcp__Notion__* charge, confirme par recherche d'outils). Consequences enchainees: (1) DEDUP impossible (pas d'acces aux Place ID -> risque re-contact d'un refus, cf ISS-006); (2) GATE DE ROTATION impossible (crosscheck Notion par Segment = le vrai filet, cf ISS-001/L-010, ne tourne pas); (3) DELIVRABLE impossible (fiches diagnostic+mail = SOURCE UNIQUE dans Notion). AGGRAVANT mesure ce run: git log -1 .story/ = dernier commit 2026-08-10, soit ~58 jours sans persistance memoire a la date du 2026-10-07 (detecteur de trou memoire, seuil ~3j, declenche). Les DEUX signaux de rotation (handovers .story + Segment Notion) sont donc absents simultanement -> rotation strictement aveugle. CHANGEMENT SUGGERE: (a) action Thomas une fois: claude.ai > Parametres > Connecteurs -> autoriser Notion (+ verifier Apify/DataForSEO/Gmail) en 'autorise sans approbation' pour les routines; (b) ajouter en tete de ROUTINE_PROMPT un PRE-CHECK dur: si Notion injoignable OU .story non persiste depuis >3j, NE PAS lancer la collecte payante (Apify/DataForSEO) -- documenter + recap + handover seulement, pour ne pas bruler le budget sur un run non-livrable et non-dedupable; (c) investiguer la mort de persistance .story depuis 10.08. PREUVE: lecture outils (Notion absent), git log .story (10.08), handover 07-28 (meme cause racine). ZERO PII.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1-2 (gate rotation + dedup Notion)",
+    "CLAUDE.md section Dedup",
+    "claude.ai Parametres > Connecteurs"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non autorise en session cloud + persistance .story morte ~2 mois -> run ne livre rien, rotation aveugle"
+}
