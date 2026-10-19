@@ -1,0 +1,257 @@
+{
+  "_comment": "Volumes DataForSEO Google Ads, langue fr, juin 2026. loc=FR (France) ou TH (sur place).",
+  "immobilier": [
+    {
+      "kw": "acheter appartement bangkok",
+      "loc": "FR",
+      "vol": 140,
+      "comp": "LOW"
+    },
+    {
+      "kw": "immobilier phuket",
+      "loc": "FR",
+      "vol": 70
+    },
+    {
+      "kw": "investir immobilier thailande",
+      "loc": "FR",
+      "vol": 50,
+      "comp": "LOW"
+    },
+    {
+      "kw": "agence immobiliere phuket",
+      "loc": "FR",
+      "vol": 40,
+      "bid_max": 5.02
+    },
+    {
+      "kw": "agence immobiliere koh samui",
+      "loc": "FR",
+      "vol": null
+    },
+    {
+      "kw": "agence immobiliere bangkok",
+      "loc": "FR",
+      "vol": 40
+    }
+  ],
+  "juridique_visa_relocation": [
+    {
+      "kw": "visa retraite thailande",
+      "loc": "FR",
+      "vol": 590,
+      "cpc": 2.29,
+      "comp": "LOW"
+    },
+    {
+      "kw": "vivre en thailande",
+      "loc": "FR",
+      "vol": 880,
+      "comp": "LOW"
+    },
+    {
+      "kw": "s'installer en thailande",
+      "loc": "FR",
+      "vol": 40
+    },
+    {
+      "kw": "visa thailande",
+      "loc": "FR",
+      "vol": 9900,
+      "cpc": 2.57
+    },
+    {
+      "kw": "visa elite thailande",
+      "loc": "FR",
+      "vol": 210,
+      "cpc": 2.11,
+      "comp": "LOW"
+    },
+    {
+      "kw": "investissement thailande",
+      "loc": "FR",
+      "vol": 140,
+      "cpc": 0.86,
+      "comp": "LOW"
+    },
+    {
+      "kw": "demenagement thailande",
+      "loc": "FR",
+      "vol": 40,
+      "cpc": 1.78
+    }
+  ],
+  "receptif_voyage_sur_mesure": [
+    {
+      "kw": "voyage thailande sur mesure",
+      "loc": "FR",
+      "vol": 260,
+      "cpc": 12.37
+    },
+    {
+      "kw": "agence de voyage thailande",
+      "loc": "FR",
+      "vol": 390,
+      "cpc": 6.55
+    },
+    {
+      "kw": "agence locale thailande",
+      "loc": "FR",
+      "vol": 90,
+      "cpc": 5.09
+    },
+    {
+      "kw": "voyage de noces thailande",
+      "loc": "FR",
+      "vol": 260,
+      "cpc": 3.8
+    }
+  ],
+  "nautisme_charter": [
+    {
+      "kw": "yacht phuket",
+      "loc": "TH",
+      "vol": 390,
+      "cpc": 3.17
+    },
+    {
+      "kw": "catamaran phuket",
+      "loc": "TH",
+      "vol": 480,
+      "cpc": 2.74
+    },
+    {
+      "kw": "party boat phuket",
+      "loc": "TH",
+      "vol": 590
+    },
+    {
+      "kw": "catamaran koh samui",
+      "loc": "TH",
+      "vol": 170
+    },
+    {
+      "kw": "sunset cruise phuket",
+      "loc": "TH",
+      "vol": 110
+    }
+  ],
+  "excursions_tours": [
+    {
+      "kw": "excursion koh samui",
+      "loc": "TH",
+      "vol": 720,
+      "cpc": 1.93
+    },
+    {
+      "kw": "excursion phuket",
+      "loc": "TH",
+      "vol": 590,
+      "cpc": 1.89
+    },
+    {
+      "kw": "que faire a bangkok",
+      "loc": "TH",
+      "vol": 1300
+    },
+    {
+      "kw": "excursion bangkok",
+      "loc": "TH",
+      "vol": 210,
+      "cpc": 2.03
+    },
+    {
+      "kw": "guide francophone bangkok",
+      "loc": "FR",
+      "vol": 210
+    },
+    {
+      "kw": "guide francophone phuket",
+      "loc": "TH",
+      "vol": 110,
+      "comp": "LOW"
+    },
+    {
+      "kw": "sanctuaire elephant phuket",
+      "loc": "TH",
+      "vol": 480
+    },
+    {
+      "kw": "sanctuaire elephant chiang mai",
+      "loc": "TH",
+      "vol": 480
+    }
+  ],
+  "plongee_loisirs": [
+    {
+      "kw": "plongee koh tao",
+      "loc": "TH",
+      "vol": 390,
+      "cpc": 2.37
+    },
+    {
+      "kw": "plongee phuket",
+      "loc": "TH",
+      "vol": 50
+    }
+  ],
+  "restaurants_food": [
+    {
+      "kw": "restaurant francais bangkok",
+      "loc": "TH",
+      "vol": 210
+    },
+    {
+      "kw": "restaurant francais bangkok",
+      "loc": "FR",
+      "vol": 110,
+      "comp": "LOW"
+    },
+    {
+      "kw": "restaurant francais phuket",
+      "loc": "TH",
+      "vol": 40
+    },
+    {
+      "kw": "restaurant francais koh samui",
+      "loc": "TH",
+      "vol": null
+    }
+  ],
+  "assurance_finance": [
+    {
+      "kw": "assurance sante thailande",
+      "loc": "FR",
+      "vol": 110,
+      "cpc": 6.64,
+      "comp": "HIGH"
+    },
+    {
+      "kw": "assurance expatrie",
+      "loc": "FR",
+      "vol": 1000,
+      "cpc": 12.58,
+      "comp": "MEDIUM",
+      "_note": "marche national tres concurrentiel, pas un creneau local expat"
+    }
+  ],
+  "ecoles_sante": [
+    {
+      "kw": "ecole francaise bangkok",
+      "loc": "FR",
+      "vol": 70,
+      "comp": "LOW"
+    }
+  ],
+  "_verticales_sans_demande_fr": {
+    "_note": "Volumes FR quasi nuls verifies via DataForSEO. Ces verticales ne sortent PAS de vrais T1 par manque de demande FR. A vendre sur signaux locaux (avis, GBP) plutot que sur volume de recherche.",
+    "construction_piscine": [
+      "piscine thailande: 30/mois",
+      "construction maison thailande: 20/mois"
+    ],
+    "hotels_villas_gestion": [
+      "gestion locative phuket: <10",
+      "conciergerie phuket: <10"
+    ]
+  }
+}

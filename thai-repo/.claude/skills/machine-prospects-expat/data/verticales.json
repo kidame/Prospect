@@ -1,0 +1,17 @@
+{
+  "_comment": "Valeur budget 0-5. Calibree sur l'etude Thailande 06/2026 (CPC, tickets).",
+  "immobilier": 5,
+  "juridique_visa_relocation": 5,
+  "receptif_voyage_sur_mesure": 5,
+  "nautisme_charter": 4,
+  "construction_piscine": 4,
+  "assurance_finance": 4,
+  "excursions_tours": 3,
+  "plongee_loisirs": 3,
+  "hotels_villas_gestion": 3,
+  "ecoles_sante": 3,
+  "spa_beaute": 2,
+  "restaurants_food": 1,
+  "associations_media": 0,
+  "agence_web_seo": -1
+}
