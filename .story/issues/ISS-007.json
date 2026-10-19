@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "notion-connector"
+  ],
+  "discoveredDate": "2026-10-05",
+  "id": "ISS-007",
+  "impact": "PATTERN + PREUVE (run controle 2026-10-05, 03:00) : le connecteur Notion remonte installState=\"needs_reconnect\", connected=false (verifie via ListConnectors ; aucun outil mcp__Notion__ expose, serveur liste comme \"requiert authentification\" en session cloud non-interactive). Consequence : la routine de controle ne peut PAS executer l'etape 3 (ramasser les fiches \"Draft pret\"=vrai ET \"Controle\" vide), donc 0 fiche lue, 0 verdict pose cette nuit. Idem la run 1h et la relance dependent de Notion (dedup Place ID, CRM, source unique du mail) -> toute la chaine est aveugle tant que Notion n'est pas reconnecte.\n\nDISTINCTION avec ISS-003 : ISS-003 vise le GATING des outils de query Notion (plan Business) quand le connecteur EST connecte. Ici le connecteur n'est PAS authentifie du tout (needs_reconnect) -> probleme amont et plus severe.\n\nCHANGEMENT SUGGERE : (1) action manuelle Thomas = reconnecter le connecteur Notion cote claude.ai -> Parametres -> Connecteurs (re-OAuth), aucune session cloud non-interactive ne peut le faire. (2) Durcir le filet d'alerte : une session OAuth expiree tue silencieusement les 3 routines sans mail (le controle n'envoie jamais de mail par design) -> la seule trace est ce carnet .story + la vue Notion \"Non controlees\" qui, elle aussi, devient inaccessible si Notion tombe. Envisager un canal d'alerte hors-Notion quand une routine ne peut meme pas demarrer (ex. verif connecteur en tete de run, et si KO, signaler). ZERO PII dans ce signalement.",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse les fiches via Notion)",
+    "CLAUDE.md section Garde-fous / permissions cloud"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie (needs_reconnect) -> routine controle totalement bloquee"
+}
