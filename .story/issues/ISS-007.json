@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "connecteur-notion",
+    "infra-cloud"
+  ],
+  "discoveredDate": "2026-10-12",
+  "id": "ISS-007",
+  "impact": "PATTERN (observe le 2026-10-12, run controle 03:00) : la session cloud du controle demarre SANS connecteur Notion authentifie -- aucun outil mcp__Notion__* n'est expose (confirme par 2 ToolSearch + bandeau systeme \"Notion requires authentication\"). Or TOUTE la routine controle lit/ecrit la base Notion \"Contacts\" (ramasse des fiches Draft pret + Controle vide, re-mesure, ecrit le verdict). Resultat : 0 fiche controlable, run entierement bloque, aucun verdict pose. La meme dependance Notion vaut pour la run 1h (dedup Place ID + creation de fiches) et la relance -> si Notion reste non authentifie, les 3 routines produisent du vide en silence.\n\nSIGNAL CORROBORANT (circonstanciel, pas une preuve de recurrence directe) : aucun handover depuis 2026-08-03 (dernier handover run-controle = 2026-06-14) alors qu'on est le 2026-10-12 -> ~2 mois sans trace de run persiste. Coherent avec des routines qui echouent/ne persistent plus (connecteur ou push). A verifier en session dev.\n\nCHANGEMENT SUGGERE : (1) cote claude.ai -> Parametres -> Connecteurs : (re)autoriser le connecteur Notion pour les sessions cloud des 3 routines, en mode \"autorise sans approbation\" (cf. note CONTROLE_PROMPT 2026-07-28 : le settings.json projet ne s'applique pas au cloud). (2) Ajouter un PRE-FLIGHT connecteur en tete des 3 prompts de routine : si l'outil Notion n'est pas disponible, ecrire immediatement un handover \"BLOQUE: Notion indisponible\" et persister, au lieu de deriver. (3) Envisager une alerte legere (le filet actuel = vue Notion \"Non controlees\" est inutile si Notion lui-meme est injoignable).\n\nPREUVE (zero PII) : 2026-10-12, session controle, branche claude/determined-ride-zca2lw ; ToolSearch \"select:mcp__Notion__...\" -> \"No matching deferred tools found\" ; bandeau \"The following MCP servers require authentication before their tools can be used: Notion\". storybloq handover_list -> dernier = 2026-08-03.",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse les fiches Notion)",
+    "CLAUDE.md section Process/Dedup (Notion = source unique)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non authentifie en session cloud -> routine controle (et 1h/relance) ne peut rien lire"
+}
