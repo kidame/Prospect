@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "notion-connector",
+    "persistance"
+  ],
+  "discoveredDate": "2026-09-25",
+  "id": "ISS-007",
+  "impact": "PATTERN + ACCUMULATION : 2e occurrence du meme mode de panne que le trou de juillet (handover dev 2026-07-28 : persistance .story morte, runs stalles sur validations de permission connecteur, personne ne clique la nuit). Nuit du run 2026-09-26 (01:00 Europe/Zurich) : le serveur MCP Notion est NON AUTHENTIFIE dans la session cloud -- aucun outil Notion n'est expose (ToolSearch 'Notion ...' ne renvoie que DataForSEO/WebSearch), et la session non-interactive ne peut pas derouler l'OAuth.\n\nCHIFFRE : dernier commit .story/ sur origin/main = 2026-08-10 (PR #98), soit ~47 jours sans aucune persistance memoire alors que la routine est censee tourner chaque nuit -> forte presomption que la plupart/tous les runs depuis le 10.08 ont echoue au meme endroit (Notion indisponible), rotation aveugle sur ~6 semaines.\n\nCONSEQUENCE : sans Notion la routine ne peut PAS (a) deduper par Place ID [risque reel ISS-006 : re-contact a froid d'un refus], (b) faire le gate de rotation BLOQUANT par Segment, (c) ecrire la fiche = SOURCE UNIQUE du livrable. Lancer la collecte Maps aurait brule du budget Apify/DataForSEO pour des prospects non-dedupables et non-persistables -> run avorte volontairement (0 collecte Maps, ~0 CHF depense).\n\nCHANGEMENT SUGGERE : (1) Thomas re-autorise le connecteur Notion cote claude.ai -> Parametres -> Connecteurs et passe ses outils en 'autorise sans approbation' (idem Apify/DataForSEO/Gmail) ; (2) ajouter en tete de ROUTINE_PROMPT un HEALTHCHECK connecteurs (verifier la presence des outils Notion AVANT de verrouiller le couple et de lancer le Maps) : si Notion absent, avorter proprement avec recap + handover au lieu de bruler du budget ; (3) surveiller la fraicheur de origin/main .story/ comme signal d'alarme (deja un detecteur cote run, mais il ne sert a rien si le run ne persiste jamais).\n\nPREUVE (zero PII) : git log origin/main -> 771854e 2026-08-10 ; ToolSearch Notion -> 0 outil ; systeme reminder de session : 'Notion requires authentication before their tools can be used. This session is non-interactive.'",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1 (lecture memoire Notion)",
+    "CLAUDE.md section Dedup",
+    "ROUTINE_PROMPT.md section Execution autonome (permissions connecteurs)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non autorise en session cloud -> run 1h ne peut ni deduper ni livrer"
+}
