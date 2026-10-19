@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "notion",
+    "persistance-memoire"
+  ],
+  "discoveredDate": "2026-10-08",
+  "id": "ISS-007",
+  "impact": "PATTERN + accumulation : le run du 2026-10-09 (01:23 CEST) n'a pu produire AUCUN livrable car aucun outil Notion n'etait disponible (connecteur non authentifie ; OAuth impossible en session planifiee non-interactive). Notion est triple point de passage obligatoire : store de dedup Place ID, gate de rotation bloquante (crosscheck Segment ~120 j, ISS-001/L-010 interdisent de la shunter), et cible unique des fiches (livrable central). Sans lui : gate infranchissable, dedup impossible (risque ISS-006 = re-contact d'un refus), zero cible d'ecriture -> run volontairement non lance pour ne pas bruler de budget sur un resultat non livrable. AGGRAVATION : le dernier commit .story date du 2026-08-10 (~60 j ; seuil detecteur = 3 j) et les handovers s'arretent au 08-03, alors que des runs nocturnes etaient attendus chaque nuit -> presomption forte que les 3 routines (1h, controle 3h, relance 4h) echouent/stallent en silence depuis ~le 10.08, sans que personne le voie (aucun handover, donc aucune trace ; cf. logique T-007 sur les echecs silencieux). CHANGEMENT SUGGERE : (1) cote Thomas, re-authentifier le connecteur Notion pour les routines et passer ses outils en 'autorise sans approbation' ; (2) cote systeme, envisager un pre-check en tete de run (etape 1) qui verifie la disponibilite reelle de Notion AVANT toute depense, et qui, si Notion est KO, bascule directement sur le chemin recap+handover+alerte sans tenter la collecte (c'est ce qui a ete fait manuellement ce run) ; (3) documenter dans ROUTINE_PROMPT que 'Notion indisponible' est un arret propre legitime, pas un run a forcer. PREUVE : git log .story = 2026-08-10 ; handover latest = 2026-08-03 ; aucun outil mcp__Notion__* expose ce run ; zero appel Apify/DataForSEO. ZERO PII.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1-2 (gate rotation / dedup Notion)",
+    "CLAUDE.md Dedup + Mapping Notion",
+    ".story/ (persistance)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> routine incapable de livrer + ~2 mois d'echec silencieux"
+}
