@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "notion",
+    "infra-cloud"
+  ],
+  "discoveredDate": "2026-10-07",
+  "id": "ISS-007",
+  "impact": "PATTERN (1re occurrence observee cote controle, run du 2026-10-07 03:00) : la session cloud demarre SANS aucun outil Notion charge/chargeable. Le bandeau d'amorce liste Notion (et Vercel) comme \"require authentication before their tools can be used\" et precise que la session non-interactive ne peut pas derouler l'OAuth. Verifie : aucun outil mcp__Notion__* dans la liste des deferred tools ; une recherche d'outil \"Notion contacts database\" ne renvoie que Shopify/DataForSEO. CONSEQUENCE : la routine controle est totalement bloquee a l'etape 3 -> impossible de ramasser les fiches (Draft pret=true & Controle vide), de relire un seul draft, ou d'ecrire un verdict (champ Controle + section \"## Controle\"). DataForSEO et Apify sont dispos mais inutiles sans fiche a mesurer. Aucun autre canal de trace : la routine controle n'envoie aucun mail (par design) -> sans cette issue, la nuit ne laisse AUCUNE trace. A distinguer d'ISS-003 (outils de QUERY Notion gates par plan Business) : ici c'est le connecteur ENTIER qui n'est pas authentifie, pas seulement le SQL. CHANGEMENT suggere : (1) cote claude.ai Parametres -> Connecteurs, verifier/reconnecter Notion pour le compte qui porte les routines et s'assurer que l'autorisation persiste pour les sessions programmees non-interactives ; (2) si l'auth cloud expire periodiquement, documenter dans CONTROLE_PROMPT.md un controle d'amorce \"Notion joignable ? sinon stop + issue\" pour que l'echec soit explicite. PREUVE : bandeau systeme de la session + absence de tout tool Notion. ZERO PII (aucune fiche n'a pu etre lue).",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (ramasse fiches Draft pret + Controle vide)",
+    "CLAUDE.md Garde-fous (connecteurs MCP)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non authentifie en session cloud -> routine controle 3h ne peut pas tourner"
+}
