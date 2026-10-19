@@ -1,0 +1,18 @@
+{
+  "components": [
+    "routine-1h connecteurs"
+  ],
+  "discoveredDate": "2026-08-11",
+  "id": "ISS-007",
+  "impact": "PATTERN + ACCUMULATION : recidive du pattern de juillet (mois de runs stalles faute de\nvalidation de connecteurs la nuit, cf. handover 2026-07-28). Cette fois plus severe : le run\ndu 2026-08-11 s'est trouve SANS AUCUN outil Notion (connecteur en attente de (re)auth OAuth,\nnon executable en session cloud non interactive). Le run 08-01 notait au contraire \"Notion a\nFONCTIONNE\" -> blocage INTERMITTENT, non detecte tant qu'un run n'en meurt pas. Distinct\nd'ISS-003 (gating TIER des query SQL/vue sur Business plan) : ici le connecteur ENTIER ne\nfournit aucun outil (auth). En parallele, le MCP Storybloq s'est deconnecte (contourne CLI npx).\n\nIMPACT : Notion = source unique (dedup, gate rotation BLOQUANT, fiches, mails). Sans lui, ni\ndedup ni ecriture -> abort force AVANT collecte payante (bon reflexe : pas ~10 CHF brules pour\nzero store). 1 run entier perdu (2026-08-11), rotation non avancee, cout ~0 CHF.\n\nCHANGEMENT SUGGERE :\n1. Operationnel (Thomas) : (re)autoriser Notion cote claude.ai/Connecteurs + \"autorise sans\n   approbation\" ; idem Apify/DataForSEO/Gmail ; surveiller stabilite MCP Storybloq.\n2. Process : HEALTHCHECK connecteurs en TETE d'etape 1 (ping lecture Notion + presence outils\n   Apify/DataForSEO). Si Notion KO -> abort controle immediat + recap d'alerte + handover\n   'AVORTE', SANS lancer la collecte.\n3. Fallback : documenter la CLI `npx storybloq` comme canal de persistance quand le MCP saute.\n\nPREUVE (zero PII) : run 2026-08-11 ~05:33 Europe/Zurich, 0 fiche, 0 appel paye ; handover\n2026-08-11-01-run-1h (AVORTE) via CLI ; comparaison handover 2026-08-01 (Notion OK).\n",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1-2 (lecture memoire + gate rotation Notion)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Blocage run: connecteur Notion non autorise -> run 1h meurt avant toute mesure"
+}
