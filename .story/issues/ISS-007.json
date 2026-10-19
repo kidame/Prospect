@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "notion",
+    "connecteurs"
+  ],
+  "discoveredDate": "2026-10-02",
+  "id": "ISS-007",
+  "impact": "PATTERN + ACCUMULATION : run 1h du 2026-10-03 n'a PAS pu s'executer — la session cloud non-interactive signale le connecteur Notion comme \"requires authentication\" (OAuth impossible sans humain la nuit). Notion est le store de dedup (Place ID), la source du gate de rotation BLOQUANT (champ Segment, cf. ISS-001/L-010) ET le livrable source-unique (fiches + mails). Sans Notion, les 3 piliers du run tombent. Accumulation chiffree : dernier handover de RUN = 2026-08-01, dernier commit .story = 2026-08-10 ; aucune trace de run entre le 2026-08-10 et le 2026-10-03 (~54 jours), soit les runs stallent soit ils ne persistent pas — meme signature que le mois de juillet documente dans le handover 2026-07-28 (sessions stallees sur validations connecteur avant l'etape de persistance). Distinct d'ISS-003 (qui vise le GATING \"Business plan\" des outils query SQL/vue) : ici le connecteur entier est NON AUTHENTIFIE, pas seulement les tools query. CHANGEMENT SUGGERE : (1) ajouter a l'etape 1 du ROUTINE_PROMPT un PREFLIGHT connecteurs — si Notion repond \"non authentifie\", NE PAS lancer de collecte Apify/DataForSEO (eviter budget brule + re-contact a froid cf. ISS-006), ecrire directement un handover de blocage + recap d'alerte, puis persister ; (2) cote Thomas, documenter que le connecteur Notion doit etre re-autorise/maintenu connecte pour les sessions de routine cloud et ses outils passes en \"autorise sans approbation\". PREUVE (zero PII) : system reminder de session \"The following MCP servers require authentication before their tools can be used: Notion. This session is non-interactive, so Claude cannot run the OAuth flow here.\" + git log .story (dernier commit 2026-08-10) + storybloq handover_latest (dernier run 2026-08-01). Decision du run : 0 collecte, 0 CHF, rotation preservee (aucun segment consomme).",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1 (lecture memoire Notion)",
+    "CLAUDE.md Process etape 1 + Dedup",
+    "claude.ai Parametres Connecteurs"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut bloquant: connecteur Notion non authentifie en session cloud -> run impossible + stall silencieux"
+}
