@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-controle",
+    "notion-auth"
+  ],
+  "discoveredDate": "2026-10-06",
+  "id": "ISS-007",
+  "impact": "PATTERN (1re occurrence constatee, mais bloqueur TOTAL du run) : la session cloud du controle 03:00 (2026-10-06) n'expose AUCUN outil Notion. Verifie 2x : ToolSearch \"notion contacts database\" = 0 outil Notion ; select direct (query-data-sources / fetch / get-page) = \"No matching deferred tools found\". Le system-reminder de session liste Notion parmi les serveurs MCP \"require authentication before their tools can be used\" et precise que la session non-interactive ne peut pas derouler le flow OAuth.\n\nIMPACT : le controle depend ENTIEREMENT de Notion (base Contacts). Sans outil Notion : impossible de RAMASSER les fiches (Draft pret=vrai ET Controle vide), impossible de re-mesurer le fait porteur d'une fiche, impossible d'ECRIRE le champ \"Controle\" ou la section \"## Controle\". Resultat du run : 0 fiche lue, 0 verdict. La routine QA ne produit plus rien -> les drafts de la run 1h partent sans seconde lecture (exactement le risque que la routine controle existe pour couvrir : mauvais prenom, \"invisible\" contre la mesure, \"aucune page\" non verifie, email incertain non signale).\n\nDISTINCTE d'ISS-003 : en 06-2026 ISS-003 ne gatait QUE les outils query SQL/vue (notion-fetch et notion-search fonctionnaient, Notion etait connecte). Ici c'est une ABSENCE TOTALE d'outils Notion = connecteur non authentifie pour la session planifiee, pas un gating de plan.\n\nCHANGEMENT SUGGERE (session dev Thomas) : (1) reconnecter / re-autoriser le connecteur Notion cote claude.ai (Parametres -> Connecteurs) de maniere a couvrir les sessions PLANIFIEES non-interactives, pas seulement les sessions live ; (2) verifier si les 3 routines dependantes de Notion (run 1h, controle 3h, relance 4h) sont toutes affectees par la meme absence d'auth en cloud planifie (a croiser avec les handovers des runs 1h/relance recents) ; (3) si l'auth cloud planifiee ne peut pas etre garantie, prevoir un signalement (le filet \"vue Non controlees\" ne suffit pas a prevenir Thomas qu'une routine ne tourne plus du tout).\n\nPREUVE (zero PII) : 0 outil Notion expose a la session ; 2 recherches d'outils infructueuses ; branche controle demarree a jour sur origin/main (771854e), git clean, aucun appel facture.",
+  "location": [
+    "CONTROLE_PROMPT.md etape 3 (RAMASSE les fiches) + etape 5 (ecriture champ/section Controle)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: Notion non authentifie en session cloud controle -> routine 03:00 produit zero verdict"
+}
