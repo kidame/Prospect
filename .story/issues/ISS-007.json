@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "notion"
+  ],
+  "discoveredDate": "2026-09-28",
+  "id": "ISS-007",
+  "impact": "PATTERN : run du 2026-09-29 (sanitaire x Fribourg) demarre avec le serveur MCP Notion NON authentifie (\"requires authentication\", outils non charges dans la session cloud). Distinct d'ISS-003 (query SQL/vue gatees Business plan) : ici AUCUN outil Notion n'est disponible, donc (a) dedup Place ID impossible, (b) crosscheck Segment (verrou de rotation, cf. L-010/ISS-001) impossible, (c) ecriture des fiches (source unique du livrable) impossible. Corrobore le constat 07-28 (runs stalles sur permissions connecteurs) mais en pire : pas un prompt \"demander\" mais une absence totale d'auth OAuth qu'une session non-interactive ne peut pas resoudre. ACCUMULATION : dernier commit .story = 08-10 (~50j sans persistance), coherent avec des runs qui echouent tot faute de Notion. IMPACT METIER : risque direct de re-contact a froid non detecte (croise ISS-006) puisque plus aucune dedup ; run livrable seulement en fallback (mail recap, non deduplique). CHANGEMENT SUGGERE : (1) Thomas re-autorise le connecteur Notion pour les routines (OAuth expire ?) + \"autorise sans approbation\" ; (2) ROUTINE_PROMPT etape 1 : pre-check \"si outils Notion absents -> mode degrade explicite (rotation handover-only + livraison recap + alerte)\" au lieu d'echouer ; (3) envisager un store de dedup de secours hors Notion (export Place ID committe). PREUVE : run 09-29, 4 prospects mesures et livres par mail, 0 fiche ecrite, 0 dedup. ZERO PII.",
+  "location": [
+    "CLAUDE.md Process/Dedup",
+    "ROUTINE_PROMPT etape 1"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion totalement indisponible en session cloud -> run sans dedup ni fiches"
+}
