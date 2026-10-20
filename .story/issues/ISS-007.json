@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "persistance",
+    "storybloq"
+  ],
+  "discoveredDate": "2026-10-20",
+  "id": "ISS-007",
+  "impact": "PATTERN : aucun handover de la routine 1h n'est persiste dans .story depuis le 2026-08-01, alors que des runs 1h ont tourne entre-temps. PREUVE (zero PII) : dernier commit .story = 2026-10-16 (handover run-RELANCE seulement) ; or des fiches Notion existent au 2026-10-19 (segment electricien x Fribourg) et 2026-10-20, donc des runs 1h ont tourne sans laisser de handover. storybloq handover latest --count 8 ne montre, cote run-1h, que 2026-08-01 (carreleur x Yverdon) puis plus rien. CONSEQUENCE : la memoire de rotation handover est aveugle sur aout-octobre ; seul le crosscheck Notion par Segment sauve la rotation. CHANGEMENT SUGGERE : (1) verifier que la routine 1h atteint bien l'etape 10 (snapshot+handover+push) et que le push ne bloque pas sur une autorisation connecteur/git en cloud ; (2) en fin d'etape 10, controle dur : si git log -1 .story ne montre pas le commit du run, le DIRE dans le recap ET retenter ; (3) envisager push sur branche dediee + PR plutot que push direct main si c'est la cause des echecs silencieux. Constate le 2026-10-21 (run cuisiniste x Lausanne).",
+  "location": [
+    "ROUTINE_PROMPT.md etape 10d",
+    "CLAUDE.md section Storybloq PERSISTANCE"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: handovers run-1h non persistes depuis aout (rotation repose sur Notion seul)"
+}

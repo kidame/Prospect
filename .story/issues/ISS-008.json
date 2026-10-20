@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "rotation",
+    "dedup"
+  ],
+  "discoveredDate": "2026-10-20",
+  "id": "ISS-008",
+  "impact": "PATTERN (variante ISS-001) : le crosscheck de rotation interroge les Segments Notion des ~120 derniers jours. Un couple traite il y a 120-160j n'y figure donc PAS et parait frais. CE RUN : cuisiniste x Lausanne choisi comme frais, mais la dedup Place ID des finalistes a revele qu'il avait ete traite le 2026-06-06 (137j, 17j hors fenetre). CONSEQUENCE CHIFFREE : ~7 finalistes deja en base/contactes perdus au dedup (RENOVE-CUISINES, JJH, Cote Cuisines, A-TEC, Atelier Art Home, Passion, BeHome) ; le run a quand meme livre 5 prospects grace au pool frais, mais c'est exactement le risque d'ISS-001 (run qui faillit ne pas livrer). CHANGEMENT SUGGERE : elargir la fenetre du crosscheck de rotation a ~150-160j (la peremption dedup reste a 120j, mais le GATE de rotation doit voir plus loin pour ne pas re-piocher un couple a 130-150j), OU faire le crosscheck Segment SANS borne de date (dump complet des Segments) puisque la query SQL Notion fonctionne. Constate le 2026-10-21.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 1-2 (crosscheck Notion Segment)",
+    "CLAUDE.md Regle de rotation"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: fenetre de crosscheck rotation 120j trop etroite (couple re-pioche a 137j)"
+}
