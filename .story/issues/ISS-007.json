@@ -1,0 +1,22 @@
+{
+  "components": [
+    "routine-1h",
+    "connecteurs",
+    "notion"
+  ],
+  "discoveredDate": "2026-10-14",
+  "id": "ISS-007",
+  "impact": "PATTERN + ACCUMULATION : la session cloud du run 1h n'a AUCUN outil Notion disponible (serveur MCP Notion liste comme \"require authentication\", zero tool mcp__Notion__* expose ; une recherche d'outil \"notion\" ne renvoie que DataForSEO). Vu la nuit du 2026-10-15 (01:23 CEST). Couple a la persistance .story MORTE : dernier commit .story = 2026-08-10, soit ~66 jours avant ce run (seuil d'alerte du detecteur = ~3 jours). Fort soupcon que des runs stallent/no-op sur l'autorisation Notion depuis aout (cf. handover 2026-07-28 \"mois de runs stalles sur validations de permission\" + ISS-003 query gating Business plan, distincte : ici c'est une DEAUTH TOTALE du connecteur, pas seulement le SQL).\n\nIMPACT : sans Notion, TROIS fonctions coeur tombent d'un coup -> (1) dedup Place ID impossible ; (2) GATE de rotation par Segment (etape 2, BLOQUANT) insatisfaisable ; (3) la fiche Notion = SOURCE UNIQUE des livrables (diagnostic + mail) n'a nulle part ou etre ecrite. Decision de ce run : NE PAS lancer le Maps/DataForSEO (0 CHF depense) car la sortie n'aurait aucun support de persistance et le dedup serait aveugle -> risque de re-contact. Run livre 0 prospect, blocage signale par email a Thomas.\n\nCHANGEMENT SUGGERE : (a) ajouter au debut du ROUTINE_PROMPT un PRE-CHECK connecteurs explicite : si aucun outil Notion n'est expose, ABORTER proprement le run (recap + handover de blocage) sans depenser de budget, au lieu de tenter l'etape 3 ; (b) Thomas (une fois) : re-autoriser le connecteur Notion cote claude.ai -> Parametres -> Connecteurs, et repasser ses outils + ceux d'Apify/DataForSEO/Gmail en \"autorise sans approbation\" ; (c) envisager un fallback de dedup/rotation hors Notion (ex. miroir Place ID+Segment committe dans .story) pour que la rotation ne soit pas 100% dependante d'un connecteur qui saute. PREUVE : zero PII ; faits = absence d'outils Notion ce run + age du dernier commit .story (66j) verifiable via git log.",
+  "location": [
+    "CLAUDE.md Process etape 1 (dedup Notion)",
+    "ROUTINE_PROMPT.md etape 1-2 (gate rotation)",
+    "ROUTINE_PROMPT.md etape 6-7 (fiche = source unique)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non autorise en session cloud -> run 1h ne peut pas s'executer (dedup/rotation/fiche)"
+}
