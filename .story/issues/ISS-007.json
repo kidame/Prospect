@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "collecte-maps"
+  ],
+  "discoveredDate": "2026-10-19",
+  "id": "ISS-007",
+  "impact": "PATTERN (2 runs) : la location Maps 'Fribourg, Switzerland' (canton) geocode mal via l'actor enckay/google-maps-places-extractor. Run 2026-10-20 (electricien x Fribourg) : 1er appel 'Fribourg, Switzerland' = 0 resultat (computeUnits ~0.023, aire a vide) ; relance '1700 Fribourg, Switzerland' = 22 fiches propres. Run 2026-06-27 (carreleur x Fribourg) : 'Fribourg, Switzerland' avait derive sur la Riviera VD (Vevey/Montreux), re-cible sur 'Bulle, Switzerland'. CHANGEMENT suggere : pour le canton de Fribourg, ne jamais passer 'Fribourg, Switzerland' nu -> ancrer la location sur le NPA + ville ('1700 Fribourg, Switzerland' pour la ville-coeur, 'Bulle, Switzerland' pour la Gruyere). Ajouter ce garde-fou dans ROUTINE_PROMPT etape 3 et la note Apify de CLAUDE.md. PREUVE : runId 2026-10-20 'Fribourg, Switzerland' -> 0 items ; '1700 Fribourg, Switzerland' -> 22 items (categorie Electrician). ZERO PII.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 3",
+    "CLAUDE.md Outils Apify google-maps"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: location Maps 'Fribourg, Switzerland' non fiable (0 resultat / derive Riviera)"
+}
