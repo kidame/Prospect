@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "notion-auth"
+  ],
+  "discoveredDate": "2026-10-14",
+  "id": "ISS-007",
+  "impact": "PATTERN (1re occurrence cote controle, mais bloque la routine a 100%) : run de controle du 2026-10-14 03:00. Le serveur MCP Notion n'est PAS autorise dans la session cloud -> AUCUN outil Notion disponible (ni fetch, ni search, ni query). Le systeme signale explicitement \"Notion require authentication before their tools can be used\" et \"Claude cannot start the OAuth flow itself\".\n\nIMPACT : le controle 3h est ENTIEREMENT inoperant cette nuit. Impossible de (a) ramasser les fiches \"Draft pret\"=vrai ET \"Controle\"=vide, (b) re-mesurer le fait porteur, (c) ecrire le champ \"Controle\" ou la section \"## Controle\". 0 fiche controlee. Le meme blocage toucherait la routine 1h (dedup Place ID + CRM + redaction = tout vit dans Notion). Resultat visible pour Thomas : la vue \"Non controlees\" s'empile sans explication.\n\nDISTINCT de ISS-003 : ISS-003 = outils query SQL/vue gates \"Business plan\" alors que notion-fetch et notion-search fonctionnaient encore (gating partiel). ICI = connecteur Notion non authentifie du tout (outage total, zero outil). Racines differentes -> pas un doublon.\n\nCHANGEMENT SUGGERE (session dev Thomas) : (1) re-autoriser/re-connecter le connecteur Notion cote claude.ai -> Parametres -> Connecteurs pour les sessions cloud des DEUX routines (la 1h et le controle), et verifier que l'autorisation OAuth persiste entre les runs planifies ; (2) ajouter un filet : si Notion est injoignable au debut du run, le signaler tot (handover + issue, deja fait) plutot que de produire un no-op silencieux. A re-verifier aux prochains runs : si l'outage se reproduit -> monter en critical.\n\nPREUVE (zero PII) : aucun outil mcp__Notion__* present dans la liste d'outils de la session ; rappel systeme listant Notion comme \"require authentication\". Les connecteurs DataForSEO / Apify / Gmail / Storybloq / Infomaniak sont, eux, presents. Aucune donnee prospect consultee (impossible).",
+  "location": [
+    "CONTROLE_PROMPT.md etapes 3-5",
+    "connecteur Notion (claude.ai Parametres -> Connecteurs)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: connecteur Notion non autorise en session cloud -> controle 3h bloque a 100%"
+}
