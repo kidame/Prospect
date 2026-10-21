@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "fait-porteur-local"
+  ],
+  "discoveredDate": "2026-10-20",
+  "id": "ISS-007",
+  "impact": "PATTERN + ACCUMULATION\nLe controle 3h a flague 🔴 une fiche (segment electricien x Fribourg, run 1h du 2026-10-20, Place ID 0x478e6dfac830b217:0xb648feb28a4ff7a) dont l'accroche d'email portait un fait LOCAL faux : \"quand on cherche un electricien a <sa ville>, Google montre une plateforme d'annonces (cleanolia), pas vous\". Re-mesure au controle (serp_organic_live_advanced, mobile, location = NPA exact de la ville du prospect, 1784) : le prospect ressort #1 en organique (son propre domaine, page /devis/) ET possede un panneau de connaissances / fiche GBP sur cette requete ; la \"plateforme concurrente\" n'apparait PAS pour cette ville (seule une page d'une AUTRE ville sort, tout en bas). Fait porteur donc faux et falsifiable par le prospect lui-meme (il tape sa requete depuis sa ville et se voit 1er).\nMeme FAMILLE que le cas anti-fait-faux deja consigne dans CLAUDE.md (2026-07-21 : mail disant \"ni carte ni resultats web\" alors que le prospect etait page 1). Recurrence -> risque systemique, pas accident isole.\n\nCAUSE PROBABLE\nLa requete \"metier + ville-du-prospect\" est vraisemblablement mesuree depuis la localisation du HUB du segment (ville-centre, ici Fribourg-ville) et non depuis la ville reelle du prospect. Depuis le hub, le classement local propre du prospect (organique local + pack/GBP de SA ville) est masque, et un agregateur national peut paraitre \"devant\".\n\nCHANGEMENT SUGGERE (ROUTINE_PROMPT.md etape 4 + rappel CLAUDE.md)\n1. Quand l'accroche doit porter sur \"metier + ville DU PROSPECT\" (pas le hub), re-mesurer le SERP avec le location de CETTE ville/NPA (serp_locations, NPA exact), device mobile.\n2. Avant d'ecrire \"X capte votre ville, pas vous\" ou toute absence/doublon sur la propre ville du prospect : verifier explicitement que NI le domaine du prospect NI sa fiche GBP ne sont deja en tete sur cette localisation. S'ils y sont, basculer l'angle (ex. absence sur la requete du hub/canton face a des concurrents nommes) ou abandonner l'accroche.\n\nPREUVE (zero PII au-dela du Place ID / segment, conforme frontiere Storybloq)\nRe-mesure 2026-10-20 \"electricien courtepin\" mobile loc 1784 : knowledge_graph du prospect en tete + organique #1 = domaine du prospect ; cleanolia absent de Courtepin (page Bulle seulement, bas de page 1). A comparer au SERP du hub \"electricien fribourg\" loc Fribourg ou le prospect est bien absent et cleanolia (page Courtepin) apparait en milieu de page -> c'est la localisation de mesure qui bascule le constat.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 4 (SERP reel)",
+    "CLAUDE.md Angles d'email / regle anti-fait-faux"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: fait porteur local mesure depuis la mauvaise localisation -> prospect declare absent/double sur sa propre ville alors qu'il y est 1er"
+}
