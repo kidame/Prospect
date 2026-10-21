@@ -100,17 +100,21 @@ LUI-MEME de l'envoyer (copier-coller, ou mise en brouillon sur demande) : depuis
    eventuelle d'une alerte "⚠️ Email a confirmer avant envoi".
 
 4. Pour CHAQUE eligible -- RE-MESURE LEGERE (1 appel) : DataForSEO serp_organic_live_advanced,
-   device mobile, sur la requete coeur du mail 1 (celle du fait porteur ; location_name exact
-   via serp_locations CH si besoin). Compare au Diagnostic / au mail 1. Trois cas :
-   - DU NEUF (un concurrent a bouge, sa position a change, une page cle casse) -> c'est
-     l'accroche de ta relance : un fait frais, date de cette nuit, verifiable par lui.
+   device mobile, sur la requete coeur du Diagnostic (celle de l'observation du mail 1 s'il y
+   en a une ; location_name exact via serp_locations CH si besoin). Compare au Diagnostic / au
+   mail 1. Trois cas (TON V3 dans les trois : la relance est un mot humain, SANS chiffre, SANS
+   concurrent, SANS jargon -- cf. CLAUDE.md "Angle de l'email : une RENCONTRE") :
+   - DU NEUF (sa fiche a change, une page cle casse, il recrute, il a refait son site) -> c'est
+     l'accroche de ta relance : un fait frais, dit avec des mots ("j'ai vu que vous aviez refait
+     votre page cuisines"), jamais un rang ni un concurrent.
    - RIEN DE NEUF (situation inchangee) -> relance a MICRO-VALEUR : donne UNE piste concrete
-     et actionnable tiree du "## Diagnostic" et NON utilisee dans le mail 1 (ex. une requete
-     a volume qu'il ne capte pas, une page prestation qui manque, un detail GBP). Le principe
-     donnant-donnant : il repart avec quelque chose meme sans repondre.
-   - CONTRADICTION (il a progresse : il est maintenant present la ou le mail 1 le disait
-     absent) -> la relance ne reaffirme JAMAIS le fait mort. Pivote honnetement (constater le
-     mouvement + montrer l'ecart qui reste, chiffre) ; et s'il ne reste VRAIMENT plus rien a
+     et actionnable tiree du "## Diagnostic" et NON utilisee dans le mail 1, formulee SANS
+     chiffre (ex. "les gens cherchent souvent 'cuisine sur mesure' autour de Neuchatel et votre
+     site n'a pas encore de page dessus", "votre fiche Google n'a pas de photos de l'atelier").
+     Le principe donnant-donnant : il repart avec quelque chose meme sans repondre.
+   - CONTRADICTION (il a progresse : ce que le mail 1 observait n'est plus vrai) -> la relance
+     ne reaffirme JAMAIS l'observation morte. Pivote honnetement (saluer le mouvement, avec
+     des mots, + offrir une piste sur ce qui reste) ; et s'il ne reste VRAIMENT plus rien a
      dire de vrai et d'utile, SKIP la fiche (pas de relance, pas de statut change) et
      signale-la dans le mail recap avec la raison -- Thomas decidera.
    Si la re-mesure echoue (API en panne) : redige quand meme la relance en t'appuyant
@@ -121,11 +125,13 @@ LUI-MEME de l'envoyer (copier-coller, ou mise en brouillon sur demande) : depuis
    (jamais "Re: relance" ; idealement le fait neuf ou la piste offerte). Structure :
    - 1 ligne qui raccroche au mail precedent SANS culpabiliser (ex. "je vous ecrivais il y a
      une semaine au sujet de [angle du mail 1]") ;
-   - LE fait neuf date OU LA piste offerte (un seul point, chiffre, verifiable) ;
+   - LE fait neuf OU LA piste offerte (un seul point, concret, verifiable, dit avec des mots :
+     ZERO chiffre, ZERO concurrent, ZERO jargon, ton V3 chaleureux) ;
    - la meme micro-offre PAR MAIL que le mail 1 : proposer d'ENVOYER la piste / le point utile,
      sans engagement et JAMAIS un appel ni "15 min" a froid (cf. CLAUDE.md "CTA = CONTINUER PAR
      MAIL" ; le Diagnostic 1200 ne se mentionne que s'il etait deja dans le mail 1).
-   INTERDITS SPECIFIQUES RELANCE (en plus des interdits CLAUDE.md) : "je me permets de
+   INTERDITS SPECIFIQUES RELANCE (en plus des interdits CLAUDE.md et du skill writing V3 :
+   chiffres, concurrents, "invisible / absent", jargon) : "je me permets de
    revenir vers vous", "sans reponse de votre part", "avez-vous eu le temps de", "ma
    derniere tentative", "je relance", tout reproche ou pression, toute repetition du pitch
    du mail 1. SALUTATION : reprends EXACTEMENT celle du mail 1 (le travail de confirmation du

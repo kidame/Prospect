@@ -286,32 +286,44 @@ DISQUALIFICATION :
 - Exclusion dure, hors zone, deja vu, injoignable, aucune demande organique, OU deja
   bien present sur pack + organique sur l'essentiel de son marche.
 
-## Angles d'email selon le cas mesure
-L'accroche vise la DOULEUR RESSENTIE, pas le deficit technique. Prends le 1er angle disponible
-dans cet ordre (du plus ressenti au moins), et CONSTATE sans humilier :
-1. CONCURRENT NOMME QUI LE DOUBLE sur sa ville : "tapez 'metier ville' dans Google : [Concurrent]
-   sort, pas vous". Pique l'orgueil, verifiable par lui en 5 secondes. JAMAIS humiliant ("vous
-   etes ecrase / invisible / a la traine") -> on CONSTATE, on outille, on offre le quick-win.
-   GARDE-FOU marche-village : si le concurrent nomme peut etre un proche du prospect, bascule
-   sur un angle declencheur.
-2. DECLENCHEUR : page en erreur (500/404) sur un marche cle, recrutement visible, refonte en cours.
-   Un fait qui le concerne MAINTENANT.
-3. MANQUE-A-GAGNER CHIFFRE : volume d'une requete non captee sur SA ville -- SEULEMENT si ce
-   volume depasse le seuil (~150/mois). En dessous, pas de manque a gagner credible : n'en parle pas.
-- Cas mesures (en complement, pour cadrer le levier) : present mais ETROIT -> angle croissance
-  (le marche qu'il rate) ; present pack ABSENT organique -> angle complement web ; ABSENT pack ET
-  organique malgre activite -> besoin clair (levier fiche Google + site).
-- REGLE D'OR : jamais "vous etes invisible" si la mesure dit le contraire. L'accroche cite toujours
-  UN fait mesure (position pack, position organique, ou volume non capte), un seul point, pas une liste.
-  Une ABSENCE ABSOLUE ("absent du pack", "absent des resultats web") ne s'ecrit qu'apres la lecture
-  ligne a ligne correspondante (les 3 fiches du pack nommees ; la liste organique parcourue en
-  entier). Au moindre doute, formule en RELATIF ("[X] sort devant vous") : aussi piquant, jamais
-  falsifiable par le prospect.
-- ACCROCHE = BENEFICE + TERRAIN GAGNABLE (le but : qu'il MORDE et VOIE ce qu'il y gagne). Traduis le
-  fait mesure en manque-a-gagner concret (des devis/mandats qui lui echappent), pas en constat
-  technique. Mene sur ce qui se gagne VITE (sa visibilite metier, son GBP, sa ville/vallee) ; une ville
-  lointaine se cite comme manque-a-gagner ORGANIQUE, jamais comme une promesse de pack local intenable
-  (proximite). Rien dans l'accroche qui ne serve pas a le faire mordre -- aucune ligne decorative. (cf. lecon L-007)
+## Angle de l'email : une RENCONTRE, pas un diagnostic (V3, decision Thomas 2026-10-15)
+CHANGEMENT RADICAL DE TON (2026-10-15) : fini les mails qui "balancent des chiffres et des
+comparaisons". Le mail 1 est un MOT DE PRESENTATION chaleureux : Thomas se presente a une
+entreprise dont il a regarde le travail, dit pourquoi il aimerait collaborer avec elle, et
+propose un coup de main par mail. Le prospect doit se sentir CHOISI et RESPECTE, jamais
+diagnostique, compare ou pris en faute. On cherche une collaboration, pas une demonstration.
+- La MESURE ne change pas : elle sert a SELECTIONNER (etapes 4-7), a remplir "## Diagnostic" et
+  "Probleme principal" (internes, pour Thomas), et a nourrir les pistes envoyees APRES le "oui".
+  Elle ne s'affiche PLUS dans le mail. Un mail V3 peut etre ecrit sans relire un seul chiffre.
+- INTERDIT dans le mail 1 (et dans la relance) : tout CHIFFRE (volumes, positions "#2 / page 2",
+  nombre d'avis, pourcentages, CHF, "x recherches/mois", annees d'experience de KUMO) ; tout
+  CONCURRENT nomme ou implicite ("X sort devant vous", "d'autres sont mieux places") ; toute
+  COMPARAISON ou classement ; les mots "invisible / introuvable / absent / a la traine / vous
+  perdez / manque a gagner / ecart" ; le JARGON de diagnostic (SERP, pack local, organique,
+  mots-cles, ranking, positionnement, trafic, audit, backlinks, OnPage, Core Web Vitals, KD).
+- AUTORISE, en option (0 ou 1 par mail) : UNE observation QUALITATIVE, vraie, douce, formulee en
+  hedge, tiree de la mesure ou de leur site : "on vous trouve bien sur votre nom, un peu moins
+  quand on cherche le metier", "votre fiche Google ne renvoie pas vers votre site", "j'ai vu que
+  vous recrutez", "votre page cuisines meriterait d'etre trouvee plus facilement". Elle reste
+  VRAIE (regle anti-invention intacte : verification ligne a ligne AVANT de l'ecrire, comme pour
+  toute absence) et ne rabaisse jamais. Sans observation solide : aucune observation, le mail
+  tient tout seul sur la rencontre.
+- L'ANGLE se choisit sur (1) CE QU'ON A REMARQUE depuis la place de Thomas (il regarde des sites
+  d'artisans, il n'est PAS du metier) : ce qu'on comprend en arrivant sur le site, ce qui fait
+  rester, le fait qu'on les a RETENUS parmi les entreprises du coin -- JAMAIS un jugement d'expert
+  sur leur metier ("pose au millimetre", "joints alignes", "beau limon") : admiration jouee, ca
+  sonne faux (retour Thomas 2026-10-15) ; (2) CE QUE THOMAS FAIT, explique simplement en
+  une phrase concrete ("regarder ce que les gens tapent dans Google et faire en sorte que vous
+  soyez la bonne reponse"), (3) POURQUOI EUX : envie de travailler avec des entreprises de la
+  region dans leur metier, (4) le LIEN LOCAL (distance, vallee, saison, un lieu).
+- Le cas mesure (present mais etroit / present pack absent organique / absent partout / site
+  faible) ne pilote QUE : le tag Offre KUMO dans Notion, le contenu du "## Diagnostic", et le
+  choix de l'eventuelle observation qualitative. Jamais la forme ni la durete du mail.
+- Les signaux d'opportunite (etape 5) servent toujours a PRIORISER les prospects ; ils ne
+  s'ecrivent plus dans le mail sous forme de constat. "Recrutement visible" ou "refonte en cours"
+  peuvent apparaitre, parce que ce sont des signes de vie humains, pas des chiffres.
+- GARDE-FOU VERITE INCHANGE : on n'invente rien, on n'affirme rien qu'on n'a pas vu. La chaleur
+  ne remplace pas la verification ; elle remplace seulement les chiffres.
 
 ## Mapping Notion (base Contacts)
 Champs a remplir pour chaque prospect (faits mesures uniquement) :
@@ -327,8 +339,10 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
   c'est aussi son verrou d'idempotence)
 - Score (qualif global 0-100), Score sante OnPage, LCP mobile s (vide par defaut, voir regle),
   Avis Google, Note moyenne, Volume recherche, Confiance budget, Offre KUMO
-- Probleme principal -> resume des 2 AXES + l'ecart de marche, chiffre. C'est l'ACCROCHE de
-  l'email (l'angle) UNIQUEMENT : PAS le mail entier, et PAS une note de canal ("EMAIL",
+- Probleme principal -> resume des 2 AXES + l'ecart de marche, chiffre. Champ INTERNE pour
+  Thomas (il nourrit les pistes envoyees apres le "oui") : depuis la V3 (2026-10-15) ce resume
+  chiffre n'est PLUS recopie dans le mail. Il contient UNIQUEMENT ce resume : PAS le mail
+  entier, et PAS une note de canal ("EMAIL",
   "A APPELER", "email non confirme") qui, elle, va dans Notes. Ex (placeholders, jamais
   recopie tel quel) : "Pack local #[N] + organique present sur '[metier] [ville coeur]', mais
   absent de '[metier] [ville voisine]' ([volume]/mois) ; page [prestation] [existe mais ne
@@ -350,8 +364,8 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
 - "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
-  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (60-90 mots, francais
-  romand, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
+  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (80-120 mots, francais
+  romand, ton V3 chaleureux SANS chiffre ni concurrent, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
   kumo-seo.ch / 078 939 81 00).
   Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
   EN HAUT du bloc, AVANT la ligne "Objet :", une ligne d'alerte
@@ -359,7 +373,8 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
   PAS partie du mail copie-colle. "Draft pret" garde son sens (= mail redige), il ne certifie
   pas l'email.
 - "## Relance 1 (brouillon)" (ecrite par la ROUTINE RELANCE uniquement, voir section
-  "Relance 1") : la relance complete (1re ligne "Objet : ...", corps 4-8 lignes, signature),
+  "Relance 1") : la relance complete (1re ligne "Objet : ...", corps 4-8 lignes, meme ton V3
+  chaleureux sans chiffre ni concurrent, signature),
   ajoutee EN BAS du corps sans toucher au mail 1 ni au Diagnostic. SOURCE UNIQUE de la relance.
 - PAS de bouton mailto (regle 2026-06-10). On n'ajoute plus de lien "Ouvrir ce mail dans mon
   app" sous l'email. Le mail redige reste dans la fiche ; Thomas demande a Claude, sur demande,
@@ -402,10 +417,11 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
   dans le corps. Toute relance 2 = decision manuelle de Thomas, hors routine.
 - CONTENU : relance COURTE (4-8 lignes, plus courte que le mail 1), jamais une redite du pitch ni
   un reproche. La routine relit la fiche entiere (Diagnostic + mail 1 + Controle + Notes), re-mesure
-  le fait porteur (1 appel SERP) et choisit l'angle : fait NEUF si la mesure a bouge ; sinon
-  MICRO-VALEUR (une piste concrete du Diagnostic non utilisee dans le mail 1) ; si la mesure
-  CONTREDIT le mail 1 (le prospect a progresse), jamais reaffirmer le fait mort -> pivot honnete ou
-  skip signale. Salutation = EXACTEMENT celle du mail 1. Interdits en plus de la liste generale :
+  l'observation du mail 1 s'il y en a une (1 appel SERP) et choisit l'angle : fait NEUF si la
+  mesure a bouge (formule SANS chiffre ni concurrent, ton V3) ; sinon MICRO-VALEUR (une piste
+  concrete du Diagnostic non utilisee dans le mail 1, dite avec des mots, pas des nombres) ; si
+  la mesure CONTREDIT le mail 1 (le prospect a progresse), jamais reaffirmer le fait mort ->
+  pivot honnete ou skip signale. Salutation = EXACTEMENT celle du mail 1. Interdits en plus de la liste generale :
   "je me permets de revenir", "sans reponse de votre part", "avez-vous eu le temps de", "je relance".
 - LIVRABLES (depuis le 2026-08-03, decision Thomas : PLUS AUCUN brouillon automatique) : section
   "## Relance 1 (brouillon)" en bas de la fiche (source unique) + "Statut pipeline" ->
@@ -452,24 +468,35 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
   chauffagiste, serrurier), paysagiste (fev-mars). N'enchaine pas le meme couple deux nuits de suite.
 - Croise toujours avec les exclusions + le garde-fou vendabilite (voir Cible/ICP).
 
-## Redaction de l'email (regles strictes)
-But : un email humain. Le prospect doit sentir une personne qui se presente, qui connait
-son metier, qui apporte d'abord quelque chose d'utile, en donnant-donnant et sans pression.
-Jamais l'impression d'un robot, d'une IA, ou de quelqu'un qui veut juste gratter un contrat.
+## Redaction de l'email (regles strictes) -- V3 "premier contact chaleureux" (2026-10-15)
+But : un email HUMAIN et CHALEUREUX. Le prospect doit sentir une personne qui se presente, qui a
+pris le temps de regarder son travail, qui a envie de collaborer avec lui, et qui lui apporte
+d'abord quelque chose d'utile, en donnant-donnant et sans pression. Jamais l'impression d'un robot,
+d'une IA, d'un auditeur qui note, ou de quelqu'un qui veut juste gratter un contrat. On ecrit
+comme a un futur partenaire qu'on respecte, pas comme a une cible qu'on a evaluee.
 
-Structure : les blocs restent (presentation courte OU ancrage local, reconnaissance de leur
-travail, UN point mesure, donnant-donnant par mail) mais le SQUELETTE VARIE : le skill
-.claude/skills/writing/ definit 4 squelettes a alterner -- jamais le meme pour deux prospects
-du meme segment la meme nuit, jamais la meme ouverture d'un mail a l'autre (regle anti-gabarit
-2026-07-31 : les destinataires reperent un gabarit en 2 phrases, et les artisans d'un meme
-village se montrent leurs mails). Le donnant-donnant PAR MAIL reste le coeur : proposer de lui
-ENVOYER quelque chose d'utile, gratuit et sans suite obligee.
+DEFAUT = squelette H0 "PRESENTATION PURE" du skill writing (valide et envoye par Thomas le
+2026-10-15 apres deux versions jugees "trop marketing") : un independant du vallon se presente,
+dit qu'il veut travailler avec les entreprises de SA region, laisse une PORTE OUVERTE ("une
+question sur votre site ou sur Google, ecrivez-moi, sans facture ni suite obligee", un cafe si
+on se croise). AUCUNE observation sur leur visibilite, AUCUNE offre d'envoyer des idees, 0 question.
+La mesure ne sert qu'a choisir a qui ecrire. Les variantes ci-dessous ne servent qu'a eviter la
+repetition dans un meme village.
+Structure des variantes : les blocs sont humains (QUI je suis et d'ou j'ecris ; CE QUE J'AI REMARQUE depuis
+ma place, optionnel, jamais en expert de leur metier ; POURQUOI je leur ecris, a eux ("vous
+faites partie de ceux que j'ai retenus") ; une OBSERVATION qualitative
+OPTIONNELLE ; la MICRO-OFFRE par mail ; une CLOTURE chaleureuse) mais le SQUELETTE VARIE : le
+skill .claude/skills/writing/ definit 4 squelettes humains a alterner -- jamais le meme pour
+deux prospects du meme segment la meme nuit, jamais la meme ouverture d'un mail a l'autre
+(regle anti-gabarit 2026-07-31 : les destinataires reperent un gabarit en 2 phrases, et les
+artisans d'un meme village se montrent leurs mails). Le donnant-donnant PAR MAIL reste le coeur :
+proposer de lui ENVOYER quelque chose d'utile, gratuit et sans suite obligee.
 
 CTA = CONTINUER PAR MAIL, PAS un appel (regle 2026-06-20). Le 1er contact ne demande JAMAIS un
 rendez-vous telephonique ni un creneau de 15 min : ca sonne "vendeur qui veut te coincer au
 telephone" et ca fait fuir. La demande est une MICRO-OFFRE a friction quasi nulle, a laquelle on
 repond par un simple "oui" en repondant au mail : "je vous envoie les 2-3 points ?", "je vous mets
-ca par retour de mail ?", "ca vous interesse que je vous montre ce que j'ai vu ?". L'appel ou les
+ca par retour de mail ?", "ca vous dit que je vous montre ce que j'ai vu ?". L'appel ou les
 15 min peuvent venir PLUS TARD, naturellement, une fois l'echange ouvert et la confiance posee --
 jamais comme la 1re demande a froid.
 
@@ -480,29 +507,38 @@ N'annonce JAMAIS le tunnel Diagnostic -> Mandat -> Suivi : lu a froid, ca sonne 
 et ca fait fuir. La chaine (Diagnostic 1200 -> Mandat 90j -> Suivi recurrent) est TON architecture
 interne ; elle se revele dans l'echange, une fois la confiance posee.
 
-Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statistique generale
-presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font
-IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est important de noter",
-"veritable", "incontournable", "a l'ere du") ; charnieres de gabarit ("Le souci :",
-"C'est gagnable :", et la liste complete du skill writing). Forme : francais romand, direct,
-60 a 90 MOTS (max ~110 ; l'ancienne regle "8-14 lignes" est remplacee, data 2026-07-31 :
-la zone 50-125 mots fait x2,4 de reponses vs 200+).
+Interdits : inventer ; TOUT CHIFFRE et TOUTE COMPARAISON (voir section "Angle de l'email") ;
+nommer un concurrent ; "invisible / introuvable / absent / vous perdez" ; jargon SEO ; statistique
+generale presentee comme mesuree chez eux ; compliment VAGUE ("votre beau site", "vos beaux avis")
+ET admiration JOUEE d'expert metier ("pose au millimetre", "finitions soignees" : Thomas n'est pas
+du metier, ca sonne faux -- la reconnaissance se dit depuis SA place, ou pas du tout) ; liste de
+problemes ; formules qui font IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est
+important de noter", "veritable", "incontournable", "a l'ere du") ; charnieres de gabarit ("Le
+souci :", "C'est gagnable :", et la liste complete du skill writing). Forme : francais romand,
+direct, chaleureux, 80 a 120 MOTS (max ~140 ; la chaleur demande un peu plus de place que la
+V2 a 60-90, mais on reste sous la zone 125 mots validee par les donnees 2026-07-31).
 
-REGLES ANTI-PUB (2026-07-31, ancrees data -- detail, squelettes et sources dans
+REGLES ANTI-PUB (2026-07-31, ancrees data, adaptees V3 -- detail, squelettes et sources dans
 .claude/skills/writing/) :
 - ENVELOPPE : mise en page minimale (paragraphes nus, aucun style inline) + signature sobre
   3 lignes SANS logo, titre ni slogan. Un HTML "designe" part dans l'onglet Promotions de
   Gmail (-15-25% de reponses). Le connecteur infomaniak-mail applique ce format depuis le 31.07.
-- UN SEUL chiffre par mail : le fait porteur. Les autres mesures restent dans la fiche et
-  partent dans les pistes envoyees apres le "oui".
-- TON HEDGE : formuler le constat comme une observation faillible ("on dirait que", "je me
-  trompe peut-etre"), pas un diagnostic asserte -- les tons incertains obtiennent plus de
-  reponses (data Lavender). 0 ou 1 question par mail, jamais plus.
-- OBJET : minuscules, 2-6 mots, porte LE fait ou une question concrete. INTERDIT le format
-  "[metier] [ville]" nu (signature du spam SEO).
-- OBSERVATION > FLATTERIE : le compliment-avis en ouverture au plus 1 mail sur 3 ; prefere un
-  detail precis de LEUR site, dans leurs mots. + 1 trace locale concrete par mail (distance,
-  lieu, saison) : un element qu'un robot n'ecrirait pas.
+- ZERO chiffre dans le mail (V3 remplace le "un seul chiffre" de la V2). Toutes les mesures
+  restent dans la fiche et partent dans les pistes envoyees apres le "oui".
+- TON HEDGE : si une observation qualitative est faite, elle est formulee comme une impression
+  faillible ("on dirait que", "je me trompe peut-etre", "si je lis bien"), jamais un diagnostic
+  asserte -- les tons incertains obtiennent plus de reponses (data Lavender). 0 ou 1 question
+  par mail, jamais plus.
+- OBJET : minuscules, 2-7 mots, registre "premier contact" humain : un lieu, un lien, une envie
+  ("un petit mot depuis couvet", "votre atelier a boudry", "envie de travailler avec vous").
+  INTERDIT : le format "[metier] [ville]" nu (signature du spam SEO) ET l'objet-diagnostic
+  ("votre site ne sort pas sur...", "on ne vous trouve pas").
+- RECONNAISSANCE DEPUIS SA PLACE > FLATTERIE : si Thomas dit quelque chose de leur travail, c'est
+  ce qu'un non-specialiste qui regarde des sites d'artisans peut dire honnetement (site clair,
+  vraies photos de chantier, on comprend ou ils interviennent, ils repondent a leurs avis), ou le
+  fait qu'il les a retenus. Jamais un jugement technique. Le comptage d'avis est un chiffre :
+  interdit. + 1 trace locale concrete par mail (distance, lieu, saison) : un element qu'un robot
+  n'ecrirait pas.
 
 SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
 sobre depuis le 2026-07-31 : AUCUN logo, titre, baseline ou style) :
@@ -519,7 +555,7 @@ reste droite (') et aucun tiret cadratin. Cette regle prime sur toute consigne A
 compris le skill d'ecriture). VERIFICATION DETERMINISTE (obligatoire, la regle seule ne
 tient pas a l'execution -- L-008 puis recidive constatee le 2026-07-21) : APRES avoir redige
 le corps du mail et AVANT de l'ecrire dans Notion, RELIS-le et COMPTE les caracteres accentues
-(é è ê à ç ô û...). Un mail francais de 60-90 mots en contient forcement plusieurs ; s'il en
+(é è ê à ç ô û...). Un mail francais de 80-120 mots en contient forcement plusieurs ; s'il en
 contient zero ou presque, le mail est en ASCII -> REECRIS-le accentue et re-verifie. Ne LIVRE
 JAMAIS un bloc "## Email (brouillon)" qui echoue a ce test. Applique le skill d'ecriture
 anti-IA (.claude/skills/writing/).
