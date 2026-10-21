@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "accents"
+  ],
+  "discoveredDate": "2026-10-19",
+  "id": "ISS-007",
+  "impact": "PATTERN : le bloc \"## Email (brouillon)\" est redige entierement en ASCII (zero caractere accente) alors que CLAUDE.md impose un francais avec tous les accents + une verification deterministe (compter les accents apres redaction, avant d'ecrire dans Notion).\n\nACCUMULATION CHIFFREE : nuit du 2026-10-16/17, segment \"transition energetique x Lausanne/Vaud\", 5 fiches \"Draft pret\" sur 5 touchees. Place IDs : 0x20c305c90b8e910f:0xf40c7e5312ecdfb8 ; 0x478c3199045efddb:0xe7c934af9d08a847 ; 0x478c2e4fded41f6b:0xc22d880c8b2ea1f3 ; 0x478c31f41b30f05f:0x4578711a707dd01c ; 0x478c314280c77e2f:0x1727b69588b19c47. Recidive connue (L-008, deja constatee le 2026-07-21). Au controle, chaque mail passe au mieux en orange (accents a corriger au copier-coller), ce qui annule le benefice \"Thomas ne re-touche pas les verts\".\n\nCHANGEMENT SUGGERE : rendre la verif accent reellement BLOQUANTE a l'etape 9 de ROUTINE_PROMPT -> ne pas cocher \"Draft pret\" si le corps du mail (60-90 mots FR) contient 0 accent ; re-ecrire et re-verifier sinon.\n\nPREUVE : les 5 corps de mail relus ligne a ligne, 0 caractere accentue chacun (ex. \"Ca coule de source\", \"peut-etre\", \"Geneve\", \"l'Etat\", \"a Couvet\"). Zero PII (references par Place ID + segment).",
+  "location": [
+    "CLAUDE.md section ACCENTS OBLIGATOIRES",
+    "ROUTINE_PROMPT.md etape 9 verification deterministe"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: mail 1 entierement en ASCII (accents manquants) sur toute une run"
+}

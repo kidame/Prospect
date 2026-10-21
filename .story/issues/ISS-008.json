@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "fait-porteur"
+  ],
+  "discoveredDate": "2026-10-19",
+  "id": "ISS-008",
+  "impact": "PATTERN : l'accroche du mail s'appuie sur un fait porteur non re-verifie sur la SERP/le sitemap reels, donc falsifiable par le prospect en quelques secondes.\n\nACCUMULATION CHIFFREE : nuit 2026-10-16/17, segment \"transition energetique x Lausanne/Vaud\", 2 fiches sur 5 (controle du 2026-10-19).\n(1) Place ID 0x478c2e4fded41f6b:0xc22d880c8b2ea1f3 : accroche + objet \"Jean Monod sort, pas vous\". Re-mesure 19.10 (mobile, Lausanne) sur 3 requetes (pompe a chaleur lausanne / installateur pompe a chaleur lausanne / chauffagiste lausanne) -> le concurrent nomme est ABSENT des 3 (pack et organique), ET le site du prospect ressort lui-meme #3 organique page 1 sur \"pompe a chaleur lausanne\". Les DEUX jambes de l'accroche sont fausses.\n(2) Place ID 0x20c305c90b8e910f:0xf40c7e5312ecdfb8 : accroche + objet \"votre site tient sur une seule page\". sitemap.xml montre /sanitaire, /chauffage, /depannage, /contact : conclusion \"une page\" tiree d'un OnPage instant sur l'URL d'accueil seule, sans lire le sitemap (pourtant impose par \"PAGES REELLES\").\n\nCHANGEMENT SUGGERE : (a) avant tout angle \"concurrent nomme\", re-verifier que ce concurrent ranke sur LA requete citee ET que le prospect n'y figure pas ; (b) rendre la lecture sitemap effectivement bloquante avant tout claim \"une seule page / aucune page\" -> ecrire \"pages X existent mais ne rankent pas\".\n\nPREUVE : re-mesures SERP DataForSEO (serp_organic_live_advanced, mobile, Lausanne, 19.10) + sitemaps lus ligne a ligne. Zero PII (references par Place ID + segment).",
+  "location": [
+    "CLAUDE.md Analyse 2 axes",
+    "CLAUDE.md PAGES REELLES (sitemap)",
+    "CLAUDE.md Angles email (concurrent nomme)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: fait porteur du mail non verifie (concurrent nomme fantome / \"une seule page\" contredite par le sitemap)"
+}
