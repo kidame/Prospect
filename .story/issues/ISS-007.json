@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "rotation"
+  ],
+  "discoveredDate": "2026-10-22",
+  "id": "ISS-007",
+  "impact": "PATTERN (accumulation sur 2 runs consecutifs) : le GATE de rotation ET les \"prochains segments suggeres\" des handovers s'appuient tous deux sur le crosscheck Notion filtre a createdTime >= -120j. Un couple (metier x zone) traite il y a 120-180j est donc INVISIBLE au crosscheck et ressort comme \"frais\", alors que la base en est pleine.\n\nPreuve (par segment, zero PII) :\n- Run 2026-10-22 : cuisiniste/agencement x Geneve, deja fait en juin (perime ~120j) -> ~12/15 fiches deja en base (handover 10-22).\n- Run 2026-10-23 (ce run) : electricien x Geneve, suggere comme \"frais\" par le handover 10-22, mais deja traite le 2026-06-22 (123j). Sur 16 fiches Maps : 10 deja en base (6 deja contactees -> exclues : Relance preparee x4, Lead froid x2 ; 4 rejetees juin >120j -> re-eligibles). Pool reellement neuf = 6 -> 4 retenus livres. Cout Apify/DataForSEO depense sur un pool a 60% deja-vu.\n\nGeneve batiment/agencement est globalement epuise (cuisiniste, menuisier, peintre, sanitaire, et maintenant electricien tous faits < 6 mois).\n\nCHANGEMENT suggere (session dev) : (1) quand on verrouille un pilier dans une zone deja beaucoup ratissee, elargir le crosscheck anti-re-pick a ~180j (pas seulement 120j) AVANT de lancer le Maps, et preferer un couple reellement jamais fait ou une autre zone ; (2) que le handover calcule son \"prochain segment suggere\" sur la meme fenetre 180j pour ne plus suggerer de faux-frais ; (3) garder la peremption dedup a 120j (regle intentionnelle) — c'est la fenetre de SUGGESTION/GATE de rotation qu'il faut distinguer de la fenetre de peremption dedup. Lie a ISS-001 (meme famille rotation/dedup) mais distinct : ici le probleme est la fenetre de suggestion, pas le shunt du crosscheck.",
+  "location": [
+    "CLAUDE.md regle de rotation / dedup peremption",
+    "ROUTINE_PROMPT.md etapes 1-2 (crosscheck Notion <120j)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: fenetre anti-re-pick 120j laisse re-piocher des segments faits a ~120-125j (pool neuf reduit)"
+}
