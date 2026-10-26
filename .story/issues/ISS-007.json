@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "collecte"
+  ],
+  "discoveredDate": "2026-10-26",
+  "id": "ISS-007",
+  "impact": "PATTERN (1re occurrence tracee, 2026-10-27, segment sanitaire x Fribourg) : l'actor enckay/google-maps-places-extractor appele avec location=\"Fribourg\" (nom de canton/ville nu) a geocode le centre de recherche sur la zone Vaud/Lavaux-Riviera (Forel-Lavaux, Vevey, Montreux, Lausanne, Pully) -> 43 fiches, ZERO dans le canton de Fribourg. Relance avec location=\"1700 Fribourg, Switzerland\" (NPA + ville + pays) -> 20 fiches correctement dans l'agglomeration fribourgeoise (Givisiez, Granges-Paccot, Marly, Matran, Fribourg-ville). Cout : 1 run Maps gaspille (~0.02 CU) + risque de livrer des prospects hors zone si non detecte.\n\nCHANGEMENT suggere : (1) toujours passer la location Maps au format \"NPA Ville, Switzerland\" (ex. \"1700 Fribourg, Switzerland\", \"1003 Lausanne, Switzerland\") plutot que le nom nu ; (2) ajouter un garde-fou lecture, sibling de celui d'ISS-002 : si la 1re page de resultats Maps est majoritairement hors du canton/NPA cible, l'appel est faux -> relancer avec le NPA. Documenter dans CLAUDE.md (section Outils Apify Maps) et ROUTINE_PROMPT.md etape 3.\n\nPREUVE (zero PII) : run 2026-10-27, 2 appels Apify compares (meme keywords sanitaire, meme minReviews=15) : appel#1 location=\"Fribourg\" -> villes retournees = 1072 Forel, 1800 Vevey, 1816 Montreux, 1005 Lausanne (VD) ; appel#2 location=\"1700 Fribourg, Switzerland\" -> villes = 1762 Givisiez, 1763 Granges-Paccot, 1700 Fribourg, 1723 Marly (FR). Meme actor, seule la chaine location change.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 3",
+    "CLAUDE.md Outils Apify Maps"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "low",
+  "status": "open",
+  "title": "Amelioration: pinner la location Maps au NPA pour eviter le geocodage cross-canton"
+}
