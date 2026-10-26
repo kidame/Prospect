@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "accents",
+    "redaction-email"
+  ],
+  "discoveredDate": "2026-10-26",
+  "id": "ISS-007",
+  "impact": "PATTERN : la run de 1h ecrit le corps \"## Email (brouillon)\" en ASCII pur, zero caractere accente, alors que CLAUDE.md impose un francais accente ET un check deterministe (relire + compter les accents) AVANT ecriture dans Notion. Le mail n'est donc pas copier-collable tel quel : c'est l'objet meme du \"Draft pret\".\n\nACCUMULATION (nuit 2026-10-26, controle 03:00) : 3 fiches sur 3 du segment \"menuisier/ebeniste x Lausanne\" echouent C5-accents :\n- Place ID 0x478c31967877f07b:0xa940594201416483 (trouve/deuxieme/ou/etes/premiere/ca/note/repere)\n- Place ID 0x478c379cfb9d73af:0x2571917b6fce47af (fenetres/Chateau/alle/cote/apparait/deja/ebeniste/connaitre/peut-etre/note/concretes)\n- Place ID 0x478c2daa4140dd1d:0xd56511769b21c334 (a/guere/votre/mots-la/repere/Ca)\nHISTORIQUE : defaut deja documente dans CLAUDE.md (lecon L-008, puis recidive constatee le 2026-07-21). Donc >=3 occurrences historiques + 3/3 cette nuit : recurrence averee, pas un coup isole.\n\nPREUVE : lecture ligne a ligne des 3 corps de mail = 0 caractere accente sur des mots qui en exigent plusieurs (un mail FR de 60-90 mots en contient toujours). Le check deterministe de CLAUDE.md n'est pas execute a l'ecriture.\n\nCHANGEMENT SUGGERE (session dev) : rendre le check accents effectif cote run-1h -> soit une etape de post-traitement qui refuse d'ecrire un bloc \"## Email\" contenant 0 accent, soit un rappel plus contraignant dans ROUTINE_PROMPT a l'etape livraison. Au controle, ces fiches restent 🟠 (correction au copier-coller) tant que le fait porteur et l'angle tiennent.\n\nZERO PII : refs par Place ID + segment uniquement.",
+  "location": [
+    "CLAUDE.md (ACCENTS OBLIGATOIRES + VERIFICATION DETERMINISTE)",
+    "ROUTINE_PROMPT.md etape redaction/livraison"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: run-1h livre des mails en ASCII sans accents (echec du check deterministe)"
+}
