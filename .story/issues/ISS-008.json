@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-accents"
+  ],
+  "discoveredDate": "2026-10-27",
+  "id": "ISS-008",
+  "impact": "PATTERN : le bloc \"## Email (brouillon)\" ecrit par la run 1h sort entierement en ASCII, sans aucun caractere accente, alors que CLAUDE.md impose un francais correctement accentue ET une \"verification deterministe\" (relire + compter les accents avant d'ecrire dans Notion). La regle existe deja mais ne tient pas a l'execution.\n\nACCUMULATION CHIFFREE : 3/3 fiches controlees la nuit du 2026-10-27, segment \"sanitaire x Fribourg\" (Place ID 0x478e6f2f3d47b423:0x951b1667f98f0b46, 0x604c3718eecccc3b:0x183354b54c30784, 0x478e69146290e0b1:0x68c5323adf03ce40). Zero accent sur les 3 corps + objets. C'est une RECIDIVE : CLAUDE.md documente deja le meme defaut sous L-008 et un constat 2026-07-21 (\"recidive constatee\"). Defaut structurel qui revient par vagues malgre la regle.\n\nEXEMPLES (sans PII) : \"a Couvet\"->\"à\", \"premiere\"->\"première\", \"ecrit\"->\"écrit\", \"remarque\"->\"remarqué\", \"soigne\"->\"soigné\", \"etonne\"->\"étonné\", \"resultats\"->\"résultats\", \"cote\"->\"côté\", \"apparait\"->\"apparaît\", \"ca pese\"->\"ça pèse\", \"concretes\"->\"concrètes\".\n\nCHANGEMENT SUGGERE (a trancher en session dev) : la \"verification deterministe\" en prose ne suffit pas. Piste = gate explicite non optionnel cote run 1h (\"si le corps d'un mail FR de 60-90 mots contient 0 accent, NE PAS ecrire la fiche, reecrire\") ou rappel renforce en tete de l'etape d'ecriture. A croiser avec L-008 (candidat a reinforce).\n\nPREUVE : controle du 2026-10-27, verdict 3x 🟠 \"A voir\" pose sur les 3 fiches, section \"## Controle\" C5 detaillant les accents manquants ligne a ligne. Faits mesures, zero invention, zero PII.",
+  "location": [
+    "CLAUDE.md section ACCENTS OBLIGATOIRES (verification deterministe)",
+    "ROUTINE_PROMPT.md etape 9 ecriture du bloc Email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails de prospection entierement en ASCII (accents absents)"
+}
