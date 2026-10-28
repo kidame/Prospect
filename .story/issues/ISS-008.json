@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "accents"
+  ],
+  "discoveredDate": "2026-10-28",
+  "id": "ISS-008",
+  "impact": "PATTERN : la run 1h livre des blocs \"## Email (brouillon)\" entierement en ASCII (zero caractere accente) alors qu'un mail francais de 60-90 mots en contient forcement plusieurs. CLAUDE.md impose les accents comme regle dure qui PRIME sur tout, ET une VERIFICATION DETERMINISTE anti-ASCII a executer APRES redaction et AVANT ecriture Notion. Cette verif n'est pas appliquee.\n\nACCUMULATION CHIFFREE : nuit du 2026-10-28, segment carreleur x Lausanne -> 5 fiches EMAIL sur 5 (100%) livrees sans accents. Seul motif de flag sur 4 des 5 (le 5e cumule une nuance C4). Place IDs : 0x478c2e215cc0f36f:0x2d2c88cb0ef9163c ; 0x478c2e236344c823:0x1a94e5bab874621e ; 0x478c3148fdb8e5b7:0xaf4f415b29ceee7e ; 0x478c33df9e602d2f:0x7d1d9ed9ac8b82a ; 0x478c34f3b77fc885:0xf1480b41d22b5fbd. Recidive d'un defaut deja documente (L-008, puis recidive 2026-07-21 selon CLAUDE.md).\n\nCHANGEMENT SUGGERE : renforcer l'execution de la verif deterministe cote run 1h (compter les caracteres accentues du corps avant d'ecrire Notion ; si ~0 -> reecrire accentue et re-verifier, bloquant). Envisager un garde-fou de livraison explicite dans ROUTINE_PROMPT.md (ne pas cocher \"Draft pret\" tant que le test accents echoue).\n\nPREUVE : les 5 corps contiennent \"a Couvet\", \"ca se passe\", \"deuxieme\", \"derriere\", \"pere en fils\", \"merite\", \"tres court\", \"releve\", \"premiere\", \"annuaires\", \"reperes\", \"environs\" -> aucun accent. Mails par ailleurs corrects (salutation neutre, CTA par mail, signature 078 939 81 00 conforme, fait porteur verifie au SERP). Chaque mail reste envoyable apres une passe d'accentuation, mais le defaut est systematique ce run et contourne un garde-fou existant. Zero PII.",
+  "location": [
+    "CLAUDE.md section Redaction de l'email (ACCENTS OBLIGATOIRES / VERIFICATION DETERMINISTE)",
+    "ROUTINE_PROMPT.md etape redaction/livrables"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: mails run 1h ecrits sans accents (ASCII), verif deterministe non appliquee"
+}
