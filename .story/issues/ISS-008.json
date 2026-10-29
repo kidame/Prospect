@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "accents"
+  ],
+  "discoveredDate": "2026-10-29",
+  "id": "ISS-008",
+  "impact": "PATTERN : les 5/5 fiches EMAIL produites par le run 1h du 2026-10-29 (segment transition energetique (solaire/PAC) x Geneve) ont leur bloc \"## Email (brouillon)\" redige entierement en ASCII, zero caractere accentue, alors que CLAUDE.md impose un francais accentue + une verification deterministe (compter les accents avant d'ecrire dans Notion). Place IDs concernes : 0x478c6f68957167e3:0x78cff6330eeb429d ; 0x478c65b429ce67a5:0x2b44dcbe28814ba3 ; 0x478c7b3ef50b3ead:0x2e5abfca99213471 ; 0x478c7b966c822879:0x4d977ce27132063a ; 0x478c65cfc88a9fcd:0xcb43250f7f615448. Le \"## Diagnostic\" de ces memes fiches est aussi en ASCII.\n\nREGRESSION (pas chronique) : une fiche controlee verte le 2026-10-23 (segment electricien x Geneve) avait un mail PARFAITEMENT accentue (\"au centre de Geneve\", \"je me trompe peut-etre, mais ca laisse passer pas mal de demandes\"). Le run 1h SAIT produire des accents ; cette nuit il ne l'a pas fait sur 100% du lot.\n\nVERIFICATION anti-faux-positif : la lecture Notion ne strippe PAS les accents (preuve : description de la base = verite/cle, options de statut envoye/preparee, et la fiche du 10-23 reviennent accentuees via le meme fetch). L'ASCII est donc bien dans le contenu stocke, pas un artefact de lecture.\n\nCHANGEMENT SUGGERE : la verification deterministe des accents (CLAUDE.md) n'a pas tenu a l'execution ce run. Renforcer cote run 1h : soit une normalisation/relecture accentuee avant l'ecriture Notion, soit rendre le compte d'accents reellement BLOQUANT (ne pas cocher \"Draft pret\" si le corps du mail ne contient aucun caractere accentue). Recidive connue (cf. L-008, 2026-07-21).\n\nPREUVE : 5 fiches, 1 nuit, 100% du lot ; refs Place ID ci-dessus ; comparaison directe avec fiche accentuee du 10-23. Zero PII (ni nom, ni email, ni telephone).",
+  "location": [
+    "CLAUDE.md section ACCENTS OBLIGATOIRES dans l'email (verification deterministe)",
+    "ROUTINE_PROMPT.md etape redaction"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: email redige en ASCII (zero accent) malgre la regle accents obligatoires"
+}
