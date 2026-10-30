@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "fait-porteur",
+    "pack-local"
+  ],
+  "discoveredDate": "2026-10-30",
+  "id": "ISS-008",
+  "impact": "PATTERN : la run 1h ecrit une accroche d'invisibilite ABSOLUE (\"on ne vous trouve pas, sauf par votre nom\" / Diagnostic \"absent du pack\") en s'appuyant sur une mesure de pack generique reutilisee, SANS verifier le rang du prospect LUI-MEME dans le pack local sur sa requete coeur exacte. Resultat : fait porteur faux, falsifiable par le prospect en 5 secondes.\n\nACCUMULATION (ce run, controle 2026-10-30, segment peintre x Geneve, 5 fiches draft) : 1 fiche touchee -> Place ID 0x478c65db55c17195:0x4dba6ed8b40fbc40. Le Diagnostic la declare \"absent du pack (Swisspaints x2 + FV Peinture)\" et le mail \"je ne tombe nulle part sur vous, sauf [marque]\". Re-mesure controle serp_organic_live_advanced \"peintre geneve\", mobile, location \"Geneva,Switzerland\" : le prospect est #3 du PACK LOCAL (meme entite, telephone identique a la fiche confirme). L'invisibilite ORGANIQUE, elle, est bien reelle (sous-domaine Odoo, 0 mot-cle). Donc seule l'accroche pack/globale est fausse ; l'angle organique aurait ete bon.\n\nCAUSE PROBABLE : le pack a ete mesure une fois (requete/variante donnant Swisspaints + FV) puis l'etiquette \"absent du pack\" appliquee a toutes les fiches du segment, sans relancer le pack sur la requete coeur de CHAQUE prospect (pack local = tres volatile et personnalise par proximite ; un artisan de Geneve-ville sort d'autant plus dans le pack).\n\nCHANGEMENT SUGGERE : avant d'ecrire une absence de pack ou une invisibilite globale (\"on ne vous trouve pas\"), exiger une verif que le prospect n'apparait PAS dans les 3 fiches du pack sur sa requete coeur exacte (device mobile, location du prospect). Sinon -> formulation RELATIVE (\"[concurrent] sort devant vous\") ou recentrage sur l'axe reellement deficitaire (ici l'organique / le sous-domaine Odoo). Renforce la regle CLAUDE.md \"une absence absolue ne s'ecrit qu'apres lecture ligne a ligne du pack\".\n\nPREUVE : re-mesure SERP du 2026-10-30 (3 requetes coeur du segment). Famille voisine de ISS-005 (fait porteur faux valide au controle), mais mecanisme distinct (pack non reverifie par prospect, pas compteur avis/photos). ZERO PII (reference par Place ID + segment). A surveiller en recidive sur les prochains segments a SERP verrouillee par un gros acteur de pack.",
+  "location": [
+    "CLAUDE.md angles email / lecture du pack",
+    "ROUTINE_PROMPT.md etape 4 (SERP 2 axes)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: invisibilite absolue affirmee sans verifier le pack local du prospect sur sa requete coeur"
+}
