@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-11-02",
+  "id": "ISS-009",
+  "impact": "PATTERN : les mails \"## Email (brouillon)\" de la run 1h sont rediges en ASCII sans accents, alors que CLAUDE.md impose un francais accente + une verification deterministe (relecture + comptage de caracteres accentues) AVANT ecriture dans Notion. C'est la regression du probleme L-008 (deja constate, recidive notee le 2026-07-21 dans CLAUDE.md).\n\nACCUMULATION (controle 2026-11-02, segment sanitaire x Lausanne) : 5 fiches draft sur 5 touchees -> TOUS les mails en ASCII. Place IDs : 0x478c2e3278cef911:0x4484592128fca29d, 0x69ac6b01468beb19:0xd8c7bc922678d84c, 0x478c37250e7fc621:0xa3126c98867ef07b, 0x478c33132860ceed:0x81e8da875bce4a3, 0x478c314d43cd338f:0x8e530d1d446949bb. Exemples de mots fautifs : \"tape\" (tapé), \"telephone\" (téléphone), \"derriere\" (derrière), \"quatrieme\" (quatrième), \"reperes\" (repérés), \"tombe\" (tombé), \"saute\" (sauté), \"peut-etre\" (peut-être), \"concretes\" (concrètes), \"etonne\" (étonné), \"louee\" (louée), \"depannage\" (dépannage).\n\nCONTRASTE (preuve que ce n'est pas un artefact du controle) : le run precedent controle le 2026-10-30 (peintre x Geneve) avait des mails CORRECTEMENT accentues (ex. Place ID 0x478c6326451f35a5:0xe5a553c7b88440 : \"Metier\", \"renovation\", \"platrerie\", \"tres\", \"ca se passe\", \"note si ca vous dit\" -> tous accentues). Meme outil de lecture Notion, resultat accentue -> donc la run sanitaire a reellement ecrit en ASCII. C'est intermittent par run, pas systematique.\n\nIMPACT : chaque mail du run doit etre reaccentue a la main par Thomas au copier-coller (verdicts 🟠 sur les 4 fiches non-rouges de ce run uniquement pour ca). Mail francais non accente = signal d'amateurisme a l'envoi.\n\nCHANGEMENT SUGGERE : la verification deterministe de CLAUDE.md ne tient pas a l'execution de maniere fiable (intermittente). Piste pour session dev : rendre l'etape de comptage d'accents BLOQUANTE/explicite dans ROUTINE_PROMPT.md (etape 9 livrables), ou ajouter un garde-fou de post-traitement. ZERO PII (reference par Place ID + segment).",
+  "location": [
+    "CLAUDE.md section 'ACCENTS OBLIGATOIRES dans l'email' (verification deterministe)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails de la run 1h ecrits en ASCII sans accents (regression L-008)"
+}
