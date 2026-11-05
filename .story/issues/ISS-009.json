@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "accents",
+    "redaction-email"
+  ],
+  "discoveredDate": "2026-11-03",
+  "id": "ISS-009",
+  "impact": "PATTERN : run-controle du 2026-11-03, segment peintre x Lausanne, les 5 fiches EMAIL (5/5) ont un bloc \"## Email (brouillon)\" redige entierement en ASCII, ZERO caractere accente dans le corps, alors que CLAUDE.md impose un francais accente et un VERROU ACCENTS deterministe AVANT ecriture Notion (relire + compter les accents, reecrire si ~zero). Exemples factuels (par fiche, zero PII) : \"regarde/facade/decoration/derriere/a cote\", \"metier/ca/facades/honnetement/deja/anciennete\", \"cote/resine/beton/m'etonne/derriere/remarque\", \"a 5 etoiles/telephone/maniere/malgre/reputation/reperes\", \"facades/resultats/monte/referencement/ca\". Le \"Probleme principal\" et le \"## Diagnostic\" sont aussi en ASCII -> c'est tout le run qui a ete redige sans accents, pas une fiche isolee.\n\nACCUMULATION : regression TOTALE ce run (5/5) vs run-controle 2026-10-30 (peintre x Geneve) ou le handover notait \"signatures + accents conformes\" (0/5). Famille deja documentee : lecon L-008 + recidive constatee le 2026-07-21 (citee dans CLAUDE.md). Le verrou est donc contourne par intermittence et a saute en bloc cette nuit.\n\nCHANGEMENT SUGGERE : le verrou \"relis et compte les accents\" en prose ne tient pas a l'execution (c'est une auto-verification que le modele saute sous charge). Rendre la verification VRAIMENT bloquante/mecanique : p.ex. imposer en fin d'etape 6 un test explicite ecrit (compter et lister >=5 caracteres accentues du corps avant d'autoriser la coche \"Draft pret\"), ou deplacer la contrainte en post-traitement deterministe hors-modele. A trancher en session dev.\n\nPREUVE : re-lecture ligne a ligne des 5 corps \"## Email (brouillon)\" (fetch Notion, 2026-11-03), chacun 60-90 mots francais sans un seul accent -> echec mecanique du test \"un mail francais de 60-90 mots contient forcement plusieurs accents\". Verdicts du run : 2 fiches 🔴 (autre cause : concurrent nomme non confirme), 3 fiches 🟠 (accents seuls) ; les 5 portent la correction accents.",
+  "location": [
+    "ROUTINE_PROMPT.md etape 6 (VERROU ACCENTS deterministe)",
+    "CLAUDE.md section Redaction de l'email (ACCENTS OBLIGATOIRES / VERIFICATION DETERMINISTE)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: email livre en ASCII (accents manquants) malgre le verrou deterministe"
+}
