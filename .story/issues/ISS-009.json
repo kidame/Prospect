@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-11-06",
+  "id": "ISS-009",
+  "impact": "PATTERN : la run 1h livre des blocs \"## Email (brouillon)\" entierement en ASCII, sans aucun accent, alors que CLAUDE.md impose un francais correct accentue ET une VERIFICATION DETERMINISTE (relire + compter les caracteres accentues avant d'ecrire dans Notion). Recidive documentee de L-008 (deja constatee le 2026-07-21).\n\nACCUMULATION (controle 2026-11-06, segment carreleur x Geneve, 4 fiches draft EMAIL) : 4 fiches sur 4 touchees -> Place ID 0x478c7b2c306a8243:0x664f30f2f42aa9f7 ; 0x478c6fd930dc8ee1:0xc2a8afc7dfb67017 ; 0x478c64be5e423585:0x5baaeba19be38011 ; 0x478c7ba30a15115d:0x951fa074a14907b0. Zero caractere accentue dans les 4 corps (ex. \"a Geneve\", \"tombe\", \"trouve\", \"note\", \"deuxieme\", \"derriere\", \"referencement\", \"metier\", \"malgre\"). Contraste net avec le run precedent (controle 2026-11-05, menuisier x Neuchatel) ou le handover notait \"accents complets sur les 4 mails\" -> regression franche cette nuit, pas un bruit de rendu (meme outil de lecture notion-fetch).\n\nCHANGEMENT SUGGERE : rendre la VERIFICATION DETERMINISTE des accents reellement bloquante en fin de redaction (si le corps 60-90 mots contient moins de N caracteres accentues, reecrire avant d'ecrire la fiche) ; garde-fou possible cote run 1h : ne pas cocher \"Draft pret\" tant que le test accents echoue.\n\nPREUVE : lecture des 4 blocs \"## Email (brouillon)\" via notion-fetch le 2026-11-06. ZERO PII (reference par Place ID + segment). A promouvoir en renfort de L-008 si la regression se confirme sur un 2e segment.",
+  "location": [
+    "CLAUDE.md section ACCENTS OBLIGATOIRES dans l'email",
+    "ROUTINE_PROMPT.md etape 9 verification deterministe accents"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails de la run 1h ecrits en ASCII sans accents (recidive L-008)"
+}
