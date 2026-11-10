@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "accroche-email"
+  ],
+  "discoveredDate": "2026-11-10",
+  "id": "ISS-009",
+  "impact": "PATTERN : accroche de mail (objet + corps) appuyee sur un NUMERO DE PAGE organique precis au-dela de la page 1 (\"vous etes en 3e page\", \"votre page sort en 4e-5e page\"), non reproductible au controle independant.\n\nACCUMULATION (run 2026-11-10, segment carreleur x Fribourg, 4 fiches avec draft controlees) : 2 fiches sur 4 portaient ce type de claim.\n- (a) fiche annoncant \"position 30 / 3e page\" sur la requete coeur -> re-mesure serp_organic_live_advanced mobile, canton, profondeur 70 : domaine ABSENT du top 70 -> verdict 🔴 (fait porteur non reproduit, falsifiable).\n- (b) fiche annoncant \"4e-5e page\" sur une requete generique nationale -> domaine absent du top 70 (enterre plus loin) -> verdict 🟠.\n\nLe rang organique au-dela de page 1 (surtout page 3+) est tres volatile et personnalise : un numero de page precis devient faux en quelques jours, et le prospect le falsifie en 5 s (il ouvre la page annoncee, ne s'y voit pas). Risque image direct.\n\nCHANGEMENT suggere : quand le domaine n'est pas en page 1, la run de 1h formule l'accroche en RELATIF (\"vous n'etes pas sur la 1re page, [concurrent] oui\" / \"enterre derriere [X]\") et N'ANNONCE PAS de numero de page organique precis, ni dans l'objet ni dans le corps. Reserver un chiffre exact aux faits STABLES (pack local present/absent, volume de recherche). Rend explicite, sur les numeros de page, la regle CLAUDE.md \"PREFERE le constat RELATIF\".\n\nPREUVE : re-mesures mobile 2026-11-10. Pack local \"carreleur fribourg\" = 3 fiches nommees, STABLE et reproduit ; les positions organiques precises >page 1 annoncees par la 1h n'ont pas ete reproduites (domaines absents du top 70). Zero PII (refs par segment + faits de rang).",
+  "location": [
+    "CLAUDE.md Angles d'email",
+    "ROUTINE_PROMPT.md etape 6"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: accroche appuyee sur un numero de page organique precis (>page 1) non reproductible"
+}
