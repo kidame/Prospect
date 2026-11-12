@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-1h",
+    "infra-apify"
+  ],
+  "discoveredDate": "2026-11-12",
+  "id": "ISS-010",
+  "impact": "PATTERN + accumulation : 2 nuits de suite le budget Apify du cycle est quasi epuise -> l'actor vdrmota/contact-info-scraper n'est pas utilisable pour resoudre les emails. 2026-11-12 (carreleur x Neuchatel) : contact-info-scraper REFUSE, emails resolus via WebFetch. 2026-11-13 (cuisiniste/agencement x Yverdon) : budget bas, contact-info-scraper non tente, 3/3 emails retenus resolus via lecture directe des sites (WebFetch /contact + mentions legales). Dans les deux cas la resolution a fonctionne via WebFetch (gratuit), donc impact FAIBLE aujourd'hui, mais fragile : un prospect dont l'email n'est que derriere un formulaire JS ou une image passerait en 'a appeler' faute de scraper.\n\nCHANGEMENT suggere : (1) recharger le credit Apify du cycle (action Thomas, hors routine) ; (2) acter dans CLAUDE.md que WebFetch (lecture directe site /contact + mentions legales) est le repli OFFICIEL de resolution email quand le budget Apify est bas, contact-info-scraper devenant optionnel -> evite de 'jeter' un bon prospect par defaut de scraper.\n\nPREUVE : handover run-1h 2026-11-12 (observation infra 'budget Apify ~0.40 USD restant, contact-info-scraper REFUSE') + ce run 2026-11-13 (3 emails domaine resolus 100% via WebFetch). Zero PII systeme, references par segment uniquement.",
+  "location": [
+    "CLAUDE.md : Renfort email vdrmota/contact-info-scraper"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "low",
+  "status": "open",
+  "title": "Amelioration: budget Apify bas -> resolution email en repli WebFetch (a recharger)"
+}
