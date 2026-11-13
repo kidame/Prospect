@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-11-13",
+  "id": "ISS-011",
+  "impact": "PATTERN + accumulation : au controle de 03:00 du 2026-11-13, les 3 fiches EMAIL de la run 1h (segment cuisiniste/agencement x Yverdon) presentent TOUTES un bloc \"## Email (brouillon)\" entierement en ASCII, zero accent, alors que CLAUDE.md impose un francais accentue ET une VERIFICATION DETERMINISTE post-redaction (comptage des caracteres accentues). Exemples genres sur les 3 mails : \"tombe/tape/note/repere\" (participes sans accent), \"resultats/references/serie/recent\" (e sans accent), \"apparait\" (sans circonflexe), \"a Couvet/a Montagny\" (prep. sans accent), \"ca\" (sans cedille), \"deja/peut-etre\". 3/3 ce run. Historique : defaut deja acte en L-008 puis recidive notee le 2026-07-21 dans CLAUDE.md -> PAS resolu malgre la regle + le garde-fou deterministe deja ecrits. Impact : chaque mail passe 🟠 (correction au copier-coller) au lieu de 🟢 ; charge recurrente pour Thomas + risque d'envoi non accentue s'il zappe. CHANGEMENT suggere (session dev) : rendre la verification accents reellement bloquante cote run 1h -> apres redaction, la routine COMPTE les caracteres accentues et, si ~0, REECRIT le mail accentue AVANT d'ecrire dans Notion et de cocher \"Draft pret\" ; eventuellement interdire \"Draft pret\" sur un bloc Email detecte ASCII. PREUVE : re-lecture des 3 blocs \"## Email\" du 2026-11-13 (fiches par Place ID 0x478dc8a34e595555:..., 0x478dda68c6c24f65:..., 0x478dc58944c56377:...). Zero PII.",
+  "location": [
+    "CLAUDE.md ACCENTS OBLIGATOIRES + verification deterministe",
+    "ROUTINE_PROMPT.md etape 9 redaction bloc Email"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mail redige en ASCII (zero accent) par la run 1h"
+}
