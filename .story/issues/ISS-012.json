@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "persistance-storybloq"
+  ],
+  "discoveredDate": "2026-11-17",
+  "id": "ISS-012",
+  "impact": "PATTERN : la session cloud de la routine developpe sur une branche dediee (ex. claude/sleepy-mccarthy-5xuamt), PAS sur main. Les commits `.story` atterrissent sur cette branche. La commande prescrite `git pull --rebase origin main && git push origin main` pousse alors le ref LOCAL `main` (inchange, aucun de mes commits) -> no-op, et renvoie EXIT 0 (succes trompeur). Constat 2026-11-18 : le checkpoint (etape 2b) ET le handover final (etape 10d) ont tous deux \"reussi\" (EXIT 0) alors que origin/main restait au 2026-11-17. Detecte seulement par une verif manuelle `git log origin/main`. Corrige a la main par `git push origin HEAD:main` (branche = 2 commits .story-only en avance sur origin/main, fast-forward propre). CHANGEMENT SUGGERE : remplacer `git push origin main` par `git push origin HEAD:main` dans l'etape de persistance (CLAUDE.md + ROUTINE_PROMPT.md 2b/10d), et ajouter une VERIF OBLIGATOIRE apres push : `git fetch origin main && git log -1 --oneline origin/main -- .story/` doit montrer le commit du run ; sinon signaler \"handover NON persiste\" dans le recap. PREUVE : origin/main au 2026-11-17 (c5f93d0) avant correctif, puis aa05814 apres `HEAD:main`. Les handovers des runs precedents (11-17) sont bien sur main, donc le defaut depend du nom de branche de session (recurrence a surveiller : chaque session cloud a une branche differente). ZERO PII.",
+  "location": [
+    "CLAUDE.md section Storybloq PERSISTANCE",
+    "ROUTINE_PROMPT.md etape 2b + 10d"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: la persistance `.story` via `git push origin main` no-op silencieux en session cloud (branche de travail != main)"
+}
