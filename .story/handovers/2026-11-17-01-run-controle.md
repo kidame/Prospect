@@ -1,0 +1,12 @@
+# run-controle 2026-11-17
+
+- Perimetre : fiches 'Draft pret' coche + 'Controle' vide. Ramasse : 3 fiches (toutes segment peintre x Yverdon / nord vaudois, run 1h du 2026-11-17). Toutes canal EMAIL.
+- Verdicts : 🟢 2 · 🟠 0 · 🔴 1.
+- C2 re-mesures : 3 SERP live independants. 'peintre yverdon' (Yverdon-les-Bains, mobile) couvre 2 fiches -> pack local stable [1.HO Peinture 2.RM 3.BB], organique p.1 = annuaires + FR Platrerie (#5) + Evasion (#7). RM confirme #2 pack + absent organique (conforme). Raf confirme absent pack+organique (conforme). Concurrents nommes in-canton, stables (pas de volatilite ISS-009).
+- 🔴 unique = ZG Peinture : le mail OUVRE sur 'premiere page au niveau romand sur entreprise de peinture' (#9 issu de ranked_keywords/labs). Re-mesure 'entreprise de peinture' sur 3 SERP live (Yverdon mobile, Suisse mobile, Suisse desktop) : le domaine du site (entreprise-peinture.ch) ABSENT de la page 1 dans les trois. Accroche positive non reproductible -> falsifiable par le prospect -> A trancher. (2e volet 'absent localement autour d'Yverdon' lui CONFIRME.)
+- C1 : 1 salutation nominative (RM : 'Bonjour Monsieur Marin-Sabatino') VERIFIEE independamment via WebFetch rmpeinture.ch/contact -> Fabio Marin-Sabatino, Directeur actuel confirme. 2 autres en 'Bonjour,' neutre (Raf, ZG). OK.
+- Accents : les 3 corps de mail bien accentues des la redaction (pas de recidive ISS-011 ce run).
+- Hygiene : alerte '⚠️ Email a confirmer' bien presente sur ZG (domaine mail != domaine site). OK.
+- Cout estime : ~1-1.5 CHF (3 serp_organic_live_advanced payants + 1 serp_locations + 1 WebFetch quasi gratuits). Sous plafond.
+- Aucun mail envoye (conforme). Filet = vue Notion 'A trancher' (1 fiche 🔴 ZG).
+- Observation systeme : defaut porteur = accroche positive batie sur une position ranked_keywords (labs) NON confirmee par un serp_organic_live_advanced live. Variante de la famille ISS-009 ('porteur non reproductible au controle') mais sur la position PROPRE du prospect, pas un concurrent. ISS-009 mise a jour (addendum, pas de doublon). Fix suggere cote routine 1h : confirmer tout fait porteur, surtout une position positive issue de ranked_keywords, par un SERP live avant d'en faire l'accroche.
