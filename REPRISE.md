@@ -19,6 +19,22 @@ JAMAIS une fiche deja contactee (Mail 1 envoye, Relance preparee, Mail 2 envoye,
 chaud, Perdu, Audit en cours) : on n'y touche pas. Si la requete structuree est refusee
 par Notion, enumere par recherche + lecture des fiches.
 
+## La boite fait foi (audit du 2026-11-18)
+L'audit de la boite a montre des fiches en double et des fiches "Lead froid" alors qu'un
+mail etait deja parti. Notion ne suffit donc pas. Au debut de chaque run, liste le dossier
+Envoyes de thomas.puglisi@kumo-seo.ch (connecteur infomaniak-mail, `lister_messages` avec
+`offset` jusqu'au bout ; `lire_message` si le destinataire n'apparait pas) et construis
+l'ensemble des adresses et des domaines deja destinataires (ignore les domaines
+generiques : gmail, bluewin, hotmail, outlook, sunrise, yahoo...). Pour CHAQUE fiche,
+avant d'ecrire ou de reecrire un mail :
+- son Email ou son domaine figure dans les Envoyes -> DEJA CONTACTE : aucun mail. Ajoute
+  aux Notes "deja contacte (boite) le AAAA-MM-JJ, N mails" et signale-la au recap dans une
+  section "Fiches a corriger" (Thomas ou le chat corrigera le statut).
+- une AUTRE fiche porte le meme Email ou le meme domaine avec une "Date mail 1" ou un
+  statut d'envoi -> doublon : aucun mail, meme note.
+Si le connecteur de la boite est indisponible : n'ecris AUCUN mail cette nuit, recap avec
+l'objet prefixe "BLOQUE" et la raison.
+
 ## Chaque nuit
 Prends 10 fiches, les plus RECENTES d'abord (date de creation). Pour chacune :
 1. Lis la fiche en entier (Diagnostic, ancien mail, Notes). Reverifie qu'elle remplit

@@ -600,6 +600,11 @@ issues ouvertes reste propre, et rien de non prouve ne contamine les regles que 
 Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de KUMO (voir handover).
 
 ## Garde-fous
+- LA BOITE FAIT FOI (audit du 2026-11-18) : avant d'ecrire un mail pour un prospect (run
+  normal ou reprise), verifie dans le dossier Envoyes de la boite (connecteur
+  infomaniak-mail) qu'aucun mail n'est deja parti vers son adresse ou son domaine. Detail
+  et marche a suivre : REPRISE.md, section "La boite fait foi". Connecteur indisponible
+  = aucun mail ecrit cette nuit.
 - Drafts uniquement, jamais d'envoi automatique au prospect. La creation de draft Gmail
   demande l'approbation de l'utilisateur cote interface : en execution nocturne, ecris le mail
   finalise (objet + corps + signature, pret a copier-coller) dans le CORPS de la fiche Notion
