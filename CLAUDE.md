@@ -392,15 +392,19 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
 L'outil SQL de Notion (query-data-sources, mode sql) a un quota PARTAGE par tout l'espace de
 travail (limite du plan Notion) : les cinq routines de la nuit et le chat puisent dans le meme.
 Reponse "usage_limit_reached" = quota vide, il revient apres environ 60 minutes.
+Une requete SQL rend AU PLUS 100 lignes, sans page suivante : ne tente jamais de charger toute
+la base. Mesure du 2026-11-18 : 6 requetes en 20 minutes sont passees sans blocage.
 
-- UNE seule requete SQL large en debut de run : toutes les fiches, avec toutes les colonnes
-  utiles au run (nom, statut, email, domaine, cle de dedup, identifiants, dates de mail, notes,
-  controle). Garde le resultat en memoire de travail et ne requete plus en SQL ensuite : filtre,
-  compte et deduplique sur ce resultat.
+- TROIS requetes SQL au maximum par run, chacune ciblee :
+  1. les compteurs en UNE requete d'agregat (COUNT, SUM(CASE WHEN ...), GROUP BY) ;
+  2. la liste de travail du run, avec WHERE et LIMIT (100 lignes au plus) ;
+  3. le dedup de TOUS les candidats de la nuit en UNE requete : WHERE lower("Email") IN (...)
+     OR le domaine, la cle de dedup, le nom ou l'identifiant IN (...). Elle ne rend que les
+     fiches deja presentes : zero ligne = aucun doublon.
 - Si le SQL est refuse : essaie le mode "rows" du meme outil (filtre structure, 100 fiches par
   appel), puis notion-search en dernier recours. Jamais d'attente en boucle.
-- Dedup fait sans liste complete (notion-search seul) : ecris "DEDUP PARTIEL" dans le recap et
-  ne cree une fiche que si son nom, son domaine et son email ont ete cherches un par un.
+- Dedup fait sans SQL (notion-search seul) : ecris "DEDUP PARTIEL" dans le recap et ne cree
+  une fiche que si son nom, son domaine et son email ont ete cherches un par un.
 
 ## Dedup (via Notion, avec peremption)
 - Store de dedup = base Notion "Contacts". Cle : champ "Place ID".

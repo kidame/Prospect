@@ -75,7 +75,12 @@ Phrase FIXE pour les deux premières pistes (la seule remarque autorisée, mot p
 
 Elle se place juste avant le bloc Services. Aucune autre remarque sur leur présence en
 ligne. Pour ces deux pistes, utilise TOUJOURS la porte ouverte A (la B parle de « votre
-site », qu'ils n'ont pas). Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
+site », qu'ils n'ont pas).
+
+Piste registre, cas particulier : si l'activité existait déjà avant l'inscription (fiche
+local.ch ou Google plus ancienne, raison individuelle devenue Sàrl), ne félicite pas pour un
+« lancement ». Écris : « J'ai vu passer {nom} parmi les nouvelles inscriptions du canton,
+félicitations pour la nouvelle Sàrl. » Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
 Madame Nom, » (titulaire ou gérant inscrit).
 
 ## Objet
