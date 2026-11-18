@@ -15,6 +15,8 @@ Usage
   python3 tools/boite_etat.py                 # envoyes 120 jours, recus 30 jours, brouillons
   python3 tools/boite_etat.py --tout          # tous les envoyes (controle complet)
   python3 tools/boite_etat.py --jours-envoyes 60 --jours-recus 14
+  python3 tools/boite_etat.py --historique    # toute la boite : {adresse: n envois, premier,
+                                              # dernier} + tous les expediteurs deja recus
 
 Sortie : un objet JSON
   envoyes    : [{to:[...], date, objet}]
@@ -79,6 +81,8 @@ def main():
     p.add_argument("--jours-envoyes", type=int, default=120)
     p.add_argument("--jours-recus", type=int, default=30)
     p.add_argument("--tout", action="store_true", help="tous les envoyes, sans limite de date")
+    p.add_argument("--historique", action="store_true",
+                   help="resume de TOUTE la boite : envois par adresse et expediteurs deja recus")
     a = p.parse_args()
     try:
         load_env_file(".env")
@@ -86,6 +90,36 @@ def main():
         pass
     adresse = os.environ.get("INFOMANIAK_MAIL_ADDRESS") or DEFAULT_ADDRESS
     uuid = resolve_mailbox_uuid(adresse)
+    if a.historique:
+        envois, exp, ignores = {}, set(), []
+        for f in list_folders(uuid):
+            role = (f.get("role") or "").upper()
+            if role == "DRAFT":
+                continue
+            try:
+                messages = lire(uuid, f, None)
+            except Exception:
+                ignores.append(f.get("name") or f.get("path") or "?")  # dossier virtuel ou illisible
+                continue
+            for m in messages:
+                d = (m.get("date") or "")[:10]
+                if role == "SENT":
+                    for e in adresses(m.get("to")) + adresses(m.get("cc")):
+                        x = envois.setdefault(e, {"n": 0, "premier": d, "dernier": d})
+                        x["n"] += 1
+                        if d and (not x["premier"] or d < x["premier"]):
+                            x["premier"] = d
+                        if d and d > x["dernier"]:
+                            x["dernier"] = d
+                else:
+                    exp.update(adresses(m.get("from")))
+        json.dump({"boite": adresse, "lu_le": datetime.date.today().isoformat(),
+                   "envois_par_adresse": envois,
+                   "expediteurs": sorted(exp), "dossiers_ignores": ignores,
+                   "domaines_expediteurs": sorted({e.split("@")[-1] for e in exp} - GENERIQUES)},
+                  sys.stdout, ensure_ascii=False)
+        sys.stdout.write("\n")
+        return
     auj = datetime.date.today()
     depuis_env = None if a.tout else (auj - datetime.timedelta(days=a.jours_envoyes)).isoformat()
     depuis_rec = (auj - datetime.timedelta(days=a.jours_recus)).isoformat()

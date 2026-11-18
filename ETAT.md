@@ -42,6 +42,10 @@
 - A surveiller : premier run complet de la nuit du 18 au 19 (recherche 00:20, controle 02:10,
   relance 03:05). Le controle ne tourne que du lundi au vendredi.
 
+- SECONDE CHANCE (decision Kidam, soir du 18) : un nouveau mail V3 pour les fiches "Relance
+  préparée" de la zone, jamais de reponse, 2 envois au plus, dernier envoi de plus de 120 jours.
+  3 par nuit, Val-de-Travers d'abord. Hors zone (35 fiches) : decision en attente.
+
 ## Prochaine etape
 
 1. Lire le recap "KUMO reprise" du lendemain et juger les premiers mails V3.

@@ -396,7 +396,8 @@ L'outil SQL de Notion (query-data-sources, mode sql) a un quota PARTAGE par tout
 travail (limite du plan Notion) : les cinq routines de la nuit et le chat puisent dans le meme.
 Reponse "usage_limit_reached" = quota vide, il revient apres environ 60 minutes.
 Une requete SQL rend AU PLUS 100 lignes, sans page suivante : ne tente jamais de charger toute
-la base. Mesure du 2026-11-18 : 6 requetes en 20 minutes sont passees sans blocage.
+la base. Mesure du 2026-11-18 : 9 requetes passees en 30 minutes, la 10e refusee. Les cinq
+routines de la nuit se partagent donc environ 9 requetes par heure : 3 chacune, pas une de plus.
 
 - TROIS requetes SQL au maximum par run, chacune ciblee :
   1. les compteurs en UNE requete d'agregat (COUNT, SUM(CASE WHEN ...), GROUP BY) ;
@@ -404,8 +405,11 @@ la base. Mesure du 2026-11-18 : 6 requetes en 20 minutes sont passees sans bloca
   3. le dedup de TOUS les candidats de la nuit en UNE requete : WHERE lower("Email") IN (...)
      OR le domaine, la cle de dedup, le nom ou l'identifiant IN (...). Elle ne rend que les
      fiches deja presentes : zero ligne = aucun doublon.
-- Si le SQL est refuse : essaie le mode "rows" du meme outil (filtre structure, 100 fiches par
-  appel), puis notion-search en dernier recours. Jamais d'attente en boucle.
+- Si le SQL est refuse : n'insiste pas et n'essaie pas le mode "rows" (il puise dans le meme
+  quota, constat du 2026-11-18 : blocage a la 10e requete en 30 minutes, SQL et rows
+  confondus). Le mode "view" (vue enregistree de la base, par son URL) n'a pas de quota :
+  utilise-le si tu connais l'URL d'une vue qui convient. Sinon notion-search, en dernier
+  recours. Jamais d'attente en boucle.
 - Dedup fait sans SQL (notion-search seul) : ecris "DEDUP PARTIEL" dans le recap et ne cree
   une fiche que si son nom, son domaine et son email ont ete cherches un par un.
 

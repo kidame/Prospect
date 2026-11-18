@@ -36,7 +36,8 @@ a. ENVOI DETECTE (mail 1) : fiche "Lead froid" dont l'Email figure parmi les
    date REELLE de l'envoi (repose-la si une automation Notion a mis une autre date),
    Notes += "envoi detecte dans la boite (AAAA-MM-JJ)".
 b. ENVOI DETECTE (relance) : fiche "Relance préparée" dont l'adresse a recu un mail date
-   d'apres sa "Date relance 1" -> "Mail 2 envoyé", Notes += "relance envoyee le AAAA-MM-JJ".
+   d'apres sa "Date relance 1" -> "Mail 2 envoyé", Notes += "relance envoyee le AAAA-MM-JJ"
+   (ou "seconde chance envoyee le AAAA-MM-JJ" si les Notes contiennent "SECONDE CHANCE").
 c. REPONSE d'un prospect (tu n'y reponds JAMAIS, c'est Thomas) :
    - interet, question, demande de rappel -> "Lead chaud" ;
    - refus poli -> "Perdu" ;
@@ -65,6 +66,10 @@ Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
      contenant "REDACTION V3", champ "Controle" au vert ("🟢 OK"), Notes ne contenant pas
      "BROUILLON DEPOSE", adresse et domaine ABSENTS des Envoyes. Les reecritures les plus
      anciennes d'abord.
+   - puis les SECONDES CHANCES (SECONDE_CHANCE.md) : fiche "Relance préparée", Notes
+     contenant "SECONDE CHANCE", "Controle" au vert, Notes sans "BROUILLON DEPOSE". Le texte
+     a deposer est le bloc "## Seconde chance (brouillon)". L'adresse figure deja dans les
+     Envoyes, c'est normal ici : verifie seulement 2 envois au plus et aucune reponse.
    Avant chaque depot, relis le bloc de la fiche : c'est LUI qui part, mot pour mot.
    Jamais de depot pour : un bloc portant l'alerte "⚠️ Email a confirmer", un controle orange ou rouge,
    un controle vide (pas encore relu : il attendra la nuit suivante),

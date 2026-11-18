@@ -70,7 +70,11 @@ Tu n'es PAS un redacteur. Tu ne reecris rien. Tu LIS, tu VERIFIES, tu SIGNALES.
 
 3. RAMASSE, en UNE requete SQL (regle "Notion : economie de requetes SQL" de CLAUDE.md), les
    fiches qui remplissent TOUT ceci : "Draft pret" coche, "Controle" vide, "Statut pipeline"
-   = "Lead froid", "Notes" contenant "REDACTION V3". 30 fiches au plus par nuit.
+   = "Lead froid" (ou "Relance préparée" si les Notes contiennent "SECONDE CHANCE"),
+   "Notes" contenant "REDACTION V3". 30 fiches au plus par nuit.
+   SECONDE CHANCE (SECONDE_CHANCE.md) : le mail a controler est le bloc "## Seconde chance
+   (brouillon)", pas l'ancien "## Email (brouillon)". Memes 7 controles, plus un : il ne
+   mentionne pas l'ancien mail ("je vous avais ecrit") -> sinon ORANGE.
    Une fiche SANS "REDACTION V3" porte un mail de l'ancienne redaction : ne la controle pas,
    la reprise la reecrira. Aucune fiche a controler : passe directement a la fin de session
    (handover court).

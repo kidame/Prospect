@@ -31,8 +31,10 @@ croise une interessante, elle la cite dans le recap ("a voir par Thomas, 3D"), s
 ## Programme d'une nuit (remplace l'ancien "mode reprise" seul)
 1. Etape 1 de ROUTINE_PROMPT.md (CLAUDE.md, memoire, alertes), puis la regle "La boite fait
    foi" de REPRISE.md (lecture des Envoyes).
-2. REPRISE DANS LA ZONE : tant qu'il reste d'anciennes fiches a reprendre dans la zone
-   (REPRISE.md), reecris-en 5.
+2. CORRECTIONS puis REPRISE DANS LA ZONE (REPRISE.md) : d'abord les mails que le controle a
+   mis orange ou rouge (5 au plus), puis, tant qu'il reste d'anciennes fiches a reprendre
+   dans la zone, reecris-en 5.
+2bis. SECONDE CHANCE (SECONDE_CHANCE.md) : 3 fiches au plus par nuit, rang 1 d'abord.
 3. STOCK : compte les fiches "Lead froid" avec Email dont les Notes contiennent
    "REDACTION V3" (mails prets, pas encore envoyes).
    - stock >= 20 : PAS de recherche cette nuit (Thomas n'a pas encore envoye, on n'empile pas).
