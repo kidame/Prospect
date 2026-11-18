@@ -70,11 +70,16 @@ Tu n'es PAS un redacteur. Tu ne reecris rien. Tu LIS, tu VERIFIES, tu SIGNALES.
 
 3. RAMASSE, en UNE requete SQL (regle "Notion : economie de requetes SQL" de CLAUDE.md), les
    fiches qui remplissent TOUT ceci : "Draft pret" coche, "Controle" vide, "Statut pipeline"
-   = "Lead froid" (ou "Relance préparée" si les Notes contiennent "SECONDE CHANCE"),
+   = "Lead froid" (ou "Relance préparée" si les Notes contiennent "SECONDE CHANCE - REDACTION V3"),
    "Notes" contenant "REDACTION V3". 30 fiches au plus par nuit.
    SECONDE CHANCE (SECONDE_CHANCE.md) : le mail a controler est le bloc "## Seconde chance
    (brouillon)", pas l'ancien "## Email (brouillon)". Memes 7 controles, plus un : il ne
    mentionne pas l'ancien mail ("je vous avais ecrit") -> sinon ORANGE.
+   SECONDE CHANCE HORS ZONE (Notes contenant "SECONDE CHANCE HORS ZONE autorisee") : le mail
+   contient en plus UNE phrase sur un signe visible d'un site a l'abandon. C'est autorise
+   ici, et l'annee qu'elle cite n'est pas un "chiffre" au sens de C3. Verifie sur le site
+   que ce signe est VRAI aujourd'hui (faux ou introuvable -> ROUGE), qu'il n'y en a qu'un,
+   et qu'il est dit sans jugement ni mot sur Google.
    Une fiche SANS "REDACTION V3" porte un mail de l'ancienne redaction : ne la controle pas,
    la reprise la reecrira. Aucune fiche a controler : passe directement a la fin de session
    (handover court).

@@ -44,7 +44,9 @@
 
 - SECONDE CHANCE (decision Kidam, soir du 18) : un nouveau mail V3 pour les fiches "Relance
   préparée" de la zone, jamais de reponse, 2 envois au plus, dernier envoi de plus de 120 jours.
-  3 par nuit, Val-de-Travers d'abord. Hors zone (35 fiches) : decision en attente.
+  3 par nuit, Val-de-Travers d'abord. Hors zone (34 fiches) : seconde chance pour 5 fiches
+  marquees dans Notion (site a refaire, 3 verifiees en chat, 2 a reverifier par la routine) ;
+  les autres sont classees "Perdu" par la routine relance (BOITE.md 2h).
 
 ## Prochaine etape
 

@@ -10,8 +10,10 @@ oui une seconde chance ; sinon non".
 ## Qui y a droit (TOUTES ces conditions)
 - "Statut pipeline" = "Relance préparée" et "Email" rempli ;
 - commune dans la zone de PISTES.md : rang 1 d'abord (Val-de-Travers), puis rang 2, puis
-  rang 3. HORS ZONE : decision en attente, n'y touche pas ;
-- Notes ne contenant ni "NE PLUS CONTACTER" ni "SECONDE CHANCE" ;
+  rang 3. HORS ZONE : uniquement les fiches dont les Notes contiennent "SECONDE CHANCE HORS
+  ZONE autorisee" (voir plus bas), et apres celles de la zone ;
+- Notes ne contenant ni "NE PLUS CONTACTER" ni "SECONDE CHANCE - REDACTION V3" (= mail de
+  seconde chance deja ecrit) ;
 - LA BOITE FAIT FOI. Lance `python3 tools/boite_etat.py --historique` (toute la boite) :
   * AUCUNE reponse, jamais : ni l'adresse ni son domaine (hors domaines generiques) ne figure
     dans "expediteurs" / "domaines_expediteurs". Une reponse, meme polie -> PAS de seconde chance ;
@@ -42,6 +44,25 @@ Si la boite est illisible : aucune seconde chance cette nuit.
 - Envoi constate dans la boite : la fiche passe en "Mail 2 envoyé" (BOITE.md 2b). Sans reponse
   apres 21 jours : "Perdu" (BOITE.md 2f). AUCUNE relance, plus aucun mail ensuite.
 - Reponse : BOITE.md 2c.
+
+## Hors zone : seulement un site a refaire (decision Kidam, 2026-11-18)
+Hors zone, Thomas n'a ni l'avantage du voisin ni la possibilite de passer. Une seconde
+chance n'y a de sens que si le site de l'entreprise est visiblement a l'abandon. Kidam a
+autorise 5 fiches, marquees dans leurs Notes "SECONDE CHANCE HORS ZONE autorisee par Kidam".
+N'en ajoute AUCUNE de toi-meme.
+- Au moment d'ecrire, constate TOI-MEME sur le site au moins 2 signes concrets et visibles
+  par n'importe qui (annonce perimee, pages vides ou nommees "blank", texte de gabarit,
+  liens du menu qui ne menent nulle part, derniere actualite vieille de plusieurs annees).
+  Moins de 2 signes, ou site illisible : pas de mail, Notes += "seconde chance : site en
+  etat correct" (ou "site illisible"), statut "Perdu".
+- Le mail suit la redaction V3, avec UNE phrase en plus, juste apres le detail sur leur
+  travail : un seul de ces signes, dit simplement et sans jugement (exemple : "En passant
+  sur votre site, j'ai vu qu'il annonce encore la fermeture des fetes 2021-2022."). Pas
+  de liste de defauts, aucun mot sur Google ni sur leur classement, aucun chiffre hors
+  l'annee citee. Porte A.
+- Les autres regles de ce fichier s'appliquent (boite, 2 envois au plus, 120 jours).
+Les autres fiches "Relance préparée" hors zone sont classees par la routine relance
+(BOITE.md, 2h).
 
 ## Recap
 Une ligne par seconde chance ecrite (nom, commune) et le nombre de fiches qui y ont encore droit.

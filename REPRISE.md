@@ -36,7 +36,7 @@ l'objet prefixe "BLOQUE" et la raison.
 
 ## Corrections apres controle (avant les 5 reecritures, 5 fiches au plus)
 Le controle ne corrige rien : un mail orange ou rouge n'est pas depose et attend. C'est toi
-qui fermes la boucle. Fiches : "Lead froid" (ou "Relance préparée" avec "SECONDE CHANCE", bloc
+qui fermes la boucle. Fiches : "Lead froid" (ou "Relance préparée" avec "SECONDE CHANCE - REDACTION V3", bloc
 "## Seconde chance (brouillon)"), Notes contenant "REDACTION V3", champ "Controle"
 = "🟠 A voir" ou "🔴 A trancher", Notes ne contenant pas "BROUILLON DEPOSE". Pour chacune :
 1. Lis la section "## Controle" (sa derniere ligne "A corriger : ...").

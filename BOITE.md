@@ -53,6 +53,11 @@ e. BROUILLON A RETIRER : une fiche "Lead chaud", "Perdu", "Ancien" ou "NE PLUS
 f. CLOTURE : fiche "Mail 2 envoyé" dont le deuxieme mail a plus de 21 jours, sans
    reponse -> "Perdu", Notes += "cycle termine sans reponse".
 g. DOUBLONS : deux fiches avec le meme Email -> ne corrige pas, signale au mail du matin.
+h. ANCIENNES RELANCES HORS ZONE (decision Kidam, 2026-11-18) : fiche "Relance préparée" dont
+   la commune est HORS de la zone de PISTES.md, dont les Notes ne contiennent pas "SECONDE
+   CHANCE", et dont la relance n'est jamais partie -> "Perdu", Notes += "cycle termine sans
+   relance (hors zone) le AAAA-MM-JJ". 15 fiches au plus par nuit. Ne touche a aucune fiche
+   de la zone : elles relevent de SECONDE_CHANCE.md.
 Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
 
 ## 3. Deposer les brouillons (file d'attente de 10 au maximum)
@@ -67,8 +72,10 @@ Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
      "BROUILLON DEPOSE", adresse et domaine ABSENTS des Envoyes. Les reecritures les plus
      anciennes d'abord.
    - puis les SECONDES CHANCES (SECONDE_CHANCE.md) : fiche "Relance préparée", Notes
-     contenant "SECONDE CHANCE", "Controle" au vert, Notes sans "BROUILLON DEPOSE". Le texte
-     a deposer est le bloc "## Seconde chance (brouillon)". L'adresse figure deja dans les
+     contenant "SECONDE CHANCE - REDACTION V3" (mail ecrit), "Controle" au vert, Notes sans
+     "BROUILLON DEPOSE". Le texte a deposer est le bloc "## Seconde chance (brouillon)" et lui
+     seul : s'il n'existe pas dans la fiche, ne depose RIEN (jamais l'ancien mail, jamais
+     l'ancienne relance). L'adresse figure deja dans les
      Envoyes, c'est normal ici : verifie seulement 2 envois au plus et aucune reponse.
    Avant chaque depot, relis le bloc de la fiche : c'est LUI qui part, mot pour mot.
    Jamais de depot pour : un bloc portant l'alerte "⚠️ Email a confirmer", un controle orange ou rouge,
