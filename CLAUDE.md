@@ -25,6 +25,9 @@ seul compteur global : tu regardes le SERP reel (voir Analyse).
   Si une offre GBP packagee distincte est creee plus tard, l'ajouter ici.
 
 ## Cible (ICP) -- le secteur n'est PAS le filtre, BESOIN x ARGENT l'est
+> DEPUIS LE 2026-11-18 : `PISTES.md` PRIME sur cette section pour la recherche (zone, pistes,
+> stock, qualification legere). Ce qui suit reste la reference pour l'analyse complete d'un
+> "Lead chaud" et pour les exclusions.
 - PRINCIPE : le metier n'est qu'une GRAINE de recherche. On qualifie une PME locale romande sur
   (1) BESOIN (deficit de visibilite Google : pack local et/ou organique, ou pas de site / site nul)
   ET (2) ARGENT (ticket/marge pour payer 1200-6900), vendable en SEO OU en creation web SEO.
@@ -120,6 +123,9 @@ un email pour ceux qui ont un email. Qualite avant quantite.
     pourquoi on envoie du HTML ; ne repasse pas en text/plain "pour faire simple".
 
 ## Process (entonnoir)
+> DEPUIS LE 2026-11-18 : `PISTES.md` PRIME sur cette section pour la recherche (zone, pistes,
+> stock, qualification legere). Ce qui suit reste la reference pour l'analyse complete d'un
+> "Lead chaud" et pour les exclusions.
 1. LECTURE MEMOIRE
    - Interroge la base Notion "Contacts". Recupere tous les Place ID deja presents (dedup).
    - Regarde aussi le dernier couple (secteur, zone) traite (rotation, voir regle).
@@ -250,6 +256,9 @@ un email pour ceux qui ont un email. Qualite avant quantite.
    - _resume.md (avec le couple secteur+zone du run) + mail recap a hello.puglisi@gmail.com.
 
 ## Grille de scoring
+> DEPUIS LE 2026-11-18 : `PISTES.md` PRIME sur cette section pour la recherche (zone, pistes,
+> stock, qualification legere). Ce qui suit reste la reference pour l'analyse complete d'un
+> "Lead chaud" et pour les exclusions.
 BESOIN (le coeur, sur 2 axes vendables) :
 - KUMO travaille le pack local (GBP) ET l'organique web. Les deux comptent.
 - Position reelle sur la requete coeur (SERP) : pack local et organique.
@@ -439,6 +448,9 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
   tri (cout/temps ; CrUX = souvent "donnees insuffisantes" sur petites PME).
 
 ## Regle de rotation (priorite aux PILIERS)
+> DEPUIS LE 2026-11-18 : `PISTES.md` PRIME sur cette section pour la recherche (zone, pistes,
+> stock, qualification legere). Ce qui suit reste la reference pour l'analyse complete d'un
+> "Lead chaud" et pour les exclusions.
 - MEMOIRE DE ROTATION = handovers Storybloq + crosscheck Notion par Segment (PAS `_resume.md`,
   gitignore, perdu avec le conteneur). Debut de run : `storybloq handover latest --count 8` pour les
   derniers couples (metier, zone) couverts. MAIS la memoire handover est PARTIELLE : un couple traite

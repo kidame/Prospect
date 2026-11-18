@@ -76,7 +76,12 @@ connecteur manque, "REPONSE" si un prospect a ecrit). Court, dans cet ordre :
 3. ENVOIS constates depuis hier : N (noms).
 4. Relances redigees cette nuit.
 5. A REVOIR : controles orange ou rouge, emails a confirmer, doublons, vieux brouillons.
+5bis. TROIS APPELS DU JOUR : 3 fiches "Lead froid" SANS email mais avec telephone, dans la
+   zone de PISTES.md (rang 1 d'abord), pistes A et B d'abord. Pour chacune : nom, commune,
+   telephone, et la raison en une phrase ("nouvelle entreprise sans site"...). Ajoute aux
+   Notes "PROPOSEE A L'APPEL le AAAA-MM-JJ" et ne repropose pas la meme avant 30 jours.
 6. COMPTEURS : entreprises contactees au total ; mails en redaction V3 envoyes et
-   reponses obtenues (c'est la mesure de la nouvelle redaction).
+   reponses obtenues, au total ET par piste (Segment commencant par "registre", "sans site",
+   "site date", ou ancienne fiche) ; stock de mails prets.
 7. Erreurs.
 Ce mail remplace le recap "KUMO relances".

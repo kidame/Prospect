@@ -5,8 +5,7 @@ Au 2026-11-18, la base Notion "Contacts" contient environ 174 fiches "Lead froid
 email et un mail redige ("Draft pret" coche) qui n'ont JAMAIS ete envoyes. Ces mails
 sont ecrits avec l'ancienne redaction, que Kidam ne veut plus. On les reecrit tous avec la
 redaction V3 (skill .claude/skills/writing/), par lots, pour que Kidam les relise et les
-envoie lui-meme. Tant que la reprise dure, la routine ne cherche PAS de nouveaux
-prospects (le credit Apify, partage avec la machine Thai, est ainsi preserve).
+envoie lui-meme. La reprise s'insere dans le programme de la nuit de PISTES.md : 5 fiches par nuit, celles de la zone d'abord ; les fiches hors zone restent en reserve.
 
 ## Fiches a reprendre (requete)
 Base "Contacts", TOUTES ces conditions :
@@ -36,7 +35,8 @@ Si le connecteur de la boite est indisponible : n'ecris AUCUN mail cette nuit, r
 l'objet prefixe "BLOQUE" et la raison.
 
 ## Chaque nuit
-Prends 10 fiches, les plus RECENTES d'abord (date de creation). Pour chacune :
+Prends 5 fiches : d'abord celles de la zone de PISTES.md (rang 1, puis 2, puis 3), les plus
+recentes d'abord. Hors zone : seulement dans le cas prevu par PISTES.md (point 4). Pour chacune :
 1. Lis la fiche en entier (Diagnostic, ancien mail, Notes). Reverifie qu'elle remplit
    toujours les conditions ci-dessus.
 2. Visite le site (1 requete). Site mort, activite arretee ou hors cible -> statut
@@ -61,5 +61,4 @@ destinataire, objet, corps complet (pret a copier), lien de la fiche Notion. Pui
 fiches ecartees (site inactif, pas de detail) avec la raison.
 
 ## Fin
-Quand la requete ne renvoie plus aucune fiche : "REPRISE TERMINEE" en tete du recap, et
-la routine reprend son fonctionnement normal des la meme nuit.
+Quand il ne reste plus aucune fiche a reprendre dans la zone, dis-le une fois dans le recap. La reserve hors zone suit PISTES.md.

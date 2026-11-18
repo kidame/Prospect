@@ -23,6 +23,12 @@
   reponses constates -> Notion a jour sans saisie), depose au plus 10 brouillons prets
   (mails V3 controles au vert), envoie un seul mail du matin "KUMO matin".
 
+- PISTES.md (decision Kidam) : la recherche change de cible. Zone = Val-de-Travers, canton
+  de Neuchatel, Nord vaudois. Trois pistes : nouvelles entreprises (registre du commerce,
+  tools/fosc_nouvelles.py, ~120 inscriptions par mois dans la zone), sans site, site
+  date. Recherche seulement si le stock de mails prets passe sous 20. Analyse complete
+  uniquement pour un prospect qui a repondu. 3D / horlogerie : Thomas a la main.
+
 ## Prochaine etape
 
 1. Lire le recap "KUMO reprise" du lendemain et juger les premiers mails V3.

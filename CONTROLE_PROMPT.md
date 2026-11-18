@@ -110,6 +110,9 @@ generique ("votre beau site", "vos bons avis") -> ROUGE. Site inaccessible -> RO
 (b) ZERO SEO : le mail ne doit contenir AUCUN chiffre (hors telephone de la signature),
 aucune position, aucun concurrent nomme, aucune remarque sur leur visibilite, aucun prix.
 Un seul de ces elements -> ROUGE (le mail est a reecrire selon le skill writing).
+SEULE EXCEPTION : la phrase fixe "Je n'ai pas trouve de site internet a votre nom." (accentuee dans
+le mail) est autorisee pour les fiches dont le Segment commence par "registre" ou "sans site" ;
+verifie alors qu'elle est VRAIE (aucun site trouve en cherchant le nom + la commune), sinon ROUGE.
 (c) BLOCS FIXES : presentation, services et porte ouverte doivent etre IDENTIQUES au skill
 .claude/skills/writing/. Reformules ou enrichis -> ORANGE.
 Pour une fiche dont le mail date d'AVANT le 2026-11-18 (ancienne redaction, pas de mention

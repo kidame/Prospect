@@ -58,6 +58,25 @@ délai, aucun service ajouté à la liste.
 Longueur : 90 à 120 mots (hors signature). Une seule demande : répondre au mail.
 JAMAIS d'appel, de créneau ni de « 15 min » au premier contact.
 
+## Selon la piste (PISTES.md)
+Le paragraphe "detail a eux" s'adapte, les blocs fixes ne changent pas.
+- **Nouvelle entreprise (registre)** : pas de site a observer. Phrase d'approche FIXE :
+  « J'ai vu passer {nom de l'entreprise} parmi les nouvelles entreprises du canton,
+  félicitations pour le lancement. » Puis UNE phrase sincère sur leur activité, dite avec
+  des mots simples (tirée du but inscrit au registre), puis la phrase FIXE ci-dessous.
+- **Entreprise sans site** : comment tu l'as trouvée (« en cherchant un {métier} à
+  {commune} »), UN détail de sa fiche Google (une réalisation en photo, une spécialité ;
+  pas le nombre d'avis par défaut), puis la phrase FIXE ci-dessous.
+- **Site daté** : structure normale. Tu ne dis JAMAIS que le site est vieux, lent ou
+  dépassé ; le détail porte sur leur travail.
+
+Phrase FIXE pour les deux premières pistes (la seule remarque autorisée, mot pour mot) :
+> Je n'ai pas trouvé de site internet à votre nom.
+
+Elle se place juste avant le bloc Services. Aucune autre remarque sur leur présence en
+ligne. Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
+Madame Nom, » (titulaire ou gérant inscrit).
+
 ## Objet
 Minuscules, 2 à 6 mots, simple et humain, varié d'un mail à l'autre : « un indépendant
 du val-de-travers », « web designer à couvet », « je me présente », « bonjour de

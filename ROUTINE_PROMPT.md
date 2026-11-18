@@ -17,12 +17,12 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
 
 ## PROCESS DU RUN
 
-0. MODE REPRISE (prioritaire). Si un fichier `REPRISE.md` existe a la racine du repo ET
-   qu'il reste des fiches a reprendre (voir sa requete), cette nuit tu fais l'etape 1
-   (lecture CLAUDE.md, memoire, alerte de trou), puis tu suis `REPRISE.md` A LA PLACE des
-   etapes 2 a 7 (aucun sourcing, aucun appel Apify), puis le recap et la memoire comme
-   d'habitude. S'il ne reste plus aucune fiche a reprendre : ecris "REPRISE TERMINEE" en
-   tete du recap et fais un run normal.
+0. PROGRAMME DE LA NUIT (regle du 2026-11-18). Lis `PISTES.md` a la racine du repo et suis
+   sa section "Programme d'une nuit" : elle REMPLACE les etapes 2 a 7 ci-dessous pour tout
+   ce qui est recherche et qualification (zone = rayon de Thomas, trois pistes, stock,
+   qualification legere, reprise des anciennes fiches). Les etapes 2 a 7 ne servent plus
+   que de reference pour les regles de fiche Notion, de salutation et d'accents, et pour
+   l'analyse complete d'une fiche "Lead chaud" (PISTES.md, point 5).
 
 
 1. Lis CLAUDE.md. DETECTEUR DE TROU MEMOIRE (constat 2026-07 : un mois de runs sans aucun commit
