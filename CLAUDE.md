@@ -387,6 +387,21 @@ Notion (section "## Email (brouillon)", source unique) et cree le brouillon corr
 Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte l'alerte
 "⚠️ Email a confirmer", signale-le avant de creer le brouillon.
 
+## Notion : economie de requetes SQL (regle du 2026-11-18)
+
+L'outil SQL de Notion (query-data-sources, mode sql) a un quota PARTAGE par tout l'espace de
+travail (limite du plan Notion) : les cinq routines de la nuit et le chat puisent dans le meme.
+Reponse "usage_limit_reached" = quota vide, il revient apres environ 60 minutes.
+
+- UNE seule requete SQL large en debut de run : toutes les fiches, avec toutes les colonnes
+  utiles au run (nom, statut, email, domaine, cle de dedup, identifiants, dates de mail, notes,
+  controle). Garde le resultat en memoire de travail et ne requete plus en SQL ensuite : filtre,
+  compte et deduplique sur ce resultat.
+- Si le SQL est refuse : essaie le mode "rows" du meme outil (filtre structure, 100 fiches par
+  appel), puis notion-search en dernier recours. Jamais d'attente en boucle.
+- Dedup fait sans liste complete (notion-search seul) : ecris "DEDUP PARTIEL" dans le recap et
+  ne cree une fiche que si son nom, son domaine et son email ont ete cherches un par un.
+
 ## Dedup (via Notion, avec peremption)
 - Store de dedup = base Notion "Contacts". Cle : champ "Place ID".
 - Debut de run : recupere les Place ID existants. EXCLUS :

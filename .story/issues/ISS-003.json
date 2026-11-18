@@ -4,7 +4,7 @@
   ],
   "discoveredDate": "2026-06-27",
   "id": "ISS-003",
-  "impact": "Vu encore le 2026-11-18 (run-1h) : 2 requetes SQL query_data_sources ont suffi (comptage stock + liste reprise zone), la 3e (dedup email/domaine) est tombee sur 'usage_limit_reached' (quota workspace, reset ~60 min). Dedup de la piste A fait par notion-search sur le nom (0 resultat pour les 6 nouvelles fiches) ; l'UID n'est cherchable qu'en texte libre. Suggestion : regrouper les besoins SQL du run en 1 seule requete large en debut de run (stock + reprise + liste emails/domaines/UID), la stocker en scratchpad, et ne plus requeter ensuite. Rappel du constat initial : les outils query Notion sont gates par le plan, ce qui casse le dedup exhaustif.",
+  "impact": "Vu encore le 2026-11-18 (run-1h) : 2 requetes SQL query_data_sources ont suffi (comptage stock + liste reprise zone), la 3e (dedup email/domaine) est tombee sur 'usage_limit_reached' (quota workspace, reset ~60 min). Dedup de la piste A fait par notion-search sur le nom (0 resultat pour les 6 nouvelles fiches) ; l'UID n'est cherchable qu'en texte libre. Suggestion : regrouper les besoins SQL du run en 1 seule requete large en debut de run (stock + reprise + liste emails/domaines/UID), la stocker en scratchpad, et ne plus requeter ensuite. Rappel du constat initial : les outils query Notion sont gates par le plan, ce qui casse le dedup exhaustif. Regle ajoutee le 2026-11-18 (chat) dans CLAUDE.md, section 'Notion : economie de requetes SQL' : une seule requete large en debut de run, repli rows puis notion-search, mention DEDUP PARTIEL. A verifier sur les runs suivants avant de fermer.",
   "location": [
     "ROUTINE_PROMPT.md etape 1-2 ; CLAUDE.md Dedup"
   ],
