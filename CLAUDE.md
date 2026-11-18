@@ -399,6 +399,23 @@ Une requete SQL rend AU PLUS 100 lignes, sans page suivante : ne tente jamais de
 la base. Mesure du 2026-11-18 : 9 requetes passees en 30 minutes, la 10e refusee. Les cinq
 routines de la nuit se partagent donc environ 9 requetes par heure : 3 chacune, pas une de plus.
 
+- LISTES DE TRAVAIL SANS QUOTA (vues creees le 2026-11-18). Le mode "view" de
+  query-data-sources lit une vue enregistree de la base "Contacts" sans toucher au quota
+  (verifie : il repond quand le SQL est refuse). Passe l'URL telle quelle dans `view_url` :
+  * view://41c92364-0366-813d-a016-000c283373dd  "Machine - Mails V3" : tous les mails en
+    redaction V3 pas encore envoyes ("Lead froid" ou "Relance préparée", Draft pret). Sert au
+    STOCK, au CONTROLE (champ "Controle" vide), aux CORRECTIONS (orange, rouge) et au DEPOT
+    (vert, Notes sans "BROUILLON DEPOSE").
+  * view://41c92364-0366-8104-8868-000c13c970ec  "Machine - Reprise zone" : anciens mails
+    jamais envoyes dans la zone (par NPA). Ecarte toi-meme ceux dont les Notes contiennent
+    deja "REDACTION V3". Une fiche sans NPA n'y figure pas.
+  * view://41c92364-0366-8154-ae70-000c29ad479a  "Machine - Relance préparée" : seconde
+    chance et constat des relances envoyees.
+  * view://41c92364-0366-814f-8408-000c2b7efac6  "Machine - Mails envoyés" : relances dues
+    et clotures.
+  Une vue rend les fiches ENTIERES (tous les champs), 100 par page : parfaite pour une liste
+  de travail courte, trop lourde pour balayer toute la base. Utilise les vues pour les listes
+  de travail et garde le SQL pour les compteurs et le dedup.
 - TROIS requetes SQL au maximum par run, chacune ciblee :
   1. les compteurs en UNE requete d'agregat (COUNT, SUM(CASE WHEN ...), GROUP BY) ;
   2. la liste de travail du run, avec WHERE et LIMIT (100 lignes au plus) ;
