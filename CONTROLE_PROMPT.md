@@ -136,6 +136,11 @@ C5 -- FORMULES IA, ACCENTS, OBJET.
   "il est important de noter", "veritable", "incontournable", "a l'ere du"), tiret cadratin,
   ton vendeur ou robotique -> ORANGE, avec la ligne concernee.
 - Accents manquants -> ORANGE.
+- Un deux-points ":" dans le corps ou dans l'objet du mail (la ligne technique "Objet : ..."
+  ne compte pas), un point-virgule ou une parenthese -> ORANGE.
+- Un compliment ou un jugement sur eux ("j'ai aime", "m'a marque", "belle", "soigne",
+  "on voit que"), ou une phrase-slogan apres le detail -> ORANGE. Seule exception :
+  "felicitations pour le lancement" dans l'accroche fixe du registre.
 - Objet : en minuscules, 2 a 6 mots, sans chiffre ni promesse -> sinon ORANGE.
 
 C6 -- ADRESSE ET HYGIENE.

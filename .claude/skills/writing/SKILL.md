@@ -27,7 +27,7 @@ lui (pas d'années d'expérience, pas de clients cités, pas de titre).
 > Je m'appelle Thomas, je suis web designer et spécialiste du référencement Google, indépendant, installé à Couvet dans le Val-de-Travers.
 
 **Services**
-> Je vous écris simplement pour me présenter. Ce que je fais : création et refonte de sites web, référencement sur Google et création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
+> Je vous écris simplement pour me présenter. Je crée et je refais des sites web, je m'occupe du référencement sur Google et de la création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
 
 **Porte ouverte (alterne A et B d'un mail à l'autre)**
 > A. Si l'un de ces sujets vous trotte dans la tête, répondez-moi en deux mots et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
@@ -45,7 +45,8 @@ délai, aucun service ajouté à la liste.
      [métier] [dans la région / en Valais] ») ;
    - UN détail précis de LEUR site ou de leur travail, vérifiable par eux : une
      réalisation montrée, une spécialité, l'ancienneté, une photo, une façon de
-     présenter leur métier. Dans leurs mots, sans superlatif.
+     présenter leur métier. Dans leurs mots, dit comme un FAIT constaté, jamais comme un
+     compliment (voir « Ponctuation et compliments » plus bas).
    - INTERDIT ici : tout ce qui touche à leur visibilité (Google, positions,
      recherches, pack local, concurrents, vitesse du site, « on ne vous trouve pas »),
      tout chiffre de recherche, toute critique. Pas le nombre d'avis par défaut.
@@ -62,8 +63,8 @@ JAMAIS d'appel, de créneau ni de « 15 min » au premier contact.
 Le paragraphe "detail a eux" s'adapte, les blocs fixes ne changent pas.
 - **Nouvelle entreprise (registre)** : pas de site a observer. Phrase d'approche FIXE :
   « J'ai vu passer {nom de l'entreprise} parmi les nouvelles entreprises du canton,
-  félicitations pour le lancement. » Puis UNE phrase sincère sur leur activité, dite avec
-  des mots simples (tirée du but inscrit au registre), puis la phrase FIXE ci-dessous.
+  félicitations pour le lancement. » Puis UNE phrase factuelle sur leur activité, tirée du but inscrit au registre, du type
+  « Si j'ai bien lu, vous faites le carrelage et le béton ciré. » Ni slogan ni compliment, puis la phrase FIXE ci-dessous.
 - **Entreprise sans site** : comment tu l'as trouvée (« en cherchant un {métier} à
   {commune} »), UN détail de sa fiche Google (une réalisation en photo, une spécialité ;
   pas le nombre d'avis par défaut), puis la phrase FIXE ci-dessous.
@@ -129,6 +130,18 @@ révolutionner, propulser, accompagner (vague), remplir votre carnet.
 **Format** : aucun gras, aucun emoji, aucune liste à puces, aucun lien autre que la
 signature.
 
+**Ponctuation et compliments (règle Kidam, 2026-11-18 : « ça fait IA »)**
+- AUCUN deux-points dans le mail, ni dans le corps ni dans l'objet. Fais deux phrases, ou
+  mets une virgule. (La ligne technique « Objet : ... » du bloc Notion n'est pas le mail.)
+- Aucun point-virgule, aucune parenthèse, aucun tiret cadratin.
+- AUCUN compliment ni jugement sur eux : « j'ai aimé », « m'a marqué », « bravo », « beau »,
+  « belle », « soigné », « impressionnant », « superbe », « remarquable », « on voit que ».
+  Le détail est un FAIT constaté, dit platement : « Sur votre site, j'ai vu que vous
+  proposez aussi le béton imprimé. »
+- Aucune phrase-slogan pour conclure le détail (« c'est le cœur d'une bonne rénovation »,
+  « de l'enduit à la dernière couche », « un détail qui compte »).
+Seule exception : « félicitations pour le lancement » dans l'accroche fixe du registre.
+
 ## Passe de relecture (avant livraison)
 1. Les trois blocs fixes sont-ils IDENTIQUES au texte ci-dessus ?
 2. Le détail est-il vrai, vu sur leur site cette nuit, et sans rapport avec leur
@@ -138,6 +151,8 @@ signature.
 4. 120 à 145 mots (155 pour registre et sans site), une seule demande, objet en minuscules.
 5. Accents comptés (vérification déterministe de CLAUDE.md), signature canonique.
 6. Différent du mail précédent du run : objet, phrase d'approche, détail, porte.
+8. Cherche le caractère « : » dans le corps et dans l'objet : il ne doit pas y en avoir.
+   Cherche un compliment ou un jugement sur eux : il ne doit pas y en avoir.
 7. Lis à voix haute : est-ce qu'un artisan croirait qu'un indépendant du coin lui a
    écrit lui-même ? Sinon, réécris le détail.
 
@@ -145,8 +160,8 @@ signature.
 **Objet : un indépendant du val-de-travers**
 Bonjour,
 Je m'appelle Thomas, je suis web designer et spécialiste du référencement Google, indépendant, installé à Couvet dans le Val-de-Travers.
-Je suis tombé sur votre entreprise en cherchant des installateurs solaires en Valais et j'ai pris le temps de regarder votre site. Vos chantiers y sont bien montrés, on voit que le travail est soigné.
-Je vous écris simplement pour me présenter. Ce que je fais : création et refonte de sites web, référencement sur Google et création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
+Je suis tombé sur votre entreprise en cherchant des installateurs solaires en Valais et j'ai pris le temps de regarder votre site. J'y ai vu que vous posez aussi des bornes de recharge.
+Je vous écris simplement pour me présenter. Je crée et je refais des sites web, je m'occupe du référencement sur Google et de la création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
 Si l'un de ces sujets vous trotte dans la tête, répondez-moi en deux mots et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
 Belle journée,
 Thomas Puglisi
@@ -156,6 +171,7 @@ KUMO, Couvet - kumo-seo.ch
 ## Red flags — STOP et réécris
 - Un chiffre, une position, un concurrent, une remarque sur leur visibilité.
 - Un bloc fixe reformulé, ou un détail inventé sur Thomas.
+- Un deux-points dans le mail, un compliment, une phrase-slogan.
 - Le détail est générique (« votre beau site », « vos bons avis ») ou invérifiable.
 - « nous », un prix, un appel demandé, deux demandes.
 - Même objet ou même détail que le mail précédent du run.
