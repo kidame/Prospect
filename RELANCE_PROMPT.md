@@ -121,7 +121,9 @@ LUI-MEME de l'envoyer (copier-coller, ou mise en brouillon sur demande) : depuis
    (jamais "Re: relance" ; idealement le fait neuf ou la piste offerte). Structure :
    - 1 ligne qui raccroche au mail precedent SANS culpabiliser (ex. "je vous ecrivais il y a
      une semaine au sujet de [angle du mail 1]") ;
-   - LE fait neuf date OU LA piste offerte (un seul point, chiffre, verifiable) ;
+   - UNE idee concrete pour eux, tiree du "## Diagnostic", dite en langage courant
+     (regle V3 du 2026-11-18 : AUCUN chiffre, AUCUNE position, AUCUN concurrent, aucun
+     vocabulaire SEO ; ne repete ni la presentation ni la liste de services) ;
    - la meme micro-offre PAR MAIL que le mail 1 : proposer d'ENVOYER la piste / le point utile,
      sans engagement et JAMAIS un appel ni "15 min" a froid (cf. CLAUDE.md "CTA = CONTINUER PAR
      MAIL" ; le Diagnostic 1200 ne se mentionne que s'il etait deja dans le mail 1).

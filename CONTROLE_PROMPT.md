@@ -101,16 +101,19 @@ tiers (autre societe, partenaire, fournisseur, marque affichee a cote), d'un anc
 proprietaire, ou si plusieurs noms apparaissent -> FLAG, suggere de remplacer par "Bonjour,".
 Tu ne proposes JAMAIS d'ajouter un prenom la ou il y a "Bonjour,".
 
-C2 — FAIT PORTEUR (re-mesure independante). Repere LE fait sur lequel l'accroche du mail
-est batie (souvent : "present sur telle ville mais absent de telle autre", ou "absent du
-pack local", ou "absent en organique sur telle requete"). Re-mesure-le toi-meme :
-DataForSEO serp_organic_live_advanced, device mobile, sur la requete coeur "metier ville"
-(utilise serp_locations, country CH, pour le location_name exact). Compare au SERP REEL :
-- position dans le PACK LOCAL (les 3 fiches Maps/GBP) : present ou absent ?
-- position en ORGANIQUE web : page 1, plus bas, absent ?
-Tu ne flagues (ROUGE) QUE si ta mesure CONTREDIT l'argument du mail (ex : le mail dit
-"vous etes absent du pack" mais tu le vois en #2). Une variation de rang qui ne change pas
-l'argument = PAS de flag. Si la re-mesure echoue (API en panne) -> ROUGE "controle incomplet".
+C2 — DETAIL A EUX + ZERO SEO (regle V3 du 2026-11-18, remplace la re-mesure du fait
+porteur). Depuis la refonte, le mail ne contient plus de fait mesure. Verifie deux choses :
+(a) LE DETAIL : la phrase qui parle d'eux cite un detail de leur site ou de leur travail.
+Ouvre le site (1 requete) et verifie qu'il est VRAI et visible. Faux, introuvable ou
+generique ("votre beau site", "vos bons avis") -> ROUGE. Site inaccessible -> ROUGE
+"controle incomplet".
+(b) ZERO SEO : le mail ne doit contenir AUCUN chiffre (hors telephone de la signature),
+aucune position, aucun concurrent nomme, aucune remarque sur leur visibilite, aucun prix.
+Un seul de ces elements -> ROUGE (le mail est a reecrire selon le skill writing).
+(c) BLOCS FIXES : presentation, services et porte ouverte doivent etre IDENTIQUES au skill
+.claude/skills/writing/. Reformules ou enrichis -> ORANGE.
+Pour une fiche dont le mail date d'AVANT le 2026-11-18 (ancienne redaction, pas de mention
+"REDACTION V3" dans les Notes) : ne la controle pas, elle sera reecrite par la reprise.
 
 C3 — PAGES. Si la fiche ou le mail affirme "aucune page" (par ville ou par prestation),
 verifie au sitemap.xml du site (1 requete) ou au menu. Si une page existe alors qu'on dit
@@ -157,8 +160,8 @@ vide). Nom, domaine ou numero qui devie -> FLAG avec la valeur fautive et la val
   SIGNATURE non conforme (C7 : mauvais numero a remplacer), TON HUMILIANT a adoucir, TUNNEL
   Mandat/Suivi a retirer) MAIS aucun probleme de salutation / fait / contradiction d'angle.
   Thomas jette un coup d'oeil rapide avant d'envoyer.
-- 🔴 A trancher : au moins un de ces problemes -> salutation risquee (C1), fait porteur qui
-  diverge (C2), "aucune page" faux (C3), angle qui CONTREDIT la mesure (C4 : "invisible / absent"
+- 🔴 A trancher : au moins un de ces problemes -> salutation risquee (C1), detail faux ou
+  chiffre / analyse SEO dans le mail (C2), "aucune page" faux (C3), angle qui CONTREDIT la mesure (C4 : "invisible / absent"
   alors que present), OU controle incomplet (tu n'as pas pu verifier). Thomas doit decider.
 
 Rappel : jamais 🟢 par omission.
@@ -170,8 +173,8 @@ Format court et factuel, par exemple :
   ## Controle
   Verdict : 🟠 A voir
   - C1 Salutation : OK ("Bonjour," neutre, aucun prenom a risque).
-  - C2 Fait porteur : OK. Re-mesure "paysagiste Boudry" mobile -> absent du pack local et
-    absent page 1 organique, conforme a l'accroche.
+  - C2 Detail a eux : OK. Detail cite retrouve sur le site ; aucun chiffre, aucune mention
+    SEO, blocs fixes identiques au skill writing.
   - C3 Pages : OK. Sitemap lu, aucune page /paysagiste-neuchatel, conforme.
   - C4 Angle : OK, coherent avec la mesure.
   - C5 IA/accents : A CORRIGER -> ligne "je me permets de vous ecrire" (formule IA) ;

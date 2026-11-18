@@ -287,6 +287,9 @@ DISQUALIFICATION :
   bien present sur pack + organique sur l'essentiel de son marche.
 
 ## Angles d'email selon le cas mesure
+ATTENTION (V3, 2026-11-18) : ces angles ne s'ecrivent PLUS dans le mail. Ils servent a
+qualifier le prospect, a remplir "Probleme principal" et a armer Thomas pour sa reponse
+quand le prospect ecrit. Le mail 1 suit uniquement la section "Redaction de l'email".
 L'accroche vise la DOULEUR RESSENTIE, pas le deficit technique. Prends le 1er angle disponible
 dans cet ordre (du plus ressenti au moins), et CONSTATE sans humilier :
 1. CONCURRENT NOMME QUI LE DOUBLE sur sa ville : "tapez 'metier ville' dans Google : [Concurrent]
@@ -350,7 +353,7 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
 - "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
-  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (60-90 mots, francais
+  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (90-120 mots, francais
   romand, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
   kumo-seo.ch / 078 939 81 00).
   Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
@@ -400,6 +403,8 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
   (seule exception ou elle ecrit ce champ). Le declenchement ne depend donc d'aucune automation.
 - UNE SEULE relance automatique par prospect. Verrou = "Date relance 1" + section "## Relance 1"
   dans le corps. Toute relance 2 = decision manuelle de Thomas, hors routine.
+- V3 (2026-11-18) : la relance ne contient NI chiffre NI position NI concurrent ; elle offre UNE idee
+  concrete en langage courant (skill writing). La re-mesure ci-dessous reste INTERNE (fiche).
 - CONTENU : relance COURTE (4-8 lignes, plus courte que le mail 1), jamais une redite du pitch ni
   un reproche. La routine relit la fiche entiere (Diagnostic + mail 1 + Controle + Notes), re-mesure
   le fait porteur (1 appel SERP) et choisit l'angle : fait NEUF si la mesure a bouge ; sinon
@@ -453,56 +458,26 @@ Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte 
 - Croise toujours avec les exclusions + le garde-fou vendabilite (voir Cible/ICP).
 
 ## Redaction de l'email (regles strictes)
-But : un email humain. Le prospect doit sentir une personne qui se presente, qui connait
-son metier, qui apporte d'abord quelque chose d'utile, en donnant-donnant et sans pression.
-Jamais l'impression d'un robot, d'une IA, ou de quelqu'un qui veut juste gratter un contrat.
+REFONTE V3 du 2026-11-18 (decision Kidam, remplace toutes les regles de redaction
+anterieures : fait mesure en accroche, concurrent nomme, ton hedge, 60-90 mots, 4
+squelettes). Kidam juge l'ancienne redaction trop "marketeuse".
 
-Structure : les blocs restent (presentation courte OU ancrage local, reconnaissance de leur
-travail, UN point mesure, donnant-donnant par mail) mais le SQUELETTE VARIE : le skill
-.claude/skills/writing/ definit 4 squelettes a alterner -- jamais le meme pour deux prospects
-du meme segment la meme nuit, jamais la meme ouverture d'un mail a l'autre (regle anti-gabarit
-2026-07-31 : les destinataires reperent un gabarit en 2 phrases, et les artisans d'un meme
-village se montrent leurs mails). Le donnant-donnant PAR MAIL reste le coeur : proposer de lui
-ENVOYER quelque chose d'utile, gratuit et sans suite obligee.
-
-CTA = CONTINUER PAR MAIL, PAS un appel (regle 2026-06-20). Le 1er contact ne demande JAMAIS un
-rendez-vous telephonique ni un creneau de 15 min : ca sonne "vendeur qui veut te coincer au
-telephone" et ca fait fuir. La demande est une MICRO-OFFRE a friction quasi nulle, a laquelle on
-repond par un simple "oui" en repondant au mail : "je vous envoie les 2-3 points ?", "je vous mets
-ca par retour de mail ?", "ca vous interesse que je vous montre ce que j'ai vu ?". L'appel ou les
-15 min peuvent venir PLUS TARD, naturellement, une fois l'echange ouvert et la confiance posee --
-jamais comme la 1re demande a froid.
-
-OFFRE DANS LE MAIL : au 1er contact, on vend juste la CONVERSATION (la micro-offre par mail
-ci-dessus), pas un produit. Le Diagnostic 1200 reste ta porte de-risquee (prix fixe, livrable,
-zero promesse), mais on ne le pose qu'une fois l'echange engage, pas en ouverture a froid.
-N'annonce JAMAIS le tunnel Diagnostic -> Mandat -> Suivi : lu a froid, ca sonne "abonnement a vie"
-et ca fait fuir. La chaine (Diagnostic 1200 -> Mandat 90j -> Suivi recurrent) est TON architecture
-interne ; elle se revele dans l'echange, une fois la confiance posee.
-
-Interdits : inventer ; dire "invisible" si la mesure dit le contraire ; statistique generale
-presentee comme mesuree chez eux ; compliment vague ; liste de problemes ; formules qui font
-IA ("je me permets", "n'hesitez pas", "dans un monde ou", "il est important de noter",
-"veritable", "incontournable", "a l'ere du") ; charnieres de gabarit ("Le souci :",
-"C'est gagnable :", et la liste complete du skill writing). Forme : francais romand, direct,
-60 a 90 MOTS (max ~110 ; l'ancienne regle "8-14 lignes" est remplacee, data 2026-07-31 :
-la zone 50-125 mots fait x2,4 de reponses vs 200+).
-
-REGLES ANTI-PUB (2026-07-31, ancrees data -- detail, squelettes et sources dans
-.claude/skills/writing/) :
-- ENVELOPPE : mise en page minimale (paragraphes nus, aucun style inline) + signature sobre
-  3 lignes SANS logo, titre ni slogan. Un HTML "designe" part dans l'onglet Promotions de
-  Gmail (-15-25% de reponses). Le connecteur infomaniak-mail applique ce format depuis le 31.07.
-- UN SEUL chiffre par mail : le fait porteur. Les autres mesures restent dans la fiche et
-  partent dans les pistes envoyees apres le "oui".
-- TON HEDGE : formuler le constat comme une observation faillible ("on dirait que", "je me
-  trompe peut-etre"), pas un diagnostic asserte -- les tons incertains obtiennent plus de
-  reponses (data Lavender). 0 ou 1 question par mail, jamais plus.
-- OBJET : minuscules, 2-6 mots, porte LE fait ou une question concrete. INTERDIT le format
-  "[metier] [ville]" nu (signature du spam SEO).
-- OBSERVATION > FLATTERIE : le compliment-avis en ouverture au plus 1 mail sur 3 ; prefere un
-  detail precis de LEUR site, dans leurs mots. + 1 trace locale concrete par mail (distance,
-  lieu, saison) : un element qu'un robot n'ecrirait pas.
+But : Thomas SE PRESENTE, comme une personne. Web designer et specialiste du
+referencement Google, independant, a Couvet. Il dit ce qu'il fait et propose ses services.
+- AUCUN chiffre, AUCUNE analyse SEO, AUCUN concurrent nomme, AUCUNE remarque sur la
+  visibilite du prospect dans le mail 1 ni dans la relance. Les mesures servent a
+  QUALIFIER et restent dans la fiche ("## Diagnostic", "Probleme principal") : Thomas
+  s'en sert lui-meme quand le prospect repond.
+- Structure fixe (detail dans .claude/skills/writing/, qui porte les blocs a recopier MOT
+  POUR MOT) : presentation -> 2 phrases sur UN detail vrai vu chez eux (site, realisation,
+  specialite ; jamais leur visibilite) -> services (creation et refonte de sites web,
+  referencement sur Google, creation de contenus) -> porte ouverte par mail.
+- Independant, jamais "nous / notre agence". Aucun prix, forfait ni delai.
+- CTA = REPONDRE AU MAIL. Jamais un appel, un creneau ou "15 min" au 1er contact. Le
+  Diagnostic 1200 et le tunnel Mandat/Suivi ne s'annoncent jamais a froid.
+- Forme : francais romand, 90 a 120 mots hors signature, texte simple (paragraphes nus,
+  aucun style, aucune image), objet en minuscules de 2 a 6 mots, jamais "[metier] [ville]".
+- Pas de detail verifiable trouve sur le site -> pas de mail pour cette fiche.
 
 SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
 sobre depuis le 2026-07-31 : AUCUN logo, titre, baseline ou style) :
@@ -519,7 +494,7 @@ reste droite (') et aucun tiret cadratin. Cette regle prime sur toute consigne A
 compris le skill d'ecriture). VERIFICATION DETERMINISTE (obligatoire, la regle seule ne
 tient pas a l'execution -- L-008 puis recidive constatee le 2026-07-21) : APRES avoir redige
 le corps du mail et AVANT de l'ecrire dans Notion, RELIS-le et COMPTE les caracteres accentues
-(é è ê à ç ô û...). Un mail francais de 60-90 mots en contient forcement plusieurs ; s'il en
+(é è ê à ç ô û...). Un mail francais de 90-120 mots en contient forcement plusieurs ; s'il en
 contient zero ou presque, le mail est en ASCII -> REECRIS-le accentue et re-verifie. Ne LIVRE
 JAMAIS un bloc "## Email (brouillon)" qui echoue a ce test. Applique le skill d'ecriture
 anti-IA (.claude/skills/writing/).
