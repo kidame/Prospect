@@ -48,8 +48,10 @@ c. REPONSE d'un prospect (tu n'y reponds JAMAIS, c'est Thomas) :
 d. ADRESSE INVALIDE (avis de non-distribution) : Notes += "adresse invalide (retour du
    AAAA-MM-JJ)", statut "Ancien".
 e. BROUILLON A RETIRER : une fiche "Lead chaud", "Perdu", "Ancien" ou "NE PLUS
-   CONTACTER" qui a encore un brouillon en attente -> `supprimer_brouillon` (uuid note
-   dans la fiche au depot).
+   CONTACTER" qui a encore un brouillon en attente -> `supprimer_brouillon`. ATTENTION (constat du 2026-11-18) : l'uuid d'un
+   brouillon CHANGE des que Thomas l'ouvre dans son webmail ou son application. Ne te fie
+   pas a l'uuid ecrit dans les Notes : retrouve le brouillon par l'ADRESSE du destinataire
+   dans la liste des brouillons (tools/boite_etat.py rend l'uuid courant).
 f. CLOTURE : fiche "Mail 2 envoyé" dont le deuxieme mail a plus de 21 jours, sans
    reponse -> "Perdu", Notes += "cycle termine sans reponse".
 g. DOUBLONS : deux fiches avec le meme Email -> ne corrige pas, signale au mail du matin.
@@ -85,6 +87,8 @@ Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
    "Objet : ..." du bloc, le corps = le texte du bloc SANS la signature (le connecteur
    l'ajoute), en texte brut accentue, un paragraphe par ligne vide.
 4. Apres chaque depot : Notes += "BROUILLON DEPOSE le AAAA-MM-JJ (uuid <uuid renvoye>)".
+   Un seul brouillon par adresse : avant de deposer, verifie dans la liste des brouillons
+   qu'aucun n'existe deja pour cette adresse (sinon ne depose pas, signale-le).
 5. BROUILLON DISPARU : fiche marquee "BROUILLON DEPOSE", plus aucun brouillon pour cette
    adresse et aucun envoi detecte -> Thomas l'a supprime. Notes += "brouillon supprime
    par Thomas, ne pas redeposer", statut "Ancien".
