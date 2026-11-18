@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-v3"
+  ],
+  "discoveredDate": "2026-11-18",
+  "id": "ISS-013",
+  "impact": "(1) PATTERN, 1er run V3/PISTES (2026-11-18), 9 mails sur 9 : (a) Longueur : les blocs fixes mot pour mot (presentation + services + porte A/B + Bonjour/Belle journee) font deja ~97 mots ; l'exemple valide du skill fait ~130 mots. Mails reprise = 122-131 mots, mails registre (phrase approche fixe + 'Je n'ai pas trouve de site' en plus) = 132-139 mots. La regle 90-120 est inatteignable sans tronquer un bloc fixe -> le controle C2/C5 risque de flaguer chaque mail. (b) Alerte email : CLAUDE.md impose l'alerte 'Email a confirmer' pour toute adresse perso (gmail/bluewin...), et BOITE.md interdit le depot d'un brouillon portant l'alerte. Or la piste A (nouvelles entreprises sans site) n'a quasi que des adresses perso : 3/4 retenus du run (gmail x2, windowslive x1), source officielle local.ch. Appliquer l'alerte = aucun mail registre ne sera jamais depose. Ce run ne l'a pas posee (source officielle notee dans Notes) -> a trancher. (c) Detail : porte B ('une question sur votre site') sonne faux pour une entreprise sans site (piste A/B). (2) CHANGEMENT suggere : fixer la longueur a ~120-140 mots (ou 'detail = 25-35 mots, le reste fixe') ; exempter de l'alerte les adresses perso publiees par une source officielle (site, local.ch, fiche Google) en piste A/B, garder l'alerte pour les emails devines/scrapes hors source ; porte A seule pour les pistes sans site, ou variante B sans 'votre site'. (3) PREUVE : comptage deterministe (split sur espaces) des 9 corps du 2026-11-18 + exemple du skill = 131 mots ; segments registre x Cortaillod / Neuchatel / La Brevine / La Chaux-de-Fonds. Zero PII.",
+  "location": [
+    "CLAUDE.md Redaction de l'email (90-120 mots) + Mapping Notion (alerte Email a confirmer)",
+    ".claude/skills/writing/SKILL.md (Longueur, Selon la piste)",
+    "PISTES.md Piste A point 5"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut: regles V3 contradictoires (longueur 90-120 vs blocs fixes ; alerte email perso vs piste A registre)"
+}
