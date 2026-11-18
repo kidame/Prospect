@@ -55,7 +55,7 @@ délai, aucun service ajouté à la liste.
 5. **Porte ouverte** A ou B, mot pour mot.
 6. `Belle journée,` puis la signature canonique de CLAUDE.md.
 
-Longueur : 90 à 120 mots (hors signature). Une seule demande : répondre au mail.
+Longueur : 120 à 145 mots hors signature (jusqu'à 155 pour les pistes registre et sans site, qui ont une phrase fixe en plus). Les blocs fixes font déjà une centaine de mots : ne les raccourcis JAMAIS pour tenir une longueur. Une seule demande : répondre au mail.
 JAMAIS d'appel, de créneau ni de « 15 min » au premier contact.
 
 ## Selon la piste (PISTES.md)
@@ -74,7 +74,8 @@ Phrase FIXE pour les deux premières pistes (la seule remarque autorisée, mot p
 > Je n'ai pas trouvé de site internet à votre nom.
 
 Elle se place juste avant le bloc Services. Aucune autre remarque sur leur présence en
-ligne. Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
+ligne. Pour ces deux pistes, utilise TOUJOURS la porte ouverte A (la B parle de « votre
+site », qu'ils n'ont pas). Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
 Madame Nom, » (titulaire ou gérant inscrit).
 
 ## Objet
@@ -129,7 +130,7 @@ signature.
    visibilité ?
 3. Aucun chiffre (hors numéro de téléphone de la signature), aucun mot de la liste
    « vendeur ou SEO », aucun concurrent, aucun prix.
-4. 90 à 120 mots, une seule demande, objet en minuscules.
+4. 120 à 145 mots (155 pour registre et sans site), une seule demande, objet en minuscules.
 5. Accents comptés (vérification déterministe de CLAUDE.md), signature canonique.
 6. Différent du mail précédent du run : objet, phrase d'approche, détail, porte.
 7. Lis à voix haute : est-ce qu'un artisan croirait qu'un indépendant du coin lui a

@@ -148,6 +148,11 @@ C6 — HYGIENE. Deux verifs rapides :
 - Si l'email du prospect est scrape et incertain (adresse perso type bluewin/gmail, ou
   domaine different du site), le bloc "## Email" doit porter en tete une alerte
   "⚠️ Email a confirmer avant envoi". Si l'email est incertain et l'alerte manque -> FLAG.
+  EXCEPTION (PISTES.md, pistes registre et sans site) : une entreprise sans site n'a pas d'adresse
+  de domaine. Une adresse personnelle (gmail, bluewin, hotmail...) PUBLIEE sur une source officielle
+  (fiche local.ch, fiche Google, annuaire professionnel) et notee comme telle dans les Notes est
+  CONFIRMEE : pas d'alerte, pas de flag. Verifie aussi la longueur : 120 a 145 mots (155 pour ces
+  deux pistes) ; un ecart de longueur seul = ORANGE, jamais ROUGE.
 
 C7 — SIGNATURE CANONIQUE. La signature du mail (et de la relance si presente) doit etre
 EXACTEMENT celle de CLAUDE.md : "Thomas Puglisi / KUMO - kumo-seo.ch / 078 939 81 00".

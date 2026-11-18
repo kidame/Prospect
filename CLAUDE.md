@@ -362,7 +362,7 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
 - "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
-  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (90-120 mots, francais
+  SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (120-145 mots, francais
   romand, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
   kumo-seo.ch / 078 939 81 00).
   Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
@@ -487,7 +487,7 @@ referencement Google, independant, a Couvet. Il dit ce qu'il fait et propose ses
 - Independant, jamais "nous / notre agence". Aucun prix, forfait ni delai.
 - CTA = REPONDRE AU MAIL. Jamais un appel, un creneau ou "15 min" au 1er contact. Le
   Diagnostic 1200 et le tunnel Mandat/Suivi ne s'annoncent jamais a froid.
-- Forme : francais romand, 90 a 120 mots hors signature, texte simple (paragraphes nus,
+- Forme : francais romand, 120 a 145 mots hors signature (155 pour les pistes registre et sans site), texte simple (paragraphes nus,
   aucun style, aucune image), objet en minuscules de 2 a 6 mots, jamais "[metier] [ville]".
 - Pas de detail verifiable trouve sur le site -> pas de mail pour cette fiche.
 
@@ -506,7 +506,7 @@ reste droite (') et aucun tiret cadratin. Cette regle prime sur toute consigne A
 compris le skill d'ecriture). VERIFICATION DETERMINISTE (obligatoire, la regle seule ne
 tient pas a l'execution -- L-008 puis recidive constatee le 2026-07-21) : APRES avoir redige
 le corps du mail et AVANT de l'ecrire dans Notion, RELIS-le et COMPTE les caracteres accentues
-(é è ê à ç ô û...). Un mail francais de 90-120 mots en contient forcement plusieurs ; s'il en
+(é è ê à ç ô û...). Un mail francais de 120-145 mots en contient forcement plusieurs ; s'il en
 contient zero ou presque, le mail est en ASCII -> REECRIS-le accentue et re-verifie. Ne LIVRE
 JAMAIS un bloc "## Email (brouillon)" qui echoue a ce test. Applique le skill d'ecriture
 anti-IA (.claude/skills/writing/).

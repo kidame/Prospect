@@ -13,9 +13,9 @@
   ],
   "phase": null,
   "relatedTickets": [],
-  "resolution": null,
-  "resolvedDate": null,
+  "resolution": "Corrige le 2026-11-18 (chat) : longueur portee a 120-145 mots (155 pour registre et sans site), les blocs fixes ne se raccourcissent jamais ; une adresse personnelle publiee sur une source officielle (local.ch, fiche Google) est confirmee, sans alerte ; pistes registre et sans site = toujours la porte A ; script fosc_nouvelles : plus de plafond a 60 lignes, fin du texte portee a 700 caracteres.",
+  "resolvedDate": "2026-11-18",
   "severity": "medium",
-  "status": "open",
+  "status": "resolved",
   "title": "Defaut: regles V3 contradictoires (longueur 90-120 vs blocs fixes ; alerte email perso vs piste A registre)"
 }

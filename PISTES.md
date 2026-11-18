@@ -48,7 +48,7 @@ croise une interessante, elle la cite dans le recap ("a voir par Thomas, 3D"), s
 
 ## Piste A - Nouvelles entreprises (registre du commerce)
 Une entreprise qui vient de s'inscrire a besoin d'un site maintenant.
-1. `python3 tools/fosc_nouvelles.py --jours 45` (API publique de la Feuille officielle
+1. `python3 tools/fosc_nouvelles.py --jours 45` (toute la zone, les trois rangs) (API publique de la Feuille officielle
    suisse du commerce, rubrique HR01, sans cle). Sortie : une ligne JSON par entreprise
    (rang, date, nom, commune, NPA, UID, forme, adresse, but, fin du texte ou figure le
    titulaire ou les gerants). Si le shell n'a pas acces au reseau : lis la meme API par
@@ -67,7 +67,10 @@ Une entreprise qui vient de s'inscrire a besoin d'un site maintenant.
    - vrai site correct -> fiche "Ancien", note "deja un site" (sert au dedoublonnage) ;
    - pas de site, page de reseau social seule, ou "en construction" -> RETENUE.
 5. Contact : email de source officielle uniquement (son site, sa fiche Google, local.ch,
-   un annuaire professionnel), jamais devine. Pas d'email mais un telephone -> "a
+   un annuaire professionnel), jamais devine. local.ch est la meilleure source pour ces
+   entreprises. Une adresse personnelle (gmail, bluewin...) publiee sur une de ces sources
+   est CONFIRMEE : pas d'alerte "Email a confirmer" (regle du 2026-11-18, ISS-013).
+   Un "site web" annonce par un annuaire se verifie : domaine parque ou vide = pas de site. Pas d'email mais un telephone -> "a
    appeler". Ni l'un ni l'autre -> fiche "Ancien", note "injoignable".
 6. Salutation : le titulaire ou le gerant inscrit au registre est une source officielle,
    "Bonjour Monsieur Nom," ou "Bonjour Madame Nom," est donc permis. Jamais le prenom seul.

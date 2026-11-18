@@ -103,7 +103,7 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    societe/partenaire/marque affichee a cote) ; au moindre doute -> "Bonjour," neutre.
 6. Pour chaque retenu a canal EMAIL : ecris dans le CORPS de sa fiche Notion deux blocs :
    "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)" (mail COMPLET pret a
-   copier-coller : 1re ligne "Objet : ...", corps 90-120 mots, signature Thomas / KUMO -
+   copier-coller : 1re ligne "Objet : ...", corps 120-145 mots, signature Thomas / KUMO -
    kumo-seo.ch / tel). SOURCE UNIQUE du mail. REDACTION V3 (2026-11-18) : suis A LA LETTRE le skill
    .claude/skills/writing/ -- Thomas se presente (blocs fixes recopies MOT POUR MOT), deux
    phrases sur UN detail vrai vu sur LEUR site cette nuit, ses services, une porte ouverte

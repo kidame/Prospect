@@ -56,7 +56,7 @@ def detail(pid: str) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jours", type=int, default=30)
-    ap.add_argument("--max", type=int, default=60)
+    ap.add_argument("--max", type=int, default=400)
     a = ap.parse_args()
     fin = dt.date.today()
     debut = fin - dt.timedelta(days=a.jours)
@@ -92,7 +92,7 @@ def main() -> None:
                     "uid": uid.group(0) if uid else None, "forme": f or None,
                     "adresse": adr.strip(" ,.")[:160],
                     "but": (re.sub(r"\s+", " ", but.group(1)).strip()[:260] if but else None),
-                    "fin_du_texte": re.sub(r"\s+", " ", txt).strip()[-300:],
+                    "fin_du_texte": re.sub(r"\s+", " ", txt).strip()[-700:],
                     "ecarte_d_office": ecart})
     res = [r for r in res if not r["ecarte_d_office"]]
     res.sort(key=lambda r: (r["rang"], r["date"]))
