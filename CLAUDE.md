@@ -113,9 +113,9 @@ un email pour ceux qui ont un email. Qualite avant quantite.
   outil `creer_brouillon`. REGLE pour ne JAMAIS reproduire les erreurs de rendu :
   * Passe le corps en TEXTE BRUT avec accents, un paragraphe par ligne vide. RIEN d'autre.
   * NE colle PAS de HTML (`<div>`, `<br>`...) et N'AJOUTE PAS la signature a la main : le
-    connecteur met en page en HTML MINIMAL (un `<p>` nu par paragraphe, AUCUN style inline ni
-    logo depuis le 2026-07-31, regle anti-pub) ET ajoute la signature sobre 3 lignes
-    (`tools/signature.html`) automatiquement. Un pied de signature texte deja present dans le
+    connecteur met en page en HTML MINIMAL (un `<p>` nu par paragraphe, AUCUN style inline dans le corps) ET ajoute automatiquement la SIGNATURE COMPLETE de Thomas
+    (`tools/signature.html` : logo KUMO, titre, telephone, adresse, site -- la meme que celle de
+    son webmail, remise le 2026-11-18 sur decision de Kidam, a la place des 3 lignes sobres). Un pied de signature texte deja present dans le
     corps (Thomas / KUMO... / tel) est retire tout seul -> jamais de double signature.
   * Defaut = HTML formate + signature. `html=false` seulement si tu veux du texte brut sans
     signature (cas rare). Pour supprimer un brouillon : `supprimer_brouillon` (uuid renvoye a la
@@ -528,7 +528,9 @@ referencement Google, independant, a Couvet. Il dit ce qu'il fait et propose ses
 - Pas de detail verifiable trouve sur le site -> pas de mail pour cette fiche.
 
 SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
-sobre depuis le 2026-07-31 : AUCUN logo, titre, baseline ou style) :
+c'est la forme TEXTE ecrite dans la fiche Notion : 3 lignes, sans logo ni style. Au depot du
+brouillon, le connecteur la retire et met a sa place la signature complete de Thomas, avec logo,
+decision Kidam du 2026-11-18) :
   Thomas Puglisi
   KUMO, Couvet - kumo-seo.ch
   078 939 81 00

@@ -48,6 +48,11 @@
   marquees dans Notion (site a refaire, 3 verifiees en chat, 2 a reverifier par la routine) ;
   les autres sont classees "Perdu" par la routine relance (BOITE.md 2h).
 
+- SIGNATURE (soir du 18) : tools/signature.html reprend la signature complete du webmail de
+  Thomas (logo KUMO, titre, coordonnees), a la place des 3 lignes sobres du 31 juillet. Les 8
+  brouillons ont ete refaits. A verifier : le rendu du logo chez le destinataire (image integree).
+- REDACTION (soir du 18) : aucun deux-points, aucun compliment, aucun slogan dans les mails.
+
 ## Prochaine etape
 
 1. Lire le recap "KUMO reprise" du lendemain et juger les premiers mails V3.
