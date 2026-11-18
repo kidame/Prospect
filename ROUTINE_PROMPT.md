@@ -103,7 +103,7 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    societe/partenaire/marque affichee a cote) ; au moindre doute -> "Bonjour," neutre.
 6. Pour chaque retenu a canal EMAIL : ecris dans le CORPS de sa fiche Notion deux blocs :
    "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)" (mail COMPLET pret a
-   copier-coller : 1re ligne "Objet : ...", corps 120-145 mots, signature Thomas / KUMO -
+   copier-coller : 1re ligne "Objet : ...", corps 120-145 mots, signature Thomas Puglisi / KUMO, Couvet -
    kumo-seo.ch / tel). SOURCE UNIQUE du mail. REDACTION V3 (2026-11-18) : suis A LA LETTRE le skill
    .claude/skills/writing/ -- Thomas se presente (blocs fixes recopies MOT POUR MOT), deux
    phrases sur UN detail vrai vu sur LEUR site cette nuit, ses services, une porte ouverte
@@ -119,7 +119,7 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    relis le corps redige et compte les caracteres accentues ; zero ou presque = mail en ASCII ->
    REECRIS-le accentue et re-teste. Aucun bloc "## Email (brouillon)" ne se livre sans passer ce
    test. SIGNATURE : recopie la SIGNATURE CANONIQUE de CLAUDE.md a l'identique (Thomas Puglisi /
-   KUMO - kumo-seo.ch / 078 939 81 00) -- jamais un autre numero ni une variante. NE cree PAS de
+   KUMO, Couvet - kumo-seo.ch / 078 939 81 00) -- jamais un autre numero ni une variante. NE cree PAS de
    draft Gmail. Pour les "a appeler" : ecris "## Diagnostic" + ajoute a la liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion pour CHAQUE prospect vu (retenu, a-appeler, ou rejete), Place ID +
    DATE inclus. La ROUTINE remplit : signaux d'opportunite declenches + segment (secteur x zone) +

@@ -20,9 +20,9 @@ par Notion, enumere par recherche + lecture des fiches.
 
 ## La boite fait foi (audit du 2026-11-18)
 L'audit de la boite a montre des fiches en double et des fiches "Lead froid" alors qu'un
-mail etait deja parti. Notion ne suffit donc pas. Au debut de chaque run, liste le dossier
-Envoyes de thomas.puglisi@kumo-seo.ch (connecteur infomaniak-mail, `lister_messages` avec
-`offset` jusqu'au bout ; `lire_message` si le destinataire n'apparait pas) et construis
+mail etait deja parti. Notion ne suffit donc pas. Au debut de chaque run, lis la boite avec
+`python3 tools/boite_etat.py --tout` (JSON : adresses et domaines deja destinataires ; repli :
+connecteur infomaniak-mail, `lister_messages` puis `lire_message`) et construis
 l'ensemble des adresses et des domaines deja destinataires (ignore les domaines
 generiques : gmail, bluewin, hotmail, outlook, sunrise, yahoo...). Pour CHAQUE fiche,
 avant d'ecrire ou de reecrire un mail :
@@ -34,6 +34,22 @@ avant d'ecrire ou de reecrire un mail :
 Si le connecteur de la boite est indisponible : n'ecris AUCUN mail cette nuit, recap avec
 l'objet prefixe "BLOQUE" et la raison.
 
+## Corrections apres controle (avant les 5 reecritures, 5 fiches au plus)
+Le controle ne corrige rien : un mail orange ou rouge n'est pas depose et attend. C'est toi
+qui fermes la boucle. Fiches : "Lead froid", Notes contenant "REDACTION V3", champ "Controle"
+= "🟠 A voir" ou "🔴 A trancher", Notes ne contenant pas "BROUILLON DEPOSE". Pour chacune :
+1. Lis la section "## Controle" (sa derniere ligne "A corriger : ...").
+2. Defaut corrigeable (bloc fixe, porte, variante "nouvelle Sarl", longueur, formule, accent,
+   objet, alerte a retirer, salutation a rendre neutre, chiffre ou remarque SEO a enlever,
+   detail a remplacer par un detail verifie) : reecris le bloc "## Email (brouillon)" selon le
+   skill writing, Notes += "corrige apres controle le AAAA-MM-JJ", puis VIDE le champ
+   "Controle" (le controle repassera la nuit suivante).
+3. Defaut non corrigeable (aucun detail verifiable, adresse sans source, site disparu) :
+   decoche "Draft pret", Notes += "ecarte apres controle le AAAA-MM-JJ : <raison>", statut
+   "Ancien".
+4. Une fiche deja corrigee deux fois et toujours pas verte : n'y touche plus, signale-la au
+   recap ("a trancher par Thomas").
+
 ## Chaque nuit
 Prends 5 fiches : d'abord celles de la zone de PISTES.md (rang 1, puis 2, puis 3), les plus
 recentes d'abord. Hors zone : seulement dans le cas prevu par PISTES.md (point 4). Pour chacune :
@@ -41,8 +57,10 @@ recentes d'abord. Hors zone : seulement dans le cas prevu par PISTES.md (point 4
    toujours les conditions ci-dessus.
 2. Visite le site (1 requete). Site mort, activite arretee ou hors cible -> statut
    "Ancien" + note "reprise : site inactif le AAAA-MM-JJ", pas de mail, fiche suivante.
-3. Reverifie que l'adresse email est toujours publiee (site, mentions legales). Sinon
-   garde l'alerte "⚠️ Email a confirmer avant envoi" en tete du bloc mail.
+3. Reverifie que l'adresse email est toujours publiee par l'entreprise (son site, ses mentions
+   legales, sa fiche local.ch ou Google). Publiee = CONFIRMEE, meme si c'est une adresse
+   personnelle (gmail, hotmail, bluewin) : note la source dans les Notes et RETIRE l'alerte
+   "⚠️ Email a confirmer avant envoi" du bloc. Introuvable = garde ou pose l'alerte.
 4. Trouve UN detail vrai sur leur site (regle du skill writing). Aucun detail -> note
    "reprise : pas de detail verifiable", pas de mail, fiche suivante.
 5. Reecris le bloc "## Email (brouillon)" avec la redaction V3 : il REMPLACE l'ancien

@@ -365,7 +365,10 @@ CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que v
   SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (120-145 mots, francais
   romand, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
   kumo-seo.ch / 078 939 81 00).
-  Email scrape et incertain (adresse perso bluewin/gmail, ou domaine != site) : ajoute TOUT
+  ADRESSE CONFIRMEE (regle du 2026-11-18) : une adresse publiee par l'entreprise elle-meme (son
+  site, sa fiche local.ch, sa fiche Google, un annuaire professionnel) est confirmee, meme si
+  c'est une adresse personnelle (gmail, hotmail, bluewin) : note la source dans les Notes, pas
+  d'alerte. Adresse trouvee ailleurs, deduite ou douteuse : ajoute TOUT
   EN HAUT du bloc, AVANT la ligne "Objet :", une ligne d'alerte
   "⚠️ Email a confirmer avant envoi : <raison>". C'est une note pour Thomas : elle ne fait
   PAS partie du mail copie-colle. "Draft pret" garde son sens (= mail redige), il ne certifie
@@ -384,8 +387,8 @@ Notion (section "## Email (brouillon)", source unique) et cree le brouillon corr
 - Gmail : outil create_draft (le mail tel quel : objet + corps + signature texte).
 - Infomaniak (boite thomas.puglisi@kumo-seo.ch) : connecteur infomaniak-mail, outil creer_brouillon,
   corps en TEXTE BRUT (la signature KUMO est ajoutee automatiquement, voir regle Infomaniak).
-Jamais d'envoi auto : on cree des brouillons, Thomas valide. Si une fiche porte l'alerte
-"⚠️ Email a confirmer", signale-le avant de creer le brouillon.
+Jamais d'envoi auto : on cree des brouillons, Thomas valide. Une fiche qui porte l'alerte
+"⚠️ Email a confirmer" n'est jamais deposee en brouillon (BOITE.md).
 
 ## Notion : economie de requetes SQL (regle du 2026-11-18)
 
@@ -422,33 +425,26 @@ la base. Mesure du 2026-11-18 : 6 requetes en 20 minutes sont passees sans bloca
 - Fin de run : une ligne par prospect vu (retenu, a-appeler, ou rejete) avec son Place ID + la DATE.
   Rejete -> statut "Ancien" + note de rejet + date (pour la peremption). 100% automatique.
 
-## Relance 1 (3e routine, 04:00 -- voir RELANCE_PROMPT.md)
-- DECLENCHEMENT 100% AUTOMATIQUE, zero geste de Thomas : eligible = "Statut pipeline" =
-  "Mail 1 envoyé" ET "Date mail 1" <= aujourd'hui - 7 jours ET "Date relance 1" vide ET email
-  present. (Si le prospect avait repondu, Thomas l'aurait passe en "Lead chaud" -> jamais relance.)
-- AUTO-DATATION : si "Date mail 1" manque sur une fiche "Mail 1 envoyé" (l'automation Notion
-  s'est averee non fiable, constat 2026-06-10), la routine relance pose elle-meme la date du jour
-  (seule exception ou elle ecrit ce champ). Le declenchement ne depend donc d'aucune automation.
-- UNE SEULE relance automatique par prospect. Verrou = "Date relance 1" + section "## Relance 1"
-  dans le corps. Toute relance 2 = decision manuelle de Thomas, hors routine.
-- V3 (2026-11-18) : la relance ne contient NI chiffre NI position NI concurrent ; elle offre UNE idee
-  concrete en langage courant (skill writing). La re-mesure ci-dessous reste INTERNE (fiche).
-- CONTENU : relance COURTE (4-8 lignes, plus courte que le mail 1), jamais une redite du pitch ni
-  un reproche. La routine relit la fiche entiere (Diagnostic + mail 1 + Controle + Notes), re-mesure
-  le fait porteur (1 appel SERP) et choisit l'angle : fait NEUF si la mesure a bouge ; sinon
-  MICRO-VALEUR (une piste concrete du Diagnostic non utilisee dans le mail 1) ; si la mesure
-  CONTREDIT le mail 1 (le prospect a progresse), jamais reaffirmer le fait mort -> pivot honnete ou
-  skip signale. Salutation = EXACTEMENT celle du mail 1. Interdits en plus de la liste generale :
-  "je me permets de revenir", "sans reponse de votre part", "avez-vous eu le temps de", "je relance".
-- LIVRABLES (depuis le 2026-08-03, decision Thomas : PLUS AUCUN brouillon automatique) : section
-  "## Relance 1 (brouillon)" en bas de la fiche (source unique) + "Statut pipeline" ->
-  "Relance préparée" + "Date relance 1" = date du jour + ligne en Notes. L'envoi est un geste
-  MANUEL de Thomas (copier-coller depuis la fiche, ou mise en brouillon sur demande, hors
-  routine). Fiche avec "⚠️ Email a confirmer" -> alerte recopiee en tete du bloc relance +
-  signalee dans le recap.
-- PERIMETRE STRICT : la routine relance ne touche JAMAIS au mail 1, au Diagnostic, au champ/section
-  Controle, a Draft pret ; elle ne cree aucune fiche. Aucune interference avec la run de 1h (fiches
-  neuves en Lead froid) ni le controle de 3h (fiches Draft pret sans verdict).
+## Relance 1 et boite mail (3e routine, vers 03:00 -- voir RELANCE_PROMPT.md et BOITE.md)
+- Chaque nuit, la routine relance LIT LA BOITE de Thomas (`python3 tools/boite_etat.py`) : elle
+  constate les envois, les reponses et les retours, et met Notion a jour (BOITE.md). Thomas ne
+  tient plus aucun statut a la main.
+- RELANCE DUE = "Statut pipeline" = "Mail 1 envoyé" ET "Date mail 1" entre aujourd'hui - 45 jours
+  et aujourd'hui - 7 jours ET "Date relance 1" vide ET email present ET aucune reponse dans la
+  boite. "Date mail 1" = la date REELLE de l'envoi lue dans la boite.
+- UNE SEULE relance automatique par prospect. Verrou = "Date relance 1" + section "## Relance 1".
+  Toute relance 2 = decision manuelle de Thomas.
+- CONTENU (V3) : 3 a 5 lignes, la meme salutation que le mail 1, une ligne qui raccroche sans
+  reproche, UNE idee concrete en langage courant, la porte "repondez a ce mail". Ni chiffre, ni
+  position, ni concurrent, ni vocabulaire SEO, ni prix. AUCUNE re-mesure Google (ni DataForSEO ni
+  Apify). Interdits : "je me permets de revenir", "sans reponse de votre part", "avez-vous eu le
+  temps de", "je relance".
+- LIVRABLES : section "## Relance 1 (brouillon)" en bas de la fiche + statut "Relance préparée" +
+  "Date relance 1" + ligne en Notes, puis depot en brouillon dans la boite selon BOITE.md (file de
+  10 au maximum, mails 1 au vert et relances). Thomas appuie sur Envoyer.
+- MAIL DU MATIN "KUMO matin" envoye toutes les nuits, meme sans relance.
+- PERIMETRE : la routine relance ne touche JAMAIS au mail 1, au Diagnostic, au champ ou a la
+  section Controle, a Draft pret ; elle ne cree aucune fiche.
 
 ## Regle perf / sante technique
 - Le besoin se lit sur la VISIBILITE (positions, 2 axes), JAMAIS sur la perf. PERF != BESOIN :

@@ -29,6 +29,19 @@
   date. Recherche seulement si le stock de mails prets passe sous 20. Analyse complete
   uniquement pour un prospect qui a repondu. 3D / horlogerie : Thomas a la main.
 
+### Soir du 2026-11-18 : controle et relance alignes sur la nouvelle machine
+- CONTROLE_PROMPT.md reecrit : plus de re-mesure Google, 7 controles V3 (salutation registre,
+  detail verifie sur le site ou sur le registre, zero SEO, blocs fixes et porte, formules,
+  adresse confirmee par publication, signature "KUMO, Couvet"). Vert = depose en brouillon.
+- RELANCE_PROMPT.md reecrit : lit la boite, redige les relances V3 sans re-mesure, depose les
+  brouillons et envoie "KUMO matin" TOUTES les nuits, meme sans relance due (avant : s'arretait).
+- REPRISE.md : la recherche corrige elle-meme les mails orange ou rouge la nuit suivante.
+- tools/boite_etat.py : lecture de la boite en une commande (envoyes, brouillons, recus, retours).
+- Regle Notion : 100 lignes au plus par requete SQL, 3 requetes ciblees par run.
+- 8 brouillons V3 deposes a la main depuis le chat (controle fait en chat, fiches au vert).
+- A surveiller : premier run complet de la nuit du 18 au 19 (recherche 00:20, controle 02:10,
+  relance 03:05). Le controle ne tourne que du lundi au vendredi.
+
 ## Prochaine etape
 
 1. Lire le recap "KUMO reprise" du lendemain et juger les premiers mails V3.
