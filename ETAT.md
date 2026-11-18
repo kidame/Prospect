@@ -19,9 +19,11 @@
   sans fiche). 31 brouillons perimes supprimes. Regle ajoutee : la boite fait foi avant
   tout mail (REPRISE.md).
 
+- BOITE.md (decision Kidam) : la routine relance lit la boite chaque nuit (envois et
+  reponses constates -> Notion a jour sans saisie), depose au plus 10 brouillons prets
+  (mails V3 controles au vert), envoie un seul mail du matin "KUMO matin".
+
 ## Prochaine etape
 
 1. Lire le recap "KUMO reprise" du lendemain et juger les premiers mails V3.
-2. Decider si les mails prets doivent redevenir des brouillons Infomaniak (aujourd'hui :
-   copie depuis Notion ou depuis le recap, regle du 2026-08-03).
-3. Suivi des envois : aujourd'hui Thomas passe lui-meme la fiche en "Mail 1 envoye".
+2. Verifier le premier mail "KUMO matin" : brouillons deposes, envois constates.

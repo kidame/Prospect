@@ -600,6 +600,12 @@ issues ouvertes reste propre, et rien de non prouve ne contamine les regles que 
 Licence Storybloq = PolyForm Noncommercial : a verifier vu l'usage commercial de KUMO (voir handover).
 
 ## Garde-fous
+- LA BOITE PILOTE (decision Thomas 2026-11-18, voir BOITE.md) : Thomas envoie lui-meme,
+  quand il veut. La routine relance lit la boite chaque nuit : elle constate les envois
+  et les reponses, met a jour "Statut pipeline" / "Date mail 1" / Notes, et garde au plus
+  10 brouillons prets dans la boite. Cela REMPLACE la regle "plus aucun brouillon
+  automatique" du 2026-08-03 et la regle "les statuts d'envoi sont tenus par Thomas".
+  Toujours AUCUN envoi automatique a un prospect.
 - LA BOITE FAIT FOI (audit du 2026-11-18) : avant d'ecrire un mail pour un prospect (run
   normal ou reprise), verifie dans le dossier Envoyes de la boite (connecteur
   infomaniak-mail) qu'aucun mail n'est deja parti vers son adresse ou son domaine. Detail

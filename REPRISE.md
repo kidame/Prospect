@@ -52,7 +52,7 @@ Prends 10 fiches, les plus RECENTES d'abord (date de creation). Pour chacune :
 7. Champs : ajoute aux "Notes" la ligne "REDACTION V3 - mail reecrit le AAAA-MM-JJ" ;
    vide le champ "Controle" (l'ancien verdict portait sur l'ancien mail) ; laisse le
    statut "Lead froid" et "Draft pret" coche. Ne change RIEN d'autre.
-Aucun brouillon Infomaniak ni Gmail (regle du 2026-08-03 inchangee).
+Tu ne deposes PAS de brouillon ici : la routine relance s'en charge ensuite (BOITE.md), apres le controle.
 
 ## Recap de la nuit
 Objet : "KUMO reprise - AAAA-MM-JJ". En tete : "Reprise : N mails reecrits cette nuit,
