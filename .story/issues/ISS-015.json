@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-controle",
+    "icp"
+  ],
+  "discoveredDate": "2026-11-19",
+  "id": "ISS-015",
+  "impact": "(1) PATTERN : controle du 2026-11-19, 2 fiches piste B au Secteur \"Garage\" (segments \"sans site x Val-de-Travers\" et \"sans site x La Brevine\", Place ID 0x478dc280e5ab8b9b:0x2ff35b0eef0bb4f6 et 0x478dea4ba9ea24a1:0xa6e3d5ed322e41c4) mises au vert. CLAUDE.md classe \"garage\" en exclusion dure \"ANGLE NOMINATIF OBLIGATOIRE (sinon ECARTE)\" ; PISTES.md (qui prime pour la recherche mais garde \"les exclusions dures de CLAUDE.md en vigueur\") liste \"garage, carrosserie\" dans les graines de la piste B. Le mail V3 n'a plus d'angle mesure, donc l'exclusion n'est plus appliquable telle quelle. Le controle (7 controles) ne couvre pas l'ICP : ces fiches passent au vert sans arbitrage.\n(2) CHANGEMENT SUGGERE : trancher en session dev. Soit retirer garage/carrosserie des graines PISTES.md (exclusion maintenue), soit reformuler l'exclusion CLAUDE.md pour la V3 (ex. \"garage : seulement piste B sans site, detail de fiche verifie\"). Optionnel : ajouter au controle un C0 \"secteur hors exclusions dures\" pour que la porte verte couvre aussi l'ICP.\n(3) PREUVE : texte de CLAUDE.md section \"Exclusions dures\" ; PISTES.md ligne des graines piste B (\"... nettoyage, garage, carrosserie, serrurier ...\"). Les deux mails sont par ailleurs conformes (detail tire de local.ch, porte A, phrase \"pas de site\" autorisee). ZERO PII.\n",
+  "location": [
+    "CLAUDE.md Exclusions dures (ANGLE NOMINATIF OBLIGATOIRE)",
+    "PISTES.md Piste B graines"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: contradiction garage (exclusion 'angle nominatif' CLAUDE.md) vs graines garage/carrosserie de PISTES.md piste B"
+}
