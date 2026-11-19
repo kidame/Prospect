@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-1h",
+    "sourcing"
+  ],
+  "discoveredDate": "2026-11-18",
+  "id": "ISS-014",
+  "impact": "(1) PATTERN : l'actor enckay/google-maps-places-extractor, appele avec un TABLEAU de 9-12 graines (keywords) et maxResults 60-80, remplit tout le quota avec la PREMIERE graine (run 1h 2026-11-19, piste B x Val-de-Travers : 2 appels multi-graines -> 60 resultats 100% menuisier puis 57 resultats 100% peintre, rayon elargi jusqu'a la France voisine et Yverdon). Les autres graines ne sont jamais servies. Il a fallu relancer une graine par appel (maxResults 20-25) pour couvrir electricien, sanitaire, garage, paysagiste, nettoyage, platrier. 1 run observe, mais structurel.\n(2) CHANGEMENT SUGGERE : dans PISTES.md piste B et CLAUDE.md (Outils), preciser 'une graine par appel, maxResults 20-25, location = commune' (cout constate ~0.01 USD par appel). Filtrer ensuite par NPA de la zone (beaucoup de resultats France / Vaud).\n(3) PREUVE : datasets Apify 2026-11-19 EO8FFKgZCGjK41wcX (menuisier seul) et LrSzxoVzNY9ObIoae (peintre seul) ; appels mono-graine corrects. Autre constat piste B : le critere 'un avis de moins de 12 mois' (compass/google-maps-reviews-scraper, ~0.01 USD) a ecarte 5 des 8 candidats sans site joignables ; controle peu couteux, a garder. Zero PII.\n",
+  "location": [
+    "PISTES.md piste B / CLAUDE.md Outils"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: piste B Maps, une seule graine par appel (l'actor ignore les graines suivantes)"
+}

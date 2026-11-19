@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-1h",
+    "redaction-email",
+    "accents"
+  ],
+  "discoveredDate": "2026-11-16",
+  "id": "ISS-011",
+  "impact": "PATTERN : la routine 1h ecrit le corps du mail ('## Email (brouillon)') entierement en ASCII, sans aucun accent, alors que CLAUDE.md impose un francais correct avec tous les accents et une VERIFICATION DETERMINISTE (relire + compter les caracteres accentues) avant d'ecrire dans Notion. Deja documente comme recidive dans CLAUDE.md (L-008, puis recidive constatee le 2026-07-21).\n\nACCUMULATION CHIFFREE (controle du 2026-11-16, run 1h du 2026-11-13, segment sanitaire x Yverdon) : 4 fiches sur 4 ont le corps du mail 100% ASCII. Place IDs : 0x85d7cf865c104df1:0xfd02e0ad638df59a ; 0x478dc5f1f73f6ee9:0xa7d9022247dbee2e ; 0x478dcf4843f23fcd:0x978b3b1a5a8ccd79 ; 0x478dcf7c62b04207:0x8c54bb01d9e49646. Exemples de mots fautifs : 'tombe', 'etes', 'notes', 'repere', 'ca', 'regarde', 'apparait', 'dependez', 'presence', 'discrete', 'concretes', 'jusqu'a', 'reglage', 'visibilite', 'metier'. Taux = 4/4 cette nuit.\n\nINDICE DE CAUSE : dans les MEMES fiches, la section '## Diagnostic' CONTIENT bien des accents ('note', 'structuree'->'structurée', 'dediee'...). Seul le bloc '## Email (brouillon)' est en ASCII. Donc ce n'est pas un probleme d'encodage global de la fiche : c'est l'etape de redaction du mail qui perd les accents. Deux suspects : (1) le mail est enveloppe dans un code-fence ```javascript qui peut declencher une normalisation ASCII ; (2) la verification deterministe accents n'est pas reellement executee sur le bloc Email avant ecriture.\n\nCHANGEMENT SUGGERE : (a) rendre la verification deterministe accents BLOQUANTE et ciblee sur le bloc '## Email (brouillon)' precis (compter >=1 caractere accentue par tranche de ~20 mots, sinon reecrire) ; (b) cesser d'envelopper le mail dans un code-fence ```javascript (ni javascript ni code) qui n'a aucune raison d'etre et peut favoriser l'ASCII -- ecrire le mail en texte simple. Impact business : un mail francais 100% ASCII sonne robot/IA et n'est pas envoyable tel quel (il doit etre reecrit a la main par Thomas avant chaque envoi), ce qui annule le gain de la redaction automatique.\n\nPREUVE : les 4 sections '## Controle' ecrites le 2026-11-16 listent le detail C5 par fiche. Zero PII (reference par Place ID/segment).",
+  "location": [
+    "CLAUDE.md section ACCENTS OBLIGATOIRES (verification deterministe)",
+    "ROUTINE_PROMPT.md etape 9 livrables / ## Email (brouillon)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: corps de mail en ASCII (accents manquants) malgre la regle C5/accents obligatoires"
+}

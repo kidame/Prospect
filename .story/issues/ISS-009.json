@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-1h",
+    "accroche-email"
+  ],
+  "discoveredDate": "2026-11-12",
+  "id": "ISS-009",
+  "impact": "PATTERN (1re observation nette, controle 2026-11-12, segment carreleur x Neuchatel) : la run de 1h a bati l'accroche de 3 fiches sur 4 sur un concurrent NOMME hors canton -- \"un magasin de Pully\" / \"magasin vaudois\" (Tenthorey) devant eux sur \"carreleur neuchatel\". Au controle 3h plus tard, re-mesure serp_organic_live_advanced (meme requete, mobile, location Neuchatel) : Tenthorey ABSENT ; devant = annuaires + edilceramic (magasin, siege Neuchatel). Le socle (prospect absent du pack + de l'organique p.1) EST reproduit et solide ; seule l'identite/ville du magasin cite ne l'est pas (SERP volatile).\n\nIMPACT MESURE cette nuit : Rivolta (Place ID 0x478de113dc429ceb:0xff80fe585aeaa09c) -> ROUGE A trancher, car l'OBJET du mail est \"un vendeur de pully devant vous sur google\" : falsifiable par le prospect en 5 secondes. Zucchet (0x478de195a886b0df:...) et Renovella (0x478de1569b1c4ae9:...) -> ORANGE A voir (Pully/vaudois en detail secondaire, a ajuster au copier-coller). BAAN (0x478e0f201b644f89:...) -> VERT : son mail ne cite QUE \"des annuaires\", 100% reproduit.\n\nC'est une violation de la regle d'or deja ecrite dans CLAUDE.md : \"PREFERE le constat RELATIF... plus robuste a la volatilite\". CHANGEMENT SUGGERE : la run de 1h ne doit PAS nommer un concurrent hors canton volatile dans l'accroche (surtout pas dans l'objet) ; mener sur le constat reproductible et stable (\"des annuaires et un magasin devant vous, pas vous\"), le pack local nomme (3 fiches stables) etant l'ancrage fiable. A re-verifier aux prochains runs : si le meme travers (concurrent nomme volatile dans l'accroche) revient, monter en high.",
+  "location": [
+    "CLAUDE.md - Angles d'email / regle d'or (constat RELATIF vs concurrent nomme)"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut: accroche batie sur un concurrent nomme volatile (hors canton) non reproductible au controle"
+}

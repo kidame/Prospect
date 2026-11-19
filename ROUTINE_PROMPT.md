@@ -17,6 +17,14 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
 
 ## PROCESS DU RUN
 
+0. PROGRAMME DE LA NUIT (regle du 2026-11-18). Lis `PISTES.md` a la racine du repo et suis
+   sa section "Programme d'une nuit" : elle REMPLACE les etapes 2 a 7 ci-dessous pour tout
+   ce qui est recherche et qualification (zone = rayon de Thomas, trois pistes, stock,
+   qualification legere, reprise des anciennes fiches). Les etapes 2 a 7 ne servent plus
+   que de reference pour les regles de fiche Notion, de salutation et d'accents, et pour
+   l'analyse complete d'une fiche "Lead chaud" (PISTES.md, point 5).
+
+
 1. Lis CLAUDE.md. DETECTEUR DE TROU MEMOIRE (constat 2026-07 : un mois de runs sans aucun commit
    `.story/`, rotation aveugle, personne ne l'a vu) : verifie l'age du dernier commit memoire --
    `git log -1 --format=%cd --date=short -- .story/`. S'il date de PLUS de ~3 jours alors que des
@@ -95,15 +103,14 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    societe/partenaire/marque affichee a cote) ; au moindre doute -> "Bonjour," neutre.
 6. Pour chaque retenu a canal EMAIL : ecris dans le CORPS de sa fiche Notion deux blocs :
    "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)" (mail COMPLET pret a
-   copier-coller : 1re ligne "Objet : ...", corps 8-14 lignes, signature Thomas / KUMO -
-   kumo-seo.ch / tel). SOURCE UNIQUE du mail. ANGLE = DOULEUR RESSENTIE, dans l'ordre : concurrent
-   nomme qui le double sur sa ville > declencheur (page cassee, recrutement) > manque-a-gagner
-   chiffre (SI volume > ~150/mois) > jamais "invisible". CONSTATE sans humilier. CTA = CONTINUER
-   PAR MAIL : le mail vend SEULEMENT la CONVERSATION via une micro-offre a friction quasi nulle
-   ("je vous envoie les 2-3 points ?"), JAMAIS un appel ni "15 min" ni un creneau au 1er contact
-   (cf. CLAUDE.md "CTA = CONTINUER PAR MAIL"). N'ANNONCE PAS le Diagnostic 1200 ni le tunnel
-   Mandat/Suivi a froid (ca fait fuir ; ca se revele dans l'echange une fois ouvert). Applique le skill
-   .claude/skills/writing/. ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
+   copier-coller : 1re ligne "Objet : ...", corps 120-145 mots, signature Thomas Puglisi / KUMO, Couvet -
+   kumo-seo.ch / tel). SOURCE UNIQUE du mail. REDACTION V3 (2026-11-18) : suis A LA LETTRE le skill
+   .claude/skills/writing/ -- Thomas se presente (blocs fixes recopies MOT POUR MOT), deux
+   phrases sur UN detail vrai vu sur LEUR site cette nuit, ses services, une porte ouverte
+   par mail. AUCUN chiffre, AUCUNE analyse SEO, AUCUN concurrent, AUCUNE remarque sur leur
+   visibilite dans le mail : l'angle mesure (concurrent qui double, declencheur, volume)
+   reste dans "## Diagnostic" et "Probleme principal". CTA = repondre au mail, jamais un
+   appel. Pas de detail verifiable -> pas de mail (fiche gardee, note "pas de detail"). ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
    francais correct avec TOUS les accents (e/a/o/u/i accentues, c cedille) -- ne produis JAMAIS un
    mail en ASCII "a re-accentuer ensuite" ; seule l'apostrophe reste droite ('), aucun tiret
    cadratin (cf. CLAUDE.md "Redaction de l'email"). Cette regle prime sur toute habitude ASCII et
@@ -112,7 +119,7 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    relis le corps redige et compte les caracteres accentues ; zero ou presque = mail en ASCII ->
    REECRIS-le accentue et re-teste. Aucun bloc "## Email (brouillon)" ne se livre sans passer ce
    test. SIGNATURE : recopie la SIGNATURE CANONIQUE de CLAUDE.md a l'identique (Thomas Puglisi /
-   KUMO - kumo-seo.ch / 078 939 81 00) -- jamais un autre numero ni une variante. NE cree PAS de
+   KUMO, Couvet - kumo-seo.ch / 078 939 81 00) -- jamais un autre numero ni une variante. NE cree PAS de
    draft Gmail. Pour les "a appeler" : ecris "## Diagnostic" + ajoute a la liste "A appeler" (pas de mail).
 7. Ecris/maj une ligne Notion pour CHAQUE prospect vu (retenu, a-appeler, ou rejete), Place ID +
    DATE inclus. La ROUTINE remplit : signaux d'opportunite declenches + segment (secteur x zone) +

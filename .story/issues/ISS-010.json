@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-1h",
+    "infra-apify"
+  ],
+  "discoveredDate": "2026-11-12",
+  "id": "ISS-010",
+  "impact": "Vu encore le 2026-11-17, AGGRAVE. Cette nuit Apify n'etait plus seulement \"budget bas\" mais en PANNE SECHE : solde ~0.0006 $, l'appel enckay/google-maps-places-extractor refuse AVANT lancement. Impact : la voie de sourcing PRINCIPALE (Google Maps) est tombee, pas seulement la resolution email. PATTERN : 2e run d'affilee ou Apify ne peut pas servir le Maps (deja signale run 1h 2026-11-13). CONTOURNEMENT VALIDE ce run : sourcing via DataForSEO business_data_business_listings_search (location_coordinate ville + rayon km + categories ex. [\"painter\"], order_by rating.votes_count desc, filtre votes_count) -> renvoie nom/domaine/tel/rating/votes/place_id, substitut Maps correct ; emails resolus ensuite par WebFetch sur les sites. CHANGEMENT SUGGERE : (1) recharger le credit Apify (action Thomas) ; (2) acter DataForSEO business_listings comme voie de sourcing de repli OFFICIELLE dans CLAUDE.md/ROUTINE_PROMPT (pas seulement WebFetch pour l'email), avec le gabarit d'appel ci-dessus. PREUVE : run peintre x Yverdon 2026-11-17 livre 3 email + 2 a-appeler SANS un seul appel Apify. Severite montee low -> medium (bloque le sourcing principal, pas juste un confort).",
+  "location": [
+    "CLAUDE.md : Renfort email vdrmota/contact-info-scraper"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: budget Apify bas -> resolution email en repli WebFetch (a recharger)"
+}
