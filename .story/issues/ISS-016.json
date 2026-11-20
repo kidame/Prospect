@@ -1,0 +1,21 @@
+{
+  "components": [
+    "routine-controle",
+    "salutation"
+  ],
+  "discoveredDate": "2026-11-20",
+  "id": "ISS-016",
+  "impact": "(1) PATTERN : run-controle 2026-11-20, 2 fiches sur 11 controlees passent ROUGE uniquement sur C1 : salutation \"Bonjour Monsieur <Nom>,\" hors Segment \"registre\" (segments \"carreleur x La Chaux-de-Fonds / Montagnes NE\" Place ID 0x478dfb39744c89d9:0xb0f2a674988a8984 et \"site date x Val-de-Ruz\" Place ID 0x478de3549e6cdb61:0x2722c945f8604b90). Dans les deux cas le titulaire est nomme sur le propre site de l'entreprise (dirigeant actuel confirme, note en Notes). Le reste du mail est conforme : ce sont des rouges de regle, pas de fond.\n(2) CONTRADICTION : CLAUDE.md etape 6 et le skill writing (\"prenom seulement si dirigeant actuel confirme\") autorisent un nom confirme ; PISTES.md piste A l'autorise pour le registre ; CONTROLE_PROMPT C1 le reserve au registre. La recherche applique la regle large, le controle la regle etroite -> faux rouges probables et mails bloques chaque nuit.\n(3) CHANGEMENT SUGGERE (session dev) : trancher une regle unique. Soit C1 accepte \"Bonjour Monsieur/Madame Nom,\" quand les Notes citent la source officielle (site de l'entreprise, page contact, registre) du dirigeant actuel ; soit ROUTINE/REPRISE ecrivent \"Bonjour,\" hors registre. Aligner CONTROLE_PROMPT C1, skill writing et CLAUDE.md etape 6.\n(4) PREUVE : fiches Notion controlees le 2026-11-20 (champ Controle = A trancher, section \"## Controle\" C1). Zero PII ici.\n",
+  "location": [
+    "CONTROLE_PROMPT.md C1",
+    "CLAUDE.md Process etape 6",
+    ".claude/skills/writing/SKILL.md structure 1"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: salutation nominative hors registre (contradiction C1 controle vs CLAUDE.md etape 6 / skill writing)"
+}
