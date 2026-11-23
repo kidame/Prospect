@@ -57,21 +57,42 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jours", type=int, default=30)
     ap.add_argument("--max", type=int, default=400)
+    # --large : ajoute en rang 4 le reste de Vaud, Geneve et Fribourg (tranche d'age courte)
+    ap.add_argument("--large", action="store_true")
+    ap.add_argument("--age-min", type=int, default=7)
+    ap.add_argument("--age-max", type=int, default=10)
+    ap.add_argument("--max-large", type=int, default=160)
     a = ap.parse_args()
     fin = dt.date.today()
     debut = fin - dt.timedelta(days=a.jours)
     rows = []
+    large_rows = []
+    d_min = (fin - dt.timedelta(days=a.age_max)).isoformat()
+    d_max = (fin - dt.timedelta(days=a.age_min)).isoformat()
     for canton in ("NE", "VD"):
         for p in liste(canton, debut.isoformat(), fin.isoformat()):
             m = p["meta"]
             titre = (m.get("title") or {}).get("fr") or ""
             titre = re.sub(r"^Nouvelles entrées\s+", "", titre)
             commune = titre.rsplit(",", 1)[-1].strip().lower() if "," in titre else ""
+            date_p = (m.get("publicationDate") or "")[:10]
             if canton == "VD" and commune not in NORD_VD:
+                if a.large and d_min <= date_p <= d_max:
+                    large_rows.append((canton, m["id"], date_p, titre, commune, True))
                 continue
-            rows.append((canton, m["id"], (m.get("publicationDate") or "")[:10], titre, commune))
+            rows.append((canton, m["id"], date_p, titre, commune, False))
+    if a.large:
+        for canton in ("GE", "FR"):
+            for p in liste(canton, d_min, d_max):
+                m = p["meta"]
+                titre = (m.get("title") or {}).get("fr") or ""
+                titre = re.sub(r"^Nouvelles entrées\s+", "", titre)
+                commune = titre.rsplit(",", 1)[-1].strip().lower() if "," in titre else ""
+                large_rows.append((canton, m["id"], (m.get("publicationDate") or "")[:10], titre, commune, True))
+        large_rows.sort(key=lambda r: r[2], reverse=True)
+        rows.extend(large_rows[: a.max_large])
     res = []
-    for canton, pid, date, titre, commune in rows:
+    for canton, pid, date, titre, commune, large in rows:
         try:
             txt = detail(pid)
         except Exception as e:  # une fiche illisible ne casse pas le lot
@@ -80,7 +101,7 @@ def main() -> None:
         time.sleep(0.2)
         npa = re.search(r"\b(\d{4})\s+[A-ZÉÈÀÂÎÔÛa-zé]", txt)
         npa_i = int(npa.group(1)) if npa else None
-        rang = 3 if canton == "VD" else (1 if (npa_i in VDT_NPA or commune in VDT_COMMUNES) else 2)
+        rang = 4 if large else (3 if canton == "VD" else (1 if (npa_i in VDT_NPA or commune in VDT_COMMUNES) else 2))
         uid = re.search(r"CHE-\d{3}\.\d{3}\.\d{3}", txt)
         but = re.search(r"But\s*:\s*(.+)", txt, re.S)
         forme = re.search(r"Nouvelle? (société à responsabilité limitée|société anonyme|entreprise individuelle|société en nom collectif|société coopérative|association|fondation|succursale)", txt)
@@ -88,7 +109,7 @@ def main() -> None:
         f = (forme.group(1) if forme else "")
         ecart = f in ("association", "fondation", "succursale") or "succursale" in nom.lower() or "holding" in nom.lower()
         adr = txt.split(uid.group(0))[0] if uid else txt[:200]
-        res.append({"rang": rang, "date": date, "nom": nom, "commune": commune, "npa": npa_i,
+        res.append({"rang": rang, "canton": canton, "date": date, "nom": nom, "commune": commune, "npa": npa_i,
                     "uid": uid.group(0) if uid else None, "forme": f or None,
                     "adresse": adr.strip(" ,.")[:160],
                     "but": (re.sub(r"\s+", " ", but.group(1)).strip()[:260] if but else None),
@@ -96,10 +117,10 @@ def main() -> None:
                     "ecarte_d_office": ecart})
     res = [r for r in res if not r["ecarte_d_office"]]
     res.sort(key=lambda r: (r["rang"], r["date"]))
-    for r in res[: a.max]:
+    for r in [r for r in res if r["rang"] < 4][: a.max] + [r for r in res if r["rang"] == 4]:
         print(json.dumps(r, ensure_ascii=False))
     print(f"# total zone : {len(res)} inscriptions sur {a.jours} jours (rang1={sum(r['rang']==1 for r in res)}, "
-          f"rang2={sum(r['rang']==2 for r in res)}, rang3={sum(r['rang']==3 for r in res)}) ; "
+          f"rang2={sum(r['rang']==2 for r in res)}, rang3={sum(r['rang']==3 for r in res)}, rang4={sum(r['rang']==4 for r in res)}) ; "
           f"associations, fondations, succursales et holdings deja retirees", file=sys.stderr)
 
 

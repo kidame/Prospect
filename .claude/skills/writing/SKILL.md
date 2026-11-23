@@ -84,6 +84,12 @@ local.ch ou Google plus ancienne, raison individuelle devenue Sàrl), ne félici
 félicitations pour la nouvelle Sàrl. » Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
 Madame Nom, » (titulaire ou gérant inscrit).
 
+Fiche « ZONE LARGE » (Notes, voir SPRINT.md, entreprise hors du canton de Neuchâtel) : dans
+l'accroche registre, écris « du canton de Vaud », « du canton de Genève » ou « du canton de
+Fribourg » à la place de « du canton ». Le reste de la phrase ne change pas. Pour ces fiches,
+l'objet ne dit ni « voisin » ni « bonjour de couvet ». Préfère « je me présente », « web
+designer indépendant » ou « un indépendant neuchâtelois ».
+
 ## Objet
 Minuscules, 2 à 6 mots, simple et humain, varié d'un mail à l'autre : « un indépendant
 du val-de-travers », « web designer à couvet », « je me présente », « bonjour de

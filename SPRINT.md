@@ -4,7 +4,7 @@ VALIDITE : runs dates du 2026-11-24 au 2026-12-02 inclus (date Europe/Zurich du 
 A partir du 2026-12-03 ce fichier ne s'applique PLUS : ignore-le entierement et reviens aux
 plafonds habituels de PISTES.md, REPRISE.md et BOITE.md.
 Pendant sa validite, ce fichier PRIME sur les plafonds chiffres de CLAUDE.md, PISTES.md,
-REPRISE.md et BOITE.md, et sur eux seulement.
+REPRISE.md et BOITE.md, et sur la zone (point 5), et sur eux seulement.
 
 ## Pourquoi
 Kidam a besoin d'un contrat vite. Il envoie tout ce que la machine depose : la file de 10 se
@@ -20,13 +20,29 @@ sans toucher a la qualite ni aux garde-fous, puis on juge sur les chiffres.
 3. REPRISE DANS LA ZONE (PISTES.md etape 2, REPRISE.md) : 10 reecritures par nuit au lieu de 5.
    Les corrections apres controle restent a 5 au plus et passent toujours avant.
 4. RECHERCHE (PISTES.md etape 3) : la piste A (registre du commerce) se fait CHAQUE nuit, quel
-   que soit le stock, avec `python3 tools/fosc_nouvelles.py --jours 90` (au lieu de 45 ; le
-   script met environ 2 minutes, c'est normal), objectif 5 a 8 retenus. Toujours rang 1, puis
-   2, puis 3. Si le stock reste sous 20 apres la piste A, fais en plus la piste B ou C du jour,
-   comme d'habitude. Stock >= 20 : ni B ni C.
+   que soit le stock, avec `python3 tools/fosc_nouvelles.py --jours 90 --large` (au lieu de
+   `--jours 45` ; le script met 3 a 4 minutes, c'est normal). Objectif 5 a 8 retenus par nuit :
+   d'abord la zone habituelle (rang 1, puis 2, puis 3) jusqu'a 5 retenus, puis le rang 4
+   (point 5) pour 3 retenus au moins s'il y en a de valables. Si le stock reste sous 20 apres
+   la piste A, fais en plus la piste B ou C du jour, dans la zone habituelle. Stock >= 20 :
+   ni B ni C.
+5. ZONE LARGE (decision Kidam du 2026-11-23, "pas que le Vallon") : pendant le sprint, le reste
+   du canton de Vaud (Lausanne comprise), Geneve et Fribourg entrent dans le perimetre, de
+   deux facons seulement :
+   a. Piste A : `--large` ajoute un RANG 4 (champ "canton" : VD, GE ou FR), limite aux
+      inscriptions agees de 7 a 10 jours, une tranche qui avance toute seule chaque nuit.
+      Memes tris et memes exclusions que les rangs 1 a 3. Fiche : Segment
+      "registre large x {canton}", Notes += "ZONE LARGE". Une fiche "ZONE LARGE" n'est PAS
+      "hors zone" au sens de CLAUDE.md, PISTES.md ou BOITE.md.
+   b. Reserve hors zone (PISTES.md etape 4) : 5 anciennes fiches hors zone jamais contactees
+      reecrites par nuit, quel que soit le stock, APRES la reprise dans la zone. Notes +=
+      "ZONE LARGE".
+   Les pistes B et C restent dans la zone habituelle (constat du 2026-11-18 : les artisans de
+   Lausanne et Geneve sont surdemarches). Redaction des fiches "ZONE LARGE" : voir le skill
+   writing (accroche "du canton de Vaud / Geneve / Fribourg", objet sans "voisin").
 
 ## Ce qui ne change PAS
-Zone et rangs, exclusions dures, perimetre 3D (Thomas a la main), redaction V3 (skill
+Zone des pistes B et C, ordre des rangs, exclusions dures, perimetre 3D (Thomas a la main), redaction V3 (skill
 writing), les 7 controles (aucun depot sans controle au vert), "la boite fait foi", un seul
 brouillon par adresse, seconde chance (3 par nuit), reserve hors zone (regle du stock sous
 10), relances (10 par nuit au plus), plafonds de cout, regles Notion (3 requetes SQL, 100
@@ -42,7 +58,8 @@ lignes), 3 appels du jour, aucun envoi automatique.
   "SPRINT : X deposes cette nuit, file Y/20, stock Z, dont registre N".
 - BILAN : dans le "KUMO matin" du 2026-12-03, ajoute une section "BILAN SPRINT" : mails V3
   envoyes du 2026-11-24 au 2026-12-02, reponses obtenues, par piste (registre, sans site,
-  site date, ancienne fiche, seconde chance), et la phrase "sprint termine, plafonds
+  site date, ancienne fiche, seconde chance), en separant zone habituelle et "ZONE LARGE",
+  et la phrase "sprint termine, plafonds
   habituels retablis".
 
 ## Revenir en arriere avant la date

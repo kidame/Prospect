@@ -111,6 +111,10 @@ C2 -- LE DETAIL A EUX (vrai et verifiable).
   L'accroche fixe felicite pour le "lancement" : si les Notes ou le Diagnostic montrent que
   l'activite existait AVANT l'inscription, c'est la variante "nouvelles inscriptions du
   canton, felicitations pour la nouvelle Sarl" qui est attendue (skill writing). Sinon ORANGE.
+  Fiche "ZONE LARGE" (Notes, SPRINT.md) : l'accroche attendue dit "du canton de Vaud", "du
+  canton de Geneve" ou "du canton de Fribourg" (accentue dans le mail) selon le canton de la
+  fiche ; c'est conforme, pas une reformulation. Sur une telle fiche, un objet avec "voisin" ou
+  "bonjour de couvet" -> ORANGE.
 - Segment "sans site" : le detail vient de la fiche Google ou local.ch decrite dans le
   "## Diagnostic". Verifie qu'il lui correspond.
 - Phrase fixe "Je n'ai pas trouve de site internet a votre nom." (accentuee dans le mail) :

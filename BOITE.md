@@ -60,6 +60,8 @@ h. ANCIENNES RELANCES HORS ZONE (decision Kidam, 2026-11-18) : fiche "Relance pr
    CHANCE", et dont la relance n'est jamais partie -> "Perdu", Notes += "cycle termine sans
    relance (hors zone) le AAAA-MM-JJ". 15 fiches au plus par nuit. Ne touche a aucune fiche
    de la zone : elles relevent de SECONDE_CHANCE.md.
+   Exception (2026-11-23) : une fiche dont les Notes contiennent "ZONE LARGE" (SPRINT.md) n'est
+   jamais concernee par cette regle : elle suit le cycle normal de relance, meme apres le sprint.
 Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
 
 > SPRINT du 2026-11-24 au 2026-12-02 inclus : si le fichier `SPRINT.md` existe a la racine du repo et que la date du run (Europe/Zurich) est dans cette periode, lis-le : ses plafonds PRIMENT sur ceux ecrits ici. Hors periode ou fichier absent : ignore ce renvoi.

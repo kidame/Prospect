@@ -7,6 +7,11 @@
   piste A registre chaque nuit sur 90 jours, mails "registre" deposes en premier). Trois
   renvois d'une ligne dans CLAUDE.md, PISTES.md et BOITE.md. Rien d'autre n'est modifie :
   ni les horaires des routines, ni la redaction, ni les controles.
+- ZONE LARGE (decision Kidam, meme jour) : pendant le sprint, Vaud, Geneve et Fribourg entrent
+  dans la piste A (tools/fosc_nouvelles.py --large, rang 4, inscriptions de 7 a 10 jours ; test
+  du 23.11 : 88 candidats, 38 GE, 29 VD, 21 FR) et dans la reprise des anciennes fiches hors
+  zone (5 par nuit). Pistes B et C inchangees. Variante d'accroche "du canton de X" ajoutee au
+  skill writing et au controle. Sans --large, le script se comporte comme avant (teste).
 - Constat de depart (boite lue le 23.11) : 29 mails V3 envoyes en 3 jours, 1 reponse (refus).
   Registre : 313 inscriptions dans la zone sur 90 jours (rang 1 = 9, rang 2 = 207, rang 3 = 97).
 - Retour arriere : supprimer SPRINT.md ou `git revert` de ce commit.
