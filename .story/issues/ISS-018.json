@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "notion-quota"
+  ],
+  "discoveredDate": "2026-11-23",
+  "id": "ISS-018",
+  "impact": "(1) PATTERN : run 1h du 2026-11-24 (sprint jour 1). SPRINT.md 5b demande 5 reecritures hors zone par nuit, mais aucune vue enregistree ne liste les anciennes fiches hors zone jamais contactees (\"Machine - Reprise zone\" filtre par NPA de la zone). Les 3 requetes SQL du run sont prises par compteurs + liste UID registre + dedup -> l'etape 5b ne peut pas se faire sans depasser le quota. Etape sautee cette nuit, signalee au recap.\n(2) CHANGEMENT : creer une vue \"Machine - Reprise hors zone\" (Lead froid, Email rempli, Draft pret, Date mail 1 vide, Notes sans \"REDACTION V3\", NPA hors zone) et ajouter son view:// dans CLAUDE.md (liste des vues sans quota).\n(3) PREUVE : 0 fiche hors zone reecrite le 2026-11-24 ; zone : 9 reecrites, 14 restantes.\nVu aussi : la reprise laisse l'ancienne section \"## Controle\" dans le corps des fiches reecrites (cf. ISS-017), sur 9 fiches cette nuit.\n",
+  "location": [
+    "SPRINT.md point 5b",
+    "CLAUDE.md section Notion economie SQL"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Amelioration: aucune vue Notion pour la reserve hors zone (sprint 5b) -> etape sautee"
+}
