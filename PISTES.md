@@ -28,6 +28,8 @@ Horlogerie, industrie, sous-traitance, tout ce qui releve de l'offre 3D : Thomas
 ces entreprises LUI-MEME, a la main. La routine n'ecrit pas de mail pour elles. Si elle en
 croise une interessante, elle la cite dans le recap ("a voir par Thomas, 3D"), sans fiche.
 
+> SPRINT du 2026-11-24 au 2026-12-02 inclus : si le fichier `SPRINT.md` existe a la racine du repo et que la date du run (Europe/Zurich) est dans cette periode, lis-le : ses plafonds PRIMENT sur ceux ecrits ici. Hors periode ou fichier absent : ignore ce renvoi.
+
 ## Programme d'une nuit (remplace l'ancien "mode reprise" seul)
 1. Etape 1 de ROUTINE_PROMPT.md (CLAUDE.md, memoire, alertes), puis la regle "La boite fait
    foi" de REPRISE.md (lecture des Envoyes).

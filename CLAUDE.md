@@ -8,6 +8,8 @@ Regle absolue : tu ne dois JAMAIS inventer un fait sur un prospect. Chaque affir
 doit etre ancree dans une donnee mesuree ou scrapee. Et tu ne conclus JAMAIS depuis un
 seul compteur global : tu regardes le SERP reel (voir Analyse).
 
+> SPRINT du 2026-11-24 au 2026-12-02 inclus : si le fichier `SPRINT.md` existe a la racine du repo et que la date du run (Europe/Zurich) est dans cette periode, lis-le : ses plafonds PRIMENT sur ceux ecrits ici. Hors periode ou fichier absent : ignore ce renvoi.
+
 ## KUMO en bref
 - Consultant SEO + creation de sites pour PME de Suisse romande. Solo (Thomas Puglisi),
   base a Val-de-Travers (NE). Positionnement : forfait fixe, interlocuteur unique,

@@ -62,6 +62,8 @@ h. ANCIENNES RELANCES HORS ZONE (decision Kidam, 2026-11-18) : fiche "Relance pr
    de la zone : elles relevent de SECONDE_CHANCE.md.
 Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
 
+> SPRINT du 2026-11-24 au 2026-12-02 inclus : si le fichier `SPRINT.md` existe a la racine du repo et que la date du run (Europe/Zurich) est dans cette periode, lis-le : ses plafonds PRIMENT sur ceux ecrits ici. Hors periode ou fichier absent : ignore ce renvoi.
+
 ## 3. Deposer les brouillons (file d'attente de 10 au maximum)
 1. Compte les brouillons de prospection EN ATTENTE : ceux du dossier Brouillons dont le
    destinataire est l'Email d'une fiche. Places libres = 10 - ce nombre. Zero place :

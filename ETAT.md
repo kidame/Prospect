@@ -1,6 +1,25 @@
 # ETAT - Prospect (machine a prospects KUMO, Suisse)
 
-## Derniere session (2026-11-18, chat Claude, depuis le VPS Kumo)
+## Derniere session (2026-11-23, chat Claude, depuis le VPS Kumo)
+
+- SPRINT (decision Kidam) : viser 20 mails par jour ouvre du 2026-11-24 au 2026-12-02.
+  Un seul fichier, SPRINT.md, porte les plafonds temporaires (file 20, reprise 10 par nuit,
+  piste A registre chaque nuit sur 90 jours, mails "registre" deposes en premier). Trois
+  renvois d'une ligne dans CLAUDE.md, PISTES.md et BOITE.md. Rien d'autre n'est modifie :
+  ni les horaires des routines, ni la redaction, ni les controles.
+- Constat de depart (boite lue le 23.11) : 29 mails V3 envoyes en 3 jours, 1 reponse (refus).
+  Registre : 313 inscriptions dans la zone sur 90 jours (rang 1 = 9, rang 2 = 207, rang 3 = 97).
+- Retour arriere : supprimer SPRINT.md ou `git revert` de ce commit.
+- Hors machine : Buchs Freres SA (La Cote-aux-Fees) contacte a la main le 23.11 par Thomas
+  (angle 3D, lien personnel). Sa fiche Notion n'a PAS ete touchee : ne lui redige ni relance
+  ni seconde chance, Thomas gere ce contact lui-meme.
+
+## Prochaine etape (sprint)
+
+1. Lire le "KUMO matin" du 24.11 : ligne SPRINT presente, nombre de depots, aucun controle saute.
+2. Le 03.12 : lire le BILAN SPRINT et decider de la suite avec les chiffres par piste.
+
+## Session precedente (2026-11-18, chat Claude, depuis le VPS Kumo)
 
 - Constat : les 3 routines tournent chaque nuit sans erreur. Base "Contacts" : environ 174
   fiches "Lead froid" avec un mail redige jamais envoye ; environ 70 prospects deja
