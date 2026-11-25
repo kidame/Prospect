@@ -1,0 +1,19 @@
+{
+  "components": [
+    "routine-controle",
+    "seconde-chance"
+  ],
+  "discoveredDate": "2026-11-25",
+  "id": "ISS-019",
+  "impact": "(1) PATTERN : run-controle 2026-11-25, 2 des 3 secondes chances HORS ZONE ecrites par la run 1h passent ROUGE car le \"signe de site a l'abandon\" cite dans le mail n'est pas visible par un visiteur. Il a ete releve dans le CODE SOURCE brut (curl), pas sur la page rendue : (a) \"peintre x Lausanne\" (0x478c31a6833116df:0x4087c762c7a407a5) : le mail dit que la rubrique de chiffres n'affiche aucun chiffre, alors que les chiffres sont injectes par un module JS (Wix) et s'affichent dans un navigateur ; (b) \"carreleur x Lausanne\" (0x478c3150dd945ccf:0xfdefbdf5493e5619) : un paragraphe present dans le HTML mais masque (display none) est cite comme visible \"en bas de la page d'accueil\". Le prospect verifierait et trouverait le contraire -> fait faux dans un mail envoyable.\n(2) CHANGEMENT SUGGERE : SECONDE_CHANCE.md section \"Hors zone\" (et REPRISE si la piste C \"site date\" cite un signe) : un signe d'abandon ne se cite que s'il est constate sur la page RENDUE (navigateur Playwright, preinstalle dans le conteneur, ou WebFetch rendu), jamais sur le seul HTML brut. Exclure explicitement les contenus caches (display none, liens SEO spam caches) et les blocs remplis par JS. Preferer les signes textuels visibles (annonce datee perimee, texte de gabarit affiche).\n(3) PREUVE : rendu navigateur fait par le controle le 2026-11-25 sur les deux sites (chiffres affiches / paragraphe absent du texte affiche). Les deux autres elements des mails (detail metier) etaient vrais. Zero PII ici.\n",
+  "location": [
+    "SECONDE_CHANCE.md hors zone"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: signe d'abandon de site releve dans le HTML brut, invisible sur la page rendue (seconde chance hors zone)"
+}
