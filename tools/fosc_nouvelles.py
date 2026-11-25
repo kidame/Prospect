@@ -10,6 +10,8 @@ c'est la routine qui applique les exclusions de CLAUDE.md en lisant `but` et `fi
 Usage : python3 tools/fosc_nouvelles.py [--jours 30] [--max 60]
 Rang 1 = Val-de-Travers et communes voisines ; rang 2 = reste du canton de Neuchatel ;
 rang 3 = Nord vaudois (district Jura-Nord vaudois).
+Avec --large : rang 4 = ZONE LARGE (reste de Vaud, Geneve, Fribourg, Valais, Jura, Berne ;
+publications en francais seulement ; inscriptions agees de --age-min a --age-max jours).
 """
 from __future__ import annotations
 import argparse, datetime as dt, json, re, sys, time, urllib.parse, urllib.request
@@ -25,6 +27,9 @@ NORD_VD = ("yverdon-les-bains", "grandson", "sainte-croix", "orbe", "vallorbe", 
            "rances", "arnex-sur-orbe", "agiez", "montcherand", "ballaigues", "lignerolle", "valeyres-sous-montagny",
            "cheseaux-noréaz", "romainmôtier-envy", "croy", "vaulion", "le chenit", "l'abbaye", "le lieu",
            "donneloye", "cronay", "cuarny", "villars-epeney", "champvent", "valeyres-sous-rances")
+
+LARGE_CANTONS = ("GE", "FR", "VS", "JU", "BE")  # le reste de VD est traite avec NE/VD
+
 
 def get(url: str) -> bytes:
     req = urllib.request.Request(url, headers={"Accept": "application/json", "User-Agent": "kumo-prospect/1.0"})
@@ -57,7 +62,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jours", type=int, default=30)
     ap.add_argument("--max", type=int, default=400)
-    # --large : ajoute en rang 4 le reste de Vaud, Geneve et Fribourg (tranche d'age courte)
+    # --large : ajoute en rang 4 la ZONE LARGE (reste de Vaud + LARGE_CANTONS, tranche d'age courte)
     ap.add_argument("--large", action="store_true")
     ap.add_argument("--age-min", type=int, default=7)
     ap.add_argument("--age-max", type=int, default=10)
@@ -82,9 +87,11 @@ def main() -> None:
                 continue
             rows.append((canton, m["id"], date_p, titre, commune, False))
     if a.large:
-        for canton in ("GE", "FR"):
+        for canton in LARGE_CANTONS:
             for p in liste(canton, d_min, d_max):
                 m = p["meta"]
+                if (m.get("language") or "fr") != "fr":  # Haut-Valais, Berne et Fribourg alemaniques
+                    continue
                 titre = (m.get("title") or {}).get("fr") or ""
                 titre = re.sub(r"^Nouvelles entrées\s+", "", titre)
                 commune = titre.rsplit(",", 1)[-1].strip().lower() if "," in titre else ""

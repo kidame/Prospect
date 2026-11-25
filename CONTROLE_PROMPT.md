@@ -111,10 +111,13 @@ C2 -- LE DETAIL A EUX (vrai et verifiable).
   L'accroche fixe felicite pour le "lancement" : si les Notes ou le Diagnostic montrent que
   l'activite existait AVANT l'inscription, c'est la variante "nouvelles inscriptions du
   canton, felicitations pour la nouvelle Sarl" qui est attendue (skill writing). Sinon ORANGE.
-  Fiche "ZONE LARGE" (Notes, SPRINT.md) : l'accroche attendue dit "du canton de Vaud", "du
-  canton de Geneve" ou "du canton de Fribourg" (accentue dans le mail) selon le canton de la
-  fiche ; c'est conforme, pas une reformulation. Sur une telle fiche, un objet avec "voisin" ou
-  "bonjour de couvet" -> ORANGE.
+  Fiche "ZONE LARGE" (Notes ; PISTES.md "Rang 4") : l'accroche attendue dit "du canton de
+  Vaud", "du canton de Geneve", "du canton de Fribourg", "du canton du Valais", "du canton du
+  Jura" ou "du canton de Berne" (accentue dans le mail) selon le canton de la fiche ; c'est
+  conforme, pas une reformulation. Sur une telle fiche -> ORANGE : un objet avec "voisin",
+  "bonjour de couvet" ou "du val-de-travers" ; un corps avec "voisin", "dans la region" ou
+  "pres de chez moi" (le bloc Presentation, qui dit "installe a Couvet dans le
+  Val-de-Travers", reste normal).
 - Segment "sans site" : le detail vient de la fiche Google ou local.ch decrite dans le
   "## Diagnostic". Verifie qu'il lui correspond.
 - Phrase fixe "Je n'ai pas trouve de site internet a votre nom." (accentuee dans le mail) :
@@ -129,6 +132,11 @@ visibilite, aucun prix, aucun nom d'offre (Diagnostic, Mandat, Suivi). Un seul -
 C4 -- BLOCS FIXES ET PORTE.
 - Presentation, services et porte ouverte doivent etre IDENTIQUES au skill writing, mot pour
   mot. Reformules ou enrichis -> ORANGE.
+- Fiche "ZONE LARGE" (decision Kidam du 2026-11-25) : le bloc Services attendu est la
+  VARIANTE ZONE LARGE du skill writing, mot pour mot (elle commence par "Je cherche des
+  entreprises qui pourraient avoir besoin de mes services"). Le bloc Services habituel sur
+  une telle fiche -> ORANGE (la recherche le remplacera). Presentation et porte : inchangees.
+  Longueur : 10 mots de plus sont admis sur ces fiches.
 - Segments "registre" et "sans site" : la porte doit etre la A. La porte B parle de "votre
   site" a une entreprise qui n'en a pas -> ORANGE.
 - Le mail ne demande ni appel, ni rendez-vous, ni creneau. Sinon -> ROUGE.

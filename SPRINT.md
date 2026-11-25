@@ -25,11 +25,14 @@ sans toucher a la qualite ni aux garde-fous, puis on juge sur les chiffres.
    d'abord la zone habituelle (rang 1, puis 2, puis 3) jusqu'a 5 retenus, puis le rang 4
    (point 5) pour 3 retenus au moins s'il y en a de valables. Si le stock reste sous 20 apres
    la piste A, fais en plus la piste B ou C du jour, dans la zone habituelle. Stock >= 20 :
-   ni B ni C.
+   ni B ni C. L'etape 3bis de PISTES.md (part zone large, piste B ou C) s'applique EN PLUS
+   et ne depend pas de ce stock.
 5. ZONE LARGE (decision Kidam du 2026-11-23, "pas que le Vallon") : pendant le sprint, le reste
    du canton de Vaud (Lausanne comprise), Geneve et Fribourg entrent dans le perimetre, de
    deux facons seulement :
-   a. Piste A : `--large` ajoute un RANG 4 (champ "canton" : VD, GE ou FR), limite aux
+   (MISE A JOUR du 2026-11-25 : la zone large est devenue PERMANENTE et plus etendue, voir
+   PISTES.md "Rang 4" et etape 3bis. Ce point ne garde que les plafonds propres au sprint.)
+   a. Piste A : `--large` ajoute un RANG 4 (champ "canton" : VD, GE, FR, VS, JU ou BE), limite aux
       inscriptions agees de 7 a 10 jours, une tranche qui avance toute seule chaque nuit.
       Memes tris et memes exclusions que les rangs 1 a 3. Fiche : Segment
       "registre large x {canton}", Notes += "ZONE LARGE". Une fiche "ZONE LARGE" n'est PAS
@@ -37,12 +40,13 @@ sans toucher a la qualite ni aux garde-fous, puis on juge sur les chiffres.
    b. Reserve hors zone (PISTES.md etape 4) : 5 anciennes fiches hors zone jamais contactees
       reecrites par nuit, quel que soit le stock, APRES la reprise dans la zone. Notes +=
       "ZONE LARGE".
-   Les pistes B et C restent dans la zone habituelle (constat du 2026-11-18 : les artisans de
-   Lausanne et Geneve sont surdemarches). Redaction des fiches "ZONE LARGE" : voir le skill
-   writing (accroche "du canton de Vaud / Geneve / Fribourg", objet sans "voisin").
+   Pistes B et C : depuis le 2026-11-25 elles ont une part en zone large (PISTES.md etape
+   3bis : villes moyennes et stations, jamais les centres de Lausanne et de Geneve, constat
+   du 2026-11-18 inchange). Redaction des fiches "ZONE LARGE" : variante "ZONE LARGE" du
+   skill writing.
 
 ## Ce qui ne change PAS
-Zone des pistes B et C, ordre des rangs, exclusions dures, perimetre 3D (Thomas a la main), redaction V3 (skill
+Ordre des rangs, exclusions dures, perimetre 3D (Thomas a la main), redaction V3 (skill
 writing), les 7 controles (aucun depot sans controle au vert), "la boite fait foi", un seul
 brouillon par adresse, seconde chance (3 par nuit), reserve hors zone (regle du stock sous
 10), relances (10 par nuit au plus), plafonds de cout, regles Notion (3 requetes SQL, 100

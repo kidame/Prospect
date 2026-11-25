@@ -60,7 +60,7 @@ h. ANCIENNES RELANCES HORS ZONE (decision Kidam, 2026-11-18) : fiche "Relance pr
    CHANCE", et dont la relance n'est jamais partie -> "Perdu", Notes += "cycle termine sans
    relance (hors zone) le AAAA-MM-JJ". 15 fiches au plus par nuit. Ne touche a aucune fiche
    de la zone : elles relevent de SECONDE_CHANCE.md.
-   Exception (2026-11-23) : une fiche dont les Notes contiennent "ZONE LARGE" (SPRINT.md) n'est
+   Exception (2026-11-23) : une fiche dont les Notes contiennent "ZONE LARGE" (PISTES.md "Rang 4", SPRINT.md) n'est
    jamais concernee par cette regle : elle suit le cycle normal de relance, meme apres le sprint.
 Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
 
@@ -77,6 +77,9 @@ Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
      contenant "REDACTION V3", champ "Controle" au vert ("🟢 OK"), Notes ne contenant pas
      "BROUILLON DEPOSE", adresse et domaine ABSENTS des Envoyes. Les reecritures les plus
      anciennes d'abord.
+     PART ZONE LARGE (decision Kidam du 2026-11-25) : sur les places donnees aux mails 1
+     une nuit, une sur trois au moins va a une fiche "ZONE LARGE" au vert s'il y en a (la
+     plus ancienne d'abord). Le reste de l'ordre ne change pas.
    - puis les SECONDES CHANCES (SECONDE_CHANCE.md) : fiche "Relance préparée", Notes
      contenant "SECONDE CHANCE - REDACTION V3" (mail ecrit), "Controle" au vert, Notes sans
      "BROUILLON DEPOSE". Le texte a deposer est le bloc "## Seconde chance (brouillon)" et lui
@@ -112,6 +115,7 @@ connecteur manque, "REPONSE" si un prospect a ecrit). Court, dans cet ordre :
    Notes "PROPOSEE A L'APPEL le AAAA-MM-JJ" et ne repropose pas la meme avant 30 jours.
 6. COMPTEURS : entreprises contactees au total ; mails en redaction V3 envoyes et
    reponses obtenues, au total ET par piste (Segment commencant par "registre", "sans site",
-   "site date", ou ancienne fiche) ; stock de mails prets.
+   "site date", ou ancienne fiche), en separant la zone habituelle et les fiches "ZONE LARGE" ;
+   stock de mails prets.
 7. Erreurs.
 Ce mail remplace le recap "KUMO relances".

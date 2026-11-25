@@ -1,6 +1,26 @@
 # ETAT - Prospect (machine a prospects KUMO, Suisse)
 
-## Derniere session (2026-11-23, chat Claude, depuis le VPS Kumo)
+## Derniere session (2026-11-25, chat Claude, depuis le VPS Kumo)
+
+- ZONE LARGE PERMANENTE (decision Kidam : "en plus, pas en moins") : un RANG 4 s'ajoute aux
+  rangs 1 a 3, sans rien retirer. PISTES.md ("Rang 4" et etape 3bis) fait foi.
+  Piste A : reste de Vaud, Geneve, Fribourg, Valais romand, Jura, Berne francophone
+  (tools/fosc_nouvelles.py --large, publications en francais seulement). Pistes B et C :
+  une commune par nuit dans une liste de villes moyennes et de stations (jamais les centres
+  de Lausanne et de Geneve), 3 retenus au plus, tant qu'il y a moins de 6 fiches pretes.
+- REDACTION "ZONE LARGE" (skill writing) : un bloc Services different, ou Thomas dit qu'il
+  cherche des entreprises qui pourraient avoir besoin de ses services. Plus de "voisin" ni
+  de "dans la region" sur ces fiches. Controle C2 et C4 alignes.
+- DEPOT (BOITE.md 3) : une place de mail 1 sur trois va a une fiche "ZONE LARGE" au vert.
+- Les fiches "ZONE LARGE" deja controlees avant le 25.11 gardent leur ancien bloc Services.
+- Retour arriere : `git revert` de ce commit.
+- A surveiller dans le "KUMO matin" du 26.11 : fiches "large" creees, etape 3bis faite ou
+  sautee (temps, budget Apify), compteurs separes zone habituelle / ZONE LARGE.
+- Pistes par signaux discutees le 25.11, PAS decidees : clients d'agences web disparues,
+  sites faits maison ou loues, annonceurs Google sans referencement naturel, reprises et
+  changements de nom au registre. Refusee par Kidam : la demo avant le contact.
+
+## Session precedente (2026-11-23, chat Claude, depuis le VPS Kumo)
 
 - SPRINT (decision Kidam) : viser 20 mails par jour ouvre du 2026-11-24 au 2026-12-02.
   Un seul fichier, SPRINT.md, porte les plafonds temporaires (file 20, reprise 10 par nuit,

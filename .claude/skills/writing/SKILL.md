@@ -84,11 +84,25 @@ local.ch ou Google plus ancienne, raison individuelle devenue Sàrl), ne félici
 félicitations pour la nouvelle Sàrl. » Pour le registre, la salutation peut être « Bonjour Monsieur Nom, » ou « Bonjour
 Madame Nom, » (titulaire ou gérant inscrit).
 
-Fiche « ZONE LARGE » (Notes, voir SPRINT.md, entreprise hors du canton de Neuchâtel) : dans
-l'accroche registre, écris « du canton de Vaud », « du canton de Genève » ou « du canton de
-Fribourg » à la place de « du canton ». Le reste de la phrase ne change pas. Pour ces fiches,
-l'objet ne dit ni « voisin » ni « bonjour de couvet ». Préfère « je me présente », « web
-designer indépendant » ou « un indépendant neuchâtelois ».
+## Variante « ZONE LARGE » (décision Kidam du 2026-11-25)
+Pour toute fiche dont les Notes contiennent « ZONE LARGE » (rang 4 de PISTES.md, entreprise
+hors du canton de Neuchâtel et du Nord vaudois). Thomas n'est pas leur voisin et ne fait pas
+semblant de l'être. Il dit simplement, sans quémander et sans vendre, qu'il est indépendant et
+qu'il cherche des entreprises à qui ses services peuvent servir.
+
+**Services, variante ZONE LARGE (bloc FIXE, mot pour mot, À LA PLACE du bloc Services)**
+> Je cherche des entreprises qui pourraient avoir besoin de mes services, alors je vous écris simplement pour me présenter. Je crée et je refais des sites web, je m'occupe du référencement sur Google et de la création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
+
+- Présentation et porte ouverte : inchangées, mot pour mot.
+- Phrase « comment je vous ai trouvé » : nomme la commune (« en cherchant un {métier} à
+  {commune} »). Jamais « dans la région », « près de chez moi » ni « voisin ».
+- Accroche registre : « du canton de Vaud », « du canton de Genève », « du canton de
+  Fribourg », « du canton du Valais », « du canton du Jura » ou « du canton de Berne » à la
+  place de « du canton ». Le reste de la phrase ne change pas.
+- Objet : ni « voisin », ni « bonjour de couvet », ni « du val-de-travers ». Préfère « je me
+  présente », « web designer indépendant » ou « un indépendant neuchâtelois ».
+- Longueur : 10 mots de plus sont admis (130 à 155, jusqu'à 165 pour registre et sans site).
+- Ton : aucune excuse (« désolé de vous déranger »), aucune supplique, aucune promesse.
 
 ## Objet
 Minuscules, 2 à 6 mots, simple et humain, varié d'un mail à l'autre : « un indépendant
