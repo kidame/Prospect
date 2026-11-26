@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-1h",
+    "contact"
+  ],
+  "discoveredDate": "2026-11-26",
+  "id": "ISS-021",
+  "impact": "(1) PATTERN, vu le 2026-11-27 (run-1h, 3bis x Monthey VS + piste A registre). Sur 9 entreprises trouvees dans l'annuaire search.ch (source Swisscom/localsearch, la meme base que local.ch), 7 portent l'asterisque '* Wunscht keine Werbung / ne souhaite pas de publicite' sur le telephone ET/OU l'email (segments : sans site large x Monthey, registre large x FR). Les regles (PISTES.md piste A point 5 : 'local.ch est la meilleure source', piste B point 3 ; CLAUDE.md 'adresse publiee = confirmee') traitent toute coordonnee d'annuaire comme utilisable, sans regarder l'asterisque. Les nuits precedentes ont donc probablement deja ecrit des mails sur des adresses marquees (non verifie : la fiche Notion ne garde pas l'etat de l'asterisque).\n(2) RISQUE : en droit suisse, la LCD art. 3 al. 1 let. u qualifie de deloyale la publicite faite sans tenir compte de cette mention. Un mail de prospection (mail 1 V3) est une communication commerciale. Risque juridique et d'image, sur le canal email comme sur les 'a appeler'.\n(3) CHANGEMENT SUGGERE : dans PISTES.md (pistes A et B) et CLAUDE.md (Canal de contact) : une coordonnee marquee de l'asterisque dans local.ch/search.ch n'est PAS utilisable (ni mail ni appel) ; fiche 'Ancien', note 'asterisque pas de publicite'. Une adresse publiee sur le propre site de l'entreprise reste a trancher par Thomas (l'asterisque vaut pour l'entree d'annuaire). Ajouter au controle (C6 adresse) une verification de l'asterisque quand la source est un annuaire. Optionnel : faire passer en revue par la routine controle les fiches 'Lead froid' dont la source email est local.ch.\n(4) PREUVE (zero PII) : cette nuit, 7 fiches ecartees pour ce seul motif (Notes 'ne souhaite pas de publicite'), Place ID dans Notion, segment 'site date large x Monthey' et 'registre large x FR'. L'asterisque est lisible dans la page search.ch rendue (ligne '* Wunscht keine Werbung').\n",
+  "location": [
+    "PISTES.md piste A point 5 et piste B point 3",
+    "CLAUDE.md Canal de contact"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut: l'asterisque 'ne souhaite pas de publicite' des annuaires (search.ch / local.ch) n'est pas respecte"
+}
