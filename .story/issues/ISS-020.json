@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-relance",
+    "notion-pipeline"
+  ],
+  "discoveredDate": "2026-11-26",
+  "id": "ISS-020",
+  "impact": "(1) PATTERN : 2 nuits de suite. Run relance 2026-11-25 : 6 fiches du lot 24.11 passees en \"Mail 1 envoye\" + \"Date mail 1\" = 2026-11-24 dans un seul update_properties ; le 2026-11-26 les 6 avaient Date mail 1 VIDE (le handover du 25.11 le signalait deja pour 4 fiches du 23.11). Run relance 2026-11-26 : reproduit sur 14 fiches (lot 25.11, segments registre x NE, registre large x VD, carreleur/peintre/cuisiniste x Yverdon-nord vaudois, installateur PAC/solaire x Neuchatel, sanitaire x Yverdon) : statut + date poses dans le meme appel -> relecture de la vue \"Machine - Mails envoyes\" juste apres : 14/14 dates vides. Repose de la date SEULE (sans toucher au statut) -> 14/14 dates tenues a la relecture. Les 6 fiches du 24.11 reposees seules aussi -> tenues.\n(2) CAUSE PROBABLE : l'automation Notion de Thomas declenchee par le passage en \"Mail 1 envoye\" ecrit/efface \"Date mail 1\" apres l'ecriture de la routine. Consequence : sans date, la fiche sort de la file des relances dues (J+7) -> relance jamais preparee, en silence.\n(3) CHANGEMENT SUGGERE : dans BOITE.md 2a, imposer DEUX appels distincts (d'abord le statut + Notes, ensuite la date seule) puis une relecture par vue (sans quota) qui reverifie les dates ; ou desactiver/ajuster l'automation Notion \"Date mail 1\" maintenant que la boite fait foi. Meme precaution pour \"Date relance 1\" (posee seule cette nuit, tenue).\nPREUVE : vues Notion relues le 2026-11-26 avant/apres. Zero PII (references par segment).\n",
+  "location": [
+    "BOITE.md section 2a",
+    "RELANCE_PROMPT.md etape 1bis"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "high",
+  "status": "open",
+  "title": "Defaut recurrent: Date mail 1 effacee quand Statut pipeline passe en 'Mail 1 envoye' dans le meme appel"
+}
