@@ -77,6 +77,11 @@ Ne touche a AUCUN autre champ. Conserve toujours le contenu existant des Notes.
      contenant "REDACTION V3", champ "Controle" au vert ("🟢 OK"), Notes ne contenant pas
      "BROUILLON DEPOSE", adresse et domaine ABSENTS des Envoyes. Les reecritures les plus
      anciennes d'abord.
+     STOCK A DETAIL PLAT (decision Kidam du 2026-11-27) : un mail 1 d'une entreprise AVEC site
+     (le mail ne contient pas la phrase "Je n'ai pas trouve de site internet a votre nom.")
+     dont les Notes ne contiennent ni "IDEE :" ni "MAIL SIMPLE" n'est PLUS depose, meme au
+     vert : il attend sa reecriture (REPRISE.md, "Stock V3 a detail plat"). Compte ces fiches
+     en attente dans le mail du matin.
      PART ZONE LARGE (decision Kidam du 2026-11-25) : sur les places donnees aux mails 1
      une nuit, une sur trois au moins va a une fiche "ZONE LARGE" au vert s'il y en a (la
      plus ancienne d'abord). Le reste de l'ordre ne change pas.

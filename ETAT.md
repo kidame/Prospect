@@ -12,16 +12,20 @@
   ces 3 fiches Notion n'ont PAS ete modifiees).
 - PORTE IDEE (mots de Kidam) pour ces mails : "Si vous avez envie d'en parler, repondez
   simplement a ce mail, j'en discuterai avec plaisir. Et si ce n'est pas le moment, aucun
-  souci." Portes A et B : registre, sans site et mails ecrits avant.
+  souci." PORTE UNIQUE pour tout mail ecrit depuis le 27.11, registre et sans site
+  compris (decision Kidam) ; les portes A et B ne s'ecrivent plus.
 - Marqueur : Notes += "IDEE : <trois mots>". Le controle (C2, C4) applique les nouvelles
-  regles seulement aux fiches qui le portent. Pas d'idee etayee -> pas de mail.
+  regles seulement aux fiches qui le portent. Pas d'idee etayee -> MAIL SIMPLE (presentation, services, porte, rien d'autre ; Notes
+  "MAIL SIMPLE"), decision Kidam.
 - RELANCE : si le mail 1 portait une idee, la relance prend l'idee de reserve.
 - Alignes : CLAUDE.md, ROUTINE_PROMPT.md, CONTROLE_PROMPT.md, RELANCE_PROMPT.md, REPRISE.md,
   SECONDE_CHANCE.md. Registre et sans site : inchanges. Retour arriere : `git revert`.
-- NON DECIDE : (1) le stock de mails V3 a detail plat deja ecrits et pas encore deposes
-  (les reecrire avec une idee ou les laisser partir) ; (2) la porte A garde "ce que je ferais
-  a votre place", formule que Kidam n'aime pas dans le paragraphe (a lui de dire) ; (3) ecarter
-  les entreprises dont le site est deja tres travaille.
+- STOCK (decision Kidam) : les mails 1 V3 a detail plat deja ecrits pour une entreprise avec
+  site ne sont plus deposes (BOITE.md 3) et sont reecrits avec une idee, 5 par nuit
+  (REPRISE.md, "Stock V3 a detail plat"). Consequence attendue : moins de brouillons deposes
+  les premieres nuits. Les secondes chances deja ecrites partent telles quelles.
+- NON DECIDE (Kidam ne sait pas encore) : ecarter ou non les entreprises dont le site est
+  deja tres travaille. En attendant, on leur ecrit.
 - A surveiller dans le "KUMO matin" du 28.11 : nombre de mails a idee ecrits, fiches "pas
   d'idee etayee", duree du run (3 a 5 pages par fiche au lieu d'une), verdicts C2.
 

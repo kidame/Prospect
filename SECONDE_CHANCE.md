@@ -28,13 +28,13 @@ Si la boite est illisible : aucune seconde chance cette nuit.
 1. Lis la fiche en entier. Visite le site s'il y en a un (1 requete). Site mort ou activite
    arretee -> statut "Ancien", Notes += "seconde chance : site inactif le AAAA-MM-JJ".
 2. Avec site : prepare le bloc "### Portrait et idees" et choisis l'idee (skill writing, "Le
-   paragraphe idee", regle du 2026-11-27 ; 3 a 5 pages). Sans site : UN detail vrai. Rien
-   d'etaye -> Notes += "seconde chance : pas d'idee etayee" (ou "pas de detail verifiable"),
-   pas de mail, fiche suivante.
+   paragraphe idee", regle du 2026-11-27 ; 3 a 5 pages). Sans site : UN detail vrai. Avec site et aucune idee
+   etayee -> mail simple (skill writing). Sans site et aucun detail -> Notes += "seconde
+   chance : pas de detail verifiable", pas de mail, fiche suivante.
 3. Ecris en bas du corps une section "## Seconde chance (brouillon)" : un mail V3 complet
    (1re ligne "Objet : ...", corps, signature canonique), ecrit comme un PREMIER message. Il ne
    mentionne pas l'ancien mail, ne s'excuse pas, ne dit pas "je vous avais ecrit". Son objet
-   est different de celui de l'ancien mail. Porte A si l'entreprise n'a pas de site, porte IDEE sinon.
+   est different de celui de l'ancien mail. Porte : la porte unique du skill writing.
 4. Ne touche NI au bloc "## Email (brouillon)" (l'ancien mail : c'est la trace de ce qui est
    parti) NI au bloc "## Relance 1 (brouillon)" (jamais envoyee, elle reste la, inutilisee).
 5. Champs : Notes += "SECONDE CHANCE - REDACTION V3 - mail ecrit le AAAA-MM-JJ" (suivi de

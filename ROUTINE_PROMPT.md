@@ -111,8 +111,9 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    une porte ouverte par mail (porte IDEE pour un mail a idee). AUCUN chiffre, AUCUNE analyse SEO, AUCUN concurrent, AUCUNE remarque sur leur
    visibilite dans le mail : l'angle mesure (concurrent qui double, declencheur, volume)
    reste dans "## Diagnostic" et "Probleme principal". CTA = repondre au mail, jamais un
-   appel. Pas d'idee etayee ou pas de detail verifiable -> pas de mail (fiche gardee, note "pas d'idee
-   etayee" ou "pas de detail"). Mail a idee : Notes += "IDEE : <l'idee en trois mots>". ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
+   appel. Pas d'idee etayee (avec site) -> MAIL SIMPLE (skill writing ; Notes += "MAIL SIMPLE (pas
+   d'idee etayee : <raison>)"). Pas de detail verifiable (sans site) -> pas de mail (fiche
+   gardee, note "pas de detail"). Porte : la porte unique du skill writing, pour tous. Mail a idee : Notes += "IDEE : <l'idee en trois mots>". ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
    francais correct avec TOUS les accents (e/a/o/u/i accentues, c cedille) -- ne produis JAMAIS un
    mail en ASCII "a re-accentuer ensuite" ; seule l'apostrophe reste droite ('), aucun tiret
    cadratin (cf. CLAUDE.md "Redaction de l'email"). Cette regle prime sur toute habitude ASCII et

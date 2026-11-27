@@ -24,7 +24,7 @@ paragraphe « détail à eux » devient un paragraphe « idée » (section « Le
 et la porte ouverte devient la porte IDÉE. Kidam juge inutile le détail dit platement
 (« je suis tombé sur vous en cherchant..., j'ai vu que vous louez aussi... ») : il veut
 montrer un regard de professionnel et donner envie avec une bonne première idée, en mots
-simples. Les pistes registre et sans site ne changent pas. Les fiches écrites avant le
+simples. Les pistes registre et sans site gardent leur détail ; seule leur porte change (porte unique). Les fiches écrites avant le
 2026-11-27 (Notes sans « IDEE : ») gardent leur mail tel quel.
 
 ## Blocs FIXES — recopiés MOT POUR MOT
@@ -37,12 +37,12 @@ lui (pas d'années d'expérience, pas de clients cités, pas de titre).
 **Services**
 > Je vous écris simplement pour me présenter. Je crée et je refais des sites web, je m'occupe du référencement sur Google et de la création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
 
-**Porte ouverte A et B (pistes registre et sans site, et mails écrits avant le 2026-11-27)**
+**Anciennes portes A et B (mails écrits avant le 2026-11-27 seulement : ne les écris plus)**
 > A. Si l'un de ces sujets vous trotte dans la tête, répondez-moi en deux mots et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
 
 > B. Si un jour vous avez un projet ou une question sur votre site, répondez simplement à ce mail et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
 
-**Porte IDÉE (bloc FIXE, mot pour mot, pour tout mail qui porte un paragraphe idée)**
+**Porte ouverte (bloc FIXE, mot pour mot, la SEULE porte de tout mail écrit depuis le 2026-11-27, avec ou sans site ; appelée « porte IDÉE » dans les autres fichiers)**
 Si vous avez envie d'en parler, répondez simplement à ce mail, j'en discuterai avec plaisir. Et si ce n'est pas le moment, aucun souci.
 
 Jamais « nous », « notre agence », « notre équipe ». Aucun prix, aucun forfait, aucun
@@ -54,10 +54,10 @@ délai, aucun service ajouté à la liste.
 3. **Le paragraphe idée** (35 à 50 mots, 3 phrases au plus, la SEULE partie que tu
    écris) : voir la section « Le paragraphe idée » plus bas. Entreprise sans site (pistes
    registre et sans site) : voir « Selon la piste », rien ne change pour elles.
-   - Pas d'idée étayée après la préparation : la fiche ne reçoit pas de mail (note « pas
-     d'idée étayée »). Tu ne te replies JAMAIS sur un détail dit platement.
+   - Pas d'idée étayée après la préparation : MAIL SIMPLE (décision Kidam du 2026-11-27), voir « Pas d'idée étayée » plus bas. Tu ne te
+     replies JAMAIS sur un détail dit platement.
 4. **Services**, mot pour mot.
-5. **Porte IDÉE**, mot pour mot (porte A pour les pistes registre et sans site).
+5. **Porte ouverte**, mot pour mot (la porte unique).
 6. `Belle journée,` puis la signature canonique de CLAUDE.md.
 
 Longueur : 120 à 145 mots hors signature (jusqu'à 155 pour les pistes registre et sans site, qui ont une phrase fixe en plus). Les blocs fixes font déjà une centaine de mots : ne les raccourcis JAMAIS pour tenir une longueur. Une seule demande : répondre au mail.
@@ -90,7 +90,7 @@ script : le texte extrait trompe parfois (ISS-019).
   textes et photos de chantiers, contenus. Jamais de publicité, de réseaux sociaux ni de
   liens entrants.
 - Test du concurrent : ce paragraphe pourrait-il partir tel quel chez un concurrent du même
-  métier ? Si oui, il est générique : cherche mieux, ou pas de mail.
+  métier ? Si oui, il est générique : cherche mieux, ou mail simple.
 - Variété : dans un même run, pas plus de deux mails sur la même famille d'idée (par
   exemple « raconter un chantier »), et jamais deux fois la même phrase d'annonce.
 
@@ -119,6 +119,19 @@ Sur votre page pour les établissements publics, vous dites intervenir réguliè
 Installateur solaire dont chaque réalisation tient en une ligne :
 J'ai regardé vos réalisations, de la maison familiale en Valais au hangar agricole dans le Jura. Une idée m'est venue. Ajouter sous chacune la commune, la taille de l'installation et un mot du propriétaire un an après.
 
+### Pas d'idée étayée : le mail simple (décision Kidam du 2026-11-27)
+Entreprise avec site, préparation faite, aucune idée ne tient (rien de vérifiable, ou tout
+est déjà en place). Elle reçoit quand même un mail, simple : `Bonjour,`, **Présentation**,
+**Services** (ou sa variante ZONE LARGE), **Porte ouverte**, `Belle journée,`, signature.
+Mot pour mot, RIEN d'autre : aucun paragraphe sur eux, aucune phrase « comment je vous ai
+trouvé », aucun détail dit platement. Le mail fait une centaine de mots, c'est normal.
+- Le bloc « ### Portrait et idées » est écrit quand même, avec la raison (« aucune idée
+  étayée : ... »).
+- Notes += « MAIL SIMPLE (pas d'idée étayée : <raison en quelques mots>) » à la place de
+  « IDEE : ».
+- C'est l'exception. Si plus d'un tiers des mails avec site d'un run sont des mails simples,
+  dis-le dans le récap.
+
 ## Selon la piste (PISTES.md)
 Le paragraphe "detail a eux" s'adapte, les blocs fixes ne changent pas.
 - **Nouvelle entreprise (registre)** : pas de site a observer. Phrase d'approche FIXE :
@@ -135,8 +148,7 @@ Phrase FIXE pour les deux premières pistes (la seule remarque autorisée, mot p
 > Je n'ai pas trouvé de site internet à votre nom.
 
 Elle se place juste avant le bloc Services. Aucune autre remarque sur leur présence en
-ligne. Pour ces deux pistes, utilise TOUJOURS la porte ouverte A (la B parle de « votre
-site », qu'ils n'ont pas).
+ligne. Pour ces deux pistes aussi, la porte est la porte unique (depuis le 2026-11-27).
 
 Piste registre, cas particulier : si l'activité existait déjà avant l'inscription (fiche
 local.ch ou Google plus ancienne, raison individuelle devenue Sàrl), ne félicite pas pour un

@@ -114,7 +114,11 @@ C2 -- LE DETAIL A EUX (vrai et verifiable).
   apres l'idee pour la justifier, personnage generique ("un visiteur", "vos futurs
   clients"), mot de reproche ("il manque", "dommage", "date") -> ORANGE. Site inaccessible
   -> ROUGE "controle incomplet".
-  Une fiche AVEC site SANS "IDEE :" a ete ecrite avant le 2026-11-27 : c'est le controle
+  Fiche AVEC site dont les Notes contiennent "MAIL SIMPLE" (pas d'idee etayee, decision
+  Kidam du 2026-11-27) : le mail ne contient que la presentation, les services et la porte.
+  C2 sans objet -> OK. Un paragraphe sur eux dans un tel mail -> ORANGE. Pas de longueur
+  minimale pour ce mail.
+  Une fiche AVEC site SANS "IDEE :" ni "MAIL SIMPLE" a ete ecrite avant le 2026-11-27 : c'est le controle
   ci-dessous qui s'applique, sans rien exiger de plus.
 - Fiche AVEC site (ancienne fiche reecrite, piste "site date") : ouvre le site (1 requete).
   Le detail cite dans le mail doit y etre visible. Faux, introuvable ou generique ("votre
@@ -145,17 +149,19 @@ visibilite, aucun prix, aucun nom d'offre (Diagnostic, Mandat, Suivi). Un seul -
 C4 -- BLOCS FIXES ET PORTE.
 - Presentation, services et porte ouverte doivent etre IDENTIQUES au skill writing, mot pour
   mot. Reformules ou enrichis -> ORANGE.
-- Mail a idee (Notes avec "IDEE :") : la porte attendue est la porte IDEE du skill writing,
+- PORTE UNIQUE (decision Kidam du 2026-11-27) : pour tout mail ecrit a partir du 2026-11-28
+  (date de la ligne "REDACTION V3" des Notes ; mail a idee, mail simple, registre, sans
+  site), la porte attendue est la porte ouverte du skill writing,
   mot pour mot ("Si vous avez envie d'en parler, repondez simplement a ce mail, j'en
   discuterai avec plaisir. Et si ce n'est pas le moment, aucun souci.", accentuee dans le
-  mail). Porte A ou B sur un mail a idee -> ORANGE. Longueur admise : jusqu'a 155 mots (165
+  mail). Porte A ou B sur un tel mail -> ORANGE. Mail ecrit avant : portes A et B conformes. Longueur admise : jusqu'a 155 mots (165
   en ZONE LARGE).
 - Fiche "ZONE LARGE" (decision Kidam du 2026-11-25) : le bloc Services attendu est la
   VARIANTE ZONE LARGE du skill writing, mot pour mot (elle commence par "Je cherche des
   entreprises qui pourraient avoir besoin de mes services"). Le bloc Services habituel sur
   une telle fiche -> ORANGE (la recherche le remplacera). Presentation et porte : inchangees.
   Longueur : 10 mots de plus sont admis sur ces fiches.
-- Segments "registre" et "sans site" : la porte doit etre la A. La porte B parle de "votre
+- Mail ecrit AVANT le 2026-11-28, Segments "registre" et "sans site" : la porte doit etre la A. La porte B parle de "votre
   site" a une entreprise qui n'en a pas -> ORANGE.
 - Le mail ne demande ni appel, ni rendez-vous, ni creneau. Sinon -> ROUGE.
 - Longueur : 120 a 145 mots hors signature (155 pour registre et sans site). Ne flague la

@@ -51,6 +51,21 @@ qui fermes la boucle. Fiches : "Lead froid" (ou "Relance préparée" avec "SECON
 4. Une fiche deja corrigee deux fois et toujours pas verte : n'y touche plus, signale-la au
    recap ("a trancher par Thomas").
 
+## Stock V3 a detail plat (decision Kidam du 2026-11-27)
+Les mails 1 ecrits en V3 avant le 2026-11-27 pour une entreprise AVEC site portent un detail
+dit platement, que Kidam ne veut plus. Ils ne sont plus deposes (BOITE.md 3) et se reecrivent
+avec un paragraphe idee. Fiches (vue "Machine - Mails V3") : "Lead froid", "Date mail 1"
+vide, Notes contenant "REDACTION V3" mais ni "IDEE :", ni "MAIL SIMPLE", ni "BROUILLON
+DEPOSE", et dont le mail ne contient PAS la phrase "Je n'ai pas trouve de site internet a
+votre nom." (registre et sans site : on n'y touche pas).
+- 5 par nuit, APRES les corrections et AVANT les anciennes fiches ; elles comptent dans le
+  quota de reecritures de la nuit (5, ou 10 pendant le sprint). Les plus anciennes d'abord,
+  une fiche "ZONE LARGE" sur trois au moins s'il y en a.
+- Pour chacune : etapes 2 a 7 de "Chaque nuit" ci-dessous (3 a 5 pages, bloc "### Portrait et
+  idees", paragraphe idee ou mail simple, porte unique, champ "Controle" vide).
+- Les blocs "## Seconde chance (brouillon)" deja ecrits ne sont pas concernes.
+- Quand il n'en reste plus, ecris-le une fois dans le recap ("stock V3 a detail plat : vide").
+
 ## Chaque nuit
 Prends 5 fiches : d'abord celles de la zone de PISTES.md (rang 1, puis 2, puis 3), les plus
 recentes d'abord. Hors zone : seulement dans le cas prevu par PISTES.md (point 4). Pour chacune :
@@ -63,13 +78,13 @@ recentes d'abord. Hors zone : seulement dans le cas prevu par PISTES.md (point 4
    personnelle (gmail, hotmail, bluewin) : note la source dans les Notes et RETIRE l'alerte
    "⚠️ Email a confirmer avant envoi" du bloc. Introuvable = garde ou pose l'alerte.
 4. Prepare le bloc "### Portrait et idees" sous le Diagnostic et choisis l'idee (skill
-   writing, "Le paragraphe idee", regle du 2026-11-27). Aucune idee etayee -> note
-   "reprise : pas d'idee etayee", pas de mail, fiche suivante.
+   writing, "Le paragraphe idee", regle du 2026-11-27). Aucune idee etayee -> MAIL SIMPLE (skill writing, "Pas d'idee etayee").
 5. Reecris le bloc "## Email (brouillon)" avec la redaction V3 : il REMPLACE l'ancien
    mail (ne garde pas l'ancien texte). Ne touche pas a l'analyse du "## Diagnostic" (tu y ajoutes seulement le bloc "### Portrait et idees"). Salutation :
    regle habituelle (prenom seulement si dirigeant actuel confirme).
 6. Verrou accents + passe de relecture du skill writing.
-7. Champs : ajoute aux "Notes" la ligne "REDACTION V3 - mail reecrit le AAAA-MM-JJ - IDEE : <l'idee en trois mots>" ;
+7. Champs : ajoute aux "Notes" la ligne "REDACTION V3 - mail reecrit le AAAA-MM-JJ - IDEE : <l'idee en trois mots>" (ou
+   " - MAIL SIMPLE (pas d'idee etayee : <raison>)") ;
    vide le champ "Controle" (l'ancien verdict portait sur l'ancien mail) ; laisse le
    statut "Lead froid" et "Draft pret" coche. Ne change RIEN d'autre.
 Tu ne deposes PAS de brouillon ici : la routine relance s'en charge ensuite (BOITE.md), apres le controle.

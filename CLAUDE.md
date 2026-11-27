@@ -519,7 +519,9 @@ dit platement est remplace par un PARAGRAPHE IDEE (un fait vu chez eux puis une 
 premiere idee, 35 a 50 mots), prepare dans la fiche sous "### Portrait et idees", et la porte
 devient la porte IDEE. Regles et modeles : skill writing, "Le paragraphe idee". Marqueur :
 Notes += "IDEE : <l'idee en trois mots>" (a la suite de la ligne "REDACTION V3 ..."). Les
-fiches ecrites avant (sans "IDEE :") gardent leur mail. Registre et sans site : inchanges.
+fiches ecrites avant (sans "IDEE :") gardent leur mail. Registre et sans site : detail inchange. PORTE UNIQUE pour tout mail ecrit depuis le
+2026-11-27 (les portes A et B ne s'ecrivent plus). Stock de mails 1 a detail plat : reecrit
+par la reprise (REPRISE.md) et plus depose en attendant (BOITE.md 3).
 Retour arriere : `git revert` du commit du 2026-11-27.
 
 But : Thomas SE PRESENTE, comme une personne. Web designer et specialiste du
@@ -536,8 +538,9 @@ referencement Google, independant, a Couvet. Il dit ce qu'il fait et propose ses
   Diagnostic 1200 et le tunnel Mandat/Suivi ne s'annoncent jamais a froid.
 - Forme : francais romand, 120 a 145 mots hors signature (155 pour les pistes registre et sans site et pour les mails a idee), texte simple (paragraphes nus,
   aucun style, aucune image), objet en minuscules de 2 a 6 mots, jamais "[metier] [ville]".
-- Pas d'idee etayee (avec site) ou pas de detail verifiable (sans site) -> pas de mail pour
-  cette fiche. Jamais de repli sur un detail dit platement.
+- Pas d'idee etayee (avec site) -> MAIL SIMPLE : presentation, services, porte, rien d'autre
+  (skill writing ; Notes += "MAIL SIMPLE"). Pas de detail verifiable (sans site) -> pas de
+  mail. Jamais de repli sur un detail dit platement.
 
 SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
 c'est la forme TEXTE ecrite dans la fiche Notion : 3 lignes, sans logo ni style. Au depot du
