@@ -56,19 +56,20 @@ Prends 5 fiches : d'abord celles de la zone de PISTES.md (rang 1, puis 2, puis 3
 recentes d'abord. Hors zone : seulement dans le cas prevu par PISTES.md (point 4). Pour chacune :
 1. Lis la fiche en entier (Diagnostic, ancien mail, Notes). Reverifie qu'elle remplit
    toujours les conditions ci-dessus.
-2. Visite le site (1 requete). Site mort, activite arretee ou hors cible -> statut
+2. Visite le site (3 a 5 pages, skill writing "Le paragraphe idee"). Site mort, activite arretee ou hors cible -> statut
    "Ancien" + note "reprise : site inactif le AAAA-MM-JJ", pas de mail, fiche suivante.
 3. Reverifie que l'adresse email est toujours publiee par l'entreprise (son site, ses mentions
    legales, sa fiche local.ch ou Google). Publiee = CONFIRMEE, meme si c'est une adresse
    personnelle (gmail, hotmail, bluewin) : note la source dans les Notes et RETIRE l'alerte
    "⚠️ Email a confirmer avant envoi" du bloc. Introuvable = garde ou pose l'alerte.
-4. Trouve UN detail vrai sur leur site (regle du skill writing). Aucun detail -> note
-   "reprise : pas de detail verifiable", pas de mail, fiche suivante.
+4. Prepare le bloc "### Portrait et idees" sous le Diagnostic et choisis l'idee (skill
+   writing, "Le paragraphe idee", regle du 2026-11-27). Aucune idee etayee -> note
+   "reprise : pas d'idee etayee", pas de mail, fiche suivante.
 5. Reecris le bloc "## Email (brouillon)" avec la redaction V3 : il REMPLACE l'ancien
-   mail (ne garde pas l'ancien texte). Ne touche pas au "## Diagnostic". Salutation :
+   mail (ne garde pas l'ancien texte). Ne touche pas a l'analyse du "## Diagnostic" (tu y ajoutes seulement le bloc "### Portrait et idees"). Salutation :
    regle habituelle (prenom seulement si dirigeant actuel confirme).
 6. Verrou accents + passe de relecture du skill writing.
-7. Champs : ajoute aux "Notes" la ligne "REDACTION V3 - mail reecrit le AAAA-MM-JJ" ;
+7. Champs : ajoute aux "Notes" la ligne "REDACTION V3 - mail reecrit le AAAA-MM-JJ - IDEE : <l'idee en trois mots>" ;
    vide le champ "Controle" (l'ancien verdict portait sur l'ancien mail) ; laisse le
    statut "Lead froid" et "Draft pret" coche. Ne change RIEN d'autre.
 Tu ne deposes PAS de brouillon ici : la routine relance s'en charge ensuite (BOITE.md), apres le controle.

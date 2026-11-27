@@ -1,6 +1,31 @@
 # ETAT - Prospect (machine a prospects KUMO, Suisse)
 
-## Derniere session (2026-11-25, chat Claude, depuis le VPS Kumo)
+## Derniere session (2026-11-27, chat Claude, depuis le VPS Kumo)
+
+- PARAGRAPHE IDEE (decision Kidam) : pour toute entreprise qui a un site, le detail dit
+  platement ("je suis tombe sur vous..., j'ai vu que vous louez aussi...") est remplace par
+  un fait vu chez eux suivi d'une bonne premiere idee (35 a 50 mots, sans jargon, sans "a
+  votre place", le paragraphe finit sur l'idee). Preparation obligatoire dans la fiche, bloc
+  "### Portrait et idees" sous le Diagnostic (3 a 5 pages lues, portrait, 3 ecarts avec
+  preuve, idee retenue, idee de reserve). Skill writing : section "Le paragraphe idee", avec
+  3 modeles valides par Kidam (essai a la main sur Kime Carrelage, DMD Transport, Energy Pro ;
+  ces 3 fiches Notion n'ont PAS ete modifiees).
+- PORTE IDEE (mots de Kidam) pour ces mails : "Si vous avez envie d'en parler, repondez
+  simplement a ce mail, j'en discuterai avec plaisir. Et si ce n'est pas le moment, aucun
+  souci." Portes A et B : registre, sans site et mails ecrits avant.
+- Marqueur : Notes += "IDEE : <trois mots>". Le controle (C2, C4) applique les nouvelles
+  regles seulement aux fiches qui le portent. Pas d'idee etayee -> pas de mail.
+- RELANCE : si le mail 1 portait une idee, la relance prend l'idee de reserve.
+- Alignes : CLAUDE.md, ROUTINE_PROMPT.md, CONTROLE_PROMPT.md, RELANCE_PROMPT.md, REPRISE.md,
+  SECONDE_CHANCE.md. Registre et sans site : inchanges. Retour arriere : `git revert`.
+- NON DECIDE : (1) le stock de mails V3 a detail plat deja ecrits et pas encore deposes
+  (les reecrire avec une idee ou les laisser partir) ; (2) la porte A garde "ce que je ferais
+  a votre place", formule que Kidam n'aime pas dans le paragraphe (a lui de dire) ; (3) ecarter
+  les entreprises dont le site est deja tres travaille.
+- A surveiller dans le "KUMO matin" du 28.11 : nombre de mails a idee ecrits, fiches "pas
+  d'idee etayee", duree du run (3 a 5 pages par fiche au lieu d'une), verdicts C2.
+
+## Session precedente (2026-11-25, chat Claude, depuis le VPS Kumo)
 
 - ZONE LARGE PERMANENTE (decision Kidam : "en plus, pas en moins") : un RANG 4 s'ajoute aux
   rangs 1 a 3, sans rien retirer. PISTES.md ("Rang 4" et etape 3bis) fait foi.

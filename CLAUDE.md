@@ -362,7 +362,9 @@ Champs a remplir pour chaque prospect (faits mesures uniquement) :
   signaux convertissent. Zero saisie en plus pour Thomas.
 
 CORPS DE LA FICHE (contenu de la page Notion, PAS une colonne) -> c'est la que vit le redige :
-- "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree.
+- "## Diagnostic" : l'analyse mesuree (2 axes + etendue), chiffree. Entreprise avec site : suivie du
+  bloc "### Portrait et idees" (pages lues, portrait, ecarts avec preuve, idee retenue, idee de
+  reserve ; skill writing).
 - "## Email (brouillon)" (canal EMAIL seulement) : le mail COMPLET, pret a copier-coller.
   SOURCE UNIQUE du mail. Format : 1re ligne "Objet : ...", puis le corps (120-145 mots, francais
   romand, skill .claude/skills/writing/), puis la signature (Thomas Puglisi / KUMO, Couvet -
@@ -458,7 +460,7 @@ routines de la nuit se partagent donc environ 9 requetes par heure : 3 chacune, 
 - UNE SEULE relance automatique par prospect. Verrou = "Date relance 1" + section "## Relance 1".
   Toute relance 2 = decision manuelle de Thomas.
 - CONTENU (V3) : 3 a 5 lignes, la meme salutation que le mail 1, une ligne qui raccroche sans
-  reproche, UNE idee concrete en langage courant, la porte "repondez a ce mail". Ni chiffre, ni
+  reproche, UNE idee concrete en langage courant (l'idee de reserve du bloc "### Portrait et idees" si le mail 1 portait deja une idee, jamais la meme), la porte "repondez a ce mail". Ni chiffre, ni
   position, ni concurrent, ni vocabulaire SEO, ni prix. AUCUNE re-mesure Google (ni DataForSEO ni
   Apify). Interdits : "je me permets de revenir", "sans reponse de votre part", "avez-vous eu le
   temps de", "je relance".
@@ -512,6 +514,14 @@ REFONTE V3 du 2026-11-18 (decision Kidam, remplace toutes les regles de redactio
 anterieures : fait mesure en accroche, concurrent nomme, ton hedge, 60-90 mots, 4
 squelettes). Kidam juge l'ancienne redaction trop "marketeuse".
 
+MISE A JOUR du 2026-11-27 (decision Kidam) : pour une entreprise qui A UN SITE, le detail
+dit platement est remplace par un PARAGRAPHE IDEE (un fait vu chez eux puis une bonne
+premiere idee, 35 a 50 mots), prepare dans la fiche sous "### Portrait et idees", et la porte
+devient la porte IDEE. Regles et modeles : skill writing, "Le paragraphe idee". Marqueur :
+Notes += "IDEE : <l'idee en trois mots>" (a la suite de la ligne "REDACTION V3 ..."). Les
+fiches ecrites avant (sans "IDEE :") gardent leur mail. Registre et sans site : inchanges.
+Retour arriere : `git revert` du commit du 2026-11-27.
+
 But : Thomas SE PRESENTE, comme une personne. Web designer et specialiste du
 referencement Google, independant, a Couvet. Il dit ce qu'il fait et propose ses services.
 - AUCUN chiffre, AUCUNE analyse SEO, AUCUN concurrent nomme, AUCUNE remarque sur la
@@ -519,15 +529,15 @@ referencement Google, independant, a Couvet. Il dit ce qu'il fait et propose ses
   QUALIFIER et restent dans la fiche ("## Diagnostic", "Probleme principal") : Thomas
   s'en sert lui-meme quand le prospect repond.
 - Structure fixe (detail dans .claude/skills/writing/, qui porte les blocs a recopier MOT
-  POUR MOT) : presentation -> 2 phrases sur UN detail vrai vu chez eux (site, realisation,
-  specialite ; jamais leur visibilite) -> services (creation et refonte de sites web,
+  POUR MOT) : presentation -> PARAGRAPHE IDEE si l'entreprise a un site (regle du 2026-11-27), sinon 2 phrases sur UN detail vrai (registre, sans site) ; jamais leur visibilite -> services (creation et refonte de sites web,
   referencement sur Google, creation de contenus) -> porte ouverte par mail.
 - Independant, jamais "nous / notre agence". Aucun prix, forfait ni delai.
 - CTA = REPONDRE AU MAIL. Jamais un appel, un creneau ou "15 min" au 1er contact. Le
   Diagnostic 1200 et le tunnel Mandat/Suivi ne s'annoncent jamais a froid.
-- Forme : francais romand, 120 a 145 mots hors signature (155 pour les pistes registre et sans site), texte simple (paragraphes nus,
+- Forme : francais romand, 120 a 145 mots hors signature (155 pour les pistes registre et sans site et pour les mails a idee), texte simple (paragraphes nus,
   aucun style, aucune image), objet en minuscules de 2 a 6 mots, jamais "[metier] [ville]".
-- Pas de detail verifiable trouve sur le site -> pas de mail pour cette fiche.
+- Pas d'idee etayee (avec site) ou pas de detail verifiable (sans site) -> pas de mail pour
+  cette fiche. Jamais de repli sur un detail dit platement.
 
 SIGNATURE CANONIQUE (verbatim, seule forme autorisee -- source : tools/signature.html ;
 c'est la forme TEXTE ecrite dans la fiche Notion : 3 lignes, sans logo ni style. Au depot du

@@ -108,6 +108,9 @@ apportant une idee, jamais une redite ni un reproche.
 
 4. Pour CHAQUE relance due -- CHOISIS L'IDEE (une seule, concrete, dite en langage courant,
    sans jugement sur ce qu'ils ont aujourd'hui) :
+   - fiche dont les Notes contiennent "IDEE :" (mail 1 a idee, regle du 2026-11-27) : prends
+     l'idee de reserve du bloc "### Portrait et idees", jamais celle du mail 1. Pas d'idee de
+     reserve : applique la ligne ci-dessous qui correspond a la fiche ;
    - ancienne fiche avec un "## Diagnostic" mesure : traduis le besoin du Diagnostic en idee
      simple ("une page par prestation", "montrer vos chantiers recents", "une fiche Google a
      jour avec des photos") ;

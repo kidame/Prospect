@@ -14,10 +14,18 @@ prospect et vivent dans la fiche Notion ; elles ne vont plus dans le premier mai
 Thomas se présente, simplement, comme une personne : web designer et spécialiste du
 référencement Google, indépendant, à Couvet. Il dit ce qu'il fait et propose ses
 services. **Aucun chiffre, aucune analyse SEO, aucun concurrent nommé dans le mail.**
-Ce qui évite l'effet « envoi de masse » : une phrase sur un détail vrai, vu chez EUX.
+Ce qui évite l'effet « envoi de masse » : une idée précise, tirée de ce qu'on a vu chez EUX (un détail vrai, pour une entreprise sans site).
 Si une phrase sonne brochure ou vendeur, réécris-la.
 
 Ce skill complète la section « Rédaction de l'email » de `CLAUDE.md` (qui fait foi).
+
+**Mise à jour du 2026-11-27 (décision Kidam).** Pour toute entreprise qui A UN SITE, le
+paragraphe « détail à eux » devient un paragraphe « idée » (section « Le paragraphe idée »)
+et la porte ouverte devient la porte IDÉE. Kidam juge inutile le détail dit platement
+(« je suis tombé sur vous en cherchant..., j'ai vu que vous louez aussi... ») : il veut
+montrer un regard de professionnel et donner envie avec une bonne première idée, en mots
+simples. Les pistes registre et sans site ne changent pas. Les fiches écrites avant le
+2026-11-27 (Notes sans « IDEE : ») gardent leur mail tel quel.
 
 ## Blocs FIXES — recopiés MOT POUR MOT
 Ce sont les mots validés par Kidam. Tu ne les reformules pas et tu n'ajoutes rien sur
@@ -29,10 +37,13 @@ lui (pas d'années d'expérience, pas de clients cités, pas de titre).
 **Services**
 > Je vous écris simplement pour me présenter. Je crée et je refais des sites web, je m'occupe du référencement sur Google et de la création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
 
-**Porte ouverte (alterne A et B d'un mail à l'autre)**
+**Porte ouverte A et B (pistes registre et sans site, et mails écrits avant le 2026-11-27)**
 > A. Si l'un de ces sujets vous trotte dans la tête, répondez-moi en deux mots et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
 
 > B. Si un jour vous avez un projet ou une question sur votre site, répondez simplement à ce mail et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
+
+**Porte IDÉE (bloc FIXE, mot pour mot, pour tout mail qui porte un paragraphe idée)**
+Si vous avez envie d'en parler, répondez simplement à ce mail, j'en discuterai avec plaisir. Et si ce n'est pas le moment, aucun souci.
 
 Jamais « nous », « notre agence », « notre équipe ». Aucun prix, aucun forfait, aucun
 délai, aucun service ajouté à la liste.
@@ -40,24 +51,73 @@ délai, aucun service ajouté à la liste.
 ## Structure du mail 1
 1. `Bonjour,` (prénom seulement si dirigeant actuel confirmé, règle CLAUDE.md).
 2. **Présentation**, mot pour mot.
-3. **Le détail à eux** (2 phrases, la SEULE partie que tu écris) :
-   - comment tu es tombé sur eux, dit simplement et vrai (« en cherchant des
-     [métier] [dans la région / en Valais] ») ;
-   - UN détail précis de LEUR site ou de leur travail, vérifiable par eux : une
-     réalisation montrée, une spécialité, l'ancienneté, une photo, une façon de
-     présenter leur métier. Dans leurs mots, dit comme un FAIT constaté, jamais comme un
-     compliment (voir « Ponctuation et compliments » plus bas).
-   - INTERDIT ici : tout ce qui touche à leur visibilité (Google, positions,
-     recherches, pack local, concurrents, vitesse du site, « on ne vous trouve pas »),
-     tout chiffre de recherche, toute critique. Pas le nombre d'avis par défaut.
-   - Si tu ne trouves aucun détail vrai en visitant le site : la fiche ne reçoit pas
-     de mail (note « pas de détail vérifiable »).
+3. **Le paragraphe idée** (35 à 50 mots, 3 phrases au plus, la SEULE partie que tu
+   écris) : voir la section « Le paragraphe idée » plus bas. Entreprise sans site (pistes
+   registre et sans site) : voir « Selon la piste », rien ne change pour elles.
+   - Pas d'idée étayée après la préparation : la fiche ne reçoit pas de mail (note « pas
+     d'idée étayée »). Tu ne te replies JAMAIS sur un détail dit platement.
 4. **Services**, mot pour mot.
-5. **Porte ouverte** A ou B, mot pour mot.
+5. **Porte IDÉE**, mot pour mot (porte A pour les pistes registre et sans site).
 6. `Belle journée,` puis la signature canonique de CLAUDE.md.
 
 Longueur : 120 à 145 mots hors signature (jusqu'à 155 pour les pistes registre et sans site, qui ont une phrase fixe en plus). Les blocs fixes font déjà une centaine de mots : ne les raccourcis JAMAIS pour tenir une longueur. Une seule demande : répondre au mail.
 JAMAIS d'appel, de créneau ni de « 15 min » au premier contact.
+
+## Le paragraphe idée (entreprise avec site, décision Kidam du 2026-11-27)
+But : montrer que Thomas a regardé leur entreprise avec un œil de professionnel et leur
+donner une bonne première idée, liée à leur métier, à leur identité et à leurs services.
+Une idée, pas un diagnostic. Aucun jargon.
+
+### 1. Préparation, écrite dans la fiche AVANT le mail
+Dans le corps de la fiche, sous « ## Diagnostic », écris un bloc « ### Portrait et idées » :
+- **Pages lues** : 3 à 5 pages (accueil, services, réalisations, à propos, contact), avec
+  leur adresse.
+- **Portrait** en 4 lignes, avec LEURS mots : ce qu'ils vendent, à qui, ce qu'ils mettent
+  en avant d'eux-mêmes, ce qui semble compter le plus pour eux.
+- **Trois écarts** entre ce qu'ils font et ce que leur site montre, chacun avec sa preuve
+  (la page, et ce qu'on y lit ou ce qui n'y est pas).
+- **Idée retenue** pour le mail 1, puis **idée de réserve** pour la relance (une autre,
+  tirée des écarts).
+Une idée qui repose sur une absence (« aucune légende », « aucun exemple ») se vérifie sur
+la page RENDUE dans le navigateur quand le site est un Wix ou charge son contenu par
+script : le texte extrait trompe parfois (ISS-019).
+
+### 2. Choisir l'idée
+- Elle part de ce dont ils sont fiers ou de ce qu'ils vendent, jamais d'un défaut.
+- Elle se voit : en la lisant, on imagine la chose à l'écran.
+- Elle est petite : faisable en une semaine, pas une refonte.
+- Elle n'existe pas déjà sur leur site (vérifié) et Thomas sait la faire : site, pages,
+  textes et photos de chantiers, contenus. Jamais de publicité, de réseaux sociaux ni de
+  liens entrants.
+- Test du concurrent : ce paragraphe pourrait-il partir tel quel chez un concurrent du même
+  métier ? Si oui, il est générique : cherche mieux, ou pas de mail.
+- Variété : dans un même run, pas plus de deux mails sur la même famille d'idée (par
+  exemple « raconter un chantier »), et jamais deux fois la même phrase d'annonce.
+
+### 3. L'écrire
+Trois temps, en 35 à 50 mots : un fait vu chez eux (dans leurs mots), une courte annonce,
+l'idée. Le paragraphe FINIT sur l'idée.
+- Pas de phrase « comment je suis tombé sur vous » : Kidam la juge inutile.
+- L'annonce change à chaque mail (« Ça m'a donné une idée pour votre galerie. », « Une
+  idée m'est venue. », « J'y verrais bien ... »). Elle peut se fondre dans la phrase de l'idée.
+- INTERDIT : « à votre place », « ce que je ferais » ; toute phrase qui explique pourquoi
+  l'idée est bonne ou ce qu'elle rapporterait ; un personnage générique (« un visiteur »,
+  « un propriétaire qui hésite », « vos futurs clients ») ; tout mot de reproche (« il
+  manque », « dommage », « pas assez », « vieux », « daté ») ; « potentiel », « piste
+  intéressante », « opportunité ».
+- Toujours interdits : leur visibilité, Google, tout chiffre, tout compliment, tout
+  deux-points.
+- Test final : Thomas le dirait-il tel quel au téléphone ?
+
+### Modèles validés par Kidam le 2026-11-27 (ton et niveau d'idée ; ne recopie jamais leurs phrases)
+Carreleur qui fait aussi le démontage et la peinture, galerie de photos sans légende :
+Sur votre site, j'ai vu que vous démontez aussi l'ancienne salle de bains et que vous repeignez après la pose. Ça m'a donné une idée pour votre galerie. Montrer une même salle de bains avant, pendant et après, avec deux lignes sur ce que vous y avez fait.
+
+Déménageur dont la page « établissements publics » ne cite aucun exemple :
+Sur votre page pour les établissements publics, vous dites intervenir régulièrement pour des communes. J'y verrais bien le récit d'un de ces déménagements, avec le lieu, ce qu'il fallait déplacer et le temps que ça a pris.
+
+Installateur solaire dont chaque réalisation tient en une ligne :
+J'ai regardé vos réalisations, de la maison familiale en Valais au hangar agricole dans le Jura. Une idée m'est venue. Ajouter sous chacune la commune, la taille de l'installation et un mot du propriétaire un an après.
 
 ## Selon la piste (PISTES.md)
 Le paragraphe "detail a eux" s'adapte, les blocs fixes ne changent pas.
@@ -69,7 +129,7 @@ Le paragraphe "detail a eux" s'adapte, les blocs fixes ne changent pas.
   {commune} »), UN détail de sa fiche Google (une réalisation en photo, une spécialité ;
   pas le nombre d'avis par défaut), puis la phrase FIXE ci-dessous.
 - **Site daté** : structure normale. Tu ne dis JAMAIS que le site est vieux, lent ou
-  dépassé ; le détail porte sur leur travail.
+  dépassé ; l'idée part de leur travail.
 
 Phrase FIXE pour les deux premières pistes (la seule remarque autorisée, mot pour mot) :
 > Je n'ai pas trouvé de site internet à votre nom.
@@ -113,8 +173,7 @@ un emoji, un faux `Re:`.
 ## Variation
 Les artisans d'un même village se montrent leurs mails. Les blocs fixes sont identiques
 (c'est normal, c'est lui qui se présente). Ce qui change TOUJOURS d'un mail à l'autre
-dans un même run : l'objet, la phrase « comment je vous ai trouvé », le détail, et la
-porte ouverte (A / B).
+dans un même run : l'objet, la phrase d'annonce et l'idée (sans site : la phrase « comment je vous ai trouvé » et le détail).
 
 ## Relance (J+7)
 Plus courte : 3 à 5 lignes, même chaleur. Ne répète pas la présentation ni la liste de
@@ -122,6 +181,8 @@ services. Une ligne qui raccroche au premier message sans reproche, puis UNE id�
 concrète pour eux tirée du Diagnostic, dite en langage courant (« une page par
 prestation », « montrer vos chantiers récents ») : toujours sans chiffre, sans position,
 sans vocabulaire SEO. Même porte : répondre au mail.
+Si le mail 1 portait déjà une idée (Notes avec « IDEE : »), la relance prend l'idée de
+réserve du bloc « Portrait et idées » : jamais la même que celle du mail 1.
 
 ## Après le « oui »
 C'est là que servent les mesures de la fiche (Diagnostic, « Probleme principal ») :
@@ -164,25 +225,26 @@ Seule exception : « félicitations pour le lancement » dans l'accroche fixe du
 
 ## Passe de relecture (avant livraison)
 1. Les trois blocs fixes sont-ils IDENTIQUES au texte ci-dessus ?
-2. Le détail est-il vrai, vu sur leur site cette nuit, et sans rapport avec leur
-   visibilité ?
+2. L'idée (ou le détail, sans site) repose-t-elle sur un fait vrai, vu sur leur site cette
+   nuit, avec sa preuve dans la fiche, et sans rapport avec leur visibilité ? Passe-t-elle
+   le test du concurrent ? Le paragraphe finit-il sur l'idée ?
 3. Aucun chiffre (hors numéro de téléphone de la signature), aucun mot de la liste
    « vendeur ou SEO », aucun concurrent, aucun prix.
 4. 120 à 145 mots (155 pour registre et sans site), une seule demande, objet en minuscules.
 5. Accents comptés (vérification déterministe de CLAUDE.md), signature canonique.
-6. Différent du mail précédent du run : objet, phrase d'approche, détail, porte.
+6. Différent du mail précédent du run : objet, phrase d'annonce, idée (ou détail).
 8. Cherche le caractère « : » dans le corps et dans l'objet : il ne doit pas y en avoir.
    Cherche un compliment ou un jugement sur eux : il ne doit pas y en avoir.
 7. Lis à voix haute : est-ce qu'un artisan croirait qu'un indépendant du coin lui a
    écrit lui-même ? Sinon, réécris le détail.
 
-## Exemple validé par Kidam (structure et ton ; le détail est propre à chaque prospect)
+## Exemple (blocs validés par Kidam ; paragraphe idée du 2026-11-27, propre à chaque prospect)
 **Objet : un indépendant du val-de-travers**
 Bonjour,
 Je m'appelle Thomas, je suis web designer et spécialiste du référencement Google, indépendant, installé à Couvet dans le Val-de-Travers.
-Je suis tombé sur votre entreprise en cherchant des installateurs solaires en Valais et j'ai pris le temps de regarder votre site. J'y ai vu que vous posez aussi des bornes de recharge.
+Sur votre site, j'ai vu que vous démontez aussi l'ancienne salle de bains et que vous repeignez après la pose. Ça m'a donné une idée pour votre galerie. Montrer une même salle de bains avant, pendant et après, avec deux lignes sur ce que vous y avez fait.
 Je vous écris simplement pour me présenter. Je crée et je refais des sites web, je m'occupe du référencement sur Google et de la création de contenus. Je travaille seul, donc c'est à moi que vous parlez du début à la fin.
-Si l'un de ces sujets vous trotte dans la tête, répondez-moi en deux mots et je vous dis ce que je ferais à votre place. Et si ce n'est pas le moment, aucun souci.
+Si vous avez envie d'en parler, répondez simplement à ce mail, j'en discuterai avec plaisir. Et si ce n'est pas le moment, aucun souci.
 Belle journée,
 Thomas Puglisi
 KUMO, Couvet - kumo-seo.ch
@@ -193,6 +255,8 @@ KUMO, Couvet - kumo-seo.ch
 - Un bloc fixe reformulé, ou un détail inventé sur Thomas.
 - Un deux-points dans le mail, un compliment, une phrase-slogan.
 - Le détail est générique (« votre beau site », « vos bons avis ») ou invérifiable.
+- Une idée sans preuve dans la fiche, déjà en place sur leur site, ou qui partirait telle
+  quelle chez un concurrent. « À votre place ». Une phrase ajoutée après l'idée.
 - « nous », un prix, un appel demandé, deux demandes.
 - Même objet ou même détail que le mail précédent du run.
 
@@ -200,3 +264,5 @@ KUMO, Couvet - kumo-seo.ch
 Le juge reste le taux de réponse. Les règles V2 s'appuyaient sur des données de juillet
 2026 (un fait précis fait répondre) ; la V3 est un choix de ton de Kidam. Note le
 résultat mail par mail pour pouvoir comparer.
+Depuis le 2026-11-27, compare aussi les mails à idée (Notes « IDEE : ») aux mails V3 à
+détail plat (29 envoyés au 2026-11-23, 1 réponse).

@@ -103,6 +103,19 @@ C1 -- SALUTATION.
 Tu ne proposes JAMAIS d'ajouter un nom la ou il y a "Bonjour,".
 
 C2 -- LE DETAIL A EUX (vrai et verifiable).
+- Fiche AVEC site dont les Notes contiennent "IDEE :" (regle du 2026-11-27, skill writing
+  "Le paragraphe idee") : le bloc "### Portrait et idees" doit exister sous le Diagnostic
+  (pages lues, portrait, ecarts avec preuve, idee retenue). Absent -> ORANGE. Ouvre la page
+  citee comme preuve (2 requetes au plus). Le fait cite dans le mail doit y etre visible et
+  l'idee ne doit PAS deja exister sur le site ; une idee qui repose sur une absence se
+  verifie sur la page rendue si le site est un Wix ou charge son contenu par script.
+  Fait faux, idee deja en place ou preuve introuvable -> ROUGE. Idee generique (elle
+  partirait telle quelle chez un concurrent du meme metier), "a votre place", phrase ajoutee
+  apres l'idee pour la justifier, personnage generique ("un visiteur", "vos futurs
+  clients"), mot de reproche ("il manque", "dommage", "date") -> ORANGE. Site inaccessible
+  -> ROUGE "controle incomplet".
+  Une fiche AVEC site SANS "IDEE :" a ete ecrite avant le 2026-11-27 : c'est le controle
+  ci-dessous qui s'applique, sans rien exiger de plus.
 - Fiche AVEC site (ancienne fiche reecrite, piste "site date") : ouvre le site (1 requete).
   Le detail cite dans le mail doit y etre visible. Faux, introuvable ou generique ("votre
   beau site", "vos bons avis") -> ROUGE. Site inaccessible -> ROUGE "controle incomplet".
@@ -132,6 +145,11 @@ visibilite, aucun prix, aucun nom d'offre (Diagnostic, Mandat, Suivi). Un seul -
 C4 -- BLOCS FIXES ET PORTE.
 - Presentation, services et porte ouverte doivent etre IDENTIQUES au skill writing, mot pour
   mot. Reformules ou enrichis -> ORANGE.
+- Mail a idee (Notes avec "IDEE :") : la porte attendue est la porte IDEE du skill writing,
+  mot pour mot ("Si vous avez envie d'en parler, repondez simplement a ce mail, j'en
+  discuterai avec plaisir. Et si ce n'est pas le moment, aucun souci.", accentuee dans le
+  mail). Porte A ou B sur un mail a idee -> ORANGE. Longueur admise : jusqu'a 155 mots (165
+  en ZONE LARGE).
 - Fiche "ZONE LARGE" (decision Kidam du 2026-11-25) : le bloc Services attendu est la
   VARIANTE ZONE LARGE du skill writing, mot pour mot (elle commence par "Je cherche des
   entreprises qui pourraient avoir besoin de mes services"). Le bloc Services habituel sur

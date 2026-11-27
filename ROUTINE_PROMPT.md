@@ -105,12 +105,14 @@ run : pour changer le comportement, edite ce fichier dans le repo -- inutile de 
    "## Diagnostic" (analyse 2 axes, chiffree) et "## Email (brouillon)" (mail COMPLET pret a
    copier-coller : 1re ligne "Objet : ...", corps 120-145 mots, signature Thomas Puglisi / KUMO, Couvet -
    kumo-seo.ch / tel). SOURCE UNIQUE du mail. REDACTION V3 (2026-11-18) : suis A LA LETTRE le skill
-   .claude/skills/writing/ -- Thomas se presente (blocs fixes recopies MOT POUR MOT), deux
-   phrases sur UN detail vrai vu sur LEUR site cette nuit, ses services, une porte ouverte
-   par mail. AUCUN chiffre, AUCUNE analyse SEO, AUCUN concurrent, AUCUNE remarque sur leur
+   .claude/skills/writing/ -- Thomas se presente (blocs fixes recopies MOT POUR MOT), le PARAGRAPHE IDEE si l'entreprise a un site (regle du 2026-11-27 : lis 3 a 5 pages, ecris
+   le bloc "### Portrait et idees" sous le Diagnostic, puis le paragraphe ; skill writing, "Le
+   paragraphe idee") ou deux phrases sur UN detail vrai (registre, sans site), ses services,
+   une porte ouverte par mail (porte IDEE pour un mail a idee). AUCUN chiffre, AUCUNE analyse SEO, AUCUN concurrent, AUCUNE remarque sur leur
    visibilite dans le mail : l'angle mesure (concurrent qui double, declencheur, volume)
    reste dans "## Diagnostic" et "Probleme principal". CTA = repondre au mail, jamais un
-   appel. Pas de detail verifiable -> pas de mail (fiche gardee, note "pas de detail"). ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
+   appel. Pas d'idee etayee ou pas de detail verifiable -> pas de mail (fiche gardee, note "pas d'idee
+   etayee" ou "pas de detail"). Mail a idee : Notes += "IDEE : <l'idee en trois mots>". ACCENTS OBLIGATOIRES : redige le corps DES LA PREMIERE ECRITURE en
    francais correct avec TOUS les accents (e/a/o/u/i accentues, c cedille) -- ne produis JAMAIS un
    mail en ASCII "a re-accentuer ensuite" ; seule l'apostrophe reste droite ('), aucun tiret
    cadratin (cf. CLAUDE.md "Redaction de l'email"). Cette regle prime sur toute habitude ASCII et
