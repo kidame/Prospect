@@ -5,7 +5,7 @@
   ],
   "discoveredDate": "2026-11-23",
   "id": "ISS-017",
-  "impact": "vu encore le 2026-11-24 : 9 fiches reprises en V3 (segments carreleur/cuisiniste/menuisier/peintre x Neuchatel et Yverdon) gardent l'ancienne section \"## Controle\" (verdict de l'ancien mail, ex. \"mail en ASCII\") et les anciens blocs relance V2. REPRISE.md ne dit pas quoi en faire : suggerer de remplacer la section Controle par \"Controle a refaire (mail reecrit le AAAA-MM-JJ)\".\n",
+  "impact": "vu encore le 2026-11-24 : 9 fiches reprises en V3 (segments carreleur/cuisiniste/menuisier/peintre x Neuchatel et Yverdon) gardent l'ancienne section \"## Controle\" (verdict de l'ancien mail, ex. \"mail en ASCII\") et les anciens blocs relance V2. REPRISE.md ne dit pas quoi en faire : suggerer de remplacer la section Controle par \"Controle a refaire (mail reecrit le AAAA-MM-JJ)\".\n\nVu encore le 2026-11-27 (routine relance) : 1 fiche du lot 20.11 (segment menuisier/charpentier x Neuchatel) porte encore une ancienne section \"## Relance 1 (brouillon)\" en redaction V2 (jamais envoyee), sous un mail 1 V3 envoye le 20.11. Le verrou d idempotence de RELANCE_PROMPT.md (corps contenant deja \"## Relance 1\") bloque alors la relance V3 : 1 relance due sur 9 non preparee. CHANGEMENT SUGGERE complementaire : a la reprise V3, renommer l ancien bloc (\"## Ancienne relance V2 (ne pas utiliser)\") ou le supprimer, pour que le verrou ne compte que les relances V3. ZERO PII.\n",
   "location": [
     "REPRISE.md / SECONDE_CHANCE.md (reecriture V3)"
   ],

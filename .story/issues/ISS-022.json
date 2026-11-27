@@ -1,0 +1,20 @@
+{
+  "components": [
+    "routine-relance",
+    "zone-large"
+  ],
+  "discoveredDate": "2026-11-27",
+  "id": "ISS-022",
+  "impact": "(1) PATTERN : 2 nuits de suite (routine relance 2026-11-26 et 2026-11-27). 4 mails 1 de la reserve hors zone reecrits le 2026-11-25 (segments demenageur x Lausanne x2, sanitaire/plombier x Lausanne, transition energetique x Lausanne / Vaud), Notes 'ZONE LARGE', Controle 'vert' du 2026-11-25, gardent le bloc Services NORMAL (sans 'Je cherche des entreprises qui pourraient avoir besoin de mes services') et une approche 'dans la region de Lausanne' / 'dans le canton de Vaud', interdites par la variante ZONE LARGE du skill writing (decision du 2026-11-25). La relance les refuse au depot (2 nuits), mais le controle ne les re-controle pas (champ Controle deja rempli) et la recherche ne les reprend pas (pas orange/rouge) : 4 mails bloques indefiniment dans le stock vert. Les fiches ZONE LARGE reecrites a partir du 2026-11-26 sont conformes (controle par diff caractere par caractere). (2) CHANGEMENT SUGGERE : soit le controle re-verifie une fois les fiches ZONE LARGE vertes controlees avant le 2026-11-26 (C4 avec la variante), soit la routine relance passe ces fiches en orange ('variante ZONE LARGE absente') pour qu'elles entrent dans les corrections de la nuit suivante. (3) PREUVE : blocs '## Email (brouillon)' et '## Controle' relus le 2026-11-27 ; references par segment, zero PII.\n",
+  "location": [
+    ".claude/skills/writing/SKILL.md variante ZONE LARGE",
+    "CONTROLE_PROMPT.md C4"
+  ],
+  "phase": null,
+  "relatedTickets": [],
+  "resolution": null,
+  "resolvedDate": null,
+  "severity": "medium",
+  "status": "open",
+  "title": "Defaut recurrent: mails ZONE LARGE verts sans la variante Services, bloques au depot sans retour en correction"
+}
